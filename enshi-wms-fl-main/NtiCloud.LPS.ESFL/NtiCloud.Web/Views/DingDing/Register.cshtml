@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/Laylogin.cshtml";
+}
+@section TitleSection{钉钉后台注册}
+@section HeaderSection{
+    <link href="~/css/cloud_register.css" rel="stylesheet" />
+    <script src="~/js/cloud_ding_register.js"></script>
+}
+@section ContentBody{
+    <div class="main_content center-block">
+        <div class="main_con">
+            <div class="logo">
+                <a href="/">
+                    <img src="~/img/logo3.png" />
+                </a>
+            </div>
+            <div id="register1" style="display:block">
+                <p class="phone_num"><span class="p_title">钉钉Corpid：</span><input type="text" id="corpid" placeholder="输入钉钉Corpid"><span class="phone_tip"></span></p>
+                <div class="input_phone">
+                    <p class="botton_p"><a href="#" onclick="registerCompany()">下一步</a></p>
+                </div>
+                <div class="second_s" style="display:none">
+                    <input type="hidden" id="t_id" />
+                    <p class="valida"><span class="p_title">钉钉应用地址：</span><input type="text" id="dingUrl" readonly placeholder="钉钉应用地址"><span class="code_tip"></span></p>
+                    <p class="user"><span class="p_title">应用AgentId：</span><input type="text" id="AgentId" placeholder="填写应用AgentId"><span class="agentId_tip"></span></p>
+                    <p class="user"><span class="p_title">应用AppKey：</span><input type="text" id="AppKey" placeholder="填写应用AppKey"><span class="key_tip"></span></p>
+                    <p class="password"><span class="p_title">应用AppSecret：</span><input type="password" id="AppSecret" placeholder="填写应用AppSecret"><span class="password_tip"></span></p>
+                    <p class="register_btn"><a onclick="register()">注 册</a></p>
+
+                </div>
+                <div class="second_r" style="display:none">
+                    <p class="control_btn"><a onclick="saveOrg()">同步组织架构</a></p>
+                    <p class="control_btn"><a onclick="saveUser()">同步员工信息</a></p>
+                    <div class="user">
+                        <span class="p_title">设置管理员：</span>
+                        <input type="text" id="userId" placeholder="设置管理员" />
+                        <ul id="userLists"></ul>
+                    </div>
+                    <p class="control_btn"><a onclick="saveOk()">保存设置信息</a></p>
+                </div>
+                <p class="register_read" style="display:none;">
+                    <i class="isRead"></i>已阅读并同意<a href="/Main/Service">今天云服务协议</a>和<a>法律声明和隐私政策</a><br />
+                    <span class="read_tip"></span>
+                </p>
+            </div>
+            <div id="register2" style="display:none">
+                <div class="title">填写企业资料</div>
+                <p class="project_code"><span class="p_title">企业代码：</span><input type="text" id="projectcode" placeholder="填写企业代码"><span class="project_code_tip"></span></p>
+                <p class="project_name"><span class="p_title">企业名称：</span><input type="text" id="projectname" placeholder="填写企业名称"><span class="project_name_tip"></span></p>
+                <p class="email"><span class="p_title">手机号码：</span><input type="text" id="usermob" placeholder="输入联系手机"><span class="project_mob_tip"></span></p>
+                <p class="email"><span class="p_title">邮箱地址：</span><input type="text" id="useremail" placeholder="输入邮箱地址"><span class="project_mail_tip"></span></p>
+                <p class="control_btn"><a onclick="registerOk()">进入钉钉应用设置</a></p>
+            </div>
+        </div>
+        <div class="back_main">
+            <p class="back_main_p"><span><</span><a href="/">返回首页</a></p>
+        </div>
+    </div>
+}

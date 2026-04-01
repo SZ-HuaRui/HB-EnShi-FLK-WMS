@@ -1,0 +1,41 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("暂存区出库")}
+@section footerScript{
+    <script src="~/areas/rfs/js/StorageOutShelve.js"></script>
+}
+@section caption{@("上架(车载)")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="rf_content">
+                @*<p class="rf_border"><span class="title">一号工程码：</span><input type="text" placeholder="请扫描一号工程码" name="fname" /></p>*@
+                <p class="rf_border">
+                    <span class="title">物料名称：</span>
+                    <select id="item_name"></select>
+                </p>
+                <p class="rf_border">
+                    <span class="title">出库单号：</span>
+                    <select id="OrderNos"></select>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料编码：</span>
+                    <span class="rf_border_d" id="item_code"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">暂存区数量：</span>
+                    <span class="rf_border_d" id="storage_num"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">应出数量：</span>
+                    <span class="rf_border_d" id="should_num"></span>
+                </p>
+                <P class="rf_border"><span class="title">实出数量：</span><input type="text" id="actual_num" placeholder="" name="fname" /></P>
+            </div>
+            <div class="button_t">
+                <div class="button">
+                    <a class="conform_btn">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

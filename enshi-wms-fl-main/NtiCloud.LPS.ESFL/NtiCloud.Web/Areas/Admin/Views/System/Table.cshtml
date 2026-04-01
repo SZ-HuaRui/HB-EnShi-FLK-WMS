@@ -1,0 +1,30 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{数据表管理}
+@section HeaderSection{c
+    <script src="~/areas/admin/js/table.js"></script>
+}
+@section ContentBody{
+    <body style="overflow:hidden;margin:0px 3px 3px 3px;" class="easyui-layout">
+        <!--工具栏-->
+        <div data-options="region:'north',split:false,border:false">
+            <div class="mvctool  bgb">
+                <a id="btnReturn" title="返回" class="btn btn-default easyui-tooltip"><span class="mdi mdi-keyboard-return">&nbsp;&nbsp;返回</span>&nbsp;&nbsp;</a>
+                <a id="btnSave" title="保存" class="btn btn-default easyui-tooltip"><span class="mdi mdi-content-save" style="padding:4px 0px 4px 6px">&nbsp;&nbsp;保存</span>&nbsp;&nbsp;</a>
+                <a id="btnSaveClose" title="生成SQL" class="btn btn-default easyui-tooltip"><span class="mdi mdi-language-swift">&nbsp;&nbsp;生成SQL</span></a>
+            </div>
+        </div>
+        <!--数据区-->
+        <div data-options="region:'center',border:false">
+            <span style="display: inline-block;margin-top: 15px;margin-bottom: 12px;">表名称：</span>
+            <input id="tableName" class="easyui-textbox" data-options="prompt:'输入表名',required: true" style="width:300px;">
+            <span style="display: inline-block;margin-left: 50px;">表描述：</span>
+            <input id="tableComments" class="easyui-textbox" data-options="prompt:'输入表描述'" style="width:300px;">
+            <table id="List"></table>
+        </div>
+
+        <div id="openList" style="padding:10px;display:none;">
+            <textarea class="layui-textarea" name="createSql" id="createSql" style="width:380px;height:300px"></textarea>
+        </div>
+        <input type="hidden" id="tablePrefix" value="@ViewBag.UserTable" />
+    </body>
+}

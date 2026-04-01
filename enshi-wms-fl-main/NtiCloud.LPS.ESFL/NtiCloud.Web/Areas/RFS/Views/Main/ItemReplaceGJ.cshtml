@@ -1,0 +1,26 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("高架烟包替换")}
+@section footerScript{
+    <script src="~/areas/rfs/js/ItemReplaceGJ.js"></script>
+}
+@section caption{@("高架烟包替换")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <div style="height: 200px; overflow: scroll">
+                    <table class="layui-hide" id="tbTaskList" lay-filter="tbTaskList">  </table>
+                </div>
+                <p>
+                    <label for="txtResendbarcode" class="title">待入库烟包:</label>
+                    <input id="txtResendbarcode" type="text" class="rf_border_d" style="width:80%" />
+                </p>
+            </div>
+            <div class="button_t button_top">
+                <div class="button">
+                    <button class="layui-btn" id="btnSubmit" >确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

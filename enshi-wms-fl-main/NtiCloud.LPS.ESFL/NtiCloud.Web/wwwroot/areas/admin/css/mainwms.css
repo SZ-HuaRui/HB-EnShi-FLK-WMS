@@ -1,0 +1,6 @@
+﻿.left_top_logo .logo_item {text-align:center;position:relative;}
+.left_top_logo .logo_item:after{display:block;content:"中国烟草";position:absolute;left:30px;top:8px;height:32px;line-height:32px;font-size:17px;color:#000;width:70px;}
+.left_top_logo .logo_item .logo{display: none;}
+.left_top_logo .logo_item a{display:block;width:26px;height:32px;background:url("../img/index_logo_cwms.png") no-repeat center;background-position-x:left;position:relative;left:5px;top:8px;}
+.left_top_logo .logo_item a:before{display:block;content:"龙岩公司";position:absolute;left:90px;top:0px;height:32px;line-height:32px;font-size:13px;color:#888;width:60px;}
+.left_top_logo .logo_item a:after{display:block;content:"储运烟丝库";position:absolute;left:141px;top:0px;height:32px;line-height:32px;font-size:15px;color:#888;width:96px;}

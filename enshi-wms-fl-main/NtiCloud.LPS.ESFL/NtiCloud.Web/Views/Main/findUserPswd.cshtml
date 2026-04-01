@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/Laylogin.cshtml";
+}
+@section TitleSection{今天云平台找回密码}
+@section HeaderSection{
+    <link href="~/css/cloud_find_user.css" rel="stylesheet" />
+    <script src="~/js/cloud_findpswd.js"></script>
+}
+@section ContentBody{
+    <div class="main_content center-block">
+        <div class="main_con">
+            <div class="logo">
+                <a href="/">
+					<img src="~/img/logo3.png">
+				</a>
+            </div>
+            <div class="input_phone">
+                <ul class="main_ul">
+                    <li>忘记密码</li>
+                </ul>
+                <form autocomplete="off" id="register_post" method="POST">
+                    <p class="email"><input type="text" id="usermob" placeholder="输入与账号绑定的邮箱账号或手机号码"><span class="user_tip"></span></p>
+                    <p class="valida"><input type="text" id="VlidataCode" placeholder="验证码" class="vlidata_code"><a class="code_text">获取验证码</a><span class="var_code"></span></p>
+                </form>
+                <p class="register_btn"><a>下一步</a></p> <input type="hidden" id="hiddenVlidataCode">
+                <p class="title_p">点击下一步设置您的密码</p>
+            </div>
+            <div class="reset_phone">
+                <ul class="main_ul">
+                    <li>重置密码</li>
+                </ul>
+                <p class="input_p password1"><input type="password" id="pwd1" name="" placeholder="密码" class="password" autocomplete="off"><span class="password_tip"></span></p>
+                <p class="input_p password2"><input type="password" id="pwd2" name="" placeholder="确认密码" class="password_c" autocomplete="off"><span class="password_c_tip"></span></p>
+                <p class="botton_p register_btn"><a>确 认</a></p>
+            </div>
+        </div>
+        <div class="back_main">
+            <p class="back_main_p"><span><</span><a href="/Main/Login">返回登录</a></p>
+        </div>
+    </div>
+}

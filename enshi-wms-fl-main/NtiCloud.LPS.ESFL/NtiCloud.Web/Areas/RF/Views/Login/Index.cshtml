@@ -1,0 +1,31 @@
+﻿@{ Layout = "~/areas/admin/Shared/Layout.cshtml";}
+@section TitleSection{RF登录}
+@section HeaderSection{
+    <script src="~/js/loginCommon.js"></script>
+    <link href="~/areas/rf/RFLogin.css" rel="stylesheet" />
+    <script src="~/js/loginCommon.js"></script>
+    <script src="~/areas/rf/RFLogin.js"></script>
+}
+@section ContentBody{
+    <body>
+        <div class="rf_main">
+            <din class="rf_form">
+                <div class="rf_p" id="ware_House">
+                    <span class="rf_lable" style="margin-right: 8px;">仓库</span>
+                    <input id="wareHouse" class="rf_input" placeholder="请选择仓库" type="text" />
+                    <ul class="warehouse_ul">
+                        <li class="warehouse_li">今天云仓</li>
+                        <li class="warehouse_li">今天云仓</li>
+                        <li class="warehouse_li">今天云仓</li>
+                    </ul>
+                    <img class="down_img" src="~/areas/rf/img/down.png" />
+                </div>
+                <p class="rf_p"><span class="rf_lable">账号</span><input id="account" class="rf_input" placeholder="请输入账号" type="text"></p>
+                <p class="rf_p"><span class="rf_lable">密码</span><input id="password" class="rf_input" placeholder="请输入密码" type="password"></p>
+                <p class="rf_p"><span class="rf_lable">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><button class="rf_button">登录</button></p>
+            </din>
+            <input type="hidden" id="userip" name="userip" value="@NtiCloud.Web.Common.HttpContext.GetUserIp()" />
+            <input type="hidden" id="url" name="url" value="@ViewBag.UserUrl" />
+        </div>
+    </body>
+}

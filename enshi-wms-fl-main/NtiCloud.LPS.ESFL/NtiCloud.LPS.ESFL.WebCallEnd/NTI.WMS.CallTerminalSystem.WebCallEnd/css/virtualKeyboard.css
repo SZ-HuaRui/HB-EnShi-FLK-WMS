@@ -1,0 +1,55 @@
+﻿/* 全局样式 */
+body,div{ margin:0px; padding:0px;}
+div{ overflow:hidden;}
+ul{ list-style:none; margin:0px; padding:0px;}
+img{ border:none 0px;}
+input{ border:none; outline:0;}
+body{ background:#000 url(../images/mainBg.jpg) center top no-repeat; cursor:default;}
+
+/*搜索表单*/
+#searchForm{ width:900px; height:42px; margin:2px auto 10px auto;}
+#searchForm .searchBar{ width:569px; height:42px; background:url(../images/searchBar.png) no-repeat; color:#5b5b5b; font-family:"微软雅黑"; font-size:20px; font-weight:bold; padding:0px 10px 0px 40px; line-height:44px; vertical-align:top;}
+#searchForm .searchButton{ width:173px; height:42px; background:url(../images/searchButton.png) no-repeat; cursor:pointer; vertical-align:top; margin-bottom:8px;}
+#searchForm .searchButton:hover{ background:url(../images/searchButton_hover.png) no-repeat;}
+
+/*虚拟键盘背景*/
+#virtualKeyboard{ width:861px; height:280px; background:url(../images/virtualKeyboardBg.png) no-repeat; margin:0px auto; padding:15px 0px 0px 14px;}
+#virtualKeyboard .line1, .line2, .line3, .line4, .line5{ clear:left;}
+/*普通输入按键*/
+#virtualKeyboard .inputButton{ width:50px; height:50px; background:url(../images/inputButton.png) no-repeat; color:#000; font-size:22px; font-family:Tahoma; text-align:center; line-height:50px; margin:0px 4px 4px 0px; cursor:pointer; float:left;}
+#virtualKeyboard .inputButton:hover{ color:#FFF; background:url(../images/inputButton_hover.png) no-repeat;}
+/*普通输入按键-宽度70*/
+#virtualKeyboard .inputButton70{ width:70px; background:url(../images/inputButton70.png) no-repeat;}
+#virtualKeyboard .inputButton70:hover{ background:url(../images/inputButton70_hover.png) no-repeat;}
+/*退格键*/
+#virtualKeyboard .backButton{ width:92px; background:url(../images/backButton.png) no-repeat;}
+#virtualKeyboard .backButton:hover{ background:url(../images/backButton_hover.png) no-repeat;}
+/*Tab键*/
+#virtualKeyboard .tabButton{ width:72px; background:url(../images/tabButton.png) no-repeat;}
+#virtualKeyboard .tabButton:hover{ background:url(../images/tabButton_hover.png) no-repeat;}
+/*大小写切换键*/
+#virtualKeyboard .capsLockButton{ width:94px; background:url(../images/capsLockButton_off.png) no-repeat;}
+#virtualKeyboard .capsLockButton_on{ background:url(../images/capsLockButton_on.png) no-repeat;}
+#virtualKeyboard .capsLockButton_off{ background:url(../images/capsLockButton_off.png) no-repeat;}
+#virtualKeyboard .capsLockButton:hover{ background:url(../images/capsLockButton_hover.png) no-repeat;}
+/*回车键*/
+#virtualKeyboard .enterButton{ width:102px; background:url(../images/enterButton.png) no-repeat;}
+#virtualKeyboard .enterButton:hover{ background:url(../images/enterButton_hover.png) no-repeat;}
+/*左侧Shift键*/
+#virtualKeyboard .leftShiftButton{ width:116px; background:url(../images/leftShiftButton.png) no-repeat;}
+#virtualKeyboard .leftShiftButton:hover{ background:url(../images/leftShiftButton_hover.png) no-repeat;}
+/*右侧Shift键*/
+#virtualKeyboard .rightShiftButton{ width:134px; background:url(../images/rightShiftButton.png) no-repeat;}
+#virtualKeyboard .rightShiftButton:hover{ background:url(../images/rightShiftButton_hover.png) no-repeat;}
+/*Ctrl键*/
+#virtualKeyboard .ctrlButton{ width:70px; background:url(../images/ctrlButton.png) no-repeat;}
+#virtualKeyboard .ctrlButton:hover{ background:url(../images/ctrlButton_hover.png) no-repeat;}
+/*Alt键*/
+#virtualKeyboard .altButton{ width:70px; background:url(../images/altButton.png) no-repeat;}
+#virtualKeyboard .altButton:hover{ background:url(../images/altButton_hover.png) no-repeat;}
+/*空格键*/
+#virtualKeyboard .spaceButton{ width:336px; background:url(../images/spaceButton.png) no-repeat;}
+#virtualKeyboard .spaceButton:hover{ background:url(../images/spaceButton_hover.png) no-repeat;}
+/*Del键*/
+#virtualKeyboard .delButton{ width:50px; background:url(../images/delButton.png) no-repeat;}
+#virtualKeyboard .delButton:hover{ background:url(../images/delButton_hover.png) no-repeat;}

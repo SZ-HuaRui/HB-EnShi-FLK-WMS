@@ -1,0 +1,43 @@
+﻿@{
+    var NticloudCSS = NtiCloud.Web.Common.HttpContext.Current.Request.Cookies["NticloudCSS"];
+    if (string.IsNullOrEmpty(NticloudCSS) || NticloudCSS.ToString().IndexOf(":") == -1)
+    {
+        NticloudCSS = "0:bluelight";
+    }
+    string ntiCloudFontSize = NticloudCSS.Split(':')[0], ntiCloudStyle= NticloudCSS.Split(':')[1];
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate" />
+    <title>@RenderSection("TitleSection", false)</title>
+    <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/areas/admin/css/themes/base/easyui.css" rel="stylesheet" />
+    <link href="~/areas/admin/css/common.css" rel="stylesheet" />
+    <link href="~/lib/easyui/themes/icon.css" rel="stylesheet" />
+    <link href="~/areas/admin/css/themes/skin-@(@ntiCloudStyle).css" rel="stylesheet" />
+    <link href="~/lib/MaterialDesign-Webfont-master/css/materialdesignicons.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/lib/easyui/jquery.easyui.min.js"></script>
+    <script src="~/lib/DatePicker/WdatePicker.js"></script>
+    <script src="~/areas/admin/js/jquery.easyui.plus.js"></script>
+    <script src="~/areas/admin/js/easyui-lang-zh-CN.js"></script>
+    <script src="~/lib/easyui/datagrid-detailview.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/areas/admin/js/jquery.codemirror.plus.js"></script>
+    <script src="~/lib/jquery/jquery.form.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <link href="~/areas/admin/css/fontsize-@(ntiCloudFontSize).css" rel="stylesheet" />
+    @RenderSection("HeaderSection", false)
+</head>
+@Html.AntiForgeryToken()
+@RenderSection("ContentBody")
+</html>

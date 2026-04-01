@@ -1,0 +1,63 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("库位调整(有箱码)")}
+@section footerScript{
+    <script src="~/areas/rfs/js/LocationAdjustSN.js"></script>
+}
+@section caption{@("库位调整(有箱码)")}
+@section contentBody{
+    <div class="tab1">
+        <div class="bom_header" style="height:auto;">
+
+            <p class="rf_border">
+                <span class="title">调整单号：</span>
+                <select id="txtAdjustNo"></select>
+            </p>
+            <p class="rf_border"><span class="title">移出库位：</span><input type="text" id="txtToOutLocation" class="rf_border_d" /></p>
+            <p class="rf_border"><span class="title">托盘条码：</span><input type="text" id="txtOutTray" class="rf_border_d" /></p>
+            <p class="rf_border"><span class="title">物料名称：</span><select id="CombItemName"></select></p>
+            <p class="rf_border"><span class="title">批次：</span><input type="text" id="txtlot_no" disabled="disabled" readonly="readonly" class="rf_border_d" /></p>
+            <p class="rf_border">
+                <span class="title">供应商：</span>
+                <input type="text" id="txtSupplier" readonly="readonly" disabled="disabled" class="rf_border_d" />
+            </p>
+
+            <p class="rf_border">
+                <span class="title">移入库位：</span>
+                <input type="text" id="txtInLocation" readonly="readonly" disabled="disabled" class="rf_border_d" />
+            </p>
+
+            <p class="rf_border">
+                <span class="title">已调数量：</span>
+                <input type="text" id="txtFinishedQty" readonly="readonly" disabled="disabled" class="rf_border_d" />
+            </p>
+            <p class="rf_border">
+                <span class="title">扫描移入库位：</span>
+                <input type="text" id="txtToInLocation" class="rf_border_d" />
+            </p>
+            <p class="rf_border">
+                <span class="title">扫描移入容器：</span>
+                <input type="text" id="txtToInContainer" class="rf_border_d" />
+            </p>
+            <p class="rf_border">
+                <span class="title">扫描物料箱码：</span>
+                <input type="text" id="txtScanItemSN" class="rf_border_d" />
+            </p>
+            <p>
+                <div class="bom_detail">
+                    <table id="bom_table" border="1" align="center" class="gridtable">
+                        <tr id="header" supplier_id="default">
+                            <th>物料条码</th>
+                            <th>删除</th>
+                        </tr>
+                    </table>
+                </div>
+
+            </p>
+        </div>
+        <div class="button_t button_top">
+            <div class="button">
+                <button id="btnConfirm">确定</button>
+            </div>
+        </div>
+    </div>
+}

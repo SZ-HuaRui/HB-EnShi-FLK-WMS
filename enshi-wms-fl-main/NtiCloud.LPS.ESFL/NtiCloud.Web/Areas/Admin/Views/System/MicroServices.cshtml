@@ -1,0 +1,39 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{微服务管理}
+@section HeaderSection{
+    <script src="~/areas/admin/js/microservices.js"></script>
+}
+@section ContentBody{
+    <body style="overflow:hidden;margin:0px 3px 3px 3px;" class="easyui-layout">
+        <!--工具栏-->
+        <div data-options="region:'north',split:false,border:false" style="height:35px;">
+            <div class="mvctool" style="float:left;">
+                <a id="btnSave" title="发布服务" class="btn btn-default easyui-tooltip"><span class="mdi mdi-language-swift" style="padding:4px 0px 4px 6px">&nbsp;&nbsp;发布服务</span></a>
+                <a id="btnBak" title="备份服务" class="btn btn-default easyui-tooltip"><span class="mdi mdi-content-save">&nbsp;&nbsp;备份服务</span></a>
+                <a id="btnDelete" title="删除服务" class="btn btn-default easyui-tooltip"><span class="mdi mdi-trash-can-outline">&nbsp;&nbsp;删除服务</span></a>
+            </div>
+            <div style="float:right;padding:2px 14px 0px 0px;">
+                <a id="btnRefresh" class="btn btn-default easyui-tooltip" title="刷新服务"><span class="mdi mdi-autorenew">&nbsp;&nbsp;刷新服务</span></a>
+            </div>
+        </div>
+        <!--数据区-->
+        <div data-options="region:'center',border:false">
+            <table id="List"></table>
+        </div>
+
+        <div id="MicroServicesUpload" class="easyui-dialog" title="微服务管理" data-options="iconCls:'icon-more'" closed="true" style="width:300px;height:230px;padding:10px; text-align:center; display:none;">
+            <form id="uploadForm" enctype="multipart/form-data" method="post">
+                <br />
+                <div style=" height:0px; overflow:hidden; position:absolute;">
+                    <input type="file" id="microServicesUpload" name="microServicesUpload" multiple="multiple" onchange="onchageFile()" />
+                </div>
+                <input type="button" onclick="document.getElementById('microServicesUpload').click();" value="浏览" class="easyui-linkbutton" style="width:80px;height:32px" /> &nbsp;&nbsp;
+                <input type="button" value="上传" onclick="MicroServicesUpload()" class="easyui-linkbutton" style="width:80px;height:32px" />&nbsp;&nbsp;
+                <input type="reset" value="关闭" class="easyui-linkbutton" style="width:80px;height:32px" onclick="$('#MicroServicesUpload').dialog('close')" />
+                <br />
+                <div id="fileList"></div>
+
+            </form>
+        </div>
+    </body>
+}

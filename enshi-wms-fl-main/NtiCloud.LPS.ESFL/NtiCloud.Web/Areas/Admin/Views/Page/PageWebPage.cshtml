@@ -1,0 +1,22 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{@(ViewBag.SystemName + "页面")}
+@section HeaderSection{
+    <link href="~/areas/admin/css/easyuilayer.css" rel="stylesheet" />
+    <link href="~/areas/admin/css/pagelist.css" rel="stylesheet" />
+    <script src="~/areas/admin/js/pagewebpage.js"></script>
+}
+@section ContentBody{
+    <body style="overflow:hidden;padding:0px;box-sizing:border-box;" class="easyui-layout">
+        <div id="treeleft" data-options="region:'west',title:'',split:true" style="width:200px;">
+            <div id="treeMenu" class="easyui-menu" style="width:120px;"></div>
+            <ul id="StructTree" class="easyui-tree" data-options="onClick:function(node){ getSelected();}"></ul>
+        </div>
+        <div id="listmain" data-options="region:'center',border:false" style="padding-right:3px;">
+        </div>
+        <div id="modalwindow" class="easyui-window" style="width:800px; height:400px;" data-options="modal:true,maximized:true,closed:true,minimizable:false,shadow:false"></div>
+        <!--自动GRID 从第一次加载与重置窗体大小时候发生的事件:分部视图，当只有一个Grid时且ID为List-->
+        <script type="text/javascript">
+            @Html.Raw(ViewBag.JsScript)
+        </script>
+    </body>
+}

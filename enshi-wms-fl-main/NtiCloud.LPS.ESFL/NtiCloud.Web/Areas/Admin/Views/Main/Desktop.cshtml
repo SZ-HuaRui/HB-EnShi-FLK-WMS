@@ -1,0 +1,103 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/Layout.cshtml";}
+@section TitleSection{欢迎界面}
+@section HeaderSection{
+    <link href="~/areas/admin/css/Desktop.css" rel="stylesheet" />
+    <script src="~/lib/scroll/scroll.min.js"></script>
+    <script src="~/lib/echarts/echarts.min.js"></script>
+    <script src="~/lib/echarts/echarts.theme.shine.js"></script>
+    <script src="~/areas/admin/js/desktop.js"></script>
+}
+@section ContentBody{
+    <body id="deskTop">
+        <div class="main_content">
+            <div class="warp">
+                <div class="head_d">
+                    <div class="head head_grean">
+                        <p class="head_top">待办工作数</p>
+                        <div class="head_up">
+                            <p class="menoy"><span class="span_up unfinish"></span><span class="span_top">个</span></p>
+                            <img src="/areas/admin/img/icon_bg_sales.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="head_d">
+                    <div class="head head_blue">
+                        <p class="head_top">已办工作数</p>
+                        <div class="head_up">
+                            <p class="menoy"><span class="span_up finish"></span><span class="span_top">个</span></p>
+                            <img src="/areas/admin/img/icon_bg_increase.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="head_d">
+                    <div class="head head_yellow">
+                        <p class="head_top">在线人数/总人数</p>
+                        <div class="head_up">
+                            <p class="menoy"><span class="span_up online"></span><span class="span_top">人</span></p>
+                            <img src="/areas/admin/img/icon_bg_client.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="head_d">
+                    <div class="head head_pink">
+                        <p class="head_top">产品数/项目数</p>
+                        <div class="head_up">
+                            <p class="menoy"><span class="span_up product"></span><span class="span_top">个</span></p>
+                            <img src="/areas/admin/img/icon_bg_ranking.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="big">
+                @{
+                    System.Data.DataTable deskTop = (System.Data.DataTable)ViewData["DeskTop"];
+                    for (int i = 0; deskTop != null && i < deskTop.Rows.Count; i++)
+                    {
+                        <div class="announcement">
+                            <div class="announcement_d">
+                                <div class="public">
+                                    <p><span class="news @(i%2==0?"green":"blue")">@deskTop.Rows[i]["modulename"].ToString()</span></p>
+                                </div>
+                                <div class="font_d task_con" id="html_@i">
+                                    <div class="task_con_d">
+                                        <input type="hidden" id="t_id_@i" value="@deskTop.Rows[i]["t_id"].ToString()" />
+                                        <input type="hidden" id="newSql_@i" value="@deskTop.Rows[i]["modulesql"].ToString()" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <input type="hidden" id="newCount" value="@deskTop.Rows.Count" />
+                }
+                <div class="announcement">
+                    <div class="announcement_d">
+                        <div class="public">
+                            <p><span class="news yellow">数据统计</span></p>
+                        </div>
+                        <div id="main" class="font_d task_con">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="announcement">
+                    <div class="announcement_d">
+                        <div class="public">
+                            <p><span class="news pink">我的日程</span></p>
+                        </div>
+                        <div class="font_d task_con">
+                            <p class="my_day">
+                                <span class="my_day_a"><</span><span>11月12日-11月28日</span><span class="my_day_b">></span>
+                            </p>
+                            <div class="my_time">本周</div>
+                            <div class="all_time">
+                                <div class="day_time">
+                                    <p class="day_time_d">暂无日程安排</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+}

@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutMember.cshtml";
+}
+@section TitleSection{今天云平台AI技术}
+@section HeaderSection{
+    <link href="~/css/cloud_control_desk.css" rel="stylesheet" />
+    <link href="~/areas/ai/css/ai.css" rel="stylesheet" />
+    <script src="~/js/cloud_control_desk.js"></script>
+    <script src="~/areas/ai/js/ai.js"></script>
+}
+@section ContentBody{
+    <div class="main_content">
+        <div class="container_d con_product">
+            <div class="content_c">
+                <div class="head_pc">
+                    <div class="title">
+                        <span class="word control" onclick="window.location.href = '/Member/ControlDesk';">控制台</span>
+                        <span class="word" style="left:57px;top:4px;">/</span>
+                        <span class="word" style="left:64px;">AI技术</span>
+                        <p><span></span></p>
+                        <span class="btn_pic btn_pic_up"></span>
+                        <span class="btn_word">收起</span>
+                    </div>
+                </div>
+                <div class="product_body">
+                    @{
+                        System.Data.DataTable prodlist = (System.Data.DataTable)ViewData["ProdList"];
+                        for (int i = 0; i < prodlist.Rows.Count; i++)
+                        {
+                            <div class="work_content">
+                                <div class="product_content">
+                                    <div style="background:@prodlist.Rows[i]["appcolor"];" class="left_icon">
+                                        <span class="@prodlist.Rows[i]["appcode"]" style="background:url(../../../img/icon/@prodlist.Rows[i]["appimage"]) no-repeat center;"></span>
+                                    </div>
+                                </div>
+                                <div class="title_a">
+                                    <p class="pro_name" data-value="@prodlist.Rows[i]["appcode"]">@prodlist.Rows[i]["appname"]</p>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div id="ai_content">
+                <p class="ai_breadcrumb"></p>
+                <div class="ai_act ">
+                    <div class="select_area" data-string="side">
+                        <p class="select_con" data-value="FRONT">正面</p>
+                        <i class="icon"></i>
+                        <ul class="select_ul">
+                            <li class="select_li active" data-value="FRONT">正面</li>
+                            <li class="select_li" data-value="BACK">反面</li>
+                        </ul>
+                    </div>
+                    <div class="select_area" data-string="type">
+                        <p class="select_con" data-value="0">行驶证</p>
+                        <i class="icon"></i>
+                        <ul class="select_ul">
+                            <li class="select_li active" data-value="0">行驶证</li>
+                            <li class="select_li" data-value="1">驾驶证</li>
+                            <li class="select_li" data-value="2">行驶证副页</li>
+                        </ul>
+                    </div>
+                    <p class="ai_btn upload_act">上传图片</p>
+                    <p class="ai_btn submit" onclick="upLoad()">识别</p>
+                    <p class="ai_btn return_btn" onclick="window.location.reload();">返回</p>
+                    <input type="file" name='file' id="files" placeholder="点击上传图片" onchange="imgChange(this);" style="display:none;opacity:0;" />
+                </div>
+                <div class="show_area">
+                    <div class="img_area">
+                        <img id="t_img" src="" /> 
+                    </div>
+                    <div class="con_area">
+                        <p class="title">识别结果</p>
+                        <div class="result" id="conList"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}

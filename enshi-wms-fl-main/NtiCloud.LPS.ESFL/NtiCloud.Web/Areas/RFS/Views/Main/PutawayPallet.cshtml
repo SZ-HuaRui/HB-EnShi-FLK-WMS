@@ -1,0 +1,36 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("组盘上架")}
+@section footerScript{
+    <script src="~/areas/rfs/js/PutawayPallet.js"></script>
+}
+@section caption{@("组盘上架")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border">
+                    <span class="title">扫描托盘：</span>
+                    <input type="text" id="txtPalletNo" class="rf_border_d" />
+                </p>
+                <p class="rf_border">
+                    <span class="title">推荐货位：</span>
+                    <span class="rf_border_d" id="txtSuggestLocation"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">扫描货位：</span>
+                    <input type="text" id="txtToLocation" class="rf_border_d" />
+                </p>
+                <p>
+                    <div style="height: 200px; overflow: scroll">
+                        <table class="layui-hide" id="tbCartonDetails" lay-filter="tbCartonDetails">  </table>
+                    </div>
+                </p>
+            </div>
+            <div class="button_t button_top">
+                <div class="button">
+                    <button id="btnSubmitWithoutSn">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

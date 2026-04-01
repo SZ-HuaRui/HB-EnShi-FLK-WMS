@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:aop="http://www.springframework.net/aop">
+
+  <!--<object id="serviceOperation" type="Spring.Aop.Support.SdkRegularExpressionMethodPointcut, Spring.Aop">
+    <property name="pattern" value="^Spring.WcfQuickStart.*"/>
+  </object>
+
+  <object id="perfAdvice" type="Spring.WcfQuickStart.SimplePerformanceInterceptor, Spring.WcfQuickStart.Aspects">
+    <property name="Prefix" value="Service Layer Performance"/>
+  </object>
+
+  <aop:config>
+    <aop:advisor pointcut-ref="serviceOperation" advice-ref="perfAdvice"/>
+  </aop:config>-->
+
+
+  <!-- Or using new TypeNameAutoProxyCreator -->
+  <!--<object id="AuthAroundMethodAop" type="NTI.WMS.AopMng.AuthAroundMethodAop, SWMS5.0">
+  </object>
+  <object id="ExceptionMethodDeal" type="NTI.WMS.AopMng.ExceptionMethodDeal, SWMS5.0">
+  </object>
+  <object id="BeforeMethodDeal" type="NTI.WMS.AopMng.BeforeMethodDeal, SWMS5.0">
+  </object>-->
+
+  
+  <object type="Spring.Aop.Framework.AutoProxy.ObjectNameAutoProxyCreator, Spring.Aop">
+    <property name ="ProxyTargetType" value ="true"/>
+    <property name="ObjectNames">
+      <list>
+        <value>Initialize</value>
+        <value>CallEnd</value>
+      </list>
+    </property>
+    <!--<property name="InterceptorNames">
+      <list>
+        <value>AuthAroundMethodAop</value>
+        <value>ExceptionMethodDeal</value>
+        <value>BeforeMethodDeal</value>
+      </list>
+    </property>-->
+  </object>
+
+</objects>
+

@@ -1,0 +1,43 @@
+﻿@{ Layout = "~/areas/admin/Shared/Layout.cshtml";}
+@section TitleSection{RF配置主页}
+@section HeaderSection{
+    <link href="~/areas/rf/RFMainPage.css" rel="stylesheet" />
+}
+@section ContentBody{
+    <div class="rf_nav">
+        <p>主&nbsp;&nbsp;页</p>
+        <div class="rf_head" style="display:none">
+            <a href="javascript:history.go(-1)" class="rf_goback">返回</a>
+        </div>
+        <div class="rf_headright">
+            <a class="rf_out" href='/RF/Login'>退出</a>
+        </div>
+    </div>
+    <div class="rf_content">
+        <div class="mainCon">
+            @{
+                System.Data.DataTable rfList = (System.Data.DataTable)ViewData["rfList"];
+                for (int i = 0; i < rfList.Rows.Count; i++)
+                {
+                    if (rfList.Rows[i]["isconfig"].ToString() == "1")
+                    {
+                        <a href="@("/RF/Main/RFPageList?AppCode="+rfList.Rows[i]["appcode"].ToString()+"&id="+rfList.Rows[i]["t_id"].ToString())">@rfList.Rows[i]["rfname"].ToString()</a>
+                    }
+                    else if (rfList.Rows[i]["rscount"].ToString() == "0")
+                    {
+                        <a href="#">@rfList.Rows[i]["rfname"].ToString()</a>
+                    }
+                    else
+                    {
+                        <a href="@("/RF/Main/RFMain?AppCode="+rfList.Rows[i]["appcode"].ToString()+"&id="+rfList.Rows[i]["t_id"].ToString())">@rfList.Rows[i]["rfname"].ToString()</a>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        if (common.getUrlParam("id") != null && common.getUrlParam("id") != "" && common.getUrlParam("id") != "0") {
+            $(".rf_head").show();
+        }        
+    </script>
+}

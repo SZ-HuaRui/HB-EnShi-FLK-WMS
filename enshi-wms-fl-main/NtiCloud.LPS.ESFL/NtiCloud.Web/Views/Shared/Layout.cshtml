@@ -1,0 +1,96 @@
+﻿
+@{
+    //得到当前访问的 controller 名称
+    var controller = ViewContext.RouteData.Values["controller"].ToString();
+    var action = ViewContext.RouteData.Values["action"].ToString();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/lib/MaterialDesign-Webfont-master/css/materialdesignicons.css" rel="stylesheet" />
+    <link href="~/css/common.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery-3.4.1.js"></script>
+    <script src="~/js/indexCommon.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <title>@RenderSection("TitleSection", false)</title>
+    @RenderSection("HeaderSection", false)
+</head>
+
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header header">
+            <div class="header-item"><a href="/"><img class="logo" src="~/img/index_menu_logo.png"></a></div>
+            <a class="header-item menu-icon menu-click"><i class="mdi mdi-menu"></i></a>
+            <div class="menu">
+                <!--div class="menu-list">
+                    <span>软件产品</span>
+                    <ul class="menu-list-ul">
+                        <li><a @if (action == "Product") { <text> active</text>} href="/Main/Product">全部产品</a></li>
+                        <li><a @if (action == "IWMS") { <text> active</text>} href="/Main/IWMS">IWMS</a></li>
+                    </ul>
+                </div-->
+                <a class="menu-list @if (action == "Product") { <text>active</text>}" href="/Main/Product"><span>软件产品</span></a>
+                <a class="menu-list @if (action == "Project") { <text>active</text>}" href="/Main/Project"><span>解决方案</span></a>
+                <a class="menu-list @if (action == "Datastation") { <text>active</text>}" href="/Main/Datastation"><span>企业中台</span></a>
+                <a class="menu-list @if (action == "Partner") { <text>active</text>}" href="/Main/Partner"><span>合作伙伴</span></a>
+                <div class="right-wrapper">
+                    <a class="menu-item signin" href="/Main/Register">注册</a>
+                    <a class="menu-item register" href="/Main/Login">登录</a>
+                    <!-- <a class="menu-item lang-switch"><i class="glyphicon glyphicon-globe"></i><span class="locale">简体中文</span><i class="glyphicon glyphicon-chevron-down"></i></a> -->
+                </div>
+            </div>
+        </div>
+        <div class="layui-body">
+            @RenderSection("ContentBody")
+            <div class="layui-fluid info_bg">
+                <div class="layui-row container_info_d">
+                    <div class="container-info">
+                        <div class="layui-col-md4 about-us" style="text-align:left;">
+                            <a class="container-info-title" href="">关于我们</a>
+                            <p>每一次努力超越卓越，每一次创新用激情与力量构建具有颠覆性的产品，用专业的能力进取的精神不断实现挑战企业的困惑，来改善企业的发展。</p>
+                            <p>我们唯有追求、唯有创新、唯有专业的服务护航企业未来的核心价值。</p>
+                        </div>
+                        <div class="layui-col-md4 contact-us" style="text-align:left;">
+                            <a class="container-info-title" href="">联系我们</a>
+                            <div class="row">
+                                <div class="layui-col-md12" style="text-align:left;">
+                                    <img src="~/img/icon_phone.png">
+                                    <span>0755-25161222</span>
+                                </div>
+                                <div class="layui-col-md12" style="text-align:left;">
+                                    <img src="~/img/icon_mail.png">
+                                    <span>ntirj@nti56.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-col-md4 focus-us" style="text-align:left;">
+                            <a class="container-info-title" href="">关注我们</a>
+                            <div class="row">
+                                <div class="layui-col-lg6 layui-col-md6 layui-col-sm6 layui-col-xs6 qr_code">
+                                    <img src="~/img/wechat_qr.png">
+                                    <span>微信公众号</span>
+                                </div>
+                                <div class="layui-col-lg6 layui-col-md6 layui-col-sm6 layui-col-xs6">
+                                    <img src="~/img/dingding_qr.png">
+                                    <span>钉钉企业主页</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="userip" name="userip" value="@NtiCloud.Web.Common.HttpContext.GetUserIp()" />
+</body>
+</html>

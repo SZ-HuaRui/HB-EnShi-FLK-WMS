@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";
+}
+@section TitleSection{@Html.Raw(ViewBag.freeTitle)}
+@section HeaderSection
+    {
+    <link href="~/areas/admin/css/easyuilayer.css" rel="stylesheet" />
+    <link href="~/areas/admin/css/FormFree.css" rel="stylesheet" />
+}
+@section ContentBody{
+    <body style="overflow:hidden;">
+        <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+        <div id="buttonList" class="mvctool bgb">
+            <a id="btnReturn" title="返回" class="btn btn-default easyui-tooltip"><span class="mdi mdi-keyboard-return"></span>&nbsp;&nbsp;返回</a>
+            <a id="btnSave" title="保存" class="btn btn-default easyui-tooltip"><span class="mdi mdi-content-save" style="padding:4px 0px 4px 6px"></span>&nbsp;&nbsp;保存</a>
+            <a id="btnSaveClose" title="保存并退出" class="btn btn-default easyui-tooltip"><span class="mdi mdi-language-swift">&nbsp;&nbsp;保存并退出</span></a>
+        </div>
+
+        <div id="conDiv">
+            <!--表单主体-->
+            <div id="freehtml">
+                @Html.Raw(ViewBag.formHtml)
+            </div>
+            <!--签核流程-->
+            <div id="flowList" class="mvctool"></div>
+        </div>
+
+        <div id="fullSetContent"></div>
+        <div id="over" class="over"></div>
+        <div id="layout" class="lay_out"><img src="/img/loading.gif" /></div>
+    </body>
+    <script src="~/areas/admin/js/pagefree.js"></script>
+}

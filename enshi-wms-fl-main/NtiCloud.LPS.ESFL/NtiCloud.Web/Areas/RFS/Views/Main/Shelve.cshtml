@@ -1,0 +1,37 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("上架(车载)")}
+@section footerScript{
+    <script src="~/areas/rfs/js/Shelve.js"></script>
+}
+@section caption{@("上架(车载)")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border"><span class="title">入库单号：</span><span id="receipt_no" class="rf_border_d"></span></p>
+                <p class="rf_border">
+                    <span class="title">托盘条码：</span>
+                    <span class="rf_border_d" id="container_id"></span>
+                </p>
+                <p class="rf_border"><span class="title">物料名称：</span><span class="rf_border_d" id="item_name"></span></p>
+                <p class="rf_border">
+                    <span class="title">物料编码：</span>
+                    <span class="rf_border_d" id="item_code"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">上架数量：</span>
+                    <span class="rf_border_d" id="receipt_qty"></span>
+                </p>
+                <p class="rf_border"><span class="title">货位条码：</span><input class="" id="locationCode" type="text" placeholder="请扫描" name="fname" /></p>
+                <p><label id="t_id" style="display:none"></label></p>
+
+            </div>
+            <div class="button_t button_top">
+                <div class="button">
+                    <a class="getWork">获取任务</a>
+                    <a class="conform_btn">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

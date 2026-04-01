@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70D9EC51-FF6D-4B5A-A82B-53F680A6E541}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CWCS.Equipment</RootNamespace>
+    <AssemblyName>CWCS.Equipment</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Communication, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Communication.dll</HintPath>
+    </Reference>
+    <Reference Include="Intermec.DataCollection.RFID.AdvancedBRI.FF3.5, Version=4.2.0.2226, Culture=neutral, PublicKeyToken=acd169b56b6148ba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Intermec.DataCollection.RFID.AdvancedBRI.FF3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="Intermec.DataCollection.RFID.BasicBRI.FF3.5">
+      <HintPath>..\CWCS.UIDesigner\bin\Debug\Intermec.DataCollection.RFID.BasicBRI.FF3.5.dll</HintPath>
+    </Reference>
+    <Reference Include="Invengo.Language, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Invengo.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="IRP1, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\IRP1.dll</HintPath>
+    </Reference>
+    <Reference Include="RFIDInterface, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\RFIDInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IConnectable.cs" />
+    <Compile Include="IInitialize.cs" />
+    <Compile Include="IMessageEvent.cs" />
+    <Compile Include="IRead.cs" />
+    <Compile Include="IReceive.cs" />
+    <Compile Include="ISend.cs" />
+    <Compile Include="IWrite.cs" />
+    <Compile Include="Led\ILed.cs" />
+    <Compile Include="Led\ILedMessageEvent.cs" />
+    <Compile Include="Led\LedBase.cs" />
+    <Compile Include="Led\LedEquipment.cs" />
+    <Compile Include="Led\Yb\IYbLed.cs" />
+    <Compile Include="Led\Yb\YbLed.cs" />
+    <Compile Include="Led\Yb\YbLedBase.cs" />
+    <Compile Include="Led\Yb\YbLedSdk.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rfid\Intermec\IIntermecRfid.cs" />
+    <Compile Include="Rfid\Intermec\IntermecRfid.cs" />
+    <Compile Include="Rfid\Intermec\IntermecRfidBase.cs" />
+    <Compile Include="Rfid\Invengo\IInvengoRfid.cs" />
+    <Compile Include="Rfid\Invengo\InvengoRfid.cs" />
+    <Compile Include="Rfid\Invengo\InvengoRfidBase.cs" />
+    <Compile Include="Rfid\IRfid.cs" />
+    <Compile Include="Rfid\IRfidMessageEvent.cs" />
+    <Compile Include="Rfid\IRfidRead.cs" />
+    <Compile Include="Rfid\IRfidWrite.cs" />
+    <Compile Include="Rfid\RfidBase.cs" />
+    <Compile Include="Rfid\RfidEquipment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets" Condition="Exists('..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets'))" />
+  </Target>
+</Project>

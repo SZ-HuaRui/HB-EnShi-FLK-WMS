@@ -1,0 +1,72 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/areas/rfs/css/reset.css" rel="stylesheet" />
+    <link href="~/areas/rfs/css/common.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/areas/rfs/js/LendOut.js"></script>
+    <script src="~/areas/rfs/js/common.js"></script>
+    <script src="~/lib/layer/layer.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <script src="~/areas/rfs/js/PKPickBNList.js"></script>
+    <title>平库有箱码拣选列表</title>
+</head>
+<body>
+    <input type="hidden" id="Web_Token_XSRF_CSRF" value="@Antiforgery.GetAndStoreTokens(Context).RequestToken" />
+    <div class="top_nav">
+        <p><strong>平库有箱码拣选列表</strong></p>
+        <div class="rf_head">
+            <a href="javascript:history.go(-1)" class="rf_goback">返回</a>
+        </div>
+        <div class="rf_headmain">
+            <a href="/RFS/Main/Index" class="rf_home">主页</a>
+            <a class="rf_out">退出</a>
+        </div>
+    </div>
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border">
+                    <span class="title">出库单号:</span>
+                    <select id="orderCode"></select>
+                </p>
+                <p class="rf_border">
+                    <span class="title">货位编码:</span>
+                    <input id="locationCode" type="text" placeholder="请扫货位编码" name="fname" />
+                </p>
+            </div>
+
+            <div class="table_div">
+                <table class="location_table table_loc" border="1" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>任务号</th>
+                            <th>货位</th>
+                            <th>数量</th>
+                        </tr>
+                    </thead>
+                    <tbody id="databody">
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="button_t">
+                <div class="button">
+                    <a id="submit">下一步</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

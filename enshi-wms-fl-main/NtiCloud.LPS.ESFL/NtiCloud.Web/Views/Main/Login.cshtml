@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/Laylogin.cshtml";
+}
+@section TitleSection{今天云平台登录}
+@section HeaderSection{ 
+    <link href="~/css/cloud_login.css" rel="stylesheet" />
+    <script src="~/js/cloud_login.js"></script>
+}
+@section ContentBody{
+    <div class="main_content center-block">
+        <div class="main_con">
+            <div class="logo">
+                <a href="/">
+                    <img src="~/img/logo3.png" />
+                </a>
+            </div>
+            <span class="mdi mdi-window-close delete" onclick="ohterLogin('.delete')"></span>
+            <div class="phone_login">
+                <ul class="main_ul">
+                    <li class="active_title">账号密码登录</li>
+                    <li>验证码登录</li>
+                </ul>
+                <form autocomplete="off" id="login_post" method="POST">
+                    <p class="user"><input type="text" id="@("username"+ViewBag.UserName)" placeholder="输入用户名"><span class="user_tip"></span></p>
+                    <p class="password"><input type="password" id="@("userpswd"+ViewBag.UserPswd)" placeholder="输入登录密码"><span class="password_tip"></span></p>
+                    <p class="valida" style="display: none;">
+                        <input type="text" id="VlidataCode" placeholder="验证码" class="vlidata_code"><a class="code_text">获取验证码</a>
+                        <input type="hidden" id="hiddenVlidataCode">
+                    </p>
+                </form>
+                <p class="login_btn"><a onclick="CheckUser('@("username"+ViewBag.UserName)','@("userpswd"+ViewBag.UserPswd)')">登 录</a></p>
+                <div class="other_login">
+                    <p>
+                        <span class="other_login_t">其他登录方式：</span>
+                        <a title="钉钉"><img class="ding" onclick="ohterLogin('.ding_login')" src="~/img/icon_dingding.png"></a>
+                        <a title="微信"><img class="wechat" onclick="ohterLogin('.wechat_login_wx')" src="~/img/icon_wechat_wx.png"></a>
+                        <a title="企业微信"><img class="wechat" onclick="ohterLogin('.wechat_login')" src="~/img/icon_wechat.png"></a>
+                    </p>
+                    <p class="forget_password"><a href="/Main/FindUserPswd" class="forget">忘记密码</a><span style="color: #B2B2B2;">|</span><a href="/Main/Register" class="sign">立即注册</a></p>
+                </div>
+            </div>
+            <div class="qrcode_login wechat_login_wx">
+                <div class="title"><div id="login_weixin_wx"></div></div>
+            </div>
+            <div class="qrcode_login wechat_login">
+                <div class="title"><div id="login_weixin"></div></div>
+            </div>
+            <div class="qrcode_login ding_login">
+                <div class="title"><span>钉钉登录</span><div id="login_container"></div></div>
+            </div>
+        </div>
+        <div class="back_main">
+            <p class="back_main_p"><span><</span><a href="/">返回首页</a></p>
+        </div>
+    </div>
+    <script>
+    $(function () {
+        $("@("#username" + ViewBag.UserName),@("#userpswd" + ViewBag.UserPswd)").keydown(function (e) {
+            var curkey = e.which;
+            if (curkey == 13) {
+                CheckUser('@("username"+ViewBag.UserName)','@("userpswd"+ViewBag.UserPswd)');
+                return false;
+            }
+        });
+    });
+    </script>
+}

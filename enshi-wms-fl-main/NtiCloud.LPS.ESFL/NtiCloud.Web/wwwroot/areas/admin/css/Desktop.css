@@ -1,0 +1,218 @@
+﻿.main_content {
+    padding: 0 16px 16px 16px;
+}
+.warp {
+    height: 160px;
+}
+.head_d {
+    width: 25%;
+    float: left;
+    margin: 32px 0;
+}
+.head {    
+    position: relative;
+    background: #FFFFFF;
+    margin: 0 16px;
+    cursor:pointer;
+    box-shadow: 0px 0px 20px 0px rgba(45,45,59,0.10);
+}
+.head_top {
+    margin: 40px 32px;
+    display: inline-block;
+    height: 41px;
+    font-weight: 400;
+    color: #666666;
+}
+.head_up {
+    display: inline-block;
+}
+.menoy {
+    display: inline-block;
+    color: rgba(92, 199, 144, 1);
+    position: absolute;
+    top: 39px;
+    right: 56px;
+    z-index: 999999;
+}
+
+.head_up img {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 80px;
+    height: 80px;
+}
+body {
+    background: rgba(255, 255, 255, 1);
+}
+.blue {
+    border-left: 2px solid #44C7F3;    
+}
+.head_blue{border-top: 2px solid #44C7F3;}
+.head_grean {
+    border-top: 2px solid #5CC790;
+}
+.green{border-left: 2px solid #5CC790;}
+.yellow {
+    border-left: 2px solid #FFA037;
+}
+.head_yellow {
+    border-top: 2px solid #FFA037;
+}
+.pink {
+    border-left: 2px solid #8E7DE5;
+}
+.head_pink {
+    border-top: 2px solid #8E7DE5;
+}
+.page {
+    width: 56px;
+    height: 14px;
+    font-family: SourceHanSansCN-Regular;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 12px;
+    right: 138px;
+    z-index: -1;
+}
+.head:hover{background:#f7f7f7;}
+/* 公告 */
+.solid {
+    width: 2px;
+    height: 16px;
+    border-radius: 1px;
+    margin-right: 8px;
+}
+.news {
+    width: 60px;
+    height: 15px;
+    font-size: 17px;
+    /*font-family: SourceHanSansCN-Regular;*/
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    padding-left: 10px;
+}
+.public {
+    padding: 17px 0;
+    border-bottom: 1px #ececec solid;
+    padding-left: 16px;
+}
+.title_num{
+    font-size: 17px;
+    /*font-family: SourceHanSansCN-Regular;*/
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+}
+.font_d {
+    color: rgba(102, 102, 102, 1);
+    padding: 24px;
+    position: relative;
+}
+.font_d p {
+    display: flex;
+    justify-content: space-between;
+}
+.font_d p span:first-child{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.task_con{height: 216px;overflow: hidden;}
+.task_con_d{height: 100%;overflow: hidden;}
+
+.announcement {
+    /* display: inline-block; */
+    float: left;
+    width: 50%;
+}
+.announcement_d {
+    margin: 0 16px 32px;
+    background: #FFFFFF;
+	box-shadow:0px 0px 20px 0px rgba(45,45,59,0.10)
+}
+.big {
+    /*height: 500px;*/
+}
+.bule {
+    color: #6C7AE0;
+}
+.my_time {
+    color: #666666;
+}
+.time {
+    display: inline-block;
+}
+.today {
+    display: inline-block;
+    width: 72px;
+    height: 36px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 36px;
+}
+/*.green{
+    width:2px;
+    height:16px;
+    color:rgba(98,216,182,1);
+    border-radius:1px;
+}*/
+.oriang{
+    width:2px;
+    height:16px;
+    color:rgba(250,202,87,1);
+    border-radius:1px;
+}
+.day_time{
+    height:155px;
+    background:rgba(249,249,252,1);
+    border:1px solid rgba(242,242,240,1);
+}
+.my_day{
+    display: inline-block !important;
+}
+.my_time{
+    width:72px;
+    height:36px;
+    display: inline-block;
+    color: #666666;
+    text-align:center;
+    background:#F2F2F0;
+    cursor:pointer;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+}
+.all_time{
+    text-align: center;
+    line-height: 155px;
+    margin-top: 16px;
+}
+.red{
+    width:2px;
+    height:16px;
+    color:rgba(228,92,39,1);
+    border-radius:1px;
+} 
+.day_time_d{
+    display: inline-block !important;
+}
+.my_day_a{
+    margin-right: 16px;
+}
+.my_day_b{
+    margin-left: 16px;
+}
+@media screen and (max-width:1366px) {
+    .head_top {
+        margin: 40px 16px;
+    }
+    .menoy {
+        right: 16px;
+    }
+    .head_up img {
+        top: 20px;
+    }
+    .page {
+        display:none;
+    }
+    .task_con_d .first_sapn{width: 240px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+    .task_con_d .second_sapn{width: 150px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+}

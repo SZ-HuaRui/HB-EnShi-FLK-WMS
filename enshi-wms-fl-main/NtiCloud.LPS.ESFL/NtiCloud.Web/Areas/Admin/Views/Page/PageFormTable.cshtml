@@ -1,0 +1,40 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{数据操作}
+@section HeaderSection{
+    <link href="~/areas/admin/css/easyuilayer.css" rel="stylesheet" />
+    <script src="~/areas/admin/js/pageformtable.js"></script>
+    <link href="~/areas/admin/css/pageformtable.css" rel="stylesheet" />
+}
+@section ContentBody{
+    <body style="overflow:hidden;">
+        <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+        <div id="buttonList" class="mvctool bgb">
+            <a id="btnReturn" title="返回" class="btn btn-default easyui-tooltip"><span class="mdi mdi-keyboard-return">&nbsp;&nbsp;返回</span>&nbsp;&nbsp;</a>
+            <a id="btnSave" title="保存" class="btn btn-default easyui-tooltip"><span class="mdi mdi-content-save" style="padding:4px 0px 4px 6px">&nbsp;&nbsp;保存</span>&nbsp;&nbsp;</a>
+            <a id="btnSaveClose" title="保存并退出" class="btn btn-default easyui-tooltip"><span class="mdi mdi-language-swift">&nbsp;&nbsp;保存并退出</span></a>
+        </div>
+        <div class="easyui-layout" id="pageFormTableContainer" style="height:425px;">
+            <div id="left" data-options="region:'west',title:'左侧列表',split:true,collapsible:true" style="width:450px;height:100%;z-index:1098;">
+                <div class="easyui-layout" id="left_wrapper" style="height:390px;" data-options="border:false">
+                    <div id="left_left" data-options="region:'west',border:false" style="height:100%;width:400px;">
+                        <iframe id="leftlist_table" src="" width="100%" height="100%" frameborder="0"></iframe>
+                    </div>
+                    <div id="left_center" data-options="region:'center',border:false" style="z-index:1098;height:100%;position:relative;">
+                        <p class="btn_wrapper" style="text-align:center">
+                            <button id="select_all" class="btn btn-default easyui-tooltip" title="全部选择">>></button>
+                            <button id="select_act" class="btn btn-default easyui-tooltip" title="选择">></button>
+                            <button id="cancel_act" class="btn btn-default easyui-tooltip" title="取消"><</button>
+                            <button id="cancel_all" class="btn btn-default easyui-tooltip" title="全部取消"><<</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="center" data-options="region:'center',border:false">
+                <table id="List"></table>
+            </div>
+        </div>
+        <script type="text/javascript">
+            @Html.Raw(ViewBag.JsScript)
+        </script>
+    </body>
+}

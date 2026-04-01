@@ -1,0 +1,46 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("收货")}
+@section footerScript{
+    <script src="~/areas/rfs/js/Receipt.js"></script>
+}
+@section caption{@("收货")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border rf_top"><span class="title">入库单号：</span><select id="receipt_no"></select></p>
+                <p class="rf_border"><span class="title">托盘条码：</span><input class="container_code" type="text" placeholder="请扫描" name="fname" /></p>
+                <p class="rf_border">
+                    <span class="title">物料名称：</span>
+                    <span class="rf_border_d" id="item_name"></span>
+                </p>
+                <p class="rf_border"><span class="title">物料编码：</span><span class="rf_border_d" id="item_code"></span></p>
+                <p class="rf_border">
+                    <span class="title">物料状态：</span>
+                    <select class="item_state">
+                        <option value="Check_Passed">合格</option>
+                        <option value="Check_Failed">不合格</option>
+                        <option value="Check_Waiting">待检</option>
+                    </select>
+                </p>
+                <p class="rf_border"><span class="title">工程码数：</span><span class="rf_border_d" id="number"></span></p>
+            </div>
+        </div>
+    </div>
+    <div class="between">
+        <p class="rf_border"><span class="title"> 一号工程码：</span></p>
+        <div class="between_d"></div>
+    </div>
+    <div class="rf_name">
+        <p class="rf_border"><span class="title">实际数量：</span><input id="actual_num" type="text" placeholder="请输入实际数量" name="fname" /></p>
+
+        <p class="rf_border rf_up"><span class="title">剩余数量：</span><span class="rf_border_d" id="left_num"></span></p>
+
+    </div>
+    <div class="button_t">
+        <div class="button">
+            <a class="storage_area">入暂存区</a>
+            <a class="conform_btn">入货架</a>
+        </div>
+    </div>
+}

@@ -1,0 +1,52 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("上架任务执行(有码)")}
+@section footerScript{
+    <script src="~/areas/rfs/js/PutawayDoing.js"></script>
+}
+@section caption{@("上架任务执行(有码)")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border"><span class="title">物料编码：</span><input type="text" id="txtItemCode" class="rf_border_d" /></p>
+                <p class="rf_border">
+                    <span class="title">物料名称：</span>
+                    <span class="rf_border_d" id="txtItemName"></span>
+                </p>
+                <p class="rf_border"><span class="title">上架货位：</span><span class="rf_border_d" id="txtToLocation"></span></p>
+                <p class="rf_border">
+                    <span class="title">上架单号：</span>
+                    <span class="rf_border_d" id="txtPutawayNo"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">任务总量：</span>
+                    <span class="rf_border_d" id="txtTotalQty"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">待入量：</span>
+                    <span class="rf_border_d" id="txtWaitingProcessQty"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">本次上架量：</span>
+                    <span class="rf_border_d" id="txtInQty"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">SN箱码：</span>
+                    <input type="text" class="rf_border_d" id="txtItemSn" />
+                </p>
+                <p>
+                    <div style="height: 200px; overflow: scroll">
+                        <table class="layui-hide" id="tbSNLits" lay-filter="tbSNLits">  </table>
+                    </div>
+                </p>
+
+            </div>
+            <div class="button_t button_top">
+                <div class="button">
+                    <button id="btnSubmit">确定</button>
+                    <button id="btnNext">下一条</button><label id="lbtaskIndo"></label><button id="btnPriority">上一条</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

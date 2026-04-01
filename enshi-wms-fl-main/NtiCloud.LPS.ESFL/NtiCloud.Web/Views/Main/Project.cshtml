@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section TitleSection{今天云平台行业解决方案}
+@section HeaderSection{
+    <link href="~/css/project.css" rel="stylesheet" />
+    <script src="~/js/project.js"></script>
+}
+@section ContentBody{
+    <div class="layui-fluid">
+        <div class="layui-row container-banner banner_solution">
+            <div class="banner_bg banner_solution_bg">
+                <div class="banner-content center-block">
+                    <p class="banner-title">为各行业提供专属解决方案</p>
+                    <div class="description_d"><p class="description"><span>为企业提供超过100+基础或创新性服务</span></p></div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row product_title_d">
+            <div class="product_title">
+                <ul class="product_title_ul">
+                    @{
+                        System.Data.DataTable dtmain = (System.Data.DataTable)ViewData["ProdDT"];
+                        for (int i = 0; i < dtmain.Rows.Count; i++)
+                        {
+                            <li class="product_title_li layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs6">
+                                <div class="product_title_li_d @(i==0?"title_active":"")"><img src="/img/@dtmain.Rows[i]["industryicon"]_@(i==0?"pre":"nor").png"><span>@dtmain.Rows[i]["industry"]</span></div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="layui-row container-cloud">
+            @{
+                System.Data.DataTable dtheader = (System.Data.DataTable)ViewData["ProdDT"];
+                System.Data.DataTable dtdetail = (System.Data.DataTable)ViewData["ProdInfo"];
+                for (int i = 0; i < dtheader.Rows.Count; i++)
+                {
+                    dtdetail.DefaultView.RowFilter = "p_id = '" + dtheader.Rows[i]["t_id"] + "'";
+                    System.Data.DataTable dtprod = dtdetail.DefaultView.ToTable();
+                    <div class="container_content container_content_change" style="display:@(i==0?"block":"none");">
+                        <span class="trangle"></span>
+                        @{
+                            for (int j = 0; j < dtprod.Rows.Count; j++)
+                            {
+                                <div class="div_info_d layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs6">
+                                    <div class="title">@dtprod.Rows[j]["industrytext"]</div>
+                                    <div class="desc">@dtprod.Rows[j]["industrynote"]</div>
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}

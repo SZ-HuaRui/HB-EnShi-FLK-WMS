@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";
+}
+@section TitleSection{平台组织用户控件}
+@section HeaderSection{
+    <script src="~/areas/admin/js/UserCtrl.js"></script>
+}
+@section ContentBody{
+    <body>
+        <div id="UserCtrl" class="easyui-tabs" style="width:448px;height:320px">
+            <div title="已选" style="padding:3px">
+                <div id="selectlist"></div>
+            </div>
+            <div title="组织" style="padding:3px;">
+                <table style="width: 100%">
+                    <tr>
+                        <td style="width: 200px; vertical-align: top">
+                            <div id="orglist"></div>
+                        </td>
+                        <td style="width:3px;"></td>
+                        <td style="width: 235px; vertical-align: top">
+                            <div id="userlist"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+}

@@ -1,0 +1,154 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section TitleSection{今天云平台软件产品}
+@section HeaderSection{
+    <link href="~/css/datastation.css" rel="stylesheet" />
+    <script src="~/js/datastation.js"></script>
+}
+@section ContentBody{
+    <div class="layui-fluid">
+        <div class="layui-row container-banner">
+            <div class="banner_bg">
+                <div class="banner-content">
+                    <p class="banner-title">中台建设</p>
+                    <div class="description_d"><p class="description"><span>急速响应需求</span></p></div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row container_menu_d">
+            <ul class="product_menu_ul">
+                <li class="product_menu_li jishu_station col-lg20 layui-col-lg3 layui-col-md3 layui-col-sm3 layui-col-xs6"><span class="menu_active">技术中台</span></li>
+                <li class="product_menu_li yewu_station col-lg20 layui-col-lg3 layui-col-md3 layui-col-sm3 layui-col-xs6"><span>业务中台</span></li>
+                <li class="product_menu_li data_station col-lg20 layui-col-lg3 layui-col-md3 layui-col-sm3 layui-col-xs6"><span>数据中台</span></li>
+                <li class="product_menu_li ai_station col-lg20 layui-col-lg3 layui-col-md3 layui-col-sm3 layui-col-xs6"><span>AI中台</span></li>
+                <li class="product_menu_li iot_station col-lg20 layui-col-lg3 layui-col-md3 layui-col-sm3 layui-col-xs6"><span>IoT中台</span></li>
+            </ul>
+        </div>
+        <div class="layui-row product_title_d" id="jishu_station">
+            <div class="product_title">
+                <div style="text-align: center;">
+                    <h1>技术中台</h1>
+                </div>
+                <ul class="product_title_ul">
+                    <li class="product_title_li self_component layui-col-lg6 layui-col-md6  layui-col-sm6 layui-col-xs6"><span class="title_active">持续集成持续交互</span></li>
+                    <li class="product_title_li other_component layui-col-lg6 layui-col-md6  layui-col-sm6 layui-col-xs6"><span>技术中台相关组件</span></li>
+                </ul>
+                <div class="station_d">
+                    <img class="station_img" src="~/img/jicheng.png" />
+                    <img class="station_img" style="display:none;" src="~/img/zhongtai.png" />
+                </div>
+            </div>
+        </div>
+        <div class="layui-row product_title_d tech_station" id="yewu_station">
+            <div class="product_title">
+                <div style="text-align: center;">
+                    <h1>业务中台</h1>
+                </div>
+                <div class="station_d station_g">
+                    <img class="station_img" src="~/img/yewu_img.png" />
+                </div>
+            </div>
+        </div>
+        <div class="layui-row product_title_d" id="data_station">
+            <div class="product_title">
+                <div style="text-align: center;">
+                    <h1>数据中台</h1>
+                </div>
+                <div class="div_info layui-col-lg12 layui-col-md12 layui-col-sm12 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/loading.png">
+                    <div class="title"></div>
+                    <div class="desc">构建中…</div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row container-service_d bg_color" id="ai_station">
+            <div class="container-service">
+                <div style="text-align: center;">
+                    <h1>AI中台</h1>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_5learn.png">
+                    <div class="title">智能钛机器学习</div>
+                    <div class="desc">强大计算能力的一站式机器学习生态服务平台，帮助用户方便地进行模型训练、评估和预测</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_6safe.png">
+                    <div class="title">物联网设备身份认证</div>
+                    <div class="desc">
+                        面向物联网的设备身份认证服务，为设备与云提供双向身份认证和链路加密功能。
+                    </div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_7calculate.png">
+                    <div class="title">物联网边缘计算 </div>
+                    <div class="desc">专门为物联网领域开发人员推出的产品，核心价值是将计算扩展至边缘，在离设备最近的位置执行计算</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_8program.png">
+                    <div class="title">智能制造解决方案</div>
+                    <div class="desc">通过“五化一体”解决方案即自动化、信息化、数字化、网络化及智能化，助力工业企业特别是中小企业实现转型升级。</div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row container-service_d" id="iot_station">
+            <div class="container-service">
+                <div style="text-align: center;">
+                    <h1>IoT中台</h1>
+                </div>
+                <div class="iot_title"><span>IoT中台</span></div>
+                <div class="iot_img">
+                    <ul class="iot_ul">
+                        <li class="li_first">
+                            <img src="~/img/duiduoji.png" />
+                            <span class="iot_name">堆垛机</span>
+                            <span class="iot_center iot_center0"></span>
+                        </li>
+                        <li>
+                            <img src="~/img/agv.png" />
+                            <span class="iot_name">AGV</span>
+                            <span class="iot_center iot_center1"></span>
+                        </li>
+                        <li class="">
+                            <img src="~/img/chuansuoche.png" />
+                            <span class="iot_name">穿梭车</span>
+                            <span class="iot_center iot_center2"></span>
+                        </li>
+                        <li>
+                            <img src="~/img/jiqiren.png" />
+                            <span class="iot_name">机器人</span>
+                            <span class="iot_center iot_center3"></span>
+                        </li>
+                        <li class="">
+                            <img src="~/img/shusongji.png" />
+                            <span class="iot_name">输送机</span>
+                            <span class="iot_center iot_center4"></span>
+                        </li>
+                        <li>
+                            <img src="~/img/fenjianji.png" />
+                            <span class="iot_name">分拣机</span>
+                            <span class="iot_center iot_center5"></span>
+                        </li>
+                        <li class="">
+                            <img src="~/img/PLC.png" />
+                            <span class="iot_name">PLC</span>
+                            <span class="iot_center iot_center6"></span>
+                        </li>
+                        <li>
+                            <img src="~/img/chuanganqi.png" />
+                            <span class="iot_name">传感器</span>
+                            <span class="iot_center iot_center7"></span>
+                        </li>
+                    </ul>
+                    <div class="iot_img_top">
+                        <div class="iot_wangguan">
+                            <img src="~/img/wangguan.png" />
+                            <p class="">智能网关</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+}

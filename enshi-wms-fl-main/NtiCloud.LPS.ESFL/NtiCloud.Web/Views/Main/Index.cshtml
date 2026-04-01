@@ -1,0 +1,225 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section TitleSection{欢迎访问今天云平台主页}
+@section HeaderSection{
+    <link href="~/css/index.css" rel="stylesheet" />
+    <link href="~/lib/swiper/dist/css/swiper.min.css" rel="stylesheet" />
+    <script src="~/lib/swiper/dist/js/swiper.min.js"></script>
+    <script src="~/js/index.js"></script>
+}
+@section ContentBody{
+
+    <!-- 内容主体区域 -->
+    @*<div class="layui-carousel" id="carousel_top">
+            <div carousel-item>
+                <div style="background:#060e30;">
+                    <a href="/Member/ControlDesk" class="img1"></a>
+                </div>
+                <div style="background:#1d171b;">
+                    <a href="/Member/ControlDesk" class="img2"></a>
+                </div>
+            </div>
+        </div>*@
+    <div class="banner_top">
+        <div class="swiper-container banner">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background:linear-gradient(90deg,#3B1C71 0%,#FDAD7F 100%);">
+                    <a href="/Member/ControlDesk" class="img1"></a>
+                    @*<a href="/Member/ControlDesk"><img width="100%" height="100%" src="~/img/index_banner1.png"></a>*@
+                </div>
+                <div class="swiper-slide" style="background:#060e30;">
+                    <a href="/Member/ControlDesk" class="img2"></a>
+                    @*<a href="/Member/ControlDesk"><img width="100%" height="100%" src="~/img/index_banner2.png"></a>*@
+                </div>
+                <div class="swiper-slide" style="background:#111A38;">
+                    <a href="/Member/ControlDesk" class="img3"></a>
+                    @*<a href="/Member/ControlDesk"><img width="100%" height="100%" src="~/img/index_banner2.png"></a>*@
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="swiper-button-next banner-next"></div>
+        <div class="swiper-button-prev banner-prev"></div>
+    </div>
+    <div class="layui-fluid">
+        <div class="layui-row container_ability_d">
+            <div class="container-ability">
+                <div style="text-align: center;">
+                    <h1>今天云的能力</h1>
+                </div>
+                <div class="ability_pic">
+                    <img width="100%" height="100%" src="~/img/ability.png">
+                </div>
+            </div>
+        </div>
+        <div class="layui-row container_cloud_d">
+            <div class="container-cloud">
+                <div style="text-align: center;">
+                    <h1>今天云创新技术</h1>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md3 layui-col-sm4 layui-col-xs6">
+                    <img width="100%" height="100%" src="/img/index_inno_icon1.png">
+                    <div class="title">可视化配置应用</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md3 layui-col-sm4 layui-col-xs6">
+                    <img width="100%" height="100%" src="/img/index_inno_icon2.png">
+                    <div class="title">大数据应用</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md3 layui-col-sm4 layui-col-xs6">
+                    <img width="100%" height="100%" src="/img/index_inno_icon3.png">
+                    <div class="title">3D可视化应用</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md3 layui-col-sm4 layui-col-xs6">
+                    <img width="100%" height="100%" src="/img/index_inno_icon4.png">
+                    <div class="title">MR技术应用</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md3 layui-col-sm4 layui-col-xs6">
+                    <img width="100%" height="100%" src="/img/index_inno_icon5.png">
+                    <div class="title">机器学习</div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row container_service_d">
+            <div class="container-service">
+                <div style="text-align: center;">
+                    <h1>今天云赋能的行业</h1>
+                </div>
+                <div class="swiper-container swiper-service">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="div_info_all">
+                                <img width="100%" height="100%" src="~/img/index_indu_img1.png">
+                                <div class="title_word">
+                                    <div class="container-service-title">烟叶烟草</div>
+                                    <div class="container-service-desc">智能仓储 云上管理</div>
+                                    <span class="right_arrow mdi mdi-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="div_info_all">
+                                <img width="100%" height="100%" src="~/img/index_indu_img2.png">
+                                <div class="title_word">
+                                    <div class="container-service-title">锂电能源</div>
+                                    <div class="container-service-desc">能源支撑 未来可期</div>
+                                    <span class="right_arrow mdi mdi-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="div_info_all">
+                                <img width="100%" height="100%" src="~/img/index_indu_img3.png">
+                                <div class="title_word">
+                                    <div class="container-service-title">通讯电子</div>
+                                    <div class="container-service-desc">智慧传播 电子通讯</div>
+                                    <span class="right_arrow mdi mdi-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="div_info_all">
+                                <img width="100%" height="100%" src="~/img/index_indu_img4.png">
+                                <div class="title_word">
+                                    <div class="container-service-title">汽车制造</div>
+                                    <div class="container-service-desc">千里之行 旨在足下</div>
+                                    <span class="right_arrow mdi mdi-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="div_info_all">
+                                <img width="100%" height="100%" src="~/img/index_indu_img5.png">
+                                <div class="title_word">
+                                    <div class="container-service-title">零件加工</div>
+                                    <div class="container-service-desc">拼接组装 制造创新</div>
+                                    <span class="right_arrow mdi mdi-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="div_info_all">
+                                <img width="100%" height="100%" src="~/img/index_indu_img6.png">
+                                <div class="title_word">
+                                    <div class="container-service-title">商超零售</div>
+                                    <div class="container-service-desc">超级市场 生态需求</div>
+                                    <span class="right_arrow mdi mdi-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="div_info_all">
+                                <img width="100%" height="100%" src="~/img/index_indu_img7.png">
+                                <div class="title_word">
+                                    <div class="container-service-title">石油化工</div>
+                                    <div class="container-service-desc">阳光能源 驱动生产</div>
+                                    <span class="right_arrow mdi mdi-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="div_info_all">
+                                <img width="100%" height="100%" src="~/img/index_indu_img8.png">
+                                <div class="title_word">
+                                    <div class="container-service-title">食品冷链</div>
+                                    <div class="container-service-desc">冷链仓储 出类拔萃</div>
+                                    <span class="right_arrow mdi mdi-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="div_info_all">
+                                <img width="100%" height="100%" src="~/img/index_indu_img9.png">
+                                <div class="title_word">
+                                    <div class="container-service-title">日用家居</div>
+                                    <div class="container-service-desc">生活日用 周到方便</div>
+                                    <span class="right_arrow mdi mdi-arrow-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    @*<div class="swiper-pagination"></div>*@
+                    <!-- Add Arrows -->
+
+                </div>
+                <div class="swiper-button-next service-next"></div>
+                <div class="swiper-button-prev service-prev"></div>
+            </div>
+        </div>
+        <div class="layui-row container_scene_d">
+            <div class="container-scene">
+                <div style="text-align: center;">
+                    <h1>今天云智能应用场景</h1>
+                </div>
+                <div class="div_info layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <div class="div_info_a">
+                        <img width="100%" height="100%" src="~/img/index_app_img1.png">
+                        <div class="title_word_d">
+                            <div class="container-scene-title">工业大脑</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div_info layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <div class="div_info_a">
+                        <img width="100%" height="100%" src="~/img/index_app_img2.png">
+                        <div class="title_word_d">
+                            <div class="container-scene-title">农业大脑</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="div_info layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <div class="div_info_a">
+                        <img width="100%" height="100%" src="~/img/index_app_img3.png">
+                        <div class="title_word_d">
+                            <div class="container-scene-title">城市大脑</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+}

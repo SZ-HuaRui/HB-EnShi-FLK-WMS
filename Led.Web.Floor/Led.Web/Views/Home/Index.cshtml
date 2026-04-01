@@ -1,0 +1,444 @@
+﻿@{
+    ViewBag.Title = "主页";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="top-div">
+    <!-- 时间选择区域 -->
+    <div style="background-color:#ffffff; padding:15px; border-bottom: 1px solid #e0e0e0;">
+        <div style="display:inline-block; margin-right:20px;">
+            <label style="font-size:14px; color:#333; margin-right:10px; vertical-align:middle;">创建时间：</label>
+            <div style="display:inline-block; position:relative;">
+                <input type="text" id="start-time" class="date-input" placeholder="YYYY-MM-DD HH:mm:ss" readonly style="width:220px; height:34px; padding:6px 12px; padding-right:30px; font-size:14px; border:1px solid #ccc; border-radius:4px; margin-right:5px; background-color:#fff; cursor:pointer;" />
+                <span style="position:absolute; right:15px; top:8px; cursor:pointer; color:#666;" onclick="showDateTimePicker('start-time')">📅</span>
+            </div>
+            <span style="margin:0 10px; color:#666;">至</span>
+            <div style="display:inline-block; position:relative;">
+                <input type="text" id="end-time" class="date-input" placeholder="YYYY-MM-DD HH:mm:ss" readonly style="width:220px; height:34px; padding:6px 12px; padding-right:30px; font-size:14px; border:1px solid #ccc; border-radius:4px; background-color:#fff; cursor:pointer;" />
+                <span style="position:absolute; right:15px; top:8px; cursor:pointer; color:#666;" onclick="showDateTimePicker('end-time')">📅</span>
+            </div>
+        </div>
+        <button id="btn-query" style="font-size:14px; padding:6px 20px; background-color:#337ab7; color:#fff; border:1px solid #2e6da4; border-radius:4px; cursor:pointer; margin-left:10px; vertical-align:middle;" onclick="applyManualTime()">查询</button>
+        <button id="btn-reset" style="font-size:14px; padding:6px 20px; background-color:#5cb85c; color:#fff; border:1px solid #4cae4c; border-radius:4px; cursor:pointer; margin-left:10px; vertical-align:middle;" onclick="resetToAutoMode()">同步当班时间</button>
+    </div>
+    
+    <table id="item-table" style="width:100%;height:100%;background-color:#ffffff;" border="1">
+        <thead>
+            <tr>
+                <th class="info-td" width="10%" height="100px" style="color:#000000">序号</th>
+                <th class="info-td" width="20%" height="100px" style="color:#000000">品牌编码</th>
+                <th class="info-td" width="50%" height="100px" style="color:#000000">品牌名称</th>
+                <th class="info-td" width="10%" height="100px" style="color:#000000">卷包出库</th>
+                <th class="info-td" width="10%" height="100px" style="color:#000000">物流入库</th>
+            </tr>
+        </thead>
+        <tbody id="item-body">
+            <!-- Ajax 动态填充 -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="info-td" height="100px">合计</td>
+                <td class="info-td" height="100px"></td>
+                <td class="info-td" height="100px"></td>
+                <td class="info-td" height="100px" id="out-total"></td>
+                <td class="info-td" height="100px" id="in-total"></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!-- 日期时间选择器弹出层 -->
+<div id="datetime-picker-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:9999;">
+    <div id="datetime-picker-panel" style="position:absolute; background-color:#fff; border:1px solid #ccc; border-radius:4px; padding:15px; box-shadow:0 2px 10px rgba(0,0,0,0.2); min-width:350px;">
+        <div style="margin-bottom:10px;">
+            <div style="display:inline-block; margin-right:10px;">
+                <select id="picker-year" style="width:80px; height:30px; padding:5px;"></select>
+                <select id="picker-month" style="width:60px; height:30px; padding:5px; margin-left:5px;"></select>
+            </div>
+            <div style="float:right;">
+                <button onclick="hideDateTimePicker()" style="padding:5px 15px; background-color:#ccc; border:none; border-radius:3px; cursor:pointer;">取消</button>
+                <button onclick="confirmDateTime()" style="padding:5px 15px; background-color:#337ab7; color:#fff; border:none; border-radius:3px; cursor:pointer; margin-left:5px;">确定</button>
+            </div>
+        </div>
+        <div id="picker-calendar" style="margin-bottom:10px;"></div>
+        <div style="border-top:1px solid #e0e0e0; padding-top:10px;">
+            <label style="margin-right:10px;">时间：</label>
+            <input type="number" id="picker-hour" min="0" max="23" value="0" style="width:50px; height:30px; padding:5px; text-align:center;">时
+            <input type="number" id="picker-minute" min="0" max="59" value="0" style="width:50px; height:30px; padding:5px; text-align:center; margin-left:5px;">分
+            <input type="number" id="picker-second" min="0" max="59" value="0" style="width:50px; height:30px; padding:5px; text-align:center; margin-left:5px;">秒
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var manualStartTime = null;
+    var manualEndTime = null;
+    var autoRefreshInterval = null;
+    var currentPickerInputId = null;
+    var selectedDate = new Date();
+
+    $(function () {
+        loadData();
+        // 默认使用自动刷新
+        startAutoRefresh();
+        
+        // 兼容 IE 的日期时间选择器
+        initDateTimePickers();
+    });
+    
+    // 初始化日期时间选择器（兼容 IE）
+    function initDateTimePickers() {
+        // 为输入框添加点击事件
+        $("#start-time, #end-time").on("click", function() {
+            showDateTimePicker(this.id);
+        });
+        
+        // 初始化年份和月份选择器
+        initYearMonthSelectors();
+    }
+    
+    // 初始化年份和月份选择器
+    function initYearMonthSelectors() {
+        var yearSelect = $("#picker-year");
+        var monthSelect = $("#picker-month");
+        
+        // 年份：当前年份前后20年
+        var currentYear = new Date().getFullYear();
+        for (var i = currentYear - 20; i <= currentYear + 20; i++) {
+            yearSelect.append($("<option></option>").val(i).text(i));
+        }
+        
+        // 月份：1-12月
+        for (var i = 1; i <= 12; i++) {
+            monthSelect.append($("<option></option>").val(i).text(i + "月"));
+        }
+        
+        // 年份和月份改变时刷新日历
+        yearSelect.on("change", renderCalendar);
+        monthSelect.on("change", renderCalendar);
+    }
+    
+    // 显示日期时间选择器
+    function showDateTimePicker(inputId) {
+        currentPickerInputId = inputId;
+        var input = $("#" + inputId);
+        var currentValue = input.val();
+        
+        // 如果有现有值，解析它；否则使用当前时间
+        selectedDate = new Date();
+        if (currentValue) {
+            var parsedDate = parseDateTimeString(currentValue);
+            if (parsedDate && !isNaN(parsedDate.getTime())) {
+                selectedDate = parsedDate;
+            }
+        }
+        
+        // 设置年份和月份
+        $("#picker-year").val(selectedDate.getFullYear());
+        $("#picker-month").val(selectedDate.getMonth() + 1);
+        
+        // 设置时间
+        $("#picker-hour").val(selectedDate.getHours());
+        $("#picker-minute").val(selectedDate.getMinutes());
+        $("#picker-second").val(selectedDate.getSeconds());
+        
+        // 渲染日历
+        renderCalendar();
+        
+        // 显示弹出层
+        var inputOffset = input.offset();
+        var panel = $("#datetime-picker-panel");
+        var overlay = $("#datetime-picker-overlay");
+        
+        // 设置事件处理：点击遮罩层关闭，点击面板不关闭
+        overlay.off("click").on("click", function(e) {
+            // 如果点击的是遮罩层本身（不是面板），则关闭
+            if (e.target === this) {
+                hideDateTimePicker();
+            }
+        });
+        
+        // 阻止面板内的点击事件冒泡
+        panel.off("click").on("click", function(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            } else {
+                e.cancelBubble = true;
+            }
+        });
+        
+        overlay.css({
+            display: "block"
+        });
+        
+        // 定位面板在输入框下方
+        panel.css({
+            top: (inputOffset.top + input.outerHeight() + 5) + "px",
+            left: inputOffset.left + "px"
+        });
+    }
+    
+    // 隐藏日期时间选择器
+    function hideDateTimePicker() {
+        $("#datetime-picker-overlay").css("display", "none");
+    }
+    
+    // 渲染日历
+    function renderCalendar() {
+        var year = parseInt($("#picker-year").val());
+        var month = parseInt($("#picker-month").val()) - 1; // JavaScript月份从0开始
+        var date = new Date(year, month, 1);
+        
+        var calendarHtml = "<table style='width:100%; border-collapse:collapse;'>";
+        calendarHtml += "<tr><th style='padding:5px; background-color:#f5f5f5; border:1px solid #ddd;'>日</th><th style='padding:5px; background-color:#f5f5f5; border:1px solid #ddd;'>一</th><th style='padding:5px; background-color:#f5f5f5; border:1px solid #ddd;'>二</th><th style='padding:5px; background-color:#f5f5f5; border:1px solid #ddd;'>三</th><th style='padding:5px; background-color:#f5f5f5; border:1px solid #ddd;'>四</th><th style='padding:5px; background-color:#f5f5f5; border:1px solid #ddd;'>五</th><th style='padding:5px; background-color:#f5f5f5; border:1px solid #ddd;'>六</th></tr>";
+        
+        var firstDay = date.getDay();
+        var daysInMonth = new Date(year, month + 1, 0).getDate();
+        var currentDay = selectedDate.getDate();
+        var currentMonth = selectedDate.getMonth();
+        var currentYear = selectedDate.getFullYear();
+        
+        calendarHtml += "<tr>";
+        
+        // 填充第一周的空格
+        for (var i = 0; i < firstDay; i++) {
+            calendarHtml += "<td style='padding:5px; border:1px solid #ddd;'></td>";
+        }
+        
+        // 填充日期
+        for (var day = 1; day <= daysInMonth; day++) {
+            var isSelected = (day === currentDay && month === currentMonth && year === currentYear);
+            var cellStyle = "padding:5px; border:1px solid #ddd; text-align:center; cursor:pointer;";
+            if (isSelected) {
+                cellStyle += " background-color:#337ab7; color:#fff;";
+            } else {
+                cellStyle += " background-color:#fff;";
+            }
+            calendarHtml += "<td style='" + cellStyle + "' onclick='selectDate(" + day + ")'>" + day + "</td>";
+            
+            if ((firstDay + day) % 7 === 0 && day < daysInMonth) {
+                calendarHtml += "</tr><tr>";
+            }
+        }
+        
+        // 填充最后一周的空格
+        var lastDay = (firstDay + daysInMonth) % 7;
+        if (lastDay !== 0) {
+            for (var i = lastDay; i < 7; i++) {
+                calendarHtml += "<td style='padding:5px; border:1px solid #ddd;'></td>";
+            }
+        }
+        
+        calendarHtml += "</tr></table>";
+        $("#picker-calendar").html(calendarHtml);
+    }
+    
+    // 选择日期
+    function selectDate(day) {
+        var year = parseInt($("#picker-year").val());
+        var month = parseInt($("#picker-month").val()) - 1;
+        selectedDate = new Date(year, month, day);
+        renderCalendar();
+    }
+    
+    // 确认日期时间
+    function confirmDateTime() {
+        var year = parseInt($("#picker-year").val());
+        var month = parseInt($("#picker-month").val()) - 1;
+        var day = selectedDate.getDate();
+        if (selectedDate.getMonth() !== month || selectedDate.getFullYear() !== year) {
+            day = 1;
+        }
+        
+        var hour = parseInt($("#picker-hour").val()) || 0;
+        var minute = parseInt($("#picker-minute").val()) || 0;
+        var second = parseInt($("#picker-second").val()) || 0;
+        
+        var date = new Date(year, month, day, hour, minute, second);
+        
+        // 格式化日期时间
+        var yearStr = date.getFullYear();
+        var monthStr = (date.getMonth() + 1).toString();
+        if (monthStr.length < 2) monthStr = "0" + monthStr;
+        var dayStr = date.getDate().toString();
+        if (dayStr.length < 2) dayStr = "0" + dayStr;
+        var hourStr = date.getHours().toString();
+        if (hourStr.length < 2) hourStr = "0" + hourStr;
+        var minuteStr = date.getMinutes().toString();
+        if (minuteStr.length < 2) minuteStr = "0" + minuteStr;
+        var secondStr = date.getSeconds().toString();
+        if (secondStr.length < 2) secondStr = "0" + secondStr;
+        
+        var dateTimeStr = yearStr + "-" + monthStr + "-" + dayStr + " " + hourStr + ":" + minuteStr + ":" + secondStr;
+        
+        $("#" + currentPickerInputId).val(dateTimeStr);
+        hideDateTimePicker();
+    }
+    
+    // 验证日期时间格式
+    function validateDateTimeFormat(dateTimeStr) {
+        var pattern = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/;
+        if (!pattern.test(dateTimeStr)) {
+            return false;
+        }
+        
+        var date = parseDateTimeString(dateTimeStr);
+        return date !== null && !isNaN(date.getTime());
+    }
+    
+    // 解析日期时间字符串
+    function parseDateTimeString(dateTimeStr) {
+        try {
+            // 将格式 YYYY-MM-DD HH:mm:ss 转换为 ISO 格式
+            var isoStr = dateTimeStr.replace(' ', 'T');
+            return new Date(isoStr);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    // 开始自动刷新
+    function startAutoRefresh() {
+        if (autoRefreshInterval) {
+            clearInterval(autoRefreshInterval);
+        }
+        autoRefreshInterval = setInterval(loadData, 5000);
+    }
+
+    // 停止自动刷新
+    function stopAutoRefresh() {
+        if (autoRefreshInterval) {
+            clearInterval(autoRefreshInterval);
+            autoRefreshInterval = null;
+        }
+    }
+
+    // 应用手动选择的时间
+    function applyManualTime() {
+        var startTime = $("#start-time").val().trim();
+        var endTime = $("#end-time").val().trim();
+        
+        if (!startTime || !endTime) {
+            alert("请选择开始时间和结束时间！");
+            return;
+        }
+
+        // 验证格式
+        if (!validateDateTimeFormat(startTime)) {
+            alert("开始时间格式不正确，请使用格式：YYYY-MM-DD HH:mm:ss");
+            return;
+        }
+        if (!validateDateTimeFormat(endTime)) {
+            alert("结束时间格式不正确，请使用格式：YYYY-MM-DD HH:mm:ss");
+            return;
+        }
+
+        // 转换为 ISO 格式
+        var startDateTime = parseDateTimeString(startTime);
+        var endDateTime = parseDateTimeString(endTime);
+
+        // 验证时间范围
+        if (startDateTime > endDateTime) {
+            alert("开始时间不能大于结束时间！");
+            return;
+        }
+
+        // 转换为 ISO 格式字符串（用于后端）
+        manualStartTime = startTime.replace(' ', 'T');
+        manualEndTime = endTime.replace(' ', 'T');
+        
+        // 手动查询时停止自动刷新
+        stopAutoRefresh();
+        loadData();
+    }
+
+    // 恢复自动模式
+    function resetToAutoMode() {
+        manualStartTime = null;
+        manualEndTime = null;
+        $("#start-time").val("");
+        $("#end-time").val("");
+        
+        // 恢复自动刷新
+        startAutoRefresh();
+        loadData();
+    }
+
+    function loadData() {
+        var data = {};
+        // 如果设置了手动时间，则传递时间参数
+        if (manualStartTime && manualEndTime) {
+            data.startTime = manualStartTime;
+            data.endTime = manualEndTime;
+        }
+
+        $.ajax({
+            url: '@Url.Action("GetData", "Home")', // 控制器接口
+            type: 'GET',
+            data: data,
+            dataType: 'json',
+            success: function (res) {
+                if (!res) return;
+
+                var rows = "";
+                var outTotal = 0;
+                var inTotal = 0;
+
+                $.each(res.ItemProducts, function (i, item) {
+                    rows += "<tr>" +
+                        "<td class='info-td' height='100px'>" + (i + 1) + "</td>" +
+                        "<td class='info-td' height='100px'>" + item.ItemCode + "</td>" +
+                        "<td class='info-td' height='100px'>" + item.ItemName + "</td>" +
+                        "<td class='info-td' height='100px'>" + item.outQty + "</td>" +
+                        "<td class='info-td' height='100px'>" + item.inQty + "</td>" +
+                        "</tr>";
+                    outTotal += parseInt(item.outQty || 0);
+                    inTotal += parseInt(item.inQty || 0);
+                });
+
+                $("#item-body").html(rows);
+                $("#out-total").text(outTotal);
+                $("#in-total").text(inTotal);
+            },
+            error: function () {
+                console.error("获取数据失败");
+            }
+        });
+    }
+</script>
+
+<style type="text/css">
+    .info-td {
+        font-size: 24px;
+        text-align: center;
+        color: #000000;
+        border-width: 7px;
+        border: solid #e0e0e0;
+    }
+    
+    #item-table {
+        border-collapse: collapse;
+        border-color: #e0e0e0;
+    }
+    
+    #item-table th,
+    #item-table td {
+        border-color: #e0e0e0;
+    }
+
+    #btn-query:hover {
+        background-color: #286090;
+        border-color: #204d74;
+    }
+
+    #btn-reset:hover {
+        background-color: #449d44;
+        border-color: #398439;
+    }
+
+    .date-input:focus {
+        border-color: #66afe9;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+</style>

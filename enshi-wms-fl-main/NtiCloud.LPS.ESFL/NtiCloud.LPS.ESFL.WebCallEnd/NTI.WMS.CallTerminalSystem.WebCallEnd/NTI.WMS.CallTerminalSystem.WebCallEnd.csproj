@@ -1,0 +1,729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{03E53428-E348-44C4-B884-F7B2E30BDC15}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NTI.WMS.CallTerminalSystem.WebCallEnd</RootNamespace>
+    <AssemblyName>NTI.WMS.CallTerminalSystem.WebCallEnd</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <DesktopBuildPackageLocation>bin\X86\Release\NTI.WMS.CallTerminalSystem.WebCallEnd.zip</DesktopBuildPackageLocation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ajax">
+      <HintPath>Dll\ajax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.0.3.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NTI.WMS.CallTerminalSystem.DAL\dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NTIVirtualMachine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Components\bin\Debug\NTIVirtualMachine.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bottom.html" />
+    <Content Include="Call_Terminal_Hand.aspx" />
+    <Content Include="Call_Terminal.aspx" />
+    <Content Include="Call_Terminal_Log.aspx" />
+    <Content Include="Call_Terminal_Product.aspx" />
+    <Content Include="Call_Terminal_SemiFinishedProduct.aspx" />
+    <Content Include="Change_Card.aspx" />
+    <Content Include="Change_Class.aspx" />
+    <Content Include="Change_Class_Accept.aspx" />
+    <Content Include="Change_Class_Hint.aspx" />
+    <Content Include="Change_Class_View.aspx" />
+    <EmbeddedResource Include="Config\Aspects.xml" />
+    <EmbeddedResource Include="Config\ServerApp.xml" />
+    <Content Include="Control_Panel.aspx" />
+    <Content Include="css\common.css" />
+    <Content Include="css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="css\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="css\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="css\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="css\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="css\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="css\images\ui-icons_056b93_256x240.png" />
+    <Content Include="css\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="css\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="css\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="css\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="css\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\virtualKeyboard.css" />
+    <Content Include="Dll\ajax.dll" />
+    <Content Include="Dll\LogWriter.dll" />
+    <Content Include="Dll\NTIVirtualMachine.dll" />
+    <Content Include="Dock_Materials.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="images\btn_set.gif" />
+    <Content Include="images\btn_xg.gif" />
+    <Content Include="images\calendar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\first.gif" />
+    <Content Include="images\last.gif" />
+    <Content Include="images\loading.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\loading0.gif" />
+    <Content Include="images\management_btn3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\management_btn4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\ManCallConfirm.jpg" />
+    <Content Include="images\ManCallReturn.jpg" />
+    <Content Include="images\next.gif" />
+    <Content Include="images\nowload.gif" />
+    <Content Include="images\number\btn_disabel.png" />
+    <Content Include="images\number\btn_disabel_light.png" />
+    <Content Include="images\number\number_bg.png" />
+    <Content Include="images\number\text_.png" />
+    <Content Include="images\panel_bg.gif" />
+    <Content Include="images\panel_cb_01.jpg" />
+    <Content Include="images\panel_pic01.gif" />
+    <Content Include="images\previous.gif" />
+    <Content Include="images\return_manage.jpg" />
+    <Content Include="images\set_btn.jpg" />
+    <Content Include="images\table_btn01off.gif" />
+    <Content Include="images\table_btn01off_60.gif" />
+    <Content Include="Index.htm" />
+    <Content Include="js\ad.html" />
+    <Content Include="js\calendar.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\config.js" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\My97DatePicker.htm" />
+    <Content Include="js\skin\default\bg.jpg" />
+    <Content Include="js\WdatePicker.js" />
+    <Content Include="js\lang\en.js" />
+    <Content Include="js\lang\zh-cn.js" />
+    <Content Include="js\lang\zh-tw.js" />
+    <Content Include="MachineProduct.aspx" />
+    <Content Include="ManPowerCallAccept.aspx" />
+    <Content Include="ManPowerCallMaterials.aspx" />
+    <Content Include="ManPowerReturnMaterials.aspx" />
+    <Content Include="ManPower_Return_Materials.aspx" />
+    <Content Include="ManReturn_Terminal.aspx" />
+    <Content Include="menu.aspx" />
+    <Content Include="images\altButton.png" />
+    <Content Include="images\altButton_hover.png" />
+    <Content Include="images\backButton.png" />
+    <Content Include="images\backButton_hover.png" />
+    <Content Include="images\btn_back.gif" />
+    <Content Include="images\btn_cancel.gif" />
+    <Content Include="images\btn_complete.gif" />
+    <Content Include="images\btn_create.gif" />
+    <Content Include="images\btn_enter.gif" />
+    <Content Include="images\btn_Exit.gif" />
+    <Content Include="images\btn_exitoff.gif" />
+    <Content Include="images\btn_exiton.gif" />
+    <Content Include="images\btn_loginoff.gif" />
+    <Content Include="images\btn_loginon.gif" />
+    <Content Include="images\btn_modify.gif" />
+    <Content Include="images\btn_off.gif" />
+    <Content Include="images\btn_qrreceive.gif" />
+    <Content Include="images\btn_receive.gif" />
+    <Content Include="images\btn_receiveall.gif" />
+    <Content Include="images\btn_refresh.gif" />
+    <Content Include="images\btn_tab.gif" />
+    <Content Include="images\capsLockButton_hover.png" />
+    <Content Include="images\capsLockButton_off.png" />
+    <Content Include="images\capsLockButton_on.png" />
+    <Content Include="images\ctrlButton.png" />
+    <Content Include="images\ctrlButton_hover.png" />
+    <Content Include="images\delButton.png" />
+    <Content Include="images\delButton_hover.png" />
+    <Content Include="images\enterButton.png" />
+    <Content Include="images\enterButton_hover.png" />
+    <Content Include="images\index_banner.jpg" />
+    <Content Include="images\index_bannerbg.gif" />
+    <Content Include="images\index_bottom.gif" />
+    <Content Include="images\index_btn01_off.gif" />
+    <Content Include="images\index_btn01_on.gif" />
+    <Content Include="images\index_btn02_off.gif" />
+    <Content Include="images\index_btn02_on.gif" />
+    <Content Include="images\index_btn03_off.gif" />
+    <Content Include="images\index_btn03_on.gif" />
+    <Content Include="images\index_btn04_off.gif" />
+    <Content Include="images\index_btn04_on.gif" />
+    <Content Include="images\index_btn05_off.gif" />
+    <Content Include="images\index_btn05_on.gif" />
+    <Content Include="images\index_btn06_off.gif" />
+    <Content Include="images\index_btn06_on.gif" />
+    <Content Include="images\index_btn07_off.gif" />
+    <Content Include="images\index_btn07_on.gif" />
+    <Content Include="images\index_btn08_off.gif" />
+    <Content Include="images\index_btn08_on.gif" />
+    <Content Include="images\index_img.png" />
+    <Content Include="images\index_top.gif" />
+    <Content Include="images\index_topbg.gif" />
+    <Content Include="images\inputButton.png" />
+    <Content Include="images\inputButton70.png" />
+    <Content Include="images\inputButton70_hover.png" />
+    <Content Include="images\inputButton_hover.png" />
+    <Content Include="images\leftShiftButton.png" />
+    <Content Include="images\leftShiftButton_hover.png" />
+    <Content Include="images\login_bg.jpg" />
+    <Content Include="images\login_bgrepeat.gif" />
+    <Content Include="images\login_title.gif" />
+    <Content Include="images\mainBg.jpg" />
+    <Content Include="images\management_btn1.jpg" />
+    <Content Include="images\management_btn2.jpg" />
+    <Content Include="images\panel_btn01.gif" />
+    <Content Include="images\panel_bt02.gif" />
+    <Content Include="images\panel_bt03.gif" />
+    <Content Include="images\panel_cb.jpg" />
+    <Content Include="images\panel_dc.jpg" />
+    <Content Include="images\panel_m.jpg" />
+    <Content Include="images\panel_r.jpg" />
+    <Content Include="images\panel_rw.jpg" />
+    <Content Include="images\panel_sb.jpg" />
+    <Content Include="images\panel_sba.jpg" />
+    <Content Include="images\panel_ta.jpg" />
+    <Content Include="images\panel_taa.jpg" />
+    <Content Include="images\panel_tama.jpg" />
+    <Content Include="images\panel_tc.jpg" />
+    <Content Include="images\reason_titlebg.gif" />
+    <Content Include="images\rightShiftButton.png" />
+    <Content Include="images\rightShiftButton_hover.png" />
+    <Content Include="images\searchBar.png" />
+    <Content Include="images\searchButton.png" />
+    <Content Include="images\searchButton_hover.png" />
+    <Content Include="images\set_bg.gif" />
+    <Content Include="images\set_bottom.gif" />
+    <Content Include="images\set_titlebg.gif" />
+    <Content Include="images\set_titlebg2.jpg" />
+    <Content Include="images\sitebg.gif" />
+    <Content Include="images\spaceButton.png" />
+    <Content Include="images\spaceButton_hover.png" />
+    <Content Include="images\tabButton.png" />
+    <Content Include="images\tabButton_hover.png" />
+    <Content Include="images\table_bottom.gif" />
+    <Content Include="images\table_btn01on.gif" />
+    <Content Include="images\table_btn02off.gif" />
+    <Content Include="images\table_btn02on.gif" />
+    <Content Include="images\table_btn03off.gif" />
+    <Content Include="images\table_btn03on.gif" />
+    <Content Include="images\table_btn04off.gif" />
+    <Content Include="images\table_btn04on.gif" />
+    <Content Include="images\table_btn05off.gif" />
+    <Content Include="images\table_btn05on.gif" />
+    <Content Include="images\table_btn06off.gif" />
+    <Content Include="images\table_btn06on.gif" />
+    <Content Include="images\table_pic01.gif" />
+    <Content Include="images\table_textbg.gif" />
+    <Content Include="images\table_titlebg.gif" />
+    <Content Include="images\textbg.gif" />
+    <Content Include="images\textbg2.gif" />
+    <Content Include="images\textbg3.gif" />
+    <Content Include="images\tips_bt01.jpg" />
+    <Content Include="images\tips_bt02.jpg" />
+    <Content Include="images\u5265_original.jpg" />
+    <Content Include="images\virtualKeyboardBg.png" />
+    <Content Include="Index.aspx" />
+    <Content Include="js\virtualKeyboard.js" />
+    <Content Include="KeyBoard.aspx" />
+    <Content Include="Manage.aspx" />
+    <Content Include="Materials_Hand.aspx" />
+    <Content Include="Materials_Select.aspx" />
+    <Content Include="NumKey.aspx" />
+    <Content Include="PalletType.aspx" />
+    <Content Include="pass.aspx" />
+    <Content Include="Return_Bad_Materials.aspx" />
+    <Content Include="Return_Bad_Materials_new.aspx" />
+    <Content Include="Return_Materials_Confirm.aspx" />
+    <Content Include="Return_Materials_Result.aspx" />
+    <Content Include="Return_Remnant_Manage.aspx" />
+    <Content Include="Return_Remnant_Material.aspx" />
+    <Content Include="Return_Waste_Material.aspx" />
+    <Content Include="Scripts\keyboard.js" />
+    <Content Include="Scripts\RFJScript.js" />
+    <Content Include="sessionKeeper.asp" />
+    <Content Include="Set_Number.aspx" />
+    <Content Include="js\skin\datePicker.gif" />
+    <Content Include="js\skin\default\datepicker.css" />
+    <Content Include="js\skin\default\img.gif" />
+    <Content Include="js\skin\WdatePicker.css" />
+    <Content Include="js\skin\whyGreen\bg.jpg" />
+    <Content Include="js\skin\whyGreen\datepicker.css" />
+    <Content Include="js\skin\whyGreen\img.gif" />
+    <Content Include="Set_Number_new.aspx" />
+    <Content Include="Styles\index.css" />
+    <Content Include="Styles\jquery.js" />
+    <Content Include="Styles\master.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="webTest.aspx" />
+    <Content Include="WebUserControl.ascx" />
+    <Content Include="WebUserControl1.ascx" />
+    <Content Include="XmlApp.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Call_Terminal_Hand.aspx.cs">
+      <DependentUpon>Call_Terminal_Hand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Call_Terminal_Hand.aspx.designer.cs">
+      <DependentUpon>Call_Terminal_Hand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Call_Terminal.aspx.cs">
+      <DependentUpon>Call_Terminal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Call_Terminal.aspx.designer.cs">
+      <DependentUpon>Call_Terminal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Call_Terminal_Log.aspx.cs">
+      <DependentUpon>Call_Terminal_Log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Call_Terminal_Log.aspx.designer.cs">
+      <DependentUpon>Call_Terminal_Log.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Call_Terminal_Product.aspx.cs">
+      <DependentUpon>Call_Terminal_Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Call_Terminal_Product.aspx.designer.cs">
+      <DependentUpon>Call_Terminal_Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Call_Terminal_SemiFinishedProduct.aspx.cs">
+      <DependentUpon>Call_Terminal_SemiFinishedProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Call_Terminal_SemiFinishedProduct.aspx.designer.cs">
+      <DependentUpon>Call_Terminal_SemiFinishedProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Card.aspx.cs">
+      <DependentUpon>Change_Card.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Card.aspx.designer.cs">
+      <DependentUpon>Change_Card.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Class.aspx.cs">
+      <DependentUpon>Change_Class.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Class.aspx.designer.cs">
+      <DependentUpon>Change_Class.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Class_Accept.aspx.cs">
+      <DependentUpon>Change_Class_Accept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Class_Accept.aspx.designer.cs">
+      <DependentUpon>Change_Class_Accept.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Class_Hint.aspx.cs">
+      <DependentUpon>Change_Class_Hint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Class_Hint.aspx.designer.cs">
+      <DependentUpon>Change_Class_Hint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Class_View.aspx.cs">
+      <DependentUpon>Change_Class_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Class_View.aspx.designer.cs">
+      <DependentUpon>Change_Class_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Command\Command.cs" />
+    <Compile Include="Command\Command_CallMaterials.cs" />
+    <Compile Include="Command\Command_GetData.cs" />
+    <Compile Include="Command\Command_ReturnBadMaterials.cs" />
+    <Compile Include="Command\Command_ReturnNullPallet.cs" />
+    <Compile Include="Command\Command_ReturnNullPalletAndCallMaterials.cs" />
+    <Compile Include="Command\Command_ReturnRemnantsMaterials.cs" />
+    <Compile Include="Command\Command_ReturnWasteMaterials.cs" />
+    <Compile Include="Command\CommonFuctions.cs" />
+    <Compile Include="Common\Class_TimeToString.cs" />
+    <Compile Include="Common\ConstString.cs" />
+    <Compile Include="Common\DataChanged.cs" />
+    <Compile Include="Common\DemoMethods.cs" />
+    <Compile Include="Common\JsonMaker.cs" />
+    <Compile Include="Data\DataChange.cs" />
+    <Compile Include="Common\DockInfo.cs" />
+    <Compile Include="Common\HavingPermissions.cs" />
+    <Compile Include="Common\LogCheck.cs" />
+    <Compile Include="Common\LoginUser.cs" />
+    <Compile Include="Common\NTIMessage.cs" />
+    <Compile Include="Control_Panel.aspx.cs">
+      <DependentUpon>Control_Panel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control_Panel.aspx.designer.cs">
+      <DependentUpon>Control_Panel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\XmlReader.cs" />
+    <Compile Include="Dock_Materials.aspx.cs">
+      <DependentUpon>Dock_Materials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dock_Materials.aspx.designer.cs">
+      <DependentUpon>Dock_Materials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MachineProduct.aspx.cs">
+      <DependentUpon>MachineProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MachineProduct.aspx.designer.cs">
+      <DependentUpon>MachineProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManPowerCallAccept.aspx.cs">
+      <DependentUpon>ManPowerCallAccept.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManPowerCallAccept.aspx.designer.cs">
+      <DependentUpon>ManPowerCallAccept.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManPowerCallMaterials.aspx.cs">
+      <DependentUpon>ManPowerCallMaterials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManPowerCallMaterials.aspx.designer.cs">
+      <DependentUpon>ManPowerCallMaterials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManPowerReturnMaterials.aspx.cs">
+      <DependentUpon>ManPowerReturnMaterials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManPowerReturnMaterials.aspx.designer.cs">
+      <DependentUpon>ManPowerReturnMaterials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManPower_Return_Materials.aspx.cs">
+      <DependentUpon>ManPower_Return_Materials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManPower_Return_Materials.aspx.designer.cs">
+      <DependentUpon>ManPower_Return_Materials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManReturn_Terminal.aspx.cs">
+      <DependentUpon>ManReturn_Terminal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManReturn_Terminal.aspx.designer.cs">
+      <DependentUpon>ManReturn_Terminal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KeyBoard.aspx.cs">
+      <DependentUpon>KeyBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KeyBoard.aspx.designer.cs">
+      <DependentUpon>KeyBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Materials_Hand.aspx.cs">
+      <DependentUpon>Materials_Hand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Materials_Hand.aspx.designer.cs">
+      <DependentUpon>Materials_Hand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Materials_Select.aspx.cs">
+      <DependentUpon>Materials_Select.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Materials_Select.aspx.designer.cs">
+      <DependentUpon>Materials_Select.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBox.cs" />
+    <Compile Include="NumKey.aspx.cs">
+      <DependentUpon>NumKey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NumKey.aspx.designer.cs">
+      <DependentUpon>NumKey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PalletType.aspx.cs">
+      <DependentUpon>PalletType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PalletType.aspx.designer.cs">
+      <DependentUpon>PalletType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pass.aspx.cs">
+      <DependentUpon>pass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pass.aspx.designer.cs">
+      <DependentUpon>pass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Return_Bad_Materials.aspx.cs">
+      <DependentUpon>Return_Bad_Materials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Return_Bad_Materials.aspx.designer.cs">
+      <DependentUpon>Return_Bad_Materials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Return_Bad_Materials_new.aspx.cs">
+      <DependentUpon>Return_Bad_Materials_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Return_Bad_Materials_new.aspx.designer.cs">
+      <DependentUpon>Return_Bad_Materials_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Return_Materials_Confirm.aspx.cs">
+      <DependentUpon>Return_Materials_Confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Return_Materials_Confirm.aspx.designer.cs">
+      <DependentUpon>Return_Materials_Confirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Return_Materials_Result.aspx.cs">
+      <DependentUpon>Return_Materials_Result.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Return_Materials_Result.aspx.designer.cs">
+      <DependentUpon>Return_Materials_Result.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Return_Remnant_Manage.aspx.cs">
+      <DependentUpon>Return_Remnant_Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Return_Remnant_Manage.aspx.designer.cs">
+      <DependentUpon>Return_Remnant_Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Return_Remnant_Material.aspx.cs">
+      <DependentUpon>Return_Remnant_Material.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Return_Remnant_Material.aspx.designer.cs">
+      <DependentUpon>Return_Remnant_Material.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Return_Waste_Material.aspx.cs">
+      <DependentUpon>Return_Waste_Material.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Return_Waste_Material.aspx.designer.cs">
+      <DependentUpon>Return_Waste_Material.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sessionKeeper.asp.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sessionKeeper.asp.designer.cs">
+      <DependentUpon>sessionKeeper.asp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Set_Number.aspx.cs">
+      <DependentUpon>Set_Number.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Set_Number.aspx.designer.cs">
+      <DependentUpon>Set_Number.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Set_Number_new.aspx.cs">
+      <DependentUpon>Set_Number_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Set_Number_new.aspx.designer.cs">
+      <DependentUpon>Set_Number_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="webTest.aspx.cs">
+      <DependentUpon>webTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webTest.aspx.designer.cs">
+      <DependentUpon>webTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl.ascx.cs">
+      <DependentUpon>WebUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl.ascx.designer.cs">
+      <DependentUpon>WebUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebUserControl1.ascx.cs">
+      <DependentUpon>WebUserControl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebUserControl1.ascx.designer.cs">
+      <DependentUpon>WebUserControl1.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Components\WMSInterface.csproj">
+      <Project>{960BA144-2BD9-455F-A212-12ED97658CA4}</Project>
+      <Name>WMSInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NTI.WMS.CallTerminalSystem.BLL\NTI.WMS.CallTerminalSystem.BLL.csproj">
+      <Project>{CD511163-DAAD-4430-BA75-C02FCE551B37}</Project>
+      <Name>NTI.WMS.CallTerminalSystem.BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>31974</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9074/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

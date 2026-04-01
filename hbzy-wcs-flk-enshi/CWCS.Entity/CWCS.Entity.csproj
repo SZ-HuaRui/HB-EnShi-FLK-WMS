@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A31C25EB-8296-459B-A111-DB6F3D6F714D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CWCS.Entity</RootNamespace>
+    <AssemblyName>CWCS.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Convery\ConveryItemCode.cs" />
+    <Compile Include="DockInfo.cs" />
+    <Compile Include="LogFileName.cs" />
+    <Compile Include="NotifyCommand.cs" />
+    <Compile Include="Convery\ConveryEntity.cs" />
+    <Compile Include="Convery\ConveryGroupEntity.cs" />
+    <Compile Include="Convery\ConveryTaskInfo.cs" />
+    <Compile Include="EquipmentBase.cs" />
+    <Compile Include="PLCStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Robot\BatteryInfo.cs" />
+    <Compile Include="Robot\RobotCommand.cs" />
+    <Compile Include="Robot\RobotInfo.cs" />
+    <Compile Include="SRM\SCStationInfo.cs" />
+    <Compile Include="SRM\SRMCommand.cs" />
+    <Compile Include="SRM\SRM_Robot_Entity.cs" />
+    <Compile Include="SRM\SRM_Status_Entity.cs" />
+    <Compile Include="StaticCommon.cs" />
+    <Compile Include="UpdateEquipmentStatusModel.cs" />
+    <Compile Include="UpdateTaskModel.cs" />
+    <Compile Include="WCS_AGV_ADDRESS.cs" />
+    <Compile Include="WCS_DEVICE.cs" />
+    <Compile Include="WCS_EQUIPMENTINFO.cs" />
+    <Compile Include="WCS_ERROR_INFO.cs" />
+    <Compile Include="WCS_EVENTLOG.cs" />
+    <Compile Include="WCS_ITEMCODE.cs" />
+    <Compile Include="WCS_ITEMCODE_HIS.cs" />
+    <Compile Include="WCS_ITEMCODE_HISTORY.cs" />
+    <Compile Include="WCS_ITEM_STRATEGY.cs" />
+    <Compile Include="WCS_LANEWAYINFO.cs" />
+    <Compile Include="WCS_OPCITEM.cs" />
+    <Compile Include="WCS_PARAMETER_CONFIG.cs" />
+    <Compile Include="WCS_PLCDRIVERARG.cs" />
+    <Compile Include="WCS_PLCMETADRIVER.cs" />
+    <Compile Include="WCS_PLCMETAGROUP.cs" />
+    <Compile Include="WCS_PLCMETATAG.cs" />
+    <Compile Include="WCS_RECEIVE_TASK.cs" />
+    <Compile Include="WCS_RELATEDDEVICE.cs" />
+    <Compile Include="WCS_RFID.cs" />
+    <Compile Include="WCS_ROUTE.cs" />
+    <Compile Include="WCS_SETINFO.cs" />
+    <Compile Include="WCS_SHUTTLEINFO.cs" />
+    <Compile Include="WCS_STATION_STATUS.cs" />
+    <Compile Include="WCS_SUBTASKINFO.cs" />
+    <Compile Include="WCS_TARGETADDRESSINFO.cs" />
+    <Compile Include="WCS_TASKBUFFER_V.cs" />
+    <Compile Include="WCS_TASKINFO.cs" />
+    <Compile Include="WCS_USER.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CWCS.Equipment\CWCS.Equipment.csproj">
+      <Project>{70d9ec51-ff6d-4b5a-a82b-53f680a6e541}</Project>
+      <Name>CWCS.Equipment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.Hsl\CWCS.Hsl.csproj">
+      <Project>{075C17E5-FAC8-42C5-9E18-0A72679EA2CE}</Project>
+      <Name>CWCS.Hsl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets" Condition="Exists('..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

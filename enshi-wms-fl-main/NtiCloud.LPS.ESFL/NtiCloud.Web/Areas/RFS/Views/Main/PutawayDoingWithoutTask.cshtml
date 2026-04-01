@@ -1,0 +1,53 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("上架任务执行(直接上架)")}
+@section footerScript{
+    <script src="~/areas/rfs/js/PutawayDoingWithoutTask.js"></script>
+}
+@section caption{@("上架任务执行(直接上架)")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border">
+                    <span class="title with100">上架单号：</span>
+                    <input type="text" id="txtPutawayNo" class="rf_border_d" />
+                </p>
+                <p class="rf_border">
+                    <span class="title with100">上架货位：</span>
+                    <input type="text" id="txtToLocation" class="rf_border_d" />
+                </p>
+                <p class="rf_border">
+                    <span class="title with100">物料编码：</span>
+                    <input type="text" id="txtItemCode" class="rf_border_d" />
+                </p>
+                <p class="rf_border">
+                    <span class="title with100">物料名称：</span>
+                    <span class="rf_border_d" id="txtItemName"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title with100">批次：</span>
+                    <input type="text" id="txtLotno" class="rf_border_d" />
+                </p>
+                <p class="rf_border">
+                    <span class="title with100">生产日期：</span>
+                    <input type="text" id="txtProduceDate" class="rf_border_d" />
+                </p>
+                <p class="rf_border">
+                    <span class="title with100">已上架：</span>
+                    <span class="rf_border_d" id="txtProcessQty"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title with100">上架量：</span>
+                    <input type="text" id="txtInQty" class="rf_border_d" />
+                </p>
+
+            </div>
+            <div class="button_t button_top">
+                <div class="button">
+                    <button id="btnSubmitWithoutSn" onclick="DoSubmit()">确定</button>
+                    <button id="btnNext">下一条</button><label id="lbtaskIndo"></label><button id="btnPriority">上一条</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

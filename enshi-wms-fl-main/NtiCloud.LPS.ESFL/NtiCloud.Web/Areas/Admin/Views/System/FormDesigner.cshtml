@@ -1,0 +1,108 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{工作流表单设计器}
+@section HeaderSection{
+    <link href="~/areas/admin/css/easyuilayer.css" rel="stylesheet" />
+    <link href="~/areas/admin/css/FormDesigner.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8" src="~/lib/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/lib/ueditor/ueditor.all.min.js"></script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="~/lib/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script src="~/lib/ueditor/plugins/plugins.js"></script>
+    <script src="~/areas/admin/js/formdesigner.js"></script>
+}
+@section ContentBody{
+    <body>
+        <div class="toolbar" style="margin-top:0; border-top:none 0;">
+            <a href="javascript:void(0);" onclick="execCommend('formadd'); return false;" title="新建">
+                <span style="background:url('/lib/ueditor/plugins/images/new.png') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formopen'); return false;" title="打开">
+                <span style="background:url('/lib/ueditor/plugins/images/open.png') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formattribute'); return false;" title="属性">
+                <span style="background:url('/lib/ueditor/plugins/images/setting.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <span class="toolbarsplit">&nbsp;</span>
+            <a href="javascript:void(0);" onclick="execCommend('formtext'); return false;" title="文本框">
+                <span style="background:url('/lib/ueditor/plugins/images/input.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formtextarea'); return false;" title="文本域">
+                <span style="background:url('/lib/ueditor/plugins/images/textarea.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formhtml'); return false;" title="Html编辑器">
+                <span style="background:url('/lib/ueditor/plugins/images/html.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formradio'); return false;" title="单选按钮组">
+                <span style="background:url('/lib/ueditor/plugins/images/radio.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formcheckbox'); return false;" title="复选按钮组">
+                <span style="background:url('/lib/ueditor/plugins/images/checkbox.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formhidden'); return false;" title="隐藏域">
+                <span style="background:url('/lib/ueditor/plugins/images/hidden.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formselect'); return false;" title="下拉列表框">
+                <span style="background:url('/lib/ueditor/plugins/images/select.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formlabel'); return false;" title="Label标签">
+                <span style="background:url('/lib/ueditor/plugins/images/label.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formbutton'); return false;" title="按钮">
+                <span style="background:url('/lib/ueditor/plugins/images/button.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formcombox'); return false;" title="下拉组合框">
+                <span style="background:url('/lib/ueditor/plugins/images/combox.png') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formsumtext'); return false;" title="计算字段">
+                <span style="background:url('/lib/ueditor/plugins/images/sum.png') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formorg'); return false;" title="组织机构选择框">
+                <span style="background:url('/lib/ueditor/plugins/images/org.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formdictionary'); return false;" title="逻辑选择框">
+                <span style="background:url('/lib/ueditor/plugins/images/selectlr.png') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formdatetime'); return false;" title="日期时间选择">
+                <span style="background:url('/lib/ueditor/plugins/images/datetime.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formfiles'); return false;" title="附件上传">
+                <span style="background:url('/lib/ueditor/plugins/images/attachment.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formsubtable'); return false;" title="子表">
+                <span style="background:url('/lib/ueditor/plugins/images/subtable.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formgrid'); return false;" title="数据表格">
+                <span style="background:url('/lib/ueditor/plugins/images/database_info.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formsignature'); return false;" title="签章">
+                <span style="background:url('/lib/ueditor/plugins/images/edit.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formselectdiv'); return false;" title="弹出层选择">
+                <span style="background:url('/lib/ueditor/plugins/images/selectdiv.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formserialnumber'); return false;" title="流水号">
+                <span style="background:url('/lib/ueditor/plugins/images/formserialnumber.png') no-repeat center;">&nbsp;</span>
+            </a>
+
+            <span class="toolbarsplit">&nbsp;</span>
+            <a href="javascript:void(0);" onclick="execCommend('formsave'); return false;" title="保存当前表单">
+                <span style="background:url('/lib/ueditor/plugins/images/save.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formsaveas'); return false;" title="表单另存为">
+                <span style="background:url('/lib/ueditor/plugins/images/saveas.gif') no-repeat center;">&nbsp;</span>
+            </a>
+            <a href="javascript:void(0);" onclick="execCommend('formcompile'); return false;" title="发布表单">
+                <span style="background:url('/lib/ueditor/plugins/images/page_code.png') no-repeat center;">&nbsp;</span>
+            </a>
+        </div>
+        <div id="editordiv" style="overflow:auto;">
+            <script id="editor" name="editor" type="text/plain" style="width:98%; height:300px;">
+            </script>
+        </div>
+        <input type="hidden" id="formId" value="@ViewBag.formId" />
+        <div id="over" class="over"></div>
+        <div id="layout" class="lay_out"><img src="/img/loading.gif" /></div>
+        <div id="fullSetContent"></div>
+    </body>
+}

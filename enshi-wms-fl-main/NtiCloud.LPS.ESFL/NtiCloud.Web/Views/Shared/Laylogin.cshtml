@@ -1,0 +1,40 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/css/reset.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery-3.4.1.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/js/loginCommon.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <script src="//g.alicdn.com/dingding/dinglogin/0.0.5/ddLogin.js"></script>
+    <script src="//res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+    <script src="//rescdn.qqmail.com/node/ww/wwopenmng/js/sso/wwLogin-1.0.0.js"></script>
+    <script type="text/javascript" src="//g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js"></script>
+    <link href="~/lib/MaterialDesign-Webfont-master/css/materialdesignicons.css" rel="stylesheet" />
+    <title>@RenderSection("TitleSection", false)</title>
+    @RenderSection("HeaderSection", false)
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    <div class="container content">
+        <div>
+            @*<div class="navbar">
+                    <div class="header">
+                        <div class="header-item"><a href="/"><img class="logo" src="~/areas/index/img/logo.png"></a></div>
+                    </div>
+
+                </div>*@
+            @RenderSection("ContentBody")
+            @*<div class="foot">深圳市今天国际物流技术股份有限公司版权所有 粤ICP备12074812号 Copyright © 2000-2018NTI.All Rights ReserVed. By 今 天 国 际</div>*@
+        </div>
+    </div>
+    <input type="hidden" id="userip" name="userip" value="@NtiCloud.Web.Common.HttpContext.GetUserIp()" />
+</body>
+</html>

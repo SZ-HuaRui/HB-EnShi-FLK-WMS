@@ -1,0 +1,137 @@
+﻿.container-banner {background:#130e09;position: relative;text-align: center;padding: 0;}
+.banner_bg {height: 560px;width:100%;background: url(../img/banner_bg.jpg) center no-repeat;/*background-size: 100% 100%;*/}
+.container-banner .banner-content {margin: auto;max-width: 1100px;padding-top: 152px;text-align: center;}
+.container-banner .banner-content .description {font-size: 70px;color: #ffffff;margin-bottom: 0px;display: inline-block;}
+.container-banner .banner-content .banner-title {margin: 0 0 24px;color: #ffffff;font-size: 107px;font-weight: 600;}
+.container_menu_d{position: relative;/*box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.05);*/background: #ffffff;}
+.container_menu_d .product_menu_ul {max-width: 1100px;/* height: 48px; */line-height: 62px;margin: auto;padding-left: 0;}
+.container_menu_d .product_menu_ul .product_menu_li {list-style: none;text-align: center;font-size: 18px;color: #333333;font-weight: 400;cursor: pointer;}
+.container_menu_d .product_menu_ul .product_menu_li span{cursor:pointer;width:100%;display:inline-block;}
+.container_menu_d .product_menu_ul .product_menu_li:hover{color:#C8161D;}
+.menu_active {color: #C8161D !important;border-bottom: 2px solid #C8161D;margin-bottom: -2px;z-index: 999;}
+.product_title_d .product_title{/*background: rgba(255,255,255,1);*//*box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.05);*/position: relative;/*height: 88px;line-height: 88px;*/padding:80px 0;}
+.product_title_d .product_title_ul{max-width: 1100px;margin: auto;line-height: 60px; height: 62px;border-bottom:3px solid #EFEFEF;}
+.product_title .product_title_li {list-style: none;text-align: center;font-size: 18px;color: #333333;}
+.product_title .product_title_li span {display: inline-block;height: 62px;width: 50%;cursor: pointer;}
+.product_title .product_title_li:hover{color:#C8161D;}
+.title_active {border-bottom: 3px solid #C8161D;color: #C8161D !important;}
+.product_title_d .station_d{max-width: 662px;margin: auto;height:416px;margin-top:40px;}
+.station_g{max-width: 804px !important;height:482px !important;}
+.product_title_d .station_d .station_img{width:100%;}
+.tech_station{background: url(../img/yewu_bg.jpg) center no-repeat;}
+.container-service_d{position: relative;}
+.bg_color{background:#F9F9FC;}
+.container-service{max-width: 1100px;margin: auto;padding:80px 0 0 0;}
+.iot_title{width:220px;height:40px;box-shadow:2px 2px 0px 0px rgba(239,239,239,1);border:1px solid #E3E3E3;line-height:40px;text-align: center;font-size:14px;font-weight:400;color:#333333;margin:21px auto 17px;}
+.div_info {
+    height: auto;
+    text-align: center;
+    padding: 35px 0px 80px 0;
+}
+.title {
+    font-size: 18px;
+    margin: 22px 0 8px;
+    line-height: 25px;
+    color:#333333;
+}
+.desc {
+    color: #B2B2B2;
+    display: inline-block;
+    width: 216px;
+    font-size: 16px;
+}
+.div_info img {
+    height: 56px;
+    width: 56px;
+}
+h1 {font-size: 24px;color: #333333;margin: 0px 0 19px 0;}
+.iot_img{width:1052px;height:359px;position:relative;z-index:10;margin: 0 auto 200px;background:url(../img/iot_bottom.png) no-repeat center;background-size:cover;}
+.iot_img .iot_img_top{width:100%;height:100%;position:absolute;z-index:100;background:url(../img/iot_top_mask.png) no-repeat center;background-size:cover;}
+.iot_img .iot_img_top .iot_wangguan{width:100px;height:128px;position:absolute;top:78px;left:480px;}
+.iot_img .iot_img_top img{width:100px;height:100px;}
+.iot_img .iot_img_top .iot_wangguan p{height:20px;line-height:20px;text-align:center;font-size:14px;color:#333;}
+.iot_ul{width:1100px;height:110px;position:absolute;padding:0 0px;left:0px;bottom:-120px;}
+.iot_ul li{width:90px;height:80px;position:relative;margin-left:48px;float:left;padding-bottom:30px;}
+.iot_ul .li_first{margin-left:0;}
+.iot_ul li img{width:100%;height:80px;}
+.iot_ul li span{width:100%;display:inline-block;}
+.iot_ul .iot_name{height:20px;line-height:20px;text-align:center;font-size:14px;color:#333;position:absolute;bottom:0px;left:0;}
+.iot_ul li .iot_center{height:47px;width:50px;position:absolute;background:url(../img/iot_center.png) no-repeat center;background-size:cover;z-index:50;left:20px;top:-57px;}
+.iot_ul li .iot_center0{animation:mymove0 1.5s infinite;}
+.iot_ul li .iot_center1{animation:mymove1 1.5s infinite;}
+.iot_ul li .iot_center2{animation:mymove2 1.5s infinite;}
+.iot_ul li .iot_center3{animation:mymove3 1.5s infinite;}
+.iot_ul li .iot_center4{animation:mymove4 1.5s infinite;}
+.iot_ul li .iot_center5{animation:mymove5 1.5s infinite;}
+.iot_ul li .iot_center6{animation:mymove6 1.5s infinite;}
+.iot_ul li .iot_center7{animation:mymove7 1.5s infinite;}
+@keyframes mymove0{ 
+  0%{top:-57px;left:20px;} 
+  25%{top:-90px;left:20px;} 
+  50%{top:-90px;left:20px;} 
+  75%{top:-90px;left:505px;} 
+  100%{top:-369px;left:505px;} 
+}
+@keyframes mymove1{ 
+  0%{top:-57px;left:20px;} 
+  25%{top:-90px;left:20px;} 
+  50%{top:-90px;left:20px;} 
+  75%{top:-90px;left:370px;} 
+  100%{top:-369px;left:370px;} 
+}
+@keyframes mymove2{ 
+  0%{top:-57px;left:20px;} 
+  25%{top:-90px;left:20px;} 
+  50%{top:-90px;left:20px;} 
+  75%{top:-90px;left:235px;} 
+  100%{top:-369px;left:235px;} 
+}
+@keyframes mymove3{ 
+  0%{top:-57px;left:20px;} 
+  25%{top:-90px;left:20px;} 
+  50%{top:-90px;left:20px;} 
+  75%{top:-90px;left:100px;} 
+  100%{top:-369px;left:100px;} 
+}
+@keyframes mymove4{ 
+  0%{top:-57px;left:20px;} 
+  25%{top:-90px;left:20px;} 
+  50%{top:-90px;left:20px;} 
+  75%{top:-90px;left:-45px;} 
+  100%{top:-369px;left:-45px;} 
+}
+@keyframes mymove5{ 
+  0%{top:-57px;left:20px;} 
+  25%{top:-90px;left:20px;} 
+  50%{top:-90px;left:20px;} 
+  75%{top:-90px;left:-180px;} 
+  100%{top:-369px;left:-180px;} 
+}
+@keyframes mymove6{ 
+  0%{top:-57px;left:20px;} 
+  25%{top:-90px;left:20px;} 
+  50%{top:-90px;left:20px;} 
+  75%{top:-90px;left:-315px;} 
+  100%{top:-369px;left:-315px;} 
+}
+@keyframes mymove7{ 
+  0%{top:-57px;left:20px;} 
+  25%{top:-90px;left:20px;} 
+  50%{top:-90px;left:20px;} 
+  75%{top:-90px;left:-450px;} 
+  100%{top:-369px;left:-450px;} 
+}
+@media screen and (min-width: 1200px){
+   .col-lg20 {width: 20%;}
+}
+@media (max-width: 1200px) {
+    
+}   
+@media screen and (max-width: 768px){
+    .banner_bg {height: 360px;background: url(../img/product_banner_phone.png) center no-repeat;/*background-size: 100% 100%;*/}
+    .container-banner .banner-content {display:none;}
+}
+@media screen and (max-width: 576px) {
+    .banner_bg {height: 200px;background-size: cover;}
+    
+}

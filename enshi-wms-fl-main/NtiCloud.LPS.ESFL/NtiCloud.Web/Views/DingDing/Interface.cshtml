@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate" />
+    <title>今天云应用接入</title>
+    <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery-3.4.1.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/js/loginCommon.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <script type="text/javascript" src="//g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js"></script>
+</head>
+<body>
+    <p>
+        <input type="hidden" id="url" name="url" value="@ViewBag.UserUrl" />
+    </p>
+    <script type="text/javascript">
+        $(function () {
+            var userAgent = navigator.userAgent;
+            var corpid = common.getUrlParam("corpid");
+            var url = common.Decrypt($("#url").val());
+            if (userAgent.indexOf("DingTalk") != -1) {//通过钉钉登录
+                window.localStorage.removeItem("token");                
+                if (!corpid) {
+                    var reg = new RegExp("(^|&)corpid=([^&]*)(&|$)", "i");
+                    var r = url.match(reg);  //匹配目标参数
+                    if (r != null) {
+                        corpid = unescape(r[2]);
+                    }
+                }
+                if (url.indexOf(window.location.protocol + "//" + window.location.host + "/Admin/Main") == 0) {
+                    DingOpenLogin(url, corpid, false);
+                }
+                else if (url.indexOf("/") == 0) {
+                    DingOpenLogin(url, corpid, false);
+                }
+                else {//跳转到非云平台
+                    DingOpenLogin(url, corpid, true);
+                }
+            }
+            else {
+                common.postGateway("website/selectdata", {
+                    "type": "dingCompany",
+                    "parameters": [{ "ding_corpid": corpid }]
+                }, null, function (data) {
+                    data = JSON.parse(data.json);
+                    var clientId = data[0].t_id;
+                    if (url.indexOf("?") != -1) {
+                        url = url + "&clientId=" + clientId;
+                    }
+                    else {
+                        url = url + "?clientId=" + clientId;
+                    }
+                });
+                location.href = url;
+                $.messageBoxAlert(0, "请从钉钉工作台中打开该应用！");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <EquipmentNumber>NTI</EquipmentNumber>
+  <Warehouse>
+    <ID>*</ID>
+    <Name>辅料库</Name>
+  </Warehouse>
+  <MachineNumber>B02</MachineNumber>
+  <MachineName>B02</MachineName>
+  <WorkShop>BZ</WorkShop>
+  <HasLGV>1</HasLGV>
+  <ClassTeam>2</ClassTeam>
+  <ClassGroup>丙班</ClassGroup>
+  <UserName>hf</UserName>
+</config>

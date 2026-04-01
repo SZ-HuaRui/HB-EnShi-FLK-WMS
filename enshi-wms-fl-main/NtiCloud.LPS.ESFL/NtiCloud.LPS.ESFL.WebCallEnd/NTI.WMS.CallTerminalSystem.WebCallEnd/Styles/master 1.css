@@ -1,0 +1,192 @@
+body{SCROLLBAR-FACE-COLOR:#DDF1FF;SCROLLBAR-HIGHLIGHT-COLOR:#128ADD;SCROLLBAR-SHADOW-COLOR:#128ADD;SCROLLBAR-3DLIGHT-COLOR:#FFFFFF;SCROLLBAR-DARKSHADOW-COLOR:#FFFFFF;SCROLLBAR-ARROW-COLOR:#128ADD;SCROLLBAR-TRACK-COLOR:#DDF8FF;
+background:
+background-attachment:fixed}
+a{color:#82643E;text-decoration: none;} 
+a:link{color:#94E015;text-decoration:none;} 
+a:visited{color:#82643E;text-decoration:none;} 
+a:active{color:#FFA722;text-decoration:none;} 
+a:hover{color:#F7C709;text-decoration:none;position:relative;right:0px;top:1px}
+
+#header{height:380px;width:980px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/ddcd7a1e6003a5f51bd5764d.jpg) center}
+#header div.lc{background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/702bac18760b5d0635fa4155.jpg)}
+
+#header div.tit{top:2px;left:10px;line-height:55px;font-size:30px;font-family:楷体;FILTER:Glow(Color=#33ADFF,Strength=4) Shadow(Color=#003355,Direction=180);color:#FFF;}
+#header div.tit a.titlink{color:#FFF;text-decoration:none}
+#header div.tit a.titlink:visited{color:#FFF}
+#header div.desc{width:600px;top:300px;left:580px;line-height:30px;font-size:20px;font-family:楷体;FILTER:Glow(Color=#33ADFF,Strength=3) Shadow(Color=#003355,Direction=180);color:#FFF;line-height:150%);}
+#tabline{display:none}
+#tab{top:345px;padding-left:280px!important;}
+#tab a.on,#tab a.on:link,#tab a.on:visited{line-height:22px;color:#FFF;font-size:14px;font-weight:bold;font-family:楷体;FILTER:Glow(Color=#33ADFF,Strength=3) Shadow(Color=#003355,Direction=180)}
+#tab span{color:#DDF8FF;font-size:14px}
+#tab a:link{color:#DDF8FF;text-decoration:none;font-size:14px;font-weight:bold}
+#tab a:visited{color:#DDF8FF;text-decoration:none;font-size:14px;font-weight:bold}
+#tab2 span{color:#DDF8FF;font-size:12px;font-weight:bold}
+#tab2 a{font-size:12px}
+#tab2 a:link{color:#DDF8FF;text-decoration:none}
+#tab2 a:visited{color:#DDF8FF;text-decoration:none}
+
+#main{width:750px;}
+
+#comm_info{font-size:15px;color:#DDF8FF;font-family:Arial;text-align:left} 
+#comm_info div.line{line-height:86px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/70f897520f18430f0cf3e32f.jpg) no-repeat center bottom} 
+#comm_info a{color:#00CCFF}
+#comm_info A {DISPLAY: none;}
+#comm_info DIV IMG BR {DISPLAY: none}
+
+#page{height:30px;font-size:15px;font-family:Arial;text-align:center} 
+#page span{padding:3px;color:#fff;font-size:14px;font-weight:bold} 
+#page a.pc{color:#006AFF;font-size:15px;font-weight:bold} 
+#page a.pc:visited{color:#006AFF} 
+#page a.pi{padding:3px;color:#006AFF;font-size:15px} 
+#page a.pi:visited{color:#006AFF} 
+
+.mod{margin-bottom:10px;border:1px solid #6441F1}
+.modhandle{cursor:move}
+.modth{height:24px}
+.modhead{padding:3px 4px 0 4px}
+.modopt{padding:4px 4px 0 0}
+.modopt a{color:#6441F1;text-decoration:none}
+.modopt a:visited{color:#6441F1;text-decoration:none}
+.modtit{color:#6441F1;font-size:12px;font-weight:bold}a.modtit{color:#6441F1}a.modtit:visited{color:#6441F1}
+.modtitlink{color:#6441F1;font-size:12px;font-weight:bold}a.modtitlink{color:#6441F1}a.modtitlink:visited{color:#366}a.modtitlink:hover{color:#6441F1}
+.modact{color:#6441F1;font-size:12px}a.modact:link{color:#6441F1}a.modact:visited{color:#6441F1}
+
+#m_blog div.tit{text-indent:1.7cm;line-height:72px;font-size:18px;font-weight:bold;background:url(http://hiphotos.baidu.com/465903379/pic/item/336204e9affc0c3fb90e2d14.jpg) no-repeat}
+#m_blog div.tit a{color:#0099FF;font-size:20px;font-weight:bold} 
+#m_blog div.tit a:visited{color:#6685FF}
+#m_blog div.date{margin:5px 0 8px 0;color:#6685FF;line-height:15px;text-indent:35px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/b6f319178ecb31004a90a73e.jpg) no-repeat} 
+#m_blog div.cnt{color:#128add;line-height:20px;font-size:20px;border-top:2px;border-left:2px;border-bottom:2px;border-right:2px;padding-top:10px;padding-left:10px;padding-bottom:10px;padding-right:10px} 
+#m_blog div.more{margin:14px 0 16px 0} 
+#m_blog div.more a{color:#006AFF;font-size:20px} 
+#m_blog div.more a:visited{color:#006AFF} 
+#m_blog div.opt{color:#000;font-size:15px} 
+#m_blog div.opt a{color:#006AFF;font-size:15px} 
+#m_blog div.opt a:visited{color:#006AFF} 
+#m_blog div.line{margin-top:17px;line-height:40px;border-top:1px;}
+#m_blog div.none{padding:100px 0 100px 0;color:#000;font-size:20px} 
+
+#spBlogCmtText{color:#001B88;font-size:15px;border:double #00CCFF 4px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/400e263f254410ed54e7233f.jpg) no-repeat bottom center;background-attachment:fixed;CURSOR:url('http://imgcache.qq.com/qzone/space_item/orig/3/4851.ani')}
+
+#m_pro a:visited{color:#555595}
+#m_pro div.image{text-align:center;height:17px;}
+#m_pro div.act{margin-top:10px}
+
+#m_pro div.user{margin-top:12px;color:#ffffff;font-size:16px;font-weight:bold;text-align:center;filter:glow (color= #555595,strength=2.5);}/*用户名字体*/
+
+#m_pro div.desc{color:#555595;font-size:12px}
+#m_pro div.line{margin-top:17px;line-height:17px;border-top:1px solid #555595}
+#m_pro td{color:#66aa77;line-height:24px;font-size:14px}
+
+#m_pro div.line{margin-top:17px;line-height:17px;border-top:1px dashed #555595}
+
+#m_pro div.act{margin-top:5px;
+background:url(http://www.ip.cn/s.php?maxw=190&minw=150&bgc=8387b6&bc=556699&tc=#003366) no-repeat bottom;
+padding-bottom:22px;margin-bottom:6px;}
+
+#m_album div.image{text-align:center} 
+#m_album div.page{color:#C66500;font-size:15px;text-align:center} 
+#m_album div.page a{color:#0000CC;font-size:15px} 
+#m_album div.page a:visited{color:#0000CC}
+#m_album .phpage{margin-top:10px;padding-bottom:5px;text-align:center}
+
+#m_links div.item{line-height:20px;text-indent:25px;color:#128add;font-size:14px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/ff17317acafcc2ec2e73b33d.jpg) no-repeat} 
+#m_links div.item a{color:#006AFF;font-size:14px;text-decoration:none} 
+#m_links div.item a:visited{color:#006AFF} 
+#m_links div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF}
+#m_mylink1 div.item{line-height:20px;text-indent:20px;color:#006AFF;font-size:14px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/ff17317acafcc2ec2e73b33d.jpg) no-repeat}
+#m_mylink1 div.item a{color:#366;font-size:14px;text-decoration:none} 
+#m_mylink1 div.item a:visited{color:#366} 
+#m_mylink1 div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF}
+#m_mylink2 div.item{line-height:20px;text-indent:20px;color:#000;font-size:14px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/ff17317acafcc2ec2e73b33d.jpg) no-repeat} 
+#m_mylink2 div.item a{color:#366;font-size:14px;text-decoration:none} 
+#m_mylink2 div.item a:visited{color:#366} 
+#m_mylink2 div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF}
+#m_mylink3 div.item{line-height:20px;text-indent:20px;color:#000;font-size:14px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/ff17317acafcc2ec2e73b33d.jpg) no-repeat} 
+#m_mylink3 div.item a{color:#366;font-size:14px;text-decoration:none} 
+#m_mylink3 div.item a:visited{color:#366} 
+#m_mylink3 div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF}
+#m_mylink4 div.item{line-height:20px;text-indent:20px;color:#000;font-size:14px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/ff17317acafcc2ec2e73b33d.jpg) no-repeat} 
+
+#m_artclg div.item{line-height:20px;text-indent:20px;color:#006AFF;font-size:14px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/ff17317acafcc2ec2e73b33d.jpg) no-repeat}
+#m_artclg div.item a{color:#366;font-size:14px} 
+#m_artclg div.item a:visited{color:#366} 
+#m_artclg div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF} 
+
+#m_filed div.item{line-height:20px;text-indent:20px;color:#006AFF;font-size:14px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/ff17317acafcc2ec2e73b33d.jpg) no-repeat}
+#m_filed div.item a{color:#006AFF;font-size:14px}
+#m_filed div.item a:visited{color:#006AFF}
+#m_filed div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF;}
+
+#m_comment div.item{line-height:20px;text-indent:20px;color:#006AFF;font-size:14px;background:url(http://hiphotos.baidu.com/lian%5Fcn/pic/item/ff17317acafcc2ec2e73b33d.jpg) no-repeat}
+#m_comment div.item a{color:#006AFF;font-size:12px} 
+#m_comment div.item a:visited{color:#006AFF} 
+#m_comment div.item a.cnt{color:#006AFF;font-size:12px;text-decoration:none} 
+#m_comment div.item a.cnt:visited{color:#fff;text-decoration:none} 
+#m_comment div.item a.cnt:hover{color:#006AFF;text-decoration:underline} 
+#m_comment div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF} 
+
+#m_albumlist div.note{color:#fff;font-size:14px}
+#m_albumlist div.desc{margin-bottom:12px;padding:3px 10px 3px 10px;line-height:22px;background-color:#F2F2F2;font-size:14px}
+#m_albumlist div.none{padding:100px 0 100px 0;color:#fff;font-size:14px}
+#m_albumlist div.line{margin-top:10px;line-height:25px;border-top:1px;background:url(http://hiphotos.baidu.com/465903379/pic/item/782e153840816df3b311c752.jpg)}
+#m_albumlist div.tit{margin:6px 0 7px 0;color:#fff;font-size:14px}
+#m_albumlist div.tit a{color:#366;text-decoration:none;font-size:14px}
+#m_albumlist div.tit a:visited{color:#366;text-decoration:none}
+#m_albumlist span.count{color:#366;font-size:12px;font-weight:bold}
+#m_albumlist span.size{color:#999999;font-size:12px;font-family:Arial}
+#m_albumlist a.act{color:#366;font-size:12px}
+#m_albumlist a.act:visited{color:#366}
+#m_albumlist a.page{color:#366;font-size:14px}
+#m_albumlist a.page:visited{color:#366}
+#m_albumlist td.image{padding:5px;border:1px dashed #999999;background:#FFF}
+#m_albumlist .phbox{margin-top:15px;margin-left:15px}
+#m_albumlist .phbox .phpage{color:#636363;font-size:14px}
+#m_albumlist .phbox .phinfo{margin:6px 0 2px 0;color:#636363;font-size:12px}
+#m_albumlist .phbox .phimg{margin-bottom:10px}
+
+#m_friend div.filter{margin-bottom:10px;padding-left:10px;padding-top:10px;height:27px;line-height:27px} 
+#m_friend div.catalog{margin-bottom:10px;padding-left:10px;height:27px;line-height:27px;background-color:#F2F2F2;font-size:14px} 
+#m_friend div.user{margin-top:4px;color:#fff;font-size:12px} 
+#m_friend div.user a{color:#006AFF;font-size:12px} 
+#m_friend div.user a:visited{color:#006AFF} 
+#m_friend div.line{line-height:25px;background:url(http://hiphotos.baidu.com/465903379/pic/item/782e153840816df3b311c752.jpg)}
+
+#m_setting a{color:#006AFF} 
+#m_setting a:visited{color:#006AFF} 
+#m_setting{line-height:22px;color:#fff;font-size:14px} 
+#m_setting img.sel{border:4px solid #FFDB7B} 
+#m_setting img.unsel{border:1px solid #D2D2D2} 
+#m_setting span.tit{font-size:14px} 
+#m_setting span.usr{color:#C66500} 
+#m_setting div.sel{padding-top:6px;font-size:14px;font-weight:bold} 
+#m_setting div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF} 
+
+#m_sysinfo a{color:#006AFF} 
+#m_sysinfo a:visited{color:#006AFF} 
+#m_sysinfo{line-height:22px;color:#fff;font-size:14px} 
+#m_sysinfo span.new{color:#FF0000;font-size:10px;font-family:Arial} 
+#m_sysinfo span.date{color:#fff;font-size:14px}
+
+#m_setbase{color:#fff;font-size:14px} 
+#m_setbase td{color:#fff;font-size:14px} 
+#m_setbase div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF} 
+
+#in_comment{width:710px} 
+#in_comment div.tit{margin-bottom:12px;color:#fff;font-size:14px;font-weight:bold} 
+#in_comment div.user{margin-bottom:6px;color:#fff;font-size:12px} 
+#in_comment div.user a{color:#006AFF;font-size:12px} 
+#in_comment div.user a:visited{color:#006AFF} 
+#in_comment div.user span.date{color:#C66500;font-size:12px} 
+#in_comment div.desc{color:#fff;font-size:12px} 
+#in_comment div.line{margin-top:5px;line-height:8px;border-top:1px solid #0099FF}
+#in_send div.tit{margin:10px 0 10px 0;color:#fff;font-size:14px;font-weight:bold} 
+
+#m_track {color:#006AFF;font-size:12px}
+#m_track a{color:#006AFF;font-size:12px}
+#m_track a:visited{color:#006AFF}
+
+#m_search {color:#006AFF;font-size:14px}
+#m_search input.text{ color:#006AFF; font-size:12px}
+#m_search input.submit{ color:#006AFF; font-size:12px} 
+
+/*#phx{FILTER: Alpha(Opacity=100, FinishOpacity=10, Style=2, StartX=20, StartY=40, FinishX=0, FinishY=0); WIDTH: 225px; HEIGHT: 32px}*/   

@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutMember.cshtml";
+}
+@section TitleSection{今天云平台控制台}
+@section HeaderSection{
+    <link href="~/css/cloud_control_desk.css" rel="stylesheet" />
+    <script src="~/js/cloud_control_desk.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".product_project").hide();
+        });
+    </script>
+}
+@section ContentBody{
+
+    <div class="main_content">
+        <div class="container_d con_product">
+            <div class="content_c">
+                <div class="head_pc">
+                    <div class="title">
+                        <span class="word control" onclick="window.location.href = '/Member/ControlDesk';">控制台</span>
+                        <span class="word" style="left:57px;top:4px;">/</span>
+                        <span class="word" style="left:64px;">@(ViewBag.AppName)分类</span>
+                        <p><span></span></p>
+                        <span class="btn_pic btn_pic_up"></span>
+                        <span class="btn_word">收起</span>
+                    </div>
+                </div>
+                <div class="product_body">
+                    @{
+                        System.Data.DataTable prodlist = (System.Data.DataTable)ViewData["ProdList"];
+                        for (int i = 0; i < prodlist.Rows.Count; i++)
+                        {
+                            <div class="work_content">
+                                <a href="@("/Admin/Main?AppCode="+prodlist.Rows[i]["appcode"])">
+                                    <div class="product_content">
+                                        <div style="background:@prodlist.Rows[i]["appcolor"];" class="left_icon">
+                                            <span class="@prodlist.Rows[i]["appicon"]"></span>
+                                        </div>
+                                    </div>
+                                    <div class="title_a">
+                                        <p class="pro_name">@prodlist.Rows[i]["appname"]</p>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

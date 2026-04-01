@@ -1,0 +1,142 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutMember.cshtml";
+}
+@section TitleSection{今天云平台开发文档}
+@section HeaderSection{
+    <link href="~/css/cloud_control_desk.css" rel="stylesheet" />
+    <script src="~/js/cloud_control_desk.js"></script>
+
+    <link href="~/lib/menuDown/menuDown_white.css" rel="stylesheet" />
+    <script src="~/lib/menuDown/menuDown.js"></script>
+    <style>
+        .layui-side-scroll{overflow-y:scroll;}
+        #admin-body p{line-height:2;}
+        #admin-body .conPart{border-bottom:1px dotted #bbb;margin-bottom:20px;padding-bottom:20px;}
+        #admin-body .conPart .title a{font-weight:bold;font-size:16px;color:#1890ff;margin-bottom:6px;}
+        #admin-body .conPart em{font-style:normal;color:#f00;}
+        #admin-body pre{background-color: #f9f9f9;line-height: 1;padding: 20px;border: 1px solid #aaa;border-radius: 5px;}
+        .searchText{position:absolute;top:30px;right:40px;z-index:999;font-size:14px;}
+        .searchText button{width:40px;height:40px;border:none;outline:none;background-color:#1890ff;border-radius:5px;box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.2);}
+        .searchText .btnIcon{transition:all 0.4s;position:absolute;left:10px;top:10px;width:20px;height:20px;display:inline-block;background:url('../../../img/member/text_search.png') no-repeat center;background-size:cover;}
+        .searchText.showInput .btnIcon{background:url('../../../img/member/search_close.png') no-repeat center;background-size:cover;}
+        .searchText .input_wrapper{display:none;position:absolute;right:55px;top:0px;transition:all 0.4s;width:0px;height:40px;}
+        .searchText input{display:block;padding:4px 32px 4px 12px;transition:all 0.4s;width:100%;box-sizing:border-box; height:40px;border:1px solid #bbb;border-radius:5px;font-size:14px;color:#666;}
+        .searchText .searchIcon{position:absolute;right:0px;top:0px;width:32px;height:40px;display:inline-block;}
+        .searchText .searchIcon i{width:20px;height:20px;display:inline-block;position:absolute;right:6px;top:10px;background:url('../../../img/member/to_search.png') no-repeat center;background-size:cover;}
+        .searchText input::-webkit-input-placeholder {color: #eee;font-size: 16px;}
+        .searchText.showInput input:hover,.searchText.showInput input:focus{border:1px solid #1890ff;}
+        .searchText.showInput input:focus{box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);}
+
+    </style>
+}
+@section ContentBody{
+    <div class="main_content">
+        <div class="searchText">
+            <button id="textBtn"><i class="btnIcon"></i></button>
+            <p class="input_wrapper">
+                <input type="text" id="inputCon" placeholder="搜索" />
+                <span class="searchIcon" id="searchBtn"><i></i></span>
+            </p>
+        </div>
+        <div class="layui-layout layui-layout-admin" >
+            <div class="layui-side layui-bg-white" id="admin-side" style="top:56px;width:280px;">
+                <div class="layui-side-scroll" id="admin-navbar-side" lay-filter="side" style="width:100%;"></div>
+            </div>
+            <div class="layui-body" style="bottom: 0;top:56px;left:280px;position:fixed;padding:30px 20px 40px 40px;" id="admin-body">
+            </div>
+            <div class="site-tree-mobile layui-hide">
+                <i class="layui-icon">&#xe602;</i>
+            </div>
+            <div class="site-mobile-shade"></div>
+        </div>
+
+    </div>
+    <script>
+
+        initMenu()
+
+        //切换搜索框的显示和隐藏
+        $('#textBtn').click(function () {
+            if ($('.searchText').eq(0).hasClass('showInput')) {
+                $('.searchText').removeClass('showInput').find('.input_wrapper').animate({ width: '0px' }, 400, function () {
+                    $('.searchText input,.searchText .searchIcon').css('display', 'none')
+                });
+            } else {
+                $('.searchText .searchIcon,.searchText input').css('display', 'block');
+                $('.searchText').addClass('showInput').find('.input_wrapper').css('display', 'block').animate({ width: '260px' }, 400);
+            }
+        })
+
+        //点击搜索
+        $('#searchBtn').click(function () {
+            searchCon()
+        })
+
+        //输入框的enter事件搜索
+        $('#inputCon').keydown(function (e) {
+            if (e.keyCode == 13) {
+                searchCon()
+            }
+        })
+
+        //插入code标签
+        function addHtml() {
+
+        }
+
+        //搜索
+        function searchCon() {
+            var inputVal=$('#inputCon').val()
+            common.postGateway('platform/database/selectsearch', {
+                sql:common.Encrypt("select t_id,title,content from prod_system_doc where (title like '%"+inputVal+"%' or content like '%"+inputVal+"%') and content!='' "),
+                queryKey:inputVal,
+                count:200
+            }, common.getToken(), function (res) {
+                    res = JSON.parse(res.json);
+                    if (res.length == 0) {
+                        $('#admin-body').html('<p style="padding-top:100px;text-align:center;color:#aaa;" >未搜索到匹配内容！</p>');
+                    } else {
+                        $('#admin-body').html('');
+                        for (var i = 0; i < res.length; i++) {
+                            $('#admin-body').append('<div class="conPart" ><p class="title" ><a target="_blank" href="/Member/Help?id=' + res[i].t_id + '">' + res[i].title + '</a></p><p class="content" >' + res[i].content + '</p></div>')
+                        }
+                    }
+            })
+        }
+
+        //渲染菜单数据
+        function initMenu() {
+            apiRoute.selectTreeEvent("","SELECT T_ID,P_ID,title text,title,sort_no FROM prod_system_doc order by sort_no",
+            "t_id","p_id","text","1",[], function (res) {
+                $('#admin-navbar-side').menuDown({
+                    data: res,
+                    textStr: 'text',
+                    idStr: 'id',
+                    childStr: 'children',
+                    showTitle: true,
+                    spreadOne: false,
+                    onSelectMenu: function (data) {
+                        ////console.log('被点了……', data);
+                        if (!data.hasChild) {
+                            getDetail(data.id)
+                        }
+                        return false;
+                    }
+                });
+
+                var pageId = common.getUrlParam('id')
+                pageId = pageId ? pageId : '1186149555364827136'
+                getDetail(pageId)
+                $('#admin-navbar-side').menuDown('selfSpread', pageId)
+
+            })
+        }
+
+        //请求详情内容
+        function getDetail(idStr) {
+            apiRoute.selectDataEvent("SELECT title,CONTENT FROM prod_system_doc where T_ID='" + idStr + "'", [],"1=1", function (res) {
+                $('#admin-body').html(res[0].content)
+            })
+        }
+    </script>
+}

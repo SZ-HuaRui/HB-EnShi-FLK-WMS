@@ -1,0 +1,25 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("成品组盘")}
+@section footerScript{
+    <script src="~/areas/rfs/js/Receipt_ZP_Barcode.js"></script>
+    <script language="javascript" type="text/javascript"></script>
+    <link href="~/areas/rfs/css/receipt_zp_barcode.css" rel="stylesheet" />
+}
+@section caption{@("成品组盘")}
+@section contentBody{
+    <div class="item_top">
+        <div class="header">
+            <p class="tip_border"><span class="tip">组盘站台：</span><input type="text" class="station"></p>
+            <p class="tip_border"><span class="tip">托盘条码：</span><input type="text" class="pallet_barcode" placeholder="请扫描托盘条码" /></p>
+            <p class="tip_border"><span class="tip">件烟条码：</span><input type="text" class="item_barcode" placeholder="请扫描件烟条码" /></p>
+        </div>
+        <div class="body">
+            <p class="barcode_qty">已扫描件烟数：<span class="qty"></span></p>
+            <hr>
+            <div class="container"></div>
+        </div>
+        <div class="bottom">
+            <a class="commit_btn" onclick="commit_btn()">提交</a>
+        </div>
+    </div>
+}

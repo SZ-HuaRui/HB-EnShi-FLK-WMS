@@ -1,0 +1,92 @@
+#admin_login{background:url("../img/iprod_login_bg.jpg") no-repeat center;background-size:cover;position:relative;overflow-y: auto;}
+#admin_login .layui-header{background-color:transparent;padding-top:15px;height:50px;}
+#admin_login .layui-header .logo{padding-left:36px;height:50px;}
+#admin_login .layui-header .logo .icon{display:block;width:280px;height:50px;background:url("../img/login_logo_develop.png") no-repeat center;background-size:cover;}
+#admin_login .layui-layout-left{left:0;top:15px;}
+.layui-header .language{width:90px;height:37px; align-items: center; color:#fff;padding-top: 28px;opacity: 0.8;right: 50px;user-select:none;}
+.layui-header .language .local_span{display: inline-block;font-size: 16px;margin-right: 6px;cursor: pointer;}
+.layui-header .language .icon{height: 10px;width: 15px;cursor: pointer;position:absolute;right:2px;top:34px;display:inline-block;}
+.layui-header .language .icon_down{background:url("../img/login_down.png") no-repeat center;background-size:cover;}
+.layui-header .language .icon_up{background:url("../img/login_up.png") no-repeat center;background-size:cover;}
+.layui-header .language .local_ul{width: 140px;position: absolute;top: 58px;right: 0;background: #ffffff;border-radius: 4px;padding: 0px 0px;}
+.layui-header .language .local_ul.hide{display:none;}
+.layui-header .language .local_ul li{height: 34px;padding: 5px 24px;line-height: 34px;color: #333333;font-size: 14px;list-style: none;}
+.layui-header .language .local_ul li:hover{color: #da251c;background: #efefef;cursor: pointer;}
+
+#admin_login .layui-body{left:0px;top: 150px;overflow: inherit;position:relative;}
+.system_info{height:167px;position: relative;}
+.system_info .title{position: absolute;top: 0px;left: 250px;font-size: 36px;color: #ffffff;}
+.system_info .desc{position: absolute;top: 70px;left: 250px;line-height: 180%;padding-top:8px;font-size: 16px;color: #ffffff;opacity: 0.8;}
+.login{border-radius: 5px;position: absolute;z-index: 999;background-color: #ffffff;top: 200px;right: 350px;width: 320px;height: 320px;padding:96px 32px 0px;}
+.login .login_title{position: absolute;top: 24px;left: 32px;font-size: 24px;}
+.login span{color: #586069;font-size: 14px;display: inline-block;}
+#admin_login .layui-body .logo{position:absolute;left:102px;top:-70px;display:none;}
+#admin_login .layui-body .logo .icon{display:block;width:175px;height:50px;background:url("../img/login_logo_develop.png") no-repeat 0px 0px;}
+
+
+
+.login_btn {
+    float: left;
+}
+.reg_btn {
+    float: right;
+}
+.login .layui-form-label{display:inline-block; float:none;padding:0 0 8px 0;text-align:left;color:#586069;font-size:16px;}
+.login .layui-input-block{margin-left:0px;}
+.layui-form-item{position:relative;margin-bottom:20px;}
+.forget_password{display: inline-block;position: absolute;top: 0;right: 0;cursor: pointer;color: #b2b2b2;font-size: 16px;}
+.experience_btn{cursor: pointer;margin-top: 32px;display: inline-block;line-height: 48px;height: 48px;width: 148px;text-align: center;font-size: 18px;color: #fff;background: #da251c;transition: background-color 218ms;}
+.experience_btn:hover{background-color: #cf1910;text-decoration: none;color: #fff;}
+.experience_btn_reg{cursor: pointer;margin-top: 32px;display: inline-block;line-height: 48px;height: 48px;width: 148px;text-align: center;font-size: 18px;color: #da251c;background: #fff;border:solid 1px #da251c; transition: background-color 218ms;}
+.experience_btn_reg:hover{background-color: #da251c;text-decoration: none;color: #fff;}
+.experience_btn_reg:active {background-color: #85e0d4;text-decoration: none;color: #fff;cursor: pointer;}
+
+#admin_login .layui-footer{line-height:24px;left:0px;padding:15px 0px;height:170px;background-color:rgb(56, 56, 58);}
+.layui-footer .con_part{position:relative;left:50%;transform:translateX(-50%);width:685px;height:134px;}
+.layui-footer .about-us{position: absolute;float: left;color: #ffffff;left:0px;width: 300px;line-height: 180%;}
+.layui-footer .container-info-title{font-size: 18px;color: #ffffff;text-decoration: none;padding-bottom: 10px;display: inline-block;}
+.layui-footer .about-us span {opacity: 0.8;font-size: 12px;color: #ffffff;}
+.layui-footer .contact-us{position: absolute;float: left;color: #ffffff;left: 450px;}
+.layui-footer .contact-us .row div:first-child { margin-bottom: 16px;}
+.layui-footer .imgspan{display: flex;align-items: center;}
+.layui-footer .focus-us{position: absolute;float: right;color: #ffffff;top:15px; right: 150px;line-height:24px;display:none;}
+.layui-footer .focus-us span {opacity: 0.8;color: #ffffff;font-size:12px;line-height:14px;}
+.layui-footer .foot{height:16px;line-height:16px; width: 100%;text-align: center;opacity: 0.5;color: #ffffff;position: absolute;bottom: 5px;z-index: 111;font-size: 12px;}
+
+
+/*手机端*/
+@media screen and (max-width:767px){
+    #admin_login{background:url("../img/login_phone_bg_img.jpg") no-repeat center;background-size:cover;}
+    #admin_login .layui-header .logo .icon{width:100px;background:url("../img/login_logo_develop.png") no-repeat -183px 0px;}
+    #admin_login .layui-body .logo{display:block;}
+    #admin_login .login{right: 50%;transform: translateX(50%);top:20px;padding: 90px 15px 0px;}
+    #admin_login .layui-footer{display:none;}
+    #admin_login .system_info{display:none;}
+    .layui-header .logo,.layui-header .language{display:none;}
+    #admin_login .layui-body {top: 60px;}
+}
+/*小屏幕*/
+@media screen and (min-width:768px) and (max-width:991px){
+    #admin_login .login{right: 50%;transform: translateX(50%);top:150px;}
+    #admin_login .system_info{display:none;} 
+}
+/*中等屏幕*/
+@media screen and (min-width:992px) and (max-width:1199px){
+    .layui-footer .con_part{left:7%;transform:translateX(0);}
+    .layui-footer .focus-us{right:30px;display:block;}
+    .system_info .desc,.system_info .title{left:100px;}
+    .login{top:140px;right:170px;}
+    .layui-header .logo{display:block;}
+}
+/*大屏幕*/
+@media screen and  (min-width:1200px){
+    .layui-footer .con_part{left:200px;transform:translateX(0);}
+    .layui-footer .focus-us{display:block;}
+    .system_info .desc,.system_info .title{left:160px;}
+    .login{top:-50px;right:160px;}
+    .layui-header .logo{display:block;}
+}
+/*高度太低*/
+@media screen and (max-height:685px){
+     #admin_login .layui-footer{display:none;}
+}

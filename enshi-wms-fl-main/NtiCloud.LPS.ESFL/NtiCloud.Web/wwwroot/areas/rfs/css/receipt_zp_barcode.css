@@ -1,0 +1,7 @@
+.container {
+    height: 100px;
+    overflow-y: auto;
+}
+.barcode_qty {
+    margin-top:10px;
+}

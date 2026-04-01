@@ -1,0 +1,112 @@
+
+.container {
+    max-width: 100%;
+    overflow-y: auto;
+}
+
+.content {
+    padding: 0;
+    background: url(../img/login_bg.png) center no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+    .content .main_content {
+        width: 480px;
+        height: 580px;
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -290px;
+        margin-left: -240px;
+    }
+.main_con {
+    padding: 56px 40px;
+    background: rgba(255,255,255,1);
+    position: relative;
+}
+.logo {
+    text-align: center;
+    line-height: 60px;
+}
+    .logo img {
+		display: inline-block;
+        width: 240px;
+        cursor: pointer;
+		
+    }
+.main_ul {
+    padding-left: 0;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    margin: 33px 0 18px;
+}
+    .main_ul li {
+        list-style: none;
+        /*float: left;*/
+        width: 100%;
+        font-size: 18px;
+        font-weight: 400;
+        color: #333333;
+        /*border-bottom: 1px solid #E2E2E2;
+        cursor:pointer;*/
+    }
+.main_text {
+    height: 328px;
+    overflow-y: auto;
+    margin-bottom:32px;
+}
+.main_text p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+}
+.login_btn a {
+    border: none;
+    /*background: #C8161D;*/
+    font-size: 18px;
+    width: 100%;
+    color: #C8161D !important;
+    display: inline-block;
+    line-height: 48px;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration:none;
+}
+    .login_btn a:active {
+        background-color: #C8161D;
+        color: #FFFFFF !important;
+    }
+.login_btn {
+    margin: 0 0 0;
+    text-align: center;
+    border: 1px solid #C8161D;
+}
+@media screen and (max-width:1366px) {
+    .main_con {
+        padding: 30px 40px;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    
+}
+
+@media screen and (max-width:991px) {
+    
+}
+
+@media screen and (max-width: 768px) {
+    
+}
+
+@media screen and (max-width: 576px) {
+    .content .main_content {
+        width: 340px;
+        margin-left: -170px;
+    }
+    .forget_password a {
+        font-size: 12px;
+    }
+}

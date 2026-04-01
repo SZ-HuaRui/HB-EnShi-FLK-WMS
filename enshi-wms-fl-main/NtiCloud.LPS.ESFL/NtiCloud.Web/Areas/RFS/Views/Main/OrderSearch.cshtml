@@ -1,0 +1,30 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("订单查询")}
+@section footerScript{
+    <script src="~/areas/rfs/js/OrderSearch.js"></script>
+}
+@section caption{@("订单查询")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border rf_top"><span class="title">单号：</span><select id="receipt_no"></select></p>
+            </div>
+        </div>
+    </div>
+    <div class="table_div">
+        <table class="location_table table_loc" border="1" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>物料编码</th>
+                    <th>物料名称</th>
+                    <th>计划数(件)</th>
+                    <th>完成数(件)</th>
+                    <th>剩余数(件)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,57 @@
+﻿body {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑,Arial;
+}
+.toolbar {
+    height: 30px;
+    padding-left: 2px;
+    margin-top: 1px;
+    padding-top: 5px;
+    background: #fafbfc;
+    border-top: 0px solid #eef1f5;
+    border-bottom: 1px solid #f7f8f8;
+}
+
+.toolbar a {
+    display: inline-block;
+    cursor: default;
+    height: 24px; 
+    padding: 0 4px 0 4px;
+    line-height: 24px;
+    border: 1px dashed transparent;
+    _border-color: #fafbfc;
+    text-decoration: none;
+    color: #000000;
+}
+
+.toolbar a:hover {
+    display: inline-block;
+    box-shadow: 0 0 3px #95ccfb;
+    cursor: default;
+    height: 24px;
+    padding: 0 4px 0 4px;
+    line-height: 24px;
+    border: 1px solid #69a9c6;
+    background: #daeef9;
+    text-decoration: none;
+    color: #000000;
+}
+.toolbar a:hover i {
+    color: #3499f0;
+}
+.toolbar a span {
+    padding-left: 20px;
+    display: inline-block;
+    cursor: default;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding: 0 8px;
+}
+.toolbarsplit {
+    background: url(../../../lib/roadui/Blue/Images/toolbar/split.gif) no-repeat left center;
+    width: 2px;
+    margin-left: 3px;
+    vertical-align: middle;
+}

@@ -1,0 +1,34 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("任务申请)")}
+@section footerScript{
+    <script src="~/areas/rfs/js/ApplyTask.js"></script>
+}
+@section caption{@("任务申请)")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border">
+                    <span class="title">任务类型：</span><select id="ddlApplyType">
+                        <option value="EmptyContainer">空托盘入库</option>
+                        <option value="TallyedContainer">托盘入库</option>
+                        <option value="ProductContainer">生产入库</option>
+                    </select>
+                </p>
+                <p class="rf_border">
+                    <span class="title">站台：</span>
+                    <input type="text" class="rf_border_d" id="txtStationCode"/>
+                </p>
+                <p class="rf_border">
+                    <span class="title">容器：</span>
+                    <input type="text" class="rf_border_d" id="txtContainerNo"/>
+                </p> 
+            </div>
+            <div class="button_t button_top">
+                <div class="button">
+                    <button id="btnSubmit">确定</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+}

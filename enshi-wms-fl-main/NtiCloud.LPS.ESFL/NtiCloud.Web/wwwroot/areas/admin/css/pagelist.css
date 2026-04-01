@@ -1,0 +1,15 @@
+﻿
+
+.panel.layout-panel.layout-panel-west.panel-htop.layout-split-west{margin-left:4px;}
+
+.datagrid-cell {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width:991px){
+        a.btn{font-size:13px;padding:4px 6px;}
+    .datagrid-header .datagrid-cell span{font-size:13px;}
+    .datagrid-cell{font-size:13px;}
+}

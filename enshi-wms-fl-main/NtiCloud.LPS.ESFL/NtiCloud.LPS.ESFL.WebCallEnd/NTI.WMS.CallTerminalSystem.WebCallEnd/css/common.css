@@ -1,0 +1,102 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* CSS Document */
+
+
+.modifypwd  {
+      background: #CCC;
+      width: 440px;
+      padding: 30px;
+      font: bold 14px/100% "微软雅黑", "Lucida Grande", "Lucida Sans", Helvetica, Arial, Sans;;
+      color: #000;
+   /*  text-shadow: 20px 1px 1px #212121; */
+  }
+  .number_bg
+  {
+	width: 514px;
+	height: 380px;
+	background: url("../images/number/number_bg.png") no-repeat;
+	background-position: top;
+	position:absolute;top:100px;left:5px;
+}
+
+  .number_bg_p
+  {
+	width: 514px;
+	height: 380px;
+	background: url("../images/number/number_bg.png") no-repeat;
+	background-position: top;
+	position:absolute;top:100px;left:5px;
+}
+.number_text {
+	width: 400px;
+	height: 50px;
+	margin-top: 10px;
+	overflow:hidden;
+	margin-left: 55px;
+	position: relative;
+	float: left;
+}
+
+.number_text_in{
+	width: 500px;
+	height: 32px;
+	text-align: left;
+	color: black;
+	margin-left: 5px;
+	margin-top:18px;
+	line-height: 32px;
+	overflow:hidden;
+	font-family: 方正大标宋简体;
+	font-size: 32px;
+	background: none;
+	border: none;
+	position: relative;
+	float: left;
+}
+
+.number_bg ul{
+    margin-left:30px;
+	float: none;
+}
+.number_bg_p ul{
+    margin-left:30px;
+	float: none;
+}
+
+.number_bg li{
+	float: left;
+	position: relative;
+	list-style-type: none;
+	width: 91px;
+	height:60px;
+	color: black;
+	text-align: center;
+	line-height: 60px;
+	font-family: 方正大标宋简体;
+	font-size: 26px;
+        font-weight:bold;
+	cursor: pointer; 
+	margin-left:25px;
+	margin-top: 13px;
+	background: url("../images/number/btn_disabel.png") no-repeat;
+	background-position: top;
+}
+.number_bg_p li{
+	float: left;
+	position: relative;
+	list-style-type: none;
+	width: 91px;
+	height:60px;
+	color: black;
+	text-align: center;
+	line-height: 60px;
+	font-family: 方正大标宋简体;
+	font-size: 26px;
+        font-weight:bold;
+	cursor: pointer; 
+	margin-left:25px;
+	margin-top: 13px;
+	background: url("../images/number/btn_disabel.png") no-repeat;
+	background-position: top;
+}

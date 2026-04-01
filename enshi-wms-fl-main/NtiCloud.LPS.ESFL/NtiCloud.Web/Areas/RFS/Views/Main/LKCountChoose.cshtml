@@ -1,0 +1,47 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/areas/rfs/css/reset.css" rel="stylesheet" />
+    <link href="~/areas/rfs/css/common.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/areas/rfs/js/LendOut.js"></script>
+    <script src="~/areas/rfs/js/common.js"></script>
+    <script src="~/lib/layer/layer.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <script src="~/areas/rfs/js/LKCountChoose.js"></script>
+    <title>选择盘点模式</title>
+</head>
+<body>
+    <input type="hidden" id="Web_Token_XSRF_CSRF" value="@Antiforgery.GetAndStoreTokens(Context).RequestToken" />
+    <div class="top_nav">
+        <p><strong>选择盘点模式</strong></p>
+        <div class="rf_head">
+            <a href="javascript:history.go(-1)" class="rf_goback">返回</a>
+        </div>
+        <div class="rf_headmain">
+            <a href="/RFS/Main/Index" class="rf_home">主页</a>
+            <a class="rf_out">退出</a>
+        </div>
+    </div>
+    <div class="warp">
+        <div class="warp_d">
+            <div class="button_t">
+                <div class="button">
+                    <a id="single" href="LKCountSingle?AppCode=WMS"  style="margin-right:10px;">快速盘点</a>
+                    <a id="scanBn" href="LKCountScanBN?AppCode=WMS"  style="margin-left:0px;">扫BN盘点</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

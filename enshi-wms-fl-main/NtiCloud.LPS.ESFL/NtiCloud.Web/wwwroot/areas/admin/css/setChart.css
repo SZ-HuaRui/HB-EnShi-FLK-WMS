@@ -1,0 +1,17 @@
+body,p{
+    margin: 0px;
+}
+.chartArea{
+    position:fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+}
+.chartArea .chart{
+    text-align:center;
+    width: 98%;
+    height: 98%;
+    margin: 1%;
+}

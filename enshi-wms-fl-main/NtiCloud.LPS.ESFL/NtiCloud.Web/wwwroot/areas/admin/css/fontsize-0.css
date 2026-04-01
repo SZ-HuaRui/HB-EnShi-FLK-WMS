@@ -1,0 +1,162 @@
+﻿/*admin\css\easyui.css*/
+
+/*admin\css\themes\base\easyui.css*/
+.panel-body {
+    font-size: 12px;
+}
+
+.panel-title {
+    font-size: 12px;
+    height: 16px;
+    line-height: 16px;
+}
+
+.l-btn-text {
+	font-size: 12px;
+}
+
+.textbox .textbox-prompt {
+	font-size: 12px;
+}
+
+.datagrid-cell-rownumber {
+    font-size: 12px;
+}
+
+.datagrid-header .datagrid-cell span {
+	font-size: 12px;
+}
+
+.tree-title {
+    font-size: 12px;
+    padding: 5px 2px;
+    height: 18px;
+    line-height: 18px;
+}
+
+/*admin\css\themes\skin-bluelight.css*/
+.datagrid-row{height:30px;}
+.datagrid-row-selected{height: 30px;}
+
+/*admin\css\common.css*/
+body {
+    font-size: 12px;
+}
+.btn {
+	padding: 4px 12px;
+    margin: 0px 4px;
+    font-size: 12px;
+}
+.btnline {
+	font-size: 12px;
+}
+.datagrid .panel-title {
+    line-height: 20px;
+}
+.tree-node {
+	height: 25px;
+}
+.mvctool {
+    height: 32px;
+}
+.formtable {
+    font-size: 12px;
+}
+.formtable th {
+	height: 50px;
+	font-size: 12px;
+}
+
+/*admin\css\main.css*/
+.left_bar {
+    width: 220px;
+}
+.left_bar .btn_left_menu {
+	font-size: 20px;
+}
+.left_menu .first_tab li {
+	height: 44px;
+	line-height: 44px;
+	font-size: 14px;
+}
+.left_menu .second_tab p, .left_menu .third_tab p {
+	font-size: 16px;
+}
+.left_menu .second_tab li, .left_menu .third_tab li {
+	line-height: 44px;
+	font-size: 14px;
+}
+.tabs .btn_arrow {
+	font-size: 20px;
+}
+.tabs_main li.initTab .tab_menu {
+    padding: 0px 2px !important;
+}
+.tabs_main .tab_menu {
+    min-width: 60px;
+    padding: 0px 2px 0px 14px;
+    font-size: 14px;
+}
+
+.tabs_main li .tab_menu {
+    padding-right: 16px;
+}
+.tabs .skullselect {
+	font-size: 18px;
+}
+.skullselect ul {
+    font-size:14px;
+}
+li.show_tab em {
+    font-size: 16px;
+}
+.tabs .settings ul {
+	width: 160px;
+	height: 200px;
+	padding: 10px 0;
+}
+.tabs .settings ul li {
+	height: 45px;
+	line-height: 45px;
+	font-size: 14px;
+}
+.content .location_content li a{
+	font-size: 12px;
+}
+.phone_header_title{height:50px;line-height:50px;font-size:17px;}
+.phone_block .title .title_name{font-size:15px;}
+.phone_block .title .span_btn{font-size:15px;}
+.block_area .block p i.mdi{font-size:32px;}
+.block_area  .block p i{font-size:32px;}
+.block_area  .block span{font-size:14px;}
+.action_set_area li{height:49px;line-height:50px;}
+.action_set_area li span{font-size:15px;}
+.action_set_area li .icon{top:10px;}
+.phone_area #login_out{height:44px;line-height:44px;font-size:15px; }
+.modify_psword p .lable{width:76px;font-size:14px;}
+.modify_psword #confirm_modify{font-size:15px;}
+
+/*admin\css\Desktop.css*/
+.head_top {
+    width: 75px;
+    font-size: 15px;
+}
+.span_top {
+    font-size: 14px;
+}
+.span_up {
+    font-size: 30px;
+}
+.page {
+	font-size: 14px;
+}
+.news {
+	font-size: 15px;
+}
+.font_d {
+    font-size: 14px;
+    line-height: 36px;
+}
+.my_time {
+    font-size: 14px;
+}

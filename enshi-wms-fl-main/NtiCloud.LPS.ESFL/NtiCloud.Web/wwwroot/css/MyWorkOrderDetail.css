@@ -1,0 +1,208 @@
+.warp{
+    /* width:1920px;
+    height:1080px; */
+    background:#F7F7FA;
+}
+.warp .head{
+    /* width:1700px; */
+    /* height:48px; */
+    height: 48px;
+    line-height: 48px;
+    background: rgba(255,255,255,1);
+    box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.05);
+    }
+.header_c{
+    display: inline-block;
+    text-align: left;
+    padding-left: 24px;
+    color: #666666;
+    font-size: 13px;
+    }
+        
+.header_a{
+    display: inline-block;
+    color: #666666;
+    font-size: 13px;
+}
+.header_b{
+    display: inline-block;
+    text-align: left;
+    color: #666666;
+    font-size: 13px;
+}
+.tool{
+    margin: 32px;
+    /* width:1652px;
+    height:100px; */
+    height: 100px;
+    line-height: 100px;
+    position: relative;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 1px 6px 0px rgba(0,0,0,0.05);
+    margin: 24px 0px 24px;
+}
+.tool_top{
+    display: inline-block;
+    color: #666666;
+    margin: 0 48px;
+    /* height: 100px;
+    line-height: 100px; */
+    font-size: 13px;
+}
+.foot{
+    /* margin-top: 134px; */
+    margin-left: 0px;
+    margin-right: 0px;
+    /* position: relative; */
+    /* width:1652px; */
+    /* height:297px; */
+    background:rgba(255,255,255,1);
+    box-shadow:0px 1px 6px 0px rgba(0,0,0,0.05);
+}
+.footer .call{
+    margin: 17px 0 0 32px;
+    display: inline-block;
+}
+.footer_top img{
+    margin-left: 32px;
+    width: 38px;
+    height: 38px;
+    display: inline-block;
+}
+.today{
+    position: relative;
+}
+.today .today_a{
+    margin-left: 32px;
+        
+    padding: 24px 0;
+}
+.today:not(:last-child) .today_a{
+    border-bottom: 1px dashed #E2E2E2;
+}
+.today .up{
+    position: absolute;
+    top: 25px;
+    left: 84px;
+}
+
+.today img{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+.top_top{
+    color: #666666;
+    font-size: 12px;
+}
+.top_up{
+    color: #333;
+    font-size: 12px;
+}
+.all div{
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.all .input{
+    position: absolute;
+    top: 34px;
+    right: 164px;
+    background: red;
+    font-size: 14px;
+    color: #ffffff;
+}
+.all .input_up{
+    position: absolute;
+    top: 34px;
+    right: 48px;
+    background: #ffffff;
+    font-size: 14px;
+    color: #666666;
+}
+.timeone{
+    display: inline-block;
+    position: absolute;
+    top: 42px;
+    right: 32px;
+    font-size: 12px;
+    color: #999999;
+}
+.time{
+    display: inline-block;
+    position: absolute;
+    top: 38px;
+    right: 32px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.warp_top {
+    margin-top: 32px;
+    height: 164px;
+    margin:0 0px;
+}
+.top {
+    float: left;
+}
+    .top p {
+        font-size: 12px;
+        color: #C1B5B8;
+        display: inline-block;
+    }
+    .top span {
+        color: #C8161D;
+        font-size: 12px;
+    }
+.up {
+    float: left;
+}
+    .up textarea {
+        padding: 8px 16px;
+        margin-left: 16px;
+        display: inline-block;
+        width: 520px;
+        height: 160px;
+        background: rgba(255, 255, 255, 1);
+        border: 1px solid rgba(226, 226, 226, 1);
+    }
+.submis {
+    width: 84px;
+    height: 36px;
+    background: red;
+    font-size: 14px;
+    color: #ffffff;
+    display: inline-block;
+    text-align: center;
+    line-height: 36px;
+    margin: 28px 0 32px 105px;
+    cursor: pointer;
+}
+@media (min-width: 1681px) {
+    
+}
+@media (min-width: 1200px) and (max-width:1680px) {
+    
+}
+@media screen and (max-width:1399px) {
+}
+
+@media screen and (max-width:1200px) {
+}
+
+@media screen and (max-width:991px) {
+}
+
+@media screen and (max-width: 768px) {
+    
+}
+@media screen and (max-width: 576px) {
+    
+    
+}
+@media screen and (max-width: 400px) {
+    
+}

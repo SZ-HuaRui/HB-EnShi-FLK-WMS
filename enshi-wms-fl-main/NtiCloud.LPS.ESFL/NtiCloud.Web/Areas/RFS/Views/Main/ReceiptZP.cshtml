@@ -1,0 +1,35 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("收货")}
+@section footerScript{
+    <script src="~/areas/rfs/js/Receipt_ZP.js"></script>
+}
+@section caption{@("组盘")}
+@section contentBody{
+    <div class="item_top">
+        <p class="tip_border"><span class="tip">收货单号：</span><select id="receipt_no" class="receipt_select"></select></p>
+        <p class="tip_border"><span class="tip">物料编码：</span><input id="item_code" type="text" class="code_text"></p>
+        <p class="tip_border"><span class="tip">物料名称：</span><select id="item_name" class="name_select"></select></p>
+        <p class="tip_border"><span class="tip">托盘载量：</span><input id="max_container_qty" type="text" disabled></p>
+        <p class="tip_border"><span class="tip">物料单位：</span><input id="item_uom_name" type="text" disabled></p>
+        <p class="tip_border"><span class="tip">待收货量：</span><input id="item_finished_qty" type="text" disabled></p>
+        <p class="tip_border">
+            <span class="tip">质检状态：</span>
+            <select id="qc_status" class="qc_select">
+                <option value="QcStatus_CheckPassed">合格</option>
+                <option value="QcStatus_CheckAvoid">免检</option>
+                <option value="QcStatus_CheckFailed">不合格</option>
+            </select>
+        </p>
+        <p class="tip_border"><span class="tip">批次号码：</span><select id="item_lot" class="lot_select"></select></p>
+        <p class="tip_border"><span class="tip">供应商码：</span><select id="item_supplier" class="supplier_select"></select></p>
+        <p class="tip_border"><span class="tip">实际数量：</span><input id="item_qty" type="text"></p>
+        <p class="tip_border"><span class="tip">托盘条码：</span><input id="barcode" type="text" class="bom_text" placeholder="请扫描托盘条码" /></p>
+        <hr width="254" align="left" />
+        <p><span class="tip">物料标签：</span><input id="label_code" type="text" class="code_text" placeholder="请扫描标签条码"></p>
+        <div class="bottom">
+            <a class="conform_btn" onclick="confirm_btn()">确定</a>
+        </div>
+    </div>
+}
+
+

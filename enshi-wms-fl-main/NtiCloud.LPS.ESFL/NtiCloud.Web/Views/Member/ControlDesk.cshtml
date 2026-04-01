@@ -1,0 +1,296 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutMember.cshtml";
+}
+@section TitleSection{今天云平台控制台}
+@section HeaderSection{
+    <link href="~/css/cloud_control_desk.css" rel="stylesheet" />
+    <script src="~/js/cloud_control_desk.js"></script>
+}
+@section ContentBody{
+
+    <div id="phone_nav">
+        <p class="phone_nav_logo"></p>
+        <p class="phone_nav_title">提供专业完善的业务解决方案</p>
+        <p class="phone_nav_sub_title">操作简单高效 随需求即时搭建随时可用</p>
+        <p class="phone_nav_btn">立即体验</p>
+    </div>
+    <div class="main_content">
+        <div class="container_d con_product">
+            @{
+                System.Data.DataTable dttype = (System.Data.DataTable)ViewData["ProdType"];
+                for (int i = 0; i < dttype.Rows.Count; i++)
+                {
+                    <div class="content_c">
+                        <div class="head_pc">
+                            <div class="title">
+                                <span class="word">@Html.Raw(dttype.Rows[i]["categoryname"])</span>
+                                <p><span></span></p>
+                                <span class="btn_pic btn_pic_up"></span>
+                                <span class="btn_word">收起</span>
+                            </div>
+                        </div>
+                        <div class="product_body">
+                            @{
+                                System.Data.DataTable dtprod = (System.Data.DataTable)ViewData["ProdApp"];
+                                if (dtprod.Rows.Count > 0)
+                                {
+                                    dtprod.DefaultView.RowFilter = "categorycode = '" + dttype.Rows[i]["categorycode"] + "'";
+                                    System.Data.DataTable dtapp = dtprod.DefaultView.ToTable();
+                                    for (int j = 0; j < dtapp.Rows.Count; j++)
+                                    {
+                                        if (dtapp.Rows[j]["applink"] != null && dtapp.Rows[j]["applink"].ToString().IndexOf("http") == 0 && dtapp.Rows[j]["applink"].ToString().IndexOf("?") > 0)
+                                        {
+                                            dtapp.Rows[j]["applink"] = dtapp.Rows[j]["applink"] + "&sessionKey=" + NtiCloud.Web.Common.HttpContext.GetSessionKey();
+                                        }
+                                        else if (dtapp.Rows[j]["applink"] != null && dtapp.Rows[j]["applink"].ToString().IndexOf("http") == 0)
+                                        {
+                                            dtapp.Rows[j]["applink"] = dtapp.Rows[j]["applink"] + "?sessionKey=" + NtiCloud.Web.Common.HttpContext.GetSessionKey();
+                                        }
+                                        else if (dtapp.Rows[j]["applink"].ToString().IndexOf("/") == -1 && dtapp.Rows[j]["applink"].ToString() != "")
+                                        {
+                                            dtapp.Rows[j]["applink"] = "/Admin/Main?AppCode=" + dtapp.Rows[j]["appcode"];
+                                        }
+                                        else if (dtapp.Rows[j]["applink"].ToString() == "/Member/ProdList")
+                                        {
+                                            dtapp.Rows[j]["applink"] = dtapp.Rows[j]["applink"].ToString() + "?prodcode=" + dtapp.Rows[j]["appcode"];
+                                        }
+                                        else if (dtapp.Rows[j]["applink"].ToString() == "")
+                                        {
+                                            dtapp.Rows[j]["applink"] = "#";
+                                        }
+                                        <div class="work_content">
+                                            <a href="@dtapp.Rows[j]["applink"]">
+                                                <div class="product_content">
+                                                    <div style="background:@dtapp.Rows[j]["appcolor"];" class="left_icon">
+                                                        <span class="@dtapp.Rows[j]["appicon"]"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="title_a">
+                                                    <p class="pro_name">@Html.Raw(dtapp.Rows[j]["appname"])</p>
+                                                    <p class="pro_id">@dtapp.Rows[j]["appcode"]</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="container_d con_project" style="display:none;">
+            <div class="addBtn">
+                <div class="addBtn_d">
+                    <span class="addIcon"></span>
+                    <span class="addText">添加应用</span>
+                </div>
+            </div>
+            @{
+                System.Data.DataTable dtproj = (System.Data.DataTable)ViewData["Project"];
+                for (int i = 0; i < dtproj.Rows.Count; i++)
+                {
+                <div class="content_c">
+                    <div class="head_pc">
+                        <div class="title">
+                            <span class="word">@Html.Raw(dtproj.Rows[i]["client_name"])</span>
+                            <p><span></span></p>
+                            <span class="btn_pic btn_pic_up"></span>
+                            <span class="btn_word">收起</span>
+                        </div>
+                    </div>
+                    <div class="product_body">
+                        @{
+                            System.Data.DataTable dtprojapp = (System.Data.DataTable)ViewData["ProjApp"];
+                            if (dtprojapp.Rows.Count > 0)
+                            {
+                                dtprojapp.DefaultView.RowFilter = "projectid = '" + dtproj.Rows[i]["t_id"] + "'";
+                                System.Data.DataTable dtnewapp = dtprojapp.DefaultView.ToTable();
+                                for (int j = 0; j < dtnewapp.Rows.Count; j++)
+                                {
+                                    if (dtnewapp.Rows[j]["applink"] != null && dtnewapp.Rows[j]["applink"].ToString().IndexOf("http") == 0 && dtnewapp.Rows[j]["applink"].ToString().IndexOf("?") > 0)
+                                    {
+                                        dtnewapp.Rows[j]["applink"] = dtnewapp.Rows[j]["applink"] + "&sessionKey=" + NtiCloud.Web.Common.HttpContext.GetSessionKey();
+                                    }
+                                    else if (dtnewapp.Rows[j]["applink"] != null && dtnewapp.Rows[j]["applink"].ToString().IndexOf("http") == 0)
+                                    {
+                                        dtnewapp.Rows[j]["applink"] = dtnewapp.Rows[j]["applink"] + "?sessionKey=" + NtiCloud.Web.Common.HttpContext.GetSessionKey();
+                                    }
+                                    else if (dtnewapp.Rows[j]["applink"].ToString().IndexOf("/") == -1 && dtnewapp.Rows[j]["applink"].ToString() != "")
+                                    {
+                                        dtnewapp.Rows[j]["applink"] = "/Admin/Main?AppCode=" + dtnewapp.Rows[j]["appcode"]+ "&DbCode=" + dtnewapp.Rows[j]["projectdb"]+ "&ClientId=" + dtnewapp.Rows[j]["projectid"];
+                                    }
+                                    else if (dtnewapp.Rows[j]["applink"].ToString() == "")
+                                    {
+                                        dtnewapp.Rows[j]["applink"] = "#";
+                                    }
+                                    <div class="work_content">
+                                        <a href="@dtnewapp.Rows[j]["applink"]">
+                                            <div class="product_content">
+                                                <div style="background:@dtnewapp.Rows[j]["appcolor"];" class="left_icon">
+                                                    <span class="@dtnewapp.Rows[j]["appicon"]"></span>
+                                                </div>
+                                            </div>
+                                            <div class="title_a">
+                                                <p class="pro_name">@dtnewapp.Rows[j]["projectappname"]</p>
+                                                <p class="pro_id">@dtnewapp.Rows[j]["projectappcode"]</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="modal-d choose_pro" style="display:none;">
+        <div class="modal-d-dialog">
+            <div class="modal-d-content">
+                <div class="modal-d-header">
+                    <h5 class="modal-d-title">构建选择</h5>
+                    <img class="close_b" src="~/img/icon_close.png">
+                </div>
+                <div class="modal-d-body">
+                    @{
+                        for (int i = 0; i < dttype.Rows.Count; i++)
+                        {
+
+                            <div class="modal_content_c">
+                                <div class="panel-heading">
+                                    <div class="title">
+                                        <span class="word">@Html.Raw(dttype.Rows[i]["categoryname"])</span>
+                                        <p><span></span></p>
+                                        <span class="btn_pic btn_pic_up"></span>
+                                    </div>
+                                </div>
+                                <div class="collapse_d">
+                                    @{
+                                        System.Data.DataTable dtprod = (System.Data.DataTable)ViewData["ProdApp"];
+                                        if (dtprod.Rows.Count > 0)
+                                        {
+                                            dtprod.DefaultView.RowFilter = "categorycode = '" + dttype.Rows[i]["categorycode"] + "'";
+                                            System.Data.DataTable dtapp = dtprod.DefaultView.ToTable();
+                                            for (int j = 0; j < dtapp.Rows.Count; j++)
+                                            {
+                                                <div class="product_body">
+                                                    <div class="product_top">
+                                                        <div style="background:@dtapp.Rows[j]["appcolor"];" class="left_icon">
+                                                            <span class="@dtapp.Rows[j]["appicon"]"></span>
+                                                        </div>
+                                                        <div class="right_title">
+                                                            <p class="top_title">@Html.Raw(dtapp.Rows[j]["appname"])</p>
+                                                            <p class="center_title">@dtapp.Rows[j]["appcode"]</p>
+                                                            <p class="up_title" title="@dtapp.Rows[j]["appnote"]">@dtapp.Rows[j]["appnote"] </p>
+                                                        </div>
+                                                        <div class="choose unchoosed chooseTop level_2"></div>
+                                                    </div>
+
+                                                    <div class="product_bottom">
+                                                        @{
+                                                            System.Data.DataTable dtprodmodule = (System.Data.DataTable)ViewData["ProdModule"];
+                                                            dtprodmodule.DefaultView.RowFilter = "appcode = '" + dtapp.Rows[j]["appcode"] + "'";
+                                                            System.Data.DataTable dtmodule = dtprodmodule.DefaultView.ToTable();
+                                                            for (int k = 0; k < dtmodule.Rows.Count; k++)
+                                                            {
+                                                                <div class="product_bottom_title">
+                                                                    <span class="word">@Html.Raw(dtmodule.Rows[k]["modulename"])</span>
+                                                                    <p><span></span></p>
+                                                                    <div class="choose unchoosed level_3"></div>
+                                                                </div>
+                                                            }
+                                                        }
+
+                                                        <!--div class="product_bottom_title">
+                                                            <span class="word">商务智能分析</span>
+                                                            <p><span></span></p>
+                                                            <div class="choose choosedUp"></div>
+                                                            <div class="four_menu">
+                                                                <div class="product_bottom_title">
+                                                                    <span class="word">商务智能分析</span>
+                                                                    <p><span></span></p>
+                                                                    <div class="choose unchoosed"></div>
+                                                                </div>
+                                                                <div class="product_bottom_title">
+                                                                    <span class="word">商务智能分析</span>
+                                                                    <p><span></span></p>
+                                                                    <div class="choose unchoosed level_4"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div-->
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                        }
+                    }
+                </div>
+            </div>
+            <p class="botton_p"><a class="botton_a next_step">下一步</a></p>
+        </div>
+    </div>
+    <div class="modal-d choose_clo" style="display:none;">
+        <div class="modal-d-dialog">
+            <div class="modal-d-content">
+                <div class="modal-d-header">
+                    <h5 class="modal-d-title">设置应用</h5>
+                    <img class="close_b" src="~/img/icon_close.png">
+                </div>
+                <div class="modal-d-body">
+                    <div class="choose_d choose_d_f">
+                        <span class="choose_title">应用颜色</span>
+                        <div class="color_con">
+                            <span class="choose_color color_red choosed" color_value="red"></span>
+                            <span class="choose_color color_blue choosed" color_value="blue"></span>
+                            <span class="choose_color color_green choosed" color_value="green"></span>
+                            <span class="choose_color color_yellow choosed" color_value="yellow"></span>
+                            <span class="choose_color color_cyan choosed" color_value="cyan"></span>
+                            <span class="choose_color color_grey choosed" color_value="grey"></span>
+                            <span class="choose_color color_black choosed" color_value="black"></span>
+                        </div>
+                    </div>
+                    <div class="choose_d icon_down">
+                        <span class="choose_title">应用图标</span>
+                        <input type="text" placeholder="选择应用图标">
+                        <img src="~/img/icon_down.png" alt="">
+                        <ul class="department_d process_select" style="display:none;">
+                            <li class="department_select_li">售前阶段</li>
+                            <li class="department_select_li">需求阶段</li>
+                            <li class="department_select_li">开发阶段</li>
+                            <li class="department_select_li">测试阶段</li>
+                            <li class="department_select_li">实施阶段</li>
+                        </ul>
+                    </div>
+                    <div class="choose_d">
+                        <span class="choose_title">应用标题</span>
+                        <input type="text" placeholder="取个应用标题">
+                    </div>
+                    <div class="choose_d">
+                        <span class="choose_title">英文简称</span>
+                        <input type="text" placeholder="给个简短的英文">
+                    </div>
+                    <div class="choose_d appType">
+                        <span class="choose_title">选择分类</span>
+                        <input type="text" placeholder="选择应用分组类别">
+                        <img src="~/img/icon_down.png" alt="">
+                        <ul class="process_d process_select" style="display:none;">
+                            <li class="process_select_li">售前阶段</li>
+                            <li class="process_select_li">需求阶段</li>
+                            <li class="process_select_li">开发阶段</li>
+                            <li class="process_select_li">测试阶段</li>
+                            <li class="process_select_li">实施阶段</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="botton_p"><a class="botton_a construct">构建</a></p>
+        </div>
+    </div>
+
+}

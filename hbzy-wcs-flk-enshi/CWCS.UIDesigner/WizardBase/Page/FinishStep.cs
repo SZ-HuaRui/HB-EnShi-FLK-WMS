@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace CWCS.UIDesigner.WizardBase
+{
+    [ToolboxItem(false), Designer(typeof(WizardStepDesigner)), DefaultEvent("Click")]
+    public class FinishStep : WizardStep
+    {
+        public FinishStep()
+        {
+            BackColor = SystemColors.ControlLightLight;
+           // BackgroundImage = System.Resources.back;
+        }
+
+        internal override void Reset()
+        {
+            BackColor = SystemColors.ControlLightLight;
+            //BackgroundImage = Resources.back;
+            BackgroundImageLayout = ImageLayout.Tile;
+        }
+
+        [DefaultValue(typeof(Color), "ControlLightLight")]
+        public override Color BackColor
+        {
+            get { return base.BackColor; }
+            set { base.BackColor = value; }
+        }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
+        public override Color ForeColor
+        {
+            get { return base.ForeColor; }
+            set { base.ForeColor = value; }
+        }
+    }
+}

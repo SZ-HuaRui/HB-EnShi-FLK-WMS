@@ -1,0 +1,238 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{今天云平台日志管理}
+@section HeaderSection{
+    <link href="~/areas/Daily/css/Template.css" rel="stylesheet" />
+    <script src="~/areas/Daily/js/Template.js"></script>
+}
+@section ContentBody{
+    <div class="template_con">
+        <div class="temp_top">
+            <div class="top_left">模板管理</div>
+            <div class="top_right" id="addTemp"><span class="addBtn mdi mdi-plus"></span>新建模板</div>
+        </div>
+        <div class="temp_bottom">
+            <div class="temp_list">
+                <div class="list_top">
+                    <div class="list_title">
+                        <img src="~/areas/Daily/img/icon-templet.png" />
+                        <span>会议纪要</span>
+                    </div>
+                    <div class="list_con">
+                        <p class="list_con_p"><span class="list_con_title">日期：</span><span class="list_con_t">可选择日期</span></p>
+                        <p class="list_con_p"><span class="list_con_title">服务人员：</span><span class="list_con_t">可填写文本类型</span></p>
+                        <p class="list_con_p"><span class="list_con_title">调试单号：</span><span class="list_con_t">可填写文本类型</span></p>
+                    </div>
+                </div>
+                <div class="list_bottom">
+                    <div class="list_data">2019/06/06</div>
+                    <div class="list_edit"><span class="list_invite">邀请填写</span><span class="list_delete">删除</span><span class="list_revise">修改</span></div>
+                </div>
+            </div>
+            <div class="temp_list">
+                <div class="list_top">
+                    <div class="list_title">
+                        <img src="~/areas/Daily/img/icon-templet.png" />
+                        <span>会议纪要</span>
+                    </div>
+                    <div class="list_con">
+                        <p class="list_con_p"><span class="list_con_title">日期：</span><span class="list_con_t">可选择日期</span></p>
+                        <p class="list_con_p"><span class="list_con_title">服务人员：</span><span class="list_con_t">可填写文本类型</span></p>
+                        <p class="list_con_p"><span class="list_con_title">调试单号：</span><span class="list_con_t">可填写文本类型</span></p>
+                    </div>
+                </div>
+                <div class="list_bottom">
+                    <div class="list_data">2019/06/06</div>
+                    <div class="list_edit"><span class="list_invite">邀请填写</span><span class="list_delete">删除</span><span class="list_revise">修改</span></div>
+                </div>
+            </div>
+            <div class="temp_list">
+                <div class="list_top">
+                    <div class="list_title">
+                        <img src="~/areas/Daily/img/icon-templet.png" />
+                        <span>会议纪要</span>
+                    </div>
+                    <div class="list_con">
+                        <p class="list_con_p"><span class="list_con_title">日期：</span><span class="list_con_t">可选择日期</span></p>
+                        <p class="list_con_p"><span class="list_con_title">服务人员：</span><span class="list_con_t">可填写文本类型</span></p>
+                        <p class="list_con_p"><span class="list_con_title">调试单号：</span><span class="list_con_t">可填写文本类型</span></p>
+                    </div>
+                </div>
+                <div class="list_bottom">
+                    <div class="list_data">2019/06/06</div>
+                    <div class="list_edit"><span class="list_invite">邀请填写</span><span class="list_delete">删除</span><span class="list_revise">修改</span></div>
+                </div>
+            </div>
+            <div class="temp_list">
+                <div class="list_top">
+                    <div class="list_title">
+                        <img src="~/areas/Daily/img/icon-templet.png" />
+                        <span>会议纪要</span>
+                    </div>
+                    <div class="list_con">
+                        <p class="list_con_p"><span class="list_con_title">日期：</span><span class="list_con_t">可选择日期</span></p>
+                        <p class="list_con_p"><span class="list_con_title">服务人员：</span><span class="list_con_t">可填写文本类型</span></p>
+                        <p class="list_con_p"><span class="list_con_title">调试单号：</span><span class="list_con_t">可填写文本类型</span></p>
+                    </div>
+                </div>
+                <div class="list_bottom">
+                    <div class="list_data">2019/06/06</div>
+                    <div class="list_edit"><span class="list_invite">邀请填写</span><span class="list_delete">删除</span><span class="list_revise">修改</span></div>
+                </div>
+            </div>
+            <div class="temp_list">
+                <div class="list_top">
+                    <div class="list_title">
+                        <img src="~/areas/Daily/img/icon-templet.png" />
+                        <span>会议纪要</span>
+                    </div>
+                    <div class="list_con">
+                        <p class="list_con_p"><span class="list_con_title">日期：</span><span class="list_con_t">可选择日期</span></p>
+                        <p class="list_con_p"><span class="list_con_title">服务人员：</span><span class="list_con_t">可填写文本类型</span></p>
+                        <p class="list_con_p"><span class="list_con_title">调试单号：</span><span class="list_con_t">可填写文本类型</span></p>
+                    </div>
+                </div>
+                <div class="list_bottom">
+                    <div class="list_data">2019/06/06</div>
+                    <div class="list_edit"><span class="list_invite">邀请填写</span><span class="list_delete">删除</span><span class="list_revise">修改</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="add_template" style="display:none;">
+        <div class="add_temp_con">
+            <div class="add_temp_top">
+                <span>创建模板</span>
+                <img id="close_img" src="~/areas/Daily/img/icon-close-nor.png" />
+            </div>
+            <div class="add_temp_main field_edit">
+                <div class="add_title">
+                    <span>标题:</span>
+                    <input type="text" class="add_input_t" placeholder="请填写模板名称(最多50个字)" />
+                </div>
+                <div class="add_field">
+                    <div class="sortBtn">排序</div>
+                    <div class="add_field_t">
+                        <div class="add_field_c field_d">
+                            <img class="delete_field" src="~/areas/Daily/img/icon-delete.png" />
+                            <input type="text" class="" placeholder="请先填写字段名称" />
+                            <div class="add_type"><span>文本型</span><img src="~/areas/Daily/img/icon-right.png" /></div>
+                        </div>
+                        <div class="add_btn" id="add_field">
+                            <img src="~/areas/Daily/img/icon-add.png" />
+                            <span>添加字段</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="save_btn">提交</button>
+            </div>
+            <div class="add_temp_main field_type_edit" style="display:none;">
+                <div class="add_title">
+                    <span>编辑字段属性:</span>
+                </div>
+                <div class="add_field">
+                    <div class="field_required"><span>是否必填:</span><input id="isRequired" class="easyui-switchbutton isRequired" data-options="onText:'',offText:'',width:26,height:16" checked></div>
+                    <div class="field_type">字段类型:</div>
+                    <div class="add_field_t">
+                        <div class="add_field_c prop_d" field_type="text" is_edit="false">
+                            <div class="prop_c"><div class="prop_img prop_b"></div><span>文本型</span></div>
+                        </div>
+                        <div class="add_field_c prop_d" field_type="number" is_edit="false">
+                            <div class="prop_c"><div class="prop_b"></div><span>数字型</span></div>
+                        </div>
+                        <div class="add_field_c prop_d" field_type="select" is_edit="true">
+                            <div class="prop_c"><div class="prop_b"></div><span>下拉选择项</span></div>
+                        </div>
+                        <div class="add_field_c prop_d" field_type="date" is_edit="false">
+                            <div class="prop_c"><div class="prop_b"></div><span>日期型</span></div>
+                        </div>
+                        <div class="add_field_c prop_d" field_type="radio" is_edit="false">
+                            <div class="prop_c"><div class="prop_b"></div><span>单选型</span></div>
+                        </div>
+                        <div class="add_field_c prop_d" field_type="checkbox" is_edit="false">
+                            <div class="prop_c"><div class="prop_b"></div><span>多选型</span></div>
+                        </div>
+                        <div class="add_field_c prop_d" field_type="switch" is_edit="true">
+                            <div class="prop_c"><div class="prop_b"></div><span>开关型</span></div>
+                        </div>
+                        <div class="add_field_c prop_d" field_type="grid" is_edit="true">
+                            <div class="prop_c"><div class="prop_b"></div><span>表格型</span></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="save_btn" field_type="text" isrequired="true">保存字段类型</button>
+            </div>
+            <div class="add_temp_main type_child" style="display:none;">
+                <div class="add_title">
+                    <span>编辑类型:</span>
+                </div>
+                <div class="add_field edit_select">
+                    <div class="field_type">下拉型:</div>
+                    <div class="add_field_t">
+                        <div class="add_field_c field_d">
+                            <img src="~/areas/Daily/img/icon-delete.png" />
+                            <input type="text" class="" placeholder="请先填写字段名称" />
+                            <div class="add_type"><img class="add_type_img" src="~/areas/Daily/img/icon-move.png" /></div>
+                        </div>
+                        <div class="add_field_c field_d">
+                            <img src="~/areas/Daily/img/icon-delete.png" />
+                            <input type="text" class="" placeholder="请先填写字段名称" />
+                            <div class="add_type"><img class="add_type_img" src="~/areas/Daily/img/icon-move.png" /></div>
+                        </div>
+                        <div class="add_btn">
+                            <img src="~/areas/Daily/img/icon-add.png" />
+                            <span>添加字段</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="add_field edit_switch">
+                    <div class="field_type">开关型:</div>
+                    <div class="button_t">
+                        <p class="button_p"><span class="button_img"></span><span class="button_type">定位开关</span></p>
+                        <p class="button_p"><span class="button_img button_active"></span><span class="button_type">定时发送开关</span></p>
+                        <p class="button_p"><span class="button_img"></span><span class="button_type">允许打印开关</span></p>
+                    </div>
+                </div>
+                <div class="add_field edit_grid">
+                    <div class="field_type">表格型:</div>
+                    <div class="field_type"><span>行:</span></div>
+                    <div class="add_field_t">
+                        <div class="add_field_c field_d">
+                            <img src="~/areas/Daily/img/icon-delete.png" />
+                            <input type="text" class="" placeholder="请先填写字段名称" />
+                            <div class="add_type"><img class="add_type_img" src="~/areas/Daily/img/icon-move.png" /></div>
+                        </div>
+                        <div class="add_field_c field_d">
+                            <img src="~/areas/Daily/img/icon-delete.png" />
+                            <input type="text" class="" placeholder="请先填写字段名称" />
+                            <div class="add_type"><img class="add_type_img" src="~/areas/Daily/img/icon-move.png" /></div>
+                        </div>
+                        <div class="add_btn">
+                            <img src="~/areas/Daily/img/icon-add.png" />
+                            <span>添加字段</span>
+                        </div>
+                    </div>
+                    <div class="field_type"><span>列:</span></div>
+                    <div class="add_field_t">
+                        <div class="add_field_c field_d">
+                            <img src="~/areas/Daily/img/icon-delete.png" />
+                            <input type="text" class="" placeholder="请先填写字段名称" />
+                            <div class="add_type"><img class="add_type_img" src="~/areas/Daily/img/icon-move.png" /></div>
+                        </div>
+                        <div class="add_field_c field_d">
+                            <img src="~/areas/Daily/img/icon-delete.png" />
+                            <input type="text" class="" placeholder="请先填写字段名称" />
+                            <div class="add_type"><img class="add_type_img" src="~/areas/Daily/img/icon-move.png" /></div>
+                        </div>
+                        <div class="add_btn">
+                            <img src="~/areas/Daily/img/icon-add.png" />
+                            <span>添加字段</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="save_btn">保存类型</button>
+                <button class="back_btn">返回更改类型</button>
+            </div>
+        </div>
+    </div>
+
+}

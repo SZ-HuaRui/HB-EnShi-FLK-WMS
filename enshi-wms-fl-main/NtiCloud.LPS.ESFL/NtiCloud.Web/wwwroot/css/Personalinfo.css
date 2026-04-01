@@ -1,0 +1,135 @@
+﻿.main_content{
+    padding:32px 16px;
+}
+.left_c, .right_c{
+    width:50%;
+}
+.left_c {
+    float: left;
+}
+.right_c {
+    float: right;
+}
+    .account_info {
+        /*float: left;*/
+        background: #FFFFFF;
+        /*width: 797px;*/
+        margin: 0 16px 32px;
+		box-shadow:0px 0px 20px 0px rgba(45,45,59,0.10);
+    }
+.account_title_d {
+    padding: 14px 24px 13px;
+    border-bottom: 1px solid #F2F2F0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.account_info .title {
+    display: inline-block;
+    color: #333333;
+    text-indent: 8px;
+}
+.edit, .finish {
+    cursor: pointer;
+}
+.edit {
+    color: #D2D2D2;
+}
+.finish {
+    color: #4A90E2;
+    display:none;
+}
+.account {
+    border-left: 2px solid #4A90E2;
+}
+.contact {
+    border-left: 2px solid #F7B55E;
+}
+.basic {
+    border-left: 2px solid #B5272D;
+}
+.account_info_d {
+    padding: 24px;
+}
+    .account_info_d p {
+        /*padding: 8px 0;*/
+        height: 48px;
+        line-height: 38px;
+    }
+    .account_info_d .lable {
+        display: inline-block;
+        color: #C1B5B8;
+        width:90px;
+        margin-right:8px;
+    }
+    .account_info_d .lable_content {
+        display: inline-block;
+        color: #171D1B;
+    }
+    .account_info_d input, .account_info_d label{
+        display: none;
+    }
+    .account_info_d input[type="text"] {
+        border: 1px solid #D2D2D2;
+        height: 36px;
+        width: 350px;
+        border-radius: 8px;
+        text-indent: 16px;
+    }
+.contact_info p:not(:last-child), .basic_info p:not(:last-child) {
+    margin-bottom: 8px;
+}
+.contact_info .tips, .basic_info .tips {
+    display: inline-block;
+    color: #B5272D;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 16px;
+}
+.account_info_d input:focus{border:1px solid #00a4ff;}
+
+
+/*手机端*/
+@media screen and (max-width:767px){
+    body{
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .main_content{
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .account_info_d{padding:20px 12px;}
+    .account_title_d{padding:14px 12px 13px;}
+    .main_content{padding:16px;}
+    .left_c, .right_c{float:none;width:100%;}
+    .account_info{background:rgba(255,255,255,1);box-shadow:0px 1px 12px 8px rgba(237,237,237,0.5),0px 2px 6px 0px rgba(228,228,228,0.5);}
+    .account_info{margin:0px;margin-bottom:16px;}
+    .account_info_d input[type="text"]{width:180px;}
+}
+/*小屏幕*/
+@media screen and (min-width:768px) and (max-width:991px){
+    .account_info_d input[type="text"]{width:350px;}
+}
+/*中等屏幕*/
+@media screen and (min-width:992px) and (max-width:1199px){
+
+}
+/*大屏幕*/
+@media screen and  (min-width:1200px){
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

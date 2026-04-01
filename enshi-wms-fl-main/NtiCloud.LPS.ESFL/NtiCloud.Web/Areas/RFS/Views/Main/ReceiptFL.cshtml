@@ -1,0 +1,68 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("配盘")}
+@section footerScript{
+    <script language="javascript" type="text/javascript"></script>
+    <script src="~/areas/rfs/js/Receipt_FL.js"></script>
+}
+@section caption{@("配盘")}
+@section contentBody{
+    <div class="tab tab1">
+        <div class="bom_header">
+            <p class="tip_border"><span class="tip">生产牌号：</span><select id="brand_name" class="bom_select"></select></p>
+            <p class="tip_border"><span class="tip">配盘单号：</span><select id="bom_code" class="bom_select"></select></p>
+            <p class="tip_border"><span class="tip">牌号编码：</span><input id="brand_code" type="text" class="bom_text" disabled></p>
+            <p class="tip_border"><span class="tip">区段名称：</span><input id="model_name" type="text" class="bom_text" disabled></p>
+        </div>
+        <div class="bom_detail">
+            <table id="bom_table" border="1" align="center" class="gridtable"></table>
+        </div>
+        <div class="container_barcode">
+            <p class="tip_border"><span class="tip">托盘条码：</span><input id="barcode" type="text" class="bom_text" placeholder="请扫描托盘条码" /></p>
+            <p class="tip_border"><span class="tip">入库区域：</span><select id="zone_id" class="bom_select"></select></p>
+        </div>
+        <div class="bottom">
+            <a class="conform_btn" onclick="confirm_btn()">确定</a>
+            <a class="cancel_btn" onclick="edit()">编辑</a>
+            <a class="cancel_btn" onclick="goItem(0)">开始配盘</a>
+        </div>
+    </div>
+    <div class="tab tab2" style="display:none">
+        <div class="main_panel">
+            <input id="item_id" type="text" class="bom_text" style="display:none">
+            <input id="item_uom" type="text" class="bom_text" style="display:none">
+            <input id="select_index" type="text" class="bom_text" style="display:none">
+            <p class="tip_border"><span class="tip">物料名称：</span><input id="item_name" type="text" class="bom_text" disabled></p>
+            <p class="tip_border"><span class="tip">物料编码：</span><input id="item_code" type="text" class="bom_text" disabled></p>
+            <p class="tip_border"><span class="tip">标配数量：</span><input id="bom_qty" type="text" class="bom_text" disabled></p>
+            <p class="tip_border"><span class="tip">修改数量：</span><input id="item_qty" type="text" class="bom_text"></p>
+            <p class="tip_border"><span class="tip">供应商号：</span><select id="supplier" class="bom_select"></select></p>
+            <p class="tip_border"><span class="tip">批次号码：</span><select id="lot" class="bom_select"></select></p>
+            <p class="tip_border"><span class="tip">转换数量：</span><input id="rate" type="text" class="bom_text" disabled></p>
+        </div>
+        <div class="bottom">
+            <a class="update_btn" onclick="update()">修改</a>
+            <a class="cancel_btn" onclick="cancel()">取消</a>
+        </div>
+    </div>
+    <div id="tab3" class="tab" style="display:none">
+        <div class="main_panel">
+            <input id="select_item_id" type="text" class="bom_text" style="display:none">
+            <input id="select_item_uom" type="text" class="bom_text" style="display:none">
+            <input id="select_uom_id" type="text" class="bom_text" style="display:none">
+            <p class="tip_border"><span class="tip">物料名称：</span><input id="select_item_name" type="text" class="bom_text" disabled></p>
+            <p class="tip_border"><span class="tip">物料编码：</span><input id="select_item_code" type="text" class="bom_text" disabled></p>
+            <p class="tip_border"><span class="tip">标配数量：</span><input id="select_bom_qty" type="text" class="bom_text" disabled></p>
+            <p class="tip_border"><span class="tip">可修改量：</span><input id="select_max_qty" type="text" class="bom_text" disabled></p>
+            <p class="tip_border"><span class="tip">修改数量：</span><input id="select_item_qty" type="text" class="bom_text"></p>
+            <p class="tip_border"><span class="tip">批次号码：</span><select id="select_lot" class="bom_select"></select></p>
+            <p class="tip_border"><span class="tip">供应商号：</span><select id="select_supplier" class="bom_select"></select></p>
+            <p class="tip_border"><span class="tip">转换数量：</span><input id="select_rate" type="text" class="bom_text" disabled></p>
+        </div>
+        <div class="bottom">
+            <a class="update_btn" id="goNext" onclick="goNext()">下一物料</a>
+            <a class="update_btn" id="goOver" onclick="goOver()" style="display:none">完成</a>
+            <a class="cancel_btn" onclick="logSplit()">批次拆分</a>
+            <a class="cancel_btn" onclick="cancel()">取消</a>
+        </div>
+    </div>
+}

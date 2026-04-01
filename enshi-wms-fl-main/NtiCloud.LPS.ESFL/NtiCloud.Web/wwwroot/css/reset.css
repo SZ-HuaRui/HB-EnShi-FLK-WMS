@@ -1,0 +1,61 @@
+﻿@charset "utf-8";
+html, body, div, span, object, iframe, 
+h1, h2, h3, h4, h5, h6, p, blockquote,
+a, abbr, acronym, address, big, cite, code, 
+del, dfn, em, img, ins, kbd, q, s, samp, 
+small, strike, strong, sub, sup, tt, var, b, u, i, 
+dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, 
+table, caption, tbody, tfoot, thead, tr, th, td, 
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, section, summary, 
+time, mark, audio, video { 
+margin: 0; 
+padding: 0; 
+border: 0; 
+/*vertical-align: baseline; */
+} 
+/* HTML5 display-role reset for older browsers */ 
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { 
+display: block; 
+} 
+textarea,input{border:none;outline:none;padding:0;}
+img{display:block;border:none;}
+a{text-decoration:none;}
+ol, ul ,li{ 
+list-style: none; 
+} 
+blockquote, q { 
+quotes: none; 
+} 
+/*自主添加*/
+/*table { 
+border-collapse: collapse; 
+border-spacing: 0; 
+}*/
+body,button,input,select,
+textarea{ font:18px/1.6 "苹方","微软雅黑","宋体",arial, verdana, sans-serif}
+
+
+.formtable {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+#pc_mdfpassword input {
+    text-indent: 10px;
+    border: 1px solid #888;
+    border-radius: 3px;
+    height: 30px;
+    line-height: 30px;
+}
+
+    #pc_mdfpassword input:focus {
+        border: 1px solid #00a4ff;
+    }
+
+body .layui-layer .layui-layer-btn {
+    text-align: center;
+}

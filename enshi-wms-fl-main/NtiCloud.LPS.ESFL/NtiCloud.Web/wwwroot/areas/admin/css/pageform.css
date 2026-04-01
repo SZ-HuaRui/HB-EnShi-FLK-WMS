@@ -1,0 +1,51 @@
+﻿body {
+    margin: 0px;
+    font-size: 12px;
+}
+
+p {
+    margin: 8px 0;
+}
+ table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 1px;
+    border-color: grey;
+}
+.flowformtable {
+    width: 98%;
+    margin: 0 auto;
+}
+
+.flowformtable tbody tr td {
+    padding: 5px 0 5px 3px;
+    vertical-align: middle;
+}
+
+.flowformtable thead tr th {
+    padding: 5px 0 5px 3px;
+    vertical-align: middle;
+}
+
+.flowformsubtable {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.flowformsubtable tbody tr td {
+    padding: 5px 0 5px 3px;
+    vertical-align: middle;
+}
+
+.flowformsubtable thead tr th {
+    padding: 5px 0 5px 3px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 768px) {
+    .formtable th label{min-width: 105px;display: inline-block;}
+    .formtable td .textbox,.formtable td input{width: 246px !important;}
+}
+@media screen and (max-width: 576px) {
+    .formtable td .textbox,.formtable td input{width: 200px !important;}
+}

@@ -1,0 +1,43 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("无码烟组盘")}
+@section footerScript{
+    <script src="~/areas/rfs/js/UncodePlate.js"></script>
+}
+@section caption{@("无码烟组盘")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border">
+                    <span class="title">收货单号 :</span>
+                    <select id="orderNo"></select>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料名称 :</span>
+                    <select id="item_name"></select>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料状态：</span>
+                    <select class="item_state">
+                        <option value="CheckPassed">合格</option>
+                        <option value="CheckFailed">不合格</option>
+                        <option value="CheckWaiting">待检</option>
+                    </select>
+                </p>
+                <p class="rf_border"><span class="title">托盘载量 :</span><span class="smoke_d" id="plate_num">24</span></p>
+                <p class="rf_border"><span class="title">剩余数量 :</span><span class="smoke_d" id="left_num"></span></p>
+                <p class="rf_border"><span class="title">实际数量 :</span><input id="actual_num" type="text" placeholder="" name="fname" /></p>
+                @*<p class="rf_border"><span class="title">一号工程码 :</span><input id="one_code" type="text" placeholder="请扫描一号工程码" name="fname" /></p>*@
+            </div>
+        </div>
+    </div>
+    @*<div class="bettwen"></div>*@
+    <div class="name">
+        <p class="rf_border"><span class="title">托盘条码 :</span><input id="container_code" type="text" placeholder="请扫描托盘条码" name="fname" /></p>
+    </div>
+    <div class="button_t">
+        <div class="button">
+            <a class="conform_btn">确定</a>
+        </div>
+    </div>
+}

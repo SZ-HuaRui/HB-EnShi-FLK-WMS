@@ -1,0 +1,52 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("质检回库")}
+@section footerScript{
+    <script src="~/areas/rfs/js/qcInbound.js"></script>
+}
+@section caption{@("质检回库")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border"><span class="title">托盘条码：</span><input class="container_code" type="text" placeholder="请扫描" name="fname" /></p>
+                <p class="rf_border rf_top"><span class="title">质检单号：</span><input id="qc_no" readonly></input></p>
+            </div>
+            <div class="border">
+                <table class="layui-table" lay-filter="tb_qc_d" id="tb_qc_d">
+                    <colgroup>
+                        <col width="150">
+                        <col width="200">
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th lay-data="{field:'id' ,hide:true}">ID</th>
+                            <th lay-data="{field:'item'}">物料</th>
+                            <th lay-data="{field:'qty',  edit: 'text'}">数量</th>
+                            <th lay-data="{field:'statQty',  edit: 'text'}">统计数量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*<tr>
+                                <td>1</td>
+                                <td>a</td>
+                                <td>12</td>
+                                <td>120</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>b</td>
+                                <td>14</td>
+                                <td>140</td>
+                            </tr>*@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="button_t">
+            <div class="button">
+                <a class="btn_inbound">回库</a>
+                <a class="btn_run">wcs执行</a>
+            </div>
+        </div>
+}

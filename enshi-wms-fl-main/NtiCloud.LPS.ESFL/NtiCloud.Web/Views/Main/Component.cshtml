@@ -1,0 +1,216 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section TitleSection{今天云平台开发组件}
+@section HeaderSection{
+
+    <link href="~/lib/swiper/dist/css/swiper.min.css" rel="stylesheet" />
+    <link href="~/css/component.css" rel="stylesheet" />
+    <script src="~/lib/swiper/dist/js/swiper.min.js"></script>
+}
+@section ContentBody{
+    <div class="layui-fluid">
+        <div class="layui-row container-banner">
+            <div class="banner_bg">
+                <div class="banner-content center-block">
+                    <p class="banner-title">可无限拓展的服务组件</p>
+                    <p class="description">轻松插入平台自主研发或第三方的组件</p>
+                    <a class="experience_btn" href="/Main/Register">立即体验</a>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row product_title_d">
+            <div class="product_title">
+                <ul class="product_title_ul">
+                    <li class="product_title_li self_component layui-col-lg4 layui-col-md4  layui-col-sm4 layui-col-xs4"><span class="title_active">自主研发组件</span></li>
+                    <li class="product_title_li other_component layui-col-lg4 layui-col-md4  layui-col-sm4 layui-col-xs4"><span>第三方组件</span></li>
+                    <li class="product_title_li self_build layui-col-lg4 layui-col-md4  layui-col-sm4 layui-col-xs4"><span>可视化配置组件</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-row container-cloud_d" id="self_component">
+            <div class="container-cloud">
+                <div class="swiper-container container-cloud">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div>
+                                <p class="title_p">事务流设计</p>
+                                <p class="desc_p">用户高效配置实现不同要求的页面布局</p>
+                            </div>
+                            <a href="/Member/ControlDesk" style="cursor:pointer;"><img src="~/img/module_img1.png"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                <p class="title_p">页面模板配置</p>
+                                <p class="desc_p">用户高效配置实现不同要求的页面布局</p>
+                            </div>
+                            <a href="/Member/ControlDesk" style="cursor:pointer;"><img src="~/img/module_img2.png"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                <p class="title_p">自由表单</p>
+                                <p class="desc_p">用户高效配置实现不同要求的页面布局</p>
+                            </div>
+                            <a href="/Member/ControlDesk" style="cursor:pointer;"><img src="~/img/module_img3.png"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                <p class="title_p">图表设计器</p>
+                                <p class="desc_p">用户高效配置实现不同要求的页面布局</p>
+                            </div>
+                            <a href="/Member/ControlDesk" style="cursor:pointer;"><img src="~/img/module_img4.png"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                <p class="title_p">接口配置</p>
+                                <p class="desc_p">用户高效配置实现不同要求的页面布局</p>
+                            </div>
+                            <a href="/Member/ControlDesk" style="cursor:pointer;"><img src="~/img/module_img5.png"></a>
+                        </div>
+                    </div>
+                    @*<div class="swiper-pagination"></div>*@
+                </div>
+                <div class="swiper-button-next cloud-next"></div>
+                <div class="swiper-button-prev cloud-prev"></div>
+            </div>
+        </div>
+        <div class="layui-row container-service_d" id="other_component">
+            <div class="container-service">
+                <div style="text-align: center;">
+                    <h1>第三方服务组件</h1>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_1business.png">
+                    <div class="title">商业智能分析</div>
+                    <div class="desc">高效、强大、迅捷的新一代敏捷自助型 BI 服务平台，助力挖掘数据潜在价值</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_2text.png">
+                    <div class="title">文字识别</div>
+                    <div class="desc">支持印刷体、手写体及定制化场景的图片文字识别服务，有效提升信息录入效率</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_3Face.png">
+                    <div class="title">人脸识别 </div>
+                    <div class="desc">可定位、检测、分析和比对图片和视频中的人脸，满足您多样化的人脸识别需求</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_4video.png">
+                    <div class="title">语音识别</div>
+                    <div class="desc">全面开放腾讯语音识别技术，为开发者提供语音转文字服务的最佳体验</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_5learn.png">
+                    <div class="title">智能钛机器学习</div>
+                    <div class="desc">强大计算能力的一站式机器学习生态服务平台，帮助用户方便地进行模型训练、评估和预测</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_6safe.png">
+                    <div class="title">物联网设备身份认证</div>
+                    <div class="desc">面向物联网的设备身份认证服务，为设备与云提供双向身份认证和链路加密功能</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_7calculate.png">
+                    <div class="title">物联网边缘计算</div>
+                    <div class="desc">专门为物联网领域开发人员推出的产品，核心价值是将计算扩展至边缘，在离设备最近的位置执行计算</div>
+                </div>
+                <div class="div_info layui-col-lg3 layui-col-md4 layui-col-sm6 layui-col-xs12">
+                    <img width="100%" height="100%" src="/img/third_part_icon_8program.png">
+                    <div class="title">智能制造解决方案</div>
+                    <div class="desc">通过“五化一体”解决方案即自动化、信息化、数字化、网络化及智能化，助力工业企业特别是中小企业实现转型升级</div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row container-cloud_d" id="self_build">
+            <div class="container-cloud">
+                <div class="swiper-container container-build">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="/Member/ControlDesk" style="cursor:pointer;"><img src="~/img/img1.png"></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="/Member/ControlDesk" style="cursor:pointer;"><img src="~/img/img2.png"></a>
+                        </div>
+                    </div>
+                    @*<div class="swiper-pagination"></div>*@
+                </div>
+                <div class="swiper-button-next build-next"></div>
+                <div class="swiper-button-prev build-prev"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var swiper = new Swiper('.container-build', {
+            loop: true,
+            autoplay: true,//可选选项，自动滑动
+            //pagination: {
+            //    el: '.swiper-pagination',
+            //    clickable: true,
+            //},
+            navigation: {
+                nextEl: '.build-next',
+                prevEl: '.build-prev',
+            }
+        });
+        var myswiper = new Swiper('.container-cloud', {
+            loop: true,
+            autoplay: true,//可选选项，自动滑动
+            //pagination: {
+            //    el: '.swiper-pagination',
+            //    clickable: true,
+            //},
+            navigation: {
+                nextEl: '.cloud-next',
+                prevEl: '.cloud-prev',
+            }
+        });
+        var build_top = $("#self_build").offset().top;
+        var self_top = $("#self_component").offset().top;//自主组件到顶部的距离
+        var other_top = $("#other_component").offset().top;//第三方组件到顶部的距离
+        $(window).scroll(function () {
+            var scroH = $(this).scrollTop();
+            if ($(window).scrollTop() >= $(".container-banner").height()) {
+                $(".product_title_d").css({
+                    'position': 'fixed',
+                    'top': $(".header").height(),
+                    'left': 0,
+                    'z-index': 1000,
+                    'width': '100%'
+                })
+                $(".container-cloud_d,.container-service_d,.info_bg").css({
+                    'top': $(".product_title_d").innerHeight()
+                })
+            } else {
+                $(".product_title_d").css({
+                    'position': 'static'
+                })
+                $(".container-cloud_d,.container-service_d,.info_bg").css({
+                    'top': 0
+                })
+            }
+            if (scroH >= build_top - $(".product_title_d").height() - $(".header").height()) {
+                set_cur(".self_build");
+            }
+            else if (scroH >= other_top - $(".product_title_d").height() - $(".header").height()) {
+                set_cur(".other_component");
+            } else if (scroH >= self_top - $(".product_title_d").height() - $(".header").height()) {
+                set_cur(".self_component");
+            }
+        });
+        $('.product_title_d .product_title_li').on("click", function () {
+            var el = $(this).attr('class').split(" ")[1];
+            console.log($("#" + el).offset().top)
+            $(window).scrollTop($("#" + el).offset().top - $(".header").height() - $(".product_title_d").height() + 2)
+            //$(this).children().addClass("title_active").parent().siblings().children().removeClass("title_active");
+            set_cur('.' + el);
+        });
+        function set_cur(n) {
+            console.log(n)
+            if ($(".product_title_li span").hasClass("title_active")) {
+                $(".product_title_li span").removeClass("title_active");
+            }
+            $(n).children().addClass("title_active");
+        }
+    </script>
+}
+

@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B1F092D-BC3B-4364-8C79-1A540665134A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CWCS.UI</RootNamespace>
+    <AssemblyName>CWCS.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CWCS.UI.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>WCSlogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Baf.Logger">
+      <HintPath>..\CWCS.Common\Dll\refdll\Baf.Logger.dll</HintPath>
+    </Reference>
+    <Reference Include="Baf.ServerComponents">
+      <HintPath>..\CWCS.Common\Dll\refdll\Baf.ServerComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.C1Excel.4, Version=4.0.20171.248, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\YS\【Code】WCS\ES_YS_WCS_20190929\WCS\bin\Debug\C1.C1Excel.4.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Command.4, Version=4.0.20171.248, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\YS\【Code】WCS\ES_YS_WCS_20190929\WCS\bin\Debug\C1.Win.C1Command.4.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20171.248, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\YS\【Code】WCS\ES_YS_WCS_20190929\WCS\bin\Debug\C1.Win.C1FlexGrid.4.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Input.4, Version=4.0.20171.248, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\YS\【Code】WCS\ES_YS_WCS_20190929\WCS\bin\Debug\C1.Win.C1Input.4.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20171.248, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\YS\【Code】WCS\ES_YS_WCS_20190929\WCS\bin\Debug\C1.Win.C1Ribbon.4.dll</HintPath>
+    </Reference>
+    <Reference Include="DataGridViewAutoFilter">
+      <HintPath>CommonDLL\DataGridViewAutoFilter.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraGrid.v17.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevExpress.XtraLayout.v17.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="log4net">
+      <HintPath>..\CWCS.Common\Dll\refdll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTSManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTSManager.Designer.cs">
+      <DependentUpon>DTSManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP\Tools\FormFlowConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP\Tools\FormFlowConfig.Designer.cs">
+      <DependentUpon>FormFlowConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP\Tools\FormInBoundQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP\Tools\FormInBoundQty.Designer.cs">
+      <DependentUpon>FormInBoundQty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP\FormInSorting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP\FormInSorting.Designer.cs">
+      <DependentUpon>FormInSorting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP\Tools\FormInSortingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP\Tools\FormInSortingReport.Designer.cs">
+      <DependentUpon>FormInSortingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP\Tools\FormItemInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP\Tools\FormItemInfo.Designer.cs">
+      <DependentUpon>FormItemInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP\Tools\FormOneCodeSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP\Tools\FormOneCodeSelect.Designer.cs">
+      <DependentUpon>FormOneCodeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP\Tools\FormScanOneCodeSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP\Tools\FormScanOneCodeSelect.Designer.cs">
+      <DependentUpon>FormScanOneCodeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP\FormSetDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP\FormSetDock.Designer.cs">
+      <DependentUpon>FormSetDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CP\Tools\FormToolBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CP\Tools\FormToolBox.designer.cs">
+      <DependentUpon>FormToolBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUserCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserCheck.Designer.cs">
+      <DependentUpon>FormUserCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBoxRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBoxRecord.Designer.cs">
+      <DependentUpon>FrmBoxRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PY\Tools\FrmControlPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PY\Tools\FrmControlPanel.Designer.cs">
+      <DependentUpon>FrmControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGLBeventlog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGLBeventlog.designer.cs">
+      <DependentUpon>FrmGLBeventlog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBase.designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConveryManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConveryManager.Designer.cs">
+      <DependentUpon>FrmConveryManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PY\Tools\FrmOtherSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PY\Tools\FrmOtherSetting.Designer.cs">
+      <DependentUpon>FrmOtherSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSRMManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSRMManager.Designer.cs">
+      <DependentUpon>FrmSRMManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSRMSend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSRMSend.Designer.cs">
+      <DependentUpon>FrmSRMSend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSystemInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSystemInfo.Designer.cs">
+      <DependentUpon>frmSystemInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTaskEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTaskEdit.designer.cs">
+      <DependentUpon>FrmTaskEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTaskManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTaskManager.designer.cs">
+      <DependentUpon>FrmTaskManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PY\Tools\FrmUpdateSTVFlag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PY\Tools\FrmUpdateSTVFlag.Designer.cs">
+      <DependentUpon>FrmUpdateSTVFlag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Nlog.Config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CP\Tools\FormFlowConfig.resx">
+      <DependentUpon>FormFlowConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP\Tools\FormInBoundQty.resx">
+      <DependentUpon>FormInBoundQty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP\FormInSorting.resx">
+      <DependentUpon>FormInSorting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP\Tools\FormInSortingReport.resx">
+      <DependentUpon>FormInSortingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP\Tools\FormItemInfo.resx">
+      <DependentUpon>FormItemInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP\Tools\FormOneCodeSelect.resx">
+      <DependentUpon>FormOneCodeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP\Tools\FormScanOneCodeSelect.resx">
+      <DependentUpon>FormScanOneCodeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP\FormSetDock.resx">
+      <DependentUpon>FormSetDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CP\Tools\FormToolBox.resx">
+      <DependentUpon>FormToolBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUserCheck.resx">
+      <DependentUpon>FormUserCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBoxRecord.resx">
+      <DependentUpon>FrmBoxRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PY\Tools\FrmControlPanel.resx">
+      <DependentUpon>FrmControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGLBeventlog.resx">
+      <DependentUpon>FrmGLBeventlog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConveryManager.resx">
+      <DependentUpon>FrmConveryManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PY\Tools\FrmOtherSetting.resx">
+      <DependentUpon>FrmOtherSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSRMManager.resx">
+      <DependentUpon>FrmSRMManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSRMSend.resx">
+      <DependentUpon>FrmSRMSend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSystemInfo.resx">
+      <DependentUpon>frmSystemInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTaskEdit.resx">
+      <DependentUpon>FrmTaskEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTaskManager.resx">
+      <DependentUpon>FrmTaskManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PY\Tools\FrmUpdateSTVFlag.resx">
+      <DependentUpon>FrmUpdateSTVFlag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CWCS.BLL\CWCS.BLL.csproj">
+      <Project>{fd65b719-8e79-420c-8456-f07a087e6ee6}</Project>
+      <Name>CWCS.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.CommonControl\CWCS.CommonControl.csproj">
+      <Project>{212C1352-9B72-417E-84C5-680905CECED5}</Project>
+      <Name>CWCS.CommonControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.Common\CWCS.Common.csproj">
+      <Project>{b8d9b177-c8bf-4d8c-b9e4-37d74049e583}</Project>
+      <Name>CWCS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.DataAccess\CWCS.DataAccess.csproj">
+      <Project>{21E7F73D-96CC-4067-BD5D-2A70470A244D}</Project>
+      <Name>CWCS.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.Entity\CWCS.Entity.csproj">
+      <Project>{a31c25eb-8296-459b-a111-db6f3d6f714d}</Project>
+      <Name>CWCS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.Interface\CWCS.Interface.csproj">
+      <Project>{db4d8c19-af27-425d-92bf-a419df1fd51a}</Project>
+      <Name>CWCS.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.NetWork\CWCS.NetWork.csproj">
+      <Project>{949D0047-8588-4F4D-B9CD-A015C56C869F}</Project>
+      <Name>CWCS.NetWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.Service\CWCS.Service.csproj">
+      <Project>{52f4cfa5-802f-4049-bfd0-c947c08633b8}</Project>
+      <Name>CWCS.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.UIDesigner\CWCS.UIDesigner.csproj">
+      <Project>{1bba9c81-6687-480e-859d-362d82decd16}</Project>
+      <Name>CWCS.UIDesigner</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgroud.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CommonDLL\libnodave.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WCSConfiguration.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WCSlogo.ico" />
+    <None Include="Resources\01.jpg" />
+    <Content Include="Help.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SCAlarm.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SRMAlarm_ROBO.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

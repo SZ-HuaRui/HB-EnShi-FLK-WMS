@@ -1,0 +1,122 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutMember.cshtml";
+}
+@section TitleSection{提交工单}
+@section HeaderSection{
+    <link href="~/css/WorkOrderCommon.css" rel="stylesheet" />
+    <link href="~/css/SubmitWorkOrder.css" rel="stylesheet" />
+    <script src="~/js/SubmitWorkOrder.js"></script>
+}
+@section ContentBody{
+    <div class="con_erea">
+        <div class="container_left">
+            <div class="left_menu">
+                <p class="left_menu_title">工单系统</p>
+                <ul class="left_menu_ul">
+                    <li><a href="/Member/MyWorkOrder">我的工单</a></li>
+                    <li><a class="li_active" href="/Member/SubmitWorkOrder">提交工单</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container_main">
+            <div class="right_top">
+                <ul class="right_top_ul">
+                    <li>提交工单</li>
+                </ul>
+            </div>
+            <div class="right_main">
+                <div class="right_main_top">
+                    <p class="number_p"><span class="number number_color">1</span><span class="number_title title_color">选择需要提问的产品</span><span class="number_d">—</span></p>
+                    <p class="number_p"><span class="number">2</span><span class="number_title">选择问题的类型</span><span class="number_d">—</span></p>
+                    <p class="number_p"><span class="number">3</span><span class="number_title">创建工单</span><span class="number_d"></span></p>
+                </div>
+                <div class="right_main_down step_one" id="step0">
+                    <div class="top_title">
+                        <p class="title_p">选择提问的产品</p>
+                        <p class="search_b"><span class="mdi mdi-magnify"></span><input type="text" placeholder="请输入您要搜索的产品名" /></p>
+                    </div>
+                    <div class="layui-fluid container clearfix main_content">
+                        <div class="layui-row">
+                            @{
+                                System.Data.DataTable dtprod = (System.Data.DataTable)ViewData["prodlist"];
+                                for (int i = 0; i < dtprod.Rows.Count; i++)
+                                {
+                                    <div class="main_product layui-col-lg4 layui-col-md6 layui-col-sm12 layui-col-xs12">
+                                        <div class="main_product_d">
+                                            <span class="left_icon @dtprod.Rows[i]["appicon"].ToString()"></span>
+                                            <div class="center_word">
+                                                <p class="center_title">@dtprod.Rows[i]["appname"].ToString()</p>
+                                                <p class="center_desc">@dtprod.Rows[i]["appnote"].ToString()</p>
+                                                <p class="center_code" style="display:none;">@dtprod.Rows[i]["appcode"].ToString()</p>
+                                            </div>
+                                            <span class="right_btn">选择</span>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                <div class="right_main_down step_two" id="step1" style="display:none;">
+                    <div class="top_title">
+                        <p class="title_p">选择问题的类型</p>
+                        <p class="search_b"><span class="mdi mdi-magnify"></span><input type="text" placeholder="请输入您要搜索的产品名" /></p>
+                    </div>
+                    <div class="layui-fluid container clearfix main_content">
+                        <div class="layui-row">
+                            @{
+                                System.Data.DataTable distCode = (System.Data.DataTable)ViewData["dictCode"];
+                                for (int i = 0; i < distCode.Rows.Count; i++)
+                                {
+                                    <div class="top layui-col-lg4 layui-col-md6 layui-col-sm12 layui-col-xs12">
+                                        <div class="top_up">
+                                            <p>@distCode.Rows[i]["text"].ToString()</p>
+                                            <div id="@distCode.Rows[i]["id"].ToString()" class="choose">选择</div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="right_main_down step_three" id="step2" style="display:none;">
+                    <div class="top_title">
+                        <p class="title_p"><span class="product_t">账号相关</span>><span class="product_d">账号无法登录</span></p>
+                    </div>
+                    <div class="container clearfix main_content">
+                        <div class="warp_top">
+                            <div class="top">
+                                <p>请输入问题简述<span>*</span></p>
+                            </div>
+                            <div class="up">
+                                <textarea class="issue_text" placeholder="账号登录出现问题"></textarea>
+                                <div class="top_up">
+                                    <div class="top_up_d">
+                                        <img class="pri" src="~/img/add_image_nor.png">
+                                        <img class="pri_d" src="~/img/close_nor.png">
+                                    </div>
+                                    <img class="pri_b" src="~/img/add_image_nor.png">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="warp_top down">
+                            <div class="top">
+                                <p>请输入问题描述<span>*</span></p>
+                            </div>
+                            <div class="up">
+                                <textarea class="issue_text_t" placeholder="账号登录出现问题"></textarea>
+                            </div>
+                        </div>
+                        <div class="text_top">
+                            <div class="text_d"><p>邮箱账号</p><span>*</span></div>
+                            <div class="input"><input class="mail" type="text" placeholder="请输入邮箱账号" id=""></div>
+                        </div>
+                        <input type="button" class="submis" value="提交工单">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

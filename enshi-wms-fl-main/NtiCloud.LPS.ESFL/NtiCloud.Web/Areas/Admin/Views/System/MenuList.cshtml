@@ -1,0 +1,138 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{菜单列表显示}
+@section HeaderSection{
+    <link href="~/areas/admin/css/menulist.css" rel="stylesheet" />
+    <script src="~/areas/admin/js/menulist.js"></script>
+    <script src="~/js/validatebox.js"></script>
+    <!--核心文件-->
+    <link rel="stylesheet" href="~/lib/codemirror/lib/codemirror.css">
+    <script src="~/lib/codemirror/lib/codemirror.js"></script>
+    <!--代码折叠-->
+    <link rel="stylesheet" href="~/lib/codemirror/addon/fold/foldgutter.css" />
+    <script src="~/lib/codemirror/addon/fold/foldcode.js"></script>
+    <script src="~/lib/codemirror/addon/fold/foldgutter.js"></script>
+    <script src="~/lib/codemirror/addon/fold/brace-fold.js"></script>
+    <script src="~/lib/codemirror/addon/fold/comment-fold.js"></script>
+    <script src="~/lib/codemirror/addon/fold/markdown-fold.js"></script>
+    <script src="~/lib/codemirror/mode/javascript/javascript.js"></script>
+    <!--实现全屏-->
+    <link rel="stylesheet" href="~/lib/codemirror/addon/display/fullscreen.css">
+    <script src="~/lib/codemirror/addon/display/fullscreen.js"></script>
+    <!--当前行背景高亮-->
+    <script src="~/lib/codemirror/addon/selection/active-line.js"></script>
+    <!--括号匹配-->
+    <script src="~/lib/codemirror/addon/edit/matchbrackets.js"></script>
+
+    <script src="~/lib/codemirror/addon/comment/continuecomment.js"></script>
+    <script src="~/lib/codemirror/addon/comment/comment.js"></script>
+    <!--实现搜索-->
+    <link href="~/lib/codemirror/addon/dialog/dialog.css" rel="stylesheet" />
+    <script src="~/lib/codemirror/addon/search/search.js"></script>
+    <script src="~/lib/codemirror/addon/search/searchcursor.js"></script>
+    <script src="~/lib/codemirror/addon/search/jump-to-line.js"></script>
+    <script src="~/lib/codemirror/addon/dialog/dialog.js"></script>
+    <!--代码错误检测-->
+    <link href="~/lib/codemirror/addon/lint/lint.css" rel="stylesheet" />
+    <script src="~/lib/codemirror/addon/lint/jshint.js"></script>
+    <script src="~/lib/codemirror/addon/lint/jsonlint.js"></script>
+    <script src="~/lib/codemirror/addon/lint/lint.js"></script>
+    <script src="~/lib/codemirror/addon/lint/javascript-lint.js"></script>
+    <script src="~/lib/codemirror/addon/lint/json-lint.js"></script>
+    <!--自动提示-->
+    <link href="~/lib/codemirror/addon/hint/show-hint.css" rel="stylesheet" />
+    <script src="~/lib/codemirror/addon/hint/show-hint.js"></script>
+    <script src="~/lib/codemirror/addon/hint/javascript-hint.js"></script>
+}
+@section ContentBody{
+    <body style="overflow:hidden;padding:0px;box-sizing:border-box;" class="easyui-layout">
+        <!--左侧树-->
+        <div id="treeleft" data-options="region:'west',title:'',split:true" style="width:280px;">
+            <div id="TreeMenu" class="easyui-menu" style="width:120px;"></div>
+            <ul id="TreeList" class="easyui-tree" data-options="onClick:function(node){ getSelected(node);}"></ul>
+        </div>
+        <!--数据区-->
+        <div data-options="region:'center',border:false">
+            <div class="mvctool bgb">
+                <div id="buttonList" style="float:left;padding-left:10px;">
+                    <a id="btnSave" title="保存菜单配置" class="btn btn-default easyui-tooltip"><span id="saveIcon" class="mdi mdi-content-save-outline" style="padding:4px 0px 4px 6px">&nbsp;&nbsp;菜单配置</span>&nbsp;&nbsp;</a>
+                </div>
+                <div id="projectMenu" style="float:right;padding-right:15px;">
+                    <input name="dataBase" class="easyui-combobox" id="dataBase" data-options="prompt:'请选择数据库同步'" style="width: 150px;">
+                    <a id="btnUp" title="上传配置信息" class="btn btn-default easyui-tooltip"><span id="saveIcon" class="mdi mdi-cloud-upload">上传配置</span></a>
+                    <a id="btnDown" title="下载配置信息" class="btn btn-default easyui-tooltip"><span id="saveIcon" class="mdi mdi-cloud-download">下载配置</span></a>
+                </div>
+            </div>
+            <input name="tId" id="tId" type="hidden" value="0" />
+            <input name="clientId" id="clientId" type="hidden" value="" />
+            <table class="formtable">
+                <tbody>
+                    <tr>
+                        <th width="115">模块代码：</th>
+                        <td><input name="moduleCode" class="easyui-textbox easyui-validatebox" id="moduleCode" style="width: 265px;" type="text" value="" data-val-required="模块代码 字段是必需的。" data-options="required:true,validType:'English'" data-val="true"></td>
+                        <th width="115">模块名称：</th>
+                        <td><input name="menuName" class="easyui-textbox" id="menuName" style="width: 265px;" type="text" value="" data-val-required="菜单名称 字段是必需的。" data-options="required:true" data-val="true"></td>
+                    </tr>
+                    <tr>
+                        <th>上级菜单：</th>
+                        <td><input name="menuParent" class="easyui-combotree" id="menuParent" style="width: 265px;" data-val-required="上级菜单 字段是必需的。" data-val="true"></td>
+                        <th>页面数据源：</th>
+                        <td>
+                            <input name="dataSource" class="easyui-combobox" id="dataSource" data-options="prompt:'请选择业务数据源'" style="width: 265px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>菜单图片：</th>
+                        <td>
+                            <input name="menuImg" class="easyui-combobox" id="menuImg" style="width: 265px;">
+                        </td>
+                        <th>菜单图标：</th>
+                        <td>
+                            <input name="menuIcon" class="easyui-combo" id="menuIcon" style="width: 260px;">
+                            <span class="mdi mdi-more" style="font-size:18px;padding:5px;cursor:pointer;" id="Span_menuIcon" onclick="mdi_Open('menuIcon')"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>图标颜色：</th>
+                        <td>
+                            <input name="imgBg" class="easyui-combobox" id="imgBg" data-options="prompt:'请选择图标颜色'" style="width: 265px;">
+                        </td>
+                        <th>菜单排序：</th>
+                        <td><input name="menuIndex" class="easyui-numberbox" id="menuIndex" style="width: 265px;"></td>
+                    </tr>
+                    <tr>
+                        <th>页面设置：</th>
+                        <td>
+                            <input name="menuUrl" class="easyui-combobox" id="menuUrl" data-options="prompt:'请选择模版或输入自定页面地址'" style="width: 265px;">
+                            <span id="openWebConfig" class="mdi mdi-cloud-sync easyui-tooltip" title="打开模版配置" style="font-size:18px;padding:5px;cursor:pointer;"></span>
+                            <input name="listJson" id="listJson" type="hidden" value="" />
+                        </td>
+                        <th>项目属性：</th>
+                        <td><input name="projectSet" class="easyui-combobox" id="projectSet" data-options="prompt:'请选择项目设置'" style="width: 265px;"></td>
+                    </tr>
+                    <tr>
+                        <th>是否为菜单：</th>
+                        <td><input id="isMenu" class="easyui-switchbutton" data-options="onText:'是',offText:'否'" value="1" checked></td>
+                        <th>是否共享模块：</th>
+                        <td><input id="isModule" class="easyui-switchbutton" data-options="onText:'是',offText:'否'" value="0"></td>
+                    </tr>
+                    <tr>
+                        <th>是否显示导航：</th>
+                        <td><input id="isNavigate" class="easyui-switchbutton" data-options="onText:'是',offText:'否'" value="1" checked></td>
+                        <th>启用工作流：</th>
+                        <td><input id="isWorkflow" class="easyui-switchbutton" data-options="onText:'是',offText:'否'" value="0"></td>
+                    </tr>
+                    <tr>
+                        <th valign="top"><br>页面脚本：<span style="color:#ff6a00"><br><br>F11全屏<br>ESC消取全屏<br>Ctrl+/注释</span></th>
+                        <td colspan="3">
+                            <textarea id="listJscript" rows="5"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="picCtrl"></div>
+        <div id="imgCtrl"></div>
+        <div id="modalwindow" class="easyui-window" style="width:800px; height:400px;" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+    </body>
+}

@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutMember.cshtml";
+}
+@section TitleSection{今天云平台消息}
+@section HeaderSection{
+    <link href="~/css/WorkOrderCommon.css" rel="stylesheet" />
+    <link href="~/css/MyWorkOrder.css" rel="stylesheet" />
+    <script src="~/js/message.js"></script>
+}
+@section ContentBody{
+    <div class="container_main">
+        <div class="right_content" style="margin:0px 20px 0px 20px;height:100%;box-sizing:border-box;">
+            <div class="div_d">
+                <div class="input_search">
+                    <div class="data_f data_from">
+                        <input class="data_from_p Wdate" id="bdate" type="text" value="" readonly onclick="WdatePicker()">
+                        <img src="~/img/order_date_nor.png">
+                    </div>
+                    <span class="span_to">至</span>
+                    <div class="data_f data_to">
+                        <input class="data_to_p Wdate" id="edate" type="text" value="" readonly onclick="WdatePicker()">
+                        <img src="~/img/order_date_nor.png">
+                    </div>
+                    <div class="top_up">查询</div>
+                    <div class="top_up_d">
+                        <img class="key_word_img" src="~/img/order_search.png">
+                        <input class="key_word" type="text" placeholder="请输入查询条件" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="table_area" style="flex:1;overflow-y:auto;background-color:#fff;margin-bottom:40px;">
+                <table class="table"><tbody id="table_msg"></tbody></table>
+            </div>
+            <div class="pagination_d" style="position:absolute;bottom:0px;left:0px;height:40px;width:100%;">
+                <div class="page_top">共<span id="total">0</span>条，每页显示<span id="rows">10</span>条</div>
+                <ul class="pagination" id="paginationA">
+                    <li class="page-item">
+                        <a class="page-link btn disabled" href="javascript:;" aria-label="Previous" id="first">
+                            <span aria-hidden="true"><<</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link btn disabled" id="PrevPage" href="javascript:;"><</a></li>
+                    <li class="page-item"><a class="page-link" id="CurPage" href="javascript:;" onclick="DataList($(this).text())">1</a></li>
+                    <li class="page-item"><a class="page-link btn" id="NextPage" href="javascript:;">></a></li>
+                    <li class="page-item">
+                        <a class="page-link btn" href="javascript:;" id="last" aria-label="Next">
+                            <span aria-hidden="true">>></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}

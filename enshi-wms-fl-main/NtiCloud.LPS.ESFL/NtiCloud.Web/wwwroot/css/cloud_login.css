@@ -1,0 +1,55 @@
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #B2B2B2 !important;font-size: 16px;}
+input:-moz-placeholder, textarea:-moz-placeholder {color: #B2B2B2 !important;font-size: 16px;}
+input::-moz-placeholder, textarea::-moz-placeholder {color: #B2B2B2 !important;font-size: 16px;}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {color: #B2B2B2 !important;font-size: 16px;}
+.container {max-width: 100%;overflow-y: auto;}
+.content {padding: 0;background: url(../img/login_bg.png) center no-repeat;background-size: 100% 100%;position: relative;}
+.content .main_content {width: 480px;height: 580px;margin: auto;position: absolute;top: 50%;left: 50%;margin-top: -290px;margin-left: -240px;}
+.main_con {padding: 56px 40px;background: rgba(255,255,255,1);position: relative;}
+.logo {text-align: center;line-height: 60px;}
+.logo img {width: 240px;cursor: pointer;display:inline-block;}
+.delete {position: absolute;top: 40px;right: 40px;font-size: 24px !important;color: #CECECE;cursor: pointer;display:none;}
+.main_ul {padding-left: 0;text-align: center;height: 40px;line-height: 40px;margin: 36px 0 32px;}
+.main_ul li {list-style: none;float: left;width: 50%;font-size: 18px;font-weight: 400;color: #333333;border-bottom: 1px solid #E2E2E2;cursor:pointer;}
+.active_title {color: #C8161D !important;border-bottom: 2px solid #C8161D !important;}
+.qrcode_login {text-align: center;display:none;}
+.qrcode_login .title {/*margin-bottom: 21px;*/}
+.qrcode_login .title span {display: block;font-size: 20px;font-weight: 400;color: rgba(51,51,51,1);margin: 40px 0 0;}
+.qrcode_login .title img {height: 280px;width: 280px;}
+#login_post p span {font-size: 14px;color: #b2b2b2;text-align: left;}
+.user input, .password input, .valida input, .login_btn a {height: 48px;width: 100%;outline: none;font-size: 16px;}
+.user input, .password input, .valida input {border: 1px solid #e2e2e2;text-indent: 8px;color: #333333;}
+.login_btn a {border: none;background: #C8161D;font-size: 18px;color: #ffffff;display: inline-block;line-height: 48px;font-weight: 500;cursor: pointer;}
+.login_btn a:hover {background-color: #b70e15;text-decoration:none;}
+.login_btn a:active {background-color: #ec928d;}
+.user, .password, .valida {margin: 0 0 24px;}
+.vlidata_code {width: 54% !important;}
+.code_text {display: inline-block;width: 42% !important;border: 1px solid #cf1910;line-height: 48px;float: right;text-align: center !important;color: #cf1910;cursor: pointer;font-size: 16px !important;}
+.code_text:hover {background:#cf1910;color:#FFFFFF;}
+.login_btn {margin: 0 0 16px;color: #ffffff;text-align: center;}
+.other_login p {display: inline-block;}
+.other_login_t {font-size: 12px;font-weight: 400;color: #666666;}
+.other_login img {height: 30px;width: 30px;cursor:pointer;display:inline-block;vertical-align: middle;}
+.forget_password {float: right;margin-top: 5px;}
+.forget_password .forget {padding-right: 5px;}
+.forget_password .sign {padding-left: 5px;}
+.forget_password a {font-size: 14px;font-weight: 400;color: #B2B2B2;}
+.forget_password a:hover {color:#cf1910;}
+.back_main_p {margin: 18px 0 0;text-align: center;}
+.back_main_p a, .back_main_p span {font-size: 18px;font-weight: 500;color: #FFFFFF !important;display: inline-block;}
+.back_main_p a {margin-left: 8px;cursor: pointer;}
+.back_main_p:hover {opacity:0.7;}
+@media screen and (max-width:1366px) {
+    .main_con {padding: 30px 40px;}
+}
+@media screen and (max-width:1200px) {
+}
+
+@media screen and (max-width:991px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 576px) {
+    .content .main_content {width: 340px;margin-left: -170px;}
+    .forget_password a {font-size: 12px;}
+}

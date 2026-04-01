@@ -1,0 +1,271 @@
+body{position:fixed;left:0px;right:0px;top:0px;bottom:0px;display:flex;flex-direction:column;}
+.con_erea{flex:1;display:flex;flex-direction:row;width:100%;}
+.navbar {
+    margin-bottom: 0px;
+    border: 0;
+    padding:0;
+    height:50px;
+    width:100%;
+}
+.header {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    z-index: 3;
+    /*box-shadow: 0px 3px 14px 6px rgba(50, 49, 57, 0.04);*/
+    background: #f7f7fa;
+}
+    .header .header-item {
+        padding: 0 0 32px;
+    }
+        .header .header-item .logo {
+            /*width: 126px;*/
+            height: 50px;
+            display: inline-block;
+        }
+        .product_project{display:none !important;position: absolute;top: 0;left: 300px;z-index: 9999;}
+        .product_project li {
+    float: left;
+    color: #111;
+    font-size: 16px;
+    font-weight: 400;
+    background: #f7f7fa;
+    width: 160px;
+    text-align: center;
+    cursor: pointer;
+}
+        .product_project li.li_active {
+    background: #ffffff;
+    color: #4a90e2;
+    font-weight: 500;
+}
+.header_right {
+    display: inline-block;
+    position: absolute;
+    right: 18px;
+    font-size:17px;
+    color:#111;
+    z-index: 9999999;
+}
+.header_title {
+    padding: 0 16px;
+    height: 100%;
+    display: inline-block;
+    position:relative;
+}
+    .right_massage, .right_order{
+        /*font-size:18px !important;*/
+    }
+.header_right .header_title:hover {
+    background: #fff;
+    cursor: pointer;
+}
+.header_right .header_title:hover .massage_ul {
+    display: block;
+}
+.massage_ul {
+    background: #fff;
+    z-index: 1111;
+    position: absolute;
+    width: 200px;
+    padding: 0 16px;
+    top: 48px;
+    right:0;
+    display: none;
+	box-shadow:0px 0px 20px 0px rgba(45,45,59,0.10);
+}
+
+    .order_show .massage_time a{
+        text-align:left !important;
+    }
+    .massage_ul li a {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        height: 15px;
+        font-size: 16px;
+        color: rgba(193,181,184,1);
+        line-height: 17px;
+        cursor: pointer;
+    }
+	.massage_ul li a:hover {
+		color:rgba(74,144,226,1);
+	}
+        .massage_ul li:not(:last-child) {
+            border-bottom: 1px solid #e2e2e2;
+            padding: 16px 0;
+        }
+    .massage_ul .massage_news {
+        height: 18px;
+        font-size: 16px;
+        color: #111;
+        line-height: 20px;
+        margin-bottom: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .massage_ul .massage_time {
+        height: 16px;
+        font-size: 14px;
+        color: rgba(153,153,153,1);
+        line-height: 17px;
+    }
+.personal_show {
+    /*right: 22px;*/
+    width: 152px;
+}
+    .personal_show li {
+        border-bottom: none !important;
+        padding: 0 !important;
+    }
+    .personal_show li a{
+        color:#111;
+        font-size:16px;
+    }
+.container {
+    max-width: 100%;
+}
+.content {
+    height:100%;
+    padding: 0;
+    background: #F7F7FA;
+    display:flex;
+    flex-direction:column;
+}
+.container_left {
+    height: 100%;
+    width: 240px;
+    background: #4a90e2;
+    /*float: left;*/
+    /*position: fixed;
+    left: 0;
+    top: 50px;*/
+}
+.left_menu{
+    /*padding-left:39px;*/
+}
+    .left_menu .left_menu_title {
+        font-size: 18px;
+        color: #fff;
+        padding: 40px 0 16px 40px;
+    }
+    .left_menu .left_menu_ul li {
+        font-size: 16px;
+        color: #fff;
+        /*padding-top: 24px;*/
+        cursor: pointer;
+        line-height: 64px;
+        /*padding-left: 39px;*/
+        overflow:hidden;
+    }
+    .left_menu .left_menu_ul li a{
+        color: #fff;
+        text-decoration:none;
+        display: inline-block;
+        width: 100%;
+        padding-left: 39px;
+    }
+.container_main {
+    height:100%;
+    width:100%;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    overflow: auto;
+    /*position: relative;*/
+    /*top: 50px;*/
+}
+/*.right_content {
+    height: 100%;
+    width: 100%;
+}*/
+    .right_top {
+        height: 48px;
+        /*width:100%;*/
+        /*line-height:48px;*/
+        padding-left:24px;
+        background: #FFFFFF;
+        box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.05);
+    }
+        .right_top li:not(:last-child) {
+            font-size: 16px;
+            color: #666666;
+            display: inline-block;
+            line-height:48px;
+        }
+        .right_top li:last-child {
+            font-size: 16px;
+            color: #ABAAAE;
+            display: inline-block;
+            line-height:48px;
+        }
+    .right_main {
+        padding: 24px;
+        flex:1;
+        /*overflow-y:auto;*/
+        /*width:100%;*/
+        /*background: #F7F7FA;*/
+    }        
+.li_active {
+    color: #FFFFFF !important;
+    background:#4087d9;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #B2B2B2;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #B2B2B2;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #B2B2B2;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #B2B2B2;
+}
+.container{
+    padding:0;
+}
+
+@media (min-width: 1681px) {
+    
+}
+@media (min-width: 1200px) and (max-width:1680px) {
+    
+}
+@media screen and (max-width:1399px) {
+}
+
+@media screen and (max-width:1200px) {
+}
+
+@media screen and (max-width:991px) {
+}
+
+@media screen and (max-width: 768px) {
+    
+}
+@media screen and (max-width: 576px) {
+    .header .header-item {
+        padding: 0 10px;
+    }
+    .header_right {
+        right: 10px;
+    }
+    .right_massage, .right_order, .right_presonal {
+        padding: 0 10px;
+    }
+    .massage_show {
+        right: 114px;
+    }
+    .order_show {
+        right: 76px;
+    }
+    .personal_show {
+        right: 10px;
+    }
+    
+}
+@media screen and (max-width: 400px) {
+    
+}

@@ -1,0 +1,61 @@
+.rf_main{
+    background: url(img/background.png) no-repeat;
+    background-size: 100% 100%;
+}
+.rf_form{
+    display: inline-block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+.rf_form .rf_p{
+    margin-bottom: 16px;
+    width: 300px;
+    position:relative;
+}
+.rf_form .rf_lable{
+    font-size:16px;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    margin-right: 12px;
+}
+
+.warehouse_ul{width:83%;border:1px solid #4A90E2;background: #ffffff;position:absolute;right:0;z-index:999;display: none;}
+.warehouse_ul li{line-height:28px;padding:4px 10px;cursor:pointer;}
+.warehouse_ul li:hover{background: #4A90E2;color:#ffffff;}
+.rf_form .rf_p .down_img{width:16px;height:12px;position:absolute;right:20px;top:17px;cursor:pointer;}
+.rf_form .rf_select, .rf_form .rf_input,.rf_form .rf_button{
+    width:83%;
+    height:44px;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,1);
+    text-indent: 24px;
+    color:#ffffff;
+    background: #4A90E2;
+}
+.rf_form .rf_button{
+    text-indent: 0;
+    border: none;
+    font-size:16px;
+    font-weight:400;
+    color:rgba(74,144,226,1);
+    background: #ffffff;
+    cursor: pointer;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:#FFFFFF;
+    font-size:16px;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#FFFFFF;
+    font-size:16px;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#FFFFFF;
+    font-size:16px;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#FFFFFF;
+    font-size:16px;
+}

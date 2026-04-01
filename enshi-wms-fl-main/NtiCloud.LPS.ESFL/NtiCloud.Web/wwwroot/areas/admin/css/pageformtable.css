@@ -1,0 +1,35 @@
+﻿#pageFormTableContainer .panel.layout-panel {
+    height: 100%;
+}
+
+#pageFormTableContainer #left {
+    visibility: hidden;
+}
+
+#pageFormTableContainer.show_leftlist #left {
+    visibility: visible;
+}
+
+#pageFormTableContainer .btn_wrapper .btn {
+    line-height: 1;
+    padding: 10px 8px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom:10px;
+}
+
+#pageFormTableContainer .btn_wrapper {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#pageFormTableContainer .btn#cancel_act {
+    margin-top: 30px;
+}
+
+#pageFormTableContainer.show_leftlist #center .btnline:nth-child(1), #pageFormTableContainer.show_leftlist #center .btnline:nth-child(2) {
+    display: none;
+}

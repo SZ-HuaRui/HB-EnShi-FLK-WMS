@@ -1,0 +1,15 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("条码绑定")}
+@section footerScript{
+    <script src="~/areas/rfs/js/CodeBind.js"></script>
+}
+@section caption{@("一号工程码")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border"><span class="title">一号工程码：</span><input class="one_code" type="text" placeholder="请扫描" /></p>
+            </div>
+        </div>
+    </div>
+}

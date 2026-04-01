@@ -1,0 +1,25 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{数据详细列表}
+@section HeaderSection{
+    <link href="~/areas/admin/css/easyuilayer.css" rel="stylesheet" />
+    <script src="~/areas/admin/js/pagedetail.js"></script>
+    <script src="//g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js"></script>
+}
+@section ContentBody{
+    <body style="overflow:hidden;">
+        <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+        <div class="mvctool bgb">
+            <a id="btnReturn" title="返回" class="btn btn-default easyui-tooltip"><span class="mdi mdi-keyboard-return">&nbsp;返回</span>&nbsp;&nbsp;</a>
+        </div>
+        <div id="conDiv">
+            <table style="border-collapse:collapse;table-layout:fixed;" class="formtablenormal" width="98%">
+                <tbody id="multipleColumn">
+                    <tr><th width="20%"></th><td width="30%"></td><th width="20%"></th><td width="30%"></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript">
+            @Html.Raw(ViewBag.JsScript)
+        </script>
+    </body>
+}

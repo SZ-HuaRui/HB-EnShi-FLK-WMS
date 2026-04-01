@@ -1,0 +1,170 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/Layout.cshtml";}
+@section TitleSection{@( ViewBag.SystemName + ViewBag.APPNAME)}
+@section HeaderSection{
+    <link href="~/areas/admin/css/main.css" rel="stylesheet" />
+    <link href="~/lib/menuDown/menuDown.css" rel="stylesheet" />
+    <script src="~/areas/admin/js/main.js"></script>
+    <script src="~/lib/scroll/scroll.min.js"></script>
+    <script src="~/lib/menuDown/menuDown.js"></script>
+    <script src="~/lib/layui/layui.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/js/loginCommon.js"></script>
+    <script src="//g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js"></script>
+}
+@section ContentBody{
+    <div id="develop_main" class="">
+        <div class="mainBody">
+            <div class="left_menu" id="phone_menu" style="background-color: rgb(51, 55, 68);"></div>
+            <div class="left_bar">
+                <div class="left_top_logo">
+                    <div class="logo_item"><a href="#"><img class="logo" src="@ViewBag.AppPic"></a></div>
+                </div>
+                <div class="left_menu" id="pc_menu">
+                    <div class="left_main_tab">
+                        <ul class="first_tab"></ul>
+                        <div class="second_tab" style="display:none;">
+                            <p></p>
+                            <ul class="level level03"></ul>
+                        </div>
+                        <div class="third_tab" style="display:none;">
+                            <p></p>
+                            <ul class="level leve203"></ul>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="btn_left_menu mdi mdi-arrow-left"></div>*@
+            </div>
+            <div class="t_con_detail">
+                <div class="tabs">
+                    <div class="phone_header">
+                        <div class="phone_header_btn">
+                            <p class="line first"></p>
+                            <p class="line second"></p>
+                            <p class="line third"></p>
+                        </div>
+                        <p class="phone_header_title">@ViewBag.APPNAME</p>
+                        <div class="person_set set_btn"></div>
+                    </div>
+                    <div class="tabs_before"></div>
+                    <div class="tab_pages">
+                        <div class="btn_left_menu mdi mdi-format-indent-decrease"></div>
+                        <div class="btn_arrow left mdi mdi-chevron-double-left"></div>
+                        <div class="tabs_main">
+                            <div class="tabs_container">
+                                <ul class="tabs_main_ul">
+                                    <li class="active initTab" data-tid="initTab">
+                                        <div class="tab_left"></div>
+                                        <div class="tab_menu">我的桌面</div>
+                                        <div class="tab_right"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="btn_arrow right mdi mdi-chevron-double-right"></div>
+                    </div>
+                    <div class="settings">
+                        <div class="settings_refresh" title="刷新当前页面"><i class="mdi mdi-sync"></i></div>
+                        <div class="settings_group">
+                            <i class="mdi mdi-settings-outline"></i>
+                            <ul class="settings_ul">
+                                <li class="settings_li"><span class="mdi mdi-account-outline"></span><span id="Personal" class="settings_li_title">个人信息</span></li>
+                                <li class="settings_li"><span class="mdi mdi-clipboard-text-outline"></span><span id="UserPswd" class="settings_li_title">修改密码</span></li>
+                                <li class="settings_li"><span class="mdi mdi-puzzle-outline"></span><span class="settings_li_title" id="LayUiSetThemes">切换主题</span></li>
+                                <li class="settings_li" onclick="loginOut()"><span class="mdi mdi-logout-variant"></span><span id="LogOut" class="settings_li_title settings_logout">退出登录</span></li>
+                            </ul>
+                        </div>
+                        <div class="settings_name">@ViewBag.UserName</div>
+                    </div>
+                    <div class="skullselect mdi mdi-chevron-right-circle-outline">
+                        <em class="topAngle"></em>
+                        <ul class="arrow_box">
+                            <li class="close_tabs"><span>关闭所有窗口</span></li>
+                            <li data-tid="initTab" class="show_tab"><span>我的桌面</span><em>&gt;</em></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="tab_content">
+                    <div class="content show_iframe" data-tid="initTab">
+                        <iframe id="iframeinitTab" src="@ViewBag.DeskTopUrl" frameborder="0" scrolling="auto"></iframe>
+                    </div>
+                </div>
+            </div>
+            @*移动端的修改密码*@
+            <div class="phone_area">
+                <div class="action_set_area">
+                    <ul>
+                        <li class="to_modify" style="border-bottom:1px solid #ECECEC;">
+                            <span>修改密码</span>
+                            <i class="icon"></i>
+                        </li>
+                        <li class="get_help">
+                            <span>帮助</span>
+                            <i class="icon"></i>
+                        </li>
+                    </ul>
+                    <p id="login_out" onclick="loginOut();">退出登录</p>
+                </div>
+                <div class="modify_psword">
+                    <p><span class="lable">原 密 码：</span><input type="text" placeholder="请输入旧密码" name="old_psword" id="old_psword" /></p>
+                    <p><span class="lable">新 密 码：</span><input type="text" placeholder="请输入新密码" name="new_psword" id="new_psword" /></p>
+                    <p><span class="lable">确认密码：</span><input type="text" placeholder="请再次输入新密码" name="confirm_psword" id="confirm_psword" /></p>
+                    <p id="confirm_modify" onclick="common.modifyPsword([$('#old_psword'), $('#new_psword'), $('#confirm_psword')],'phone');">确认</p>
+                </div>
+            </div>
+        </div>
+
+        @*PC端的修改密码*@
+    <div id="modalpassword" style="display:none;">
+        <table class="formtable">
+            <tbody>
+                <tr>
+                    <td height="40">&nbsp;&nbsp;&nbsp;&nbsp;原密码：</td>
+                    <td><input id="Password1" type="password" /></td>
+                </tr>
+                <tr>
+                    <td height="40">&nbsp;&nbsp;&nbsp;新密码：</td>
+                    <td><input id="Password2" type="password" /></td>
+                </tr>
+                <tr>
+                    <td height="40">&nbsp;&nbsp;确认密码：</td>
+                    <td><input id="Password3" type="password" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    @*PC端的切换样式*@
+    <div id="ModalStyle" style="display:none;height:200px; ">
+        <table style="width: 100%; padding: 20px; line-height: 30px; text-align: center;">
+            <tr>
+                <td align="center"  height="60">
+                    显示方式：&nbsp;
+                    <input type="radio" name="fontsize" value="0" checked="checked" />&nbsp;&nbsp;小字体&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="fontsize" value="1" />&nbsp;&nbsp;大字体
+                </td>
+            </tr>
+        </table>
+        <table style="width:100%;padding:20px; line-height:30px;text-align:center;">
+            <tr>
+                <td><img src="~/areas/admin/css/themes/skin/skin-coolblack.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="coolblack" /></td>
+                <td><img src="~/areas/admin/css/themes/skin/skin-coolblacklight.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="coolblacklight" /></td>
+                <td><img src="~/areas/admin/css/themes/skin/skin-red.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="red" /></td>
+                <td><img src="~/areas/admin/css/themes/skin/skin-redlight.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="redlight" /></td>
+            </tr>
+            <tr>
+                <td><img src="~/areas/admin/css/themes/skin/skin-green.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="green" /></td>
+                <td><img src="~/areas/admin/css/themes/skin/skin-greenlight.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="greenlight" /></td>
+                <td><img src="~/areas/admin/css/themes/skin/skin-purple.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="purple" /></td>
+                <td><img src="~/areas/admin/css/themes/skin/skin-purplelight.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="purplelight" /></td>
+            </tr>
+            <tr>
+                <td><img src="~/areas/admin/css/themes/skin/skin-blue.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="blue" /></td>
+                <td> <img src="~/areas/admin/css/themes/skin/skin-bluelight.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="bluelight" checked="checked" /></td>
+                <td><img src="~/areas/admin/css/themes/skin/skin-yellow.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="yellow" /></td>
+                <td><img src="~/areas/admin/css/themes/skin/skin-yellowlight.png" style="width:60px;height:30px;" /><br /><input type="radio" name="themes" value="yellowlight" /></td>
+            </tr>
+        </table>
+    </div>
+        <input type="hidden" id="encrypt" name="encrypt" value="@ViewBag.Encrypt" />
+    </div>
+}

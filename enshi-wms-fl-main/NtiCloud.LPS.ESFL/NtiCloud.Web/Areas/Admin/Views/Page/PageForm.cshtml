@@ -1,0 +1,147 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@{ var NticloudCSS = NtiCloud.Web.Common.HttpContext.Current.Request.Cookies["NticloudCSS"];
+    if (NticloudCSS == null || NticloudCSS.ToString().IndexOf("0") == 0)
+    {
+        NticloudCSS = "12px;";
+    }
+    else
+    {
+        NticloudCSS = "15px;";
+    }
+}
+@section TitleSection{数据操作}
+@section HeaderSection{
+    <link href="~/areas/admin/css/easyuilayer.css" rel="stylesheet" />
+    <link href="~/areas/admin/css/pageform.css" rel="stylesheet" />
+    <script src="~/js/validatebox.js"></script>
+    <script src="~/lib/jquery/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery/jquery.validate.unobtrusive.plus.js"></script>
+    <script src="~/areas/admin/js/pageform.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/lib/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/lib/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/lib/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+    <!--核心文件-->
+    <link rel="stylesheet" href="~/lib/codemirror/lib/codemirror.css">
+    <script src="~/lib/codemirror/lib/codemirror.js"></script>
+    <script src="~/lib/codemirror/mode/sql/sql.js"></script>
+    <!--实现全屏-->
+    <link rel="stylesheet" href="~/lib/codemirror/addon/display/fullscreen.css">
+    <script src="~/lib/codemirror/addon/display/fullscreen.js"></script>
+    <!--当前行背景高亮-->
+    <script src="~/lib/codemirror/addon/selection/active-line.js"></script>
+    <!--括号匹配-->
+    <script src="~/lib/codemirror/addon/edit/matchbrackets.js"></script>
+
+    <script src="~/lib/codemirror/addon/comment/continuecomment.js"></script>
+    <script src="~/lib/codemirror/addon/comment/comment.js"></script>
+
+    <!--自动提示-->
+    <link href="~/lib/codemirror/addon/hint/show-hint.css" rel="stylesheet" />
+    <script src="~/lib/codemirror/addon/hint/show-hint.js"></script>
+    <script src="~/lib/codemirror/addon/hint/sql-hint.js"></script>
+    <style>
+        table, td, th, p, div, span, label {
+            font-size: @(@NticloudCSS)
+        }
+        .textbox input.textbox-text {
+            font-size: @(@NticloudCSS);
+        }
+        .textbox-disabled.textbox-readonly {
+            background: #e7eaec;
+        }
+            .textbox-disabled.textbox-readonly .textbox-addon-right a {
+                cursor: no-drop
+            }
+        .textbox-disabled.textbox-readonly input {
+            cursor: no-drop;
+        }
+        .CodeMirror {
+            border-top: 1px solid #dedcdc;
+            border-right: 1px solid #dedcdc;
+            border-bottom: 1px solid #dedcdc;
+        }
+    </style>
+    @{
+        if (NticloudCSS == "15px;")
+        {
+            <style>
+                table.formtable input {
+                    height: 24px;
+                    line-height: 24px;
+                    padding: 0px;
+                }
+
+                table.formtable input, table.formtable textarea {
+                    text-indent: 8px;
+                }
+
+                    table.formtable input.text-box {
+                        height: 34px;
+                        line-height: 32px;
+                        padding: 0px;
+                    }
+
+                table.formtable .Wdate {
+                    height: 32px;
+                    line-height: 32px;
+                }
+            </style>
+        }
+        else
+        {
+            <style>
+                input[type="text"], input[type="number"], input[type="datetime"], input[type="password"], select, textarea {
+                    height: 14px;
+                    padding: 5px 3px;
+                    margin: 0px 0 0 0;
+                    font-size: 14px;
+                    line-height: 14px;
+                    color: #555;
+                    vertical-align: middle;
+                    border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                    border: 1px #ccc solid;
+                }
+            </style>
+        }
+    }
+}
+@section ContentBody{
+    <body style="overflow:hidden;">
+        <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+        <div id="buttonList" class="mvctool bgb">
+            <a id="btnReturn" title="返回" class="btn btn-default easyui-tooltip"><span class="mdi mdi-keyboard-return">&nbsp;&nbsp;返回</span>&nbsp;&nbsp;</a>
+            <a id="btnSave" title="保存" class="btn btn-default easyui-tooltip"><span class="mdi mdi-content-save" style="padding:4px 0px 4px 6px">&nbsp;&nbsp;保存</span>&nbsp;&nbsp;</a>
+            <a id="btnSaveClose" title="保存并退出" class="btn btn-default easyui-tooltip"><span class="mdi mdi-language-swift">&nbsp;&nbsp;保存并退出</span></a>
+        </div>
+        <div id="conDiv">
+            <form action="/Admin/Page/PageForm" method="post">
+                <table class="formtable">
+                    <tbody id="multipleColumn">
+                        <tr><th></th><td></td><td></td></tr>
+                    </tbody>
+                </table>
+                <input type="hidden" id="TemplateID" value="@ViewBag.TemplateID" />
+            </form>
+            <div id="dialogFileUpload" class="easyui-dialog" title="上传文件" data-options="iconCls:'icon-more'" closed="true" style="width:300px;height:180px;padding:10px; text-align:center; display:none;">
+                <form id="uploadForm" enctype="multipart/form-data" method="post">
+                    <br />
+                    <input type="file" id="filedir" name="filedir" multiple style="height:30px;width:280px;" class="text-box single-line" />
+                    <input type="hidden" id="fileid" name="fileid" value="" />
+                    <br /><br />
+                    <input type="button" value="上传" onclick="fileUpload()" class="easyui-linkbutton" style="width:80px;height:32px" />&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="关闭" class="easyui-linkbutton" style="width:80px;height:32px" onclick="$('#dialogFileUpload').dialog('close')" />
+                </form>
+            </div>
+            <div id="tableList" style="display:none; text-align:center;padding-left:30px; padding-right:30px;"></div>
+            <div id="flowList" class="mvctool"></div>
+        </div>
+        <div id="picCtrl"></div>
+        <script type="text/javascript">
+            @Html.Raw(ViewBag.JsScript)
+        </script>
+    </body>
+}

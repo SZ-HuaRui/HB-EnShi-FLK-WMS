@@ -1,0 +1,36 @@
+body,p{
+    margin: 0px;
+}
+.chartArea{
+    position:fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+}
+.chartArea .chart{
+    width: 98%;
+    height: 78%;
+    margin: 1%;
+}
+#info-table{
+    position: absolute;
+    bottom:80px;
+    left:50%;
+    transform: translateX(-50%);
+}
+#info-table td{
+    min-width:100px;
+    height:30px;
+    text-align: center;
+}
+.page-title{
+    margin:30px;
+}
+.page-buttons{
+    position: absolute;
+    bottom:40px;
+    left:50%;
+    transform: translateX(-50%);
+}

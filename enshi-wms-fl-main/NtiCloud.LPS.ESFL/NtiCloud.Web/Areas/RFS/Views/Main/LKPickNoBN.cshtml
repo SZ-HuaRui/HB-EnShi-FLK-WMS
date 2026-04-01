@@ -1,0 +1,101 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/areas/rfs/css/reset.css" rel="stylesheet" />
+    <link href="~/areas/rfs/css/common.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/areas/rfs/js/LendOut.js"></script>
+    <script src="~/areas/rfs/js/common.js"></script>
+    <script src="~/lib/layer/layer.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <script src="~/areas/rfs/js/LKPickNoBN.js"></script>
+    <title>立库无箱码拣选</title>
+</head>
+<body>
+    <input type="hidden" id="Web_Token_XSRF_CSRF" value="@Antiforgery.GetAndStoreTokens(Context).RequestToken" />
+    <div class="top_nav">
+        <p><strong>立库无箱码拣选</strong></p>
+        <div class="rf_head">
+            <a href="javascript:history.go(-1)" class="rf_goback">返回</a>
+        </div>
+        <div class="rf_headmain">
+            <a href="/RFS/Main/Index" class="rf_home">主页</a>
+            <a class="rf_out">退出</a>
+        </div>
+    </div>
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border">
+                    <span class="title">托盘编码:</span>
+                    <input id="container_code" type="text" placeholder="请扫描托盘条码" name="fname" />
+                </p>
+                <p class="rf_border">
+                    <span class="title">出库单号:</span>
+                    <select id="orderCode"></select>
+                </p>
+                <p class="rf_border">
+                    <span class="title">目标容器:</span>
+                    <input id="container_empcode" type="text" placeholder="请扫描目标容器条码" name="fname" />
+                </p>
+            </div>
+
+            <div class="name">
+                <p class="rf_border" style="display:none">
+                    <span class="title">任务明细号:</span>
+                    <span id="t_TaskDetailID"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">来源单号:</span>
+                    <span id="t_sourceCode"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料编码:</span>
+                    <span id="t_itemCode"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料名称:</span>
+                    <span id="t_itemName"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">批次:</span>
+                    <span id="t_lot"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料数量:</span>
+                    <span id="t_num">0</span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">已拣/应拣:</span>
+                    <span id="t_overPickNum">0</span><span>/</span><span id="t_needPickNum">0</span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">拣选数量:</span>
+                    <input id="PickNum" type="text" style="width:45px;" value="0" placeholder="" name="fname" />
+                </p>
+                <p class="rf_border">
+                    <span class="title">交换模式:</span>
+                    <input id="isChangeCon" type="checkbox" style="height:auto;width:auto;margin:0px;" />
+                </p>
+            </div>
+            <div class="button_t">
+                <div class="button">
+                    <a id="pev"  style="margin-right:10px;">上一项</a>
+                    <a id="next"  style="margin-left:0px;">下一项</a>
+                    <a id="submit" >确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

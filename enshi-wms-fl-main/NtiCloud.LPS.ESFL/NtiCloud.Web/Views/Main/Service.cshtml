@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Shared/Laylogin.cshtml";
+}
+@section TitleSection{今天云平台登录}
+@section HeaderSection{
+    <link href="~/css/service.css" rel="stylesheet" />
+}
+@section ContentBody{
+    <div class="main_content center-block">
+        <div class="main_con">
+            <div class="logo">
+                <a href="/">
+                    <img src="~/img/logo3.png" />
+                </a>
+            </div>
+            <div class="phone_login">
+                <ul class="main_ul">
+                    <li>今天云服务协议</li>
+                </ul>
+                <div class="main_text">
+                    <p>欢迎您使用今天云服务！</p>
+                    <p>为使用今天云服务（可简称“本服务”），您应当阅读并遵守《今天云服务协议》（以下简称:本协议）。请您务必审慎阅读、充分理解各条款内容，特别是限制或免除责任的条款，以及开通或使用某项服务的单独协议、规则。限制或免责条款可能以加粗或加下划线的形式提示您重点注意。</p>
+                    <p>除非您已阅读并接受本协议及相关协议、规则等的所有条款，否则，您无权使用本服务。一旦您选择“同意协议并提交”（具体措辞详见注册页面）并完成注册流程，或您以任何方式使用本服务，即视为您已阅读并同意上述协议、规则等的约束。</p>
+                    <p>您有违反本协议的任何行为时，今天云有权依照本协议根据您违反情况随时单方采取限制、中止或终止向您提供服务等措施，并有权追究您相关责任。</p>
+                </div>
+                <p class="login_btn"><a href="/Main/Register" onclick=""><span>< </span>返回注册</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".content").css("height", $(window).height());
+        //$('.main_content').css('margin-top', ($(window).height() - $('.navbar').height() - $('.main_content').innerHeight()) / 2 - $('.navbar').height() / 2);
+        $(window).resize(function () {
+            $(".content").css("height", $(window).height());
+            //$('.main_content').css('margin-top', ($(window).height() - $('.navbar').height() - $('.main_content').innerHeight()) / 2 - $('.navbar').height() / 2);
+        });
+    </script>
+}

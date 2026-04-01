@@ -1,0 +1,130 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/css/reset.css" rel="stylesheet" />
+    <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/lib/MaterialDesign-Webfont-master/css/materialdesignicons.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery-3.4.1.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/js/loginCommon.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <title>@RenderSection("TitleSection", false)</title>
+    @RenderSection("HeaderSection", false)
+</head>
+<body style="">
+    @Html.AntiForgeryToken()
+    <div class="content">
+        <div class="header">
+            <div class="header-item">
+                <a class="logo_a" href="@(ViewContext.RouteData.Values["action"].ToString()=="ControlDesk"?"/":"/Member/ControlDesk")"><img class="logo" src="~/img/logo.png"></a>
+                <ul class="product_project">
+                    <li class="li_active">产品中心</li>
+                    <li>项目中心</li>
+                </ul>
+                <div class="header_right">
+                    <div class="header_title right_massage mdi mdi-bell-outline" onclick="location.href='/Member/Message'">
+                        <ul class="massage_ul massage_show">
+                            @{
+                                System.Data.DataSet MsgWork = (System.Data.DataSet)ViewData["MsgWork"];
+                                if (MsgWork.Tables[0].Rows.Count == 0)
+                                {
+                                    <li>
+                                        <p class="massage_news">没有发布通知消息</p>
+                                    </li>
+                                }
+                                else
+                                {
+                                    for (var i = 0; i < MsgWork.Tables[0].Rows.Count; i++)
+                                    {
+                                        <li>
+                                            <p class="massage_news" title="@(MsgWork.Tables[0].Rows[i]["title"])">@(MsgWork.Tables[0].Rows[i]["title"])</p>
+                                            <p class="massage_time">@(MsgWork.Tables[0].Rows[i]["create_date"])</p>
+                                        </li>
+                                    }
+                                }
+                            }
+                            <li><a href="/Member/Message">查看全部</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="header_title right_order mdi mdi-calendar-blank" onclick="location.href='/Member/MyWorkOrder'">
+                        <ul class="massage_ul order_show">
+                            @{
+                                if (MsgWork.Tables[1].Rows.Count == 0)
+                                {
+                                    <li>
+                                        <p class="massage_news">当前没有任何工单信息</p>
+                                    </li>
+                                }
+                                else
+                                {
+                                    for (var i = 0; i < MsgWork.Tables[1].Rows.Count; i++)
+                                    {
+                                        <li>
+                                            <p class="massage_time">@(MsgWork.Tables[1].Rows[i]["create_date"])</p>
+                                            <p class="massage_news" title="工单@(MsgWork.Tables[1].Rows[i]["orderid"] + (MsgWork.Tables[1].Rows[i]["userqa"].ToString() == "0" ? "待处理" : "已回复"))">工单@(MsgWork.Tables[1].Rows[i]["orderid"] + (MsgWork.Tables[1].Rows[i]["userqa"].ToString() == "0" ? "待处理" : "已回复"))</p>
+                                            <p class="massage_time"><a href="/Member/MyWorkOrderDetail/@MsgWork.Tables[1].Rows[i]["orderid"]">点击查看</a></p>
+                                        </li>
+                                    }
+                                }
+                            }
+                            <li><a href="/Member/MyWorkOrder">查看全部</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="header_title right_order mdi mdi-help-circle-outline" onclick="location.href='/Member/Help'">
+                    </div>
+
+                    <div class="header_title right_presonal">
+                        <span>@NtiCloud.Web.Common.HttpContext.GetUserInfo().RootElement.GetProperty("userName").GetString()</span>
+                        <ul class="massage_ul personal_show">
+                            <li>
+                                <a class="personal_news" id="person_info">个人资料</a>
+                            </li>
+                            <li>
+                                <a class="personal_news" id="layout_mdf">修改密码</a>
+                            </li>
+                            <li>
+                                <a class="login_out">注销</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*PC端的修改密码*@
+        <div id="pc_mdfpassword" style="display:none;">
+            <table class="formtable">
+                <tbody>
+                    <tr>
+                        <td height="40">&nbsp;&nbsp;&nbsp;&nbsp;原密码：</td>
+                        <td><input id="Password1" type="password" /></td>
+                    </tr>
+                    <tr>
+                        <td height="40">&nbsp;&nbsp;&nbsp;新密码：</td>
+                        <td><input id="Password2" type="password" /></td>
+                    </tr>
+                    <tr>
+                        <td height="40">&nbsp;&nbsp;确认密码：</td>
+                        <td><input id="Password3" type="password" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="display:none;position: fixed;top: 50px;left: 0px;bottom: 0px;right: 0px;z-index:999;" id="div1">
+            <span class="close_d mdi mdi-close" style="position: fixed;right: 22px;font-size: 24px;color: #a9a5a5;cursor: pointer;"></span>
+            <iframe src="/Admin/System/Personalinfo" name="123" width="100%" height="100%" scrolling="auto" frameborder="0"></iframe>
+        </div>
+        @RenderSection("ContentBody")
+    </div>
+</body>
+</html>

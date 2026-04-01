@@ -1,0 +1,35 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("下架出库")}
+@section footerScript{
+    <script src="~/areas/rfs/js/OutShelve.js"></script>
+}
+@section caption{@("下架出库")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border"><span class="title">托盘条码：</span><input class="container_code" type="text" placeholder="请扫描" name="fname" /></p>
+                <p class="rf_border">
+                    <span class="title">出库单号：</span>
+                    <select class="OrderNos">
+                    </select>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料编码：</span>
+                    <span class="rf_border_d" id="item_code"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料名称：</span>
+                    <span class="rf_border_d" id="item_name"></span>
+                </p>
+                <p class="rf_border"><span class="title">件烟数量：</span><span class="rf_border_up_up" id="number"></span></p>
+                <p class="rf_border"><span class="title">实出数量：</span><input id="actual_num" type="text" placeholder="" name="fname" /></p>
+            </div>
+            <div class="button_t">
+                <div class="button">
+                    <a class="conform_btn">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

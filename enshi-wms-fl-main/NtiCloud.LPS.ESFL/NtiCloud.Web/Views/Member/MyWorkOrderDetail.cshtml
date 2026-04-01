@@ -1,0 +1,108 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutMember.cshtml";
+}
+@section TitleSection{我的工单详情}
+@section HeaderSection{
+    <link href="~/css/WorkOrderCommon.css" rel="stylesheet" />
+    <link href="~/css/MyWorkOrderDetail.css" rel="stylesheet" />
+    <script src="~/js/MyWorkOrderDetail.js"></script>
+}
+@section ContentBody{
+    <div class="con_erea">
+        <div class="container_left">
+            <div class="left_menu">
+                <p class="left_menu_title">工单系统</p>
+                <ul class="left_menu_ul">
+                    <li><a class="li_active" href="/Member/MyWorkOrder">我的工单</a></li>
+                    <li><a href="/Member/SubmitWorkOrder">提交工单</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container_main">
+            <div class="right_content">
+                <div class="right_top">
+                    <ul class="right_top_ul">
+                        <li>我的工单</li>
+                        <li>>工单详情</li>
+                    </ul>
+                </div>
+                @{
+                    System.Data.DataTable dtWorkOrder = (System.Data.DataTable)ViewData["workorder"];
+                    <div class="right_main">
+                        <div class="tool">
+                            <div class="tool_top">
+                                <span class="top">工单号:</span>
+                                <span class="top" id="OrderID">@dtWorkOrder.Rows[0]["orderid"].ToString()</span>
+                            </div>
+                            <div class="tool_top">
+                                <span class="top">问题分类:</span>
+                                <span class="top">@dtWorkOrder.Rows[0]["appname"]/@dtWorkOrder.Rows[0]["qatype"]</span>
+                            </div>
+                            <div class="tool_top">
+                                <span class="top">当前状态:</span>
+                                <span class="top top_d">@dtWorkOrder.Rows[0]["workflow"].ToString()</span>
+                            </div>
+                            <div class="all">
+                                <div class="input" onclick="workOrderList()" style="display:@(dtWorkOrder.Rows[0]["workflowid"].ToString() == "3" || dtWorkOrder.Rows[0]["workflowid"].ToString() == "4" ? "none" : "block")">
+                                    继续提问
+                                </div>
+                                <div class="input_up">
+                                    删除
+                                </div>
+                            </div>
+                        </div>
+                        <div class="foot">
+                            <div class="foot_top">
+                                <div class="footer">
+                                    <p class="call">通话记录</p>
+                                </div>
+                                @for (int i = 0; i < dtWorkOrder.Rows.Count; i++)
+                                {
+                                    if (dtWorkOrder.Rows[i]["userqa"].ToString() == "0")
+                                    {
+                                        <div class="today">
+                                            <div class="today_a">
+                                                <img src="/img/guest_head.png">
+                                                <div class="up">
+                                                    <p class="top_top">用户-@dtWorkOrder.Rows[i]["created_by"]:</p>
+                                                    <p class="top_up">@Html.Raw(dtWorkOrder.Rows[i]["workorder"])</p>
+                                                </div>
+                                                <div class="timeone"><p>@dtWorkOrder.Rows[i]["create_date"]</p></div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="today">
+                                            <div class="today_a">
+                                                <img src="~/areas/index/img/nti_head.png">
+                                                <div class="up">
+                                                    <p class="top_top">今天云工程师-@dtWorkOrder.Rows[i]["created_by"]:</p>
+                                                    <p class="top_up">@Html.Raw(dtWorkOrder.Rows[i]["workorder"])</p>
+                                                </div>
+                                                <div class="time"><p>@dtWorkOrder.Rows[i]["create_date"]</p></div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="container clearfix main_content" id="MyWorkOrderList" style="display:none">
+                    <div class="right_main">
+                        <div class="warp_top">
+                            <div class="top">
+                                <p>请输入问题描述<span>*</span></p>
+                            </div>
+                            <div class="up">
+                                <textarea class="issue_text" placeholder="请继续输入问题描述"></textarea>
+                            </div>
+                        </div>
+                        <input type="button" class="submis" value="提交工单">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

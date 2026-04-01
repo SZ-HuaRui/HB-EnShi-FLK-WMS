@@ -1,0 +1,123 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{系统页面配置}
+@section HeaderSection{
+    <link href="~/areas/admin/css/menulist.css" rel="stylesheet" />
+    <script src="~/areas/admin/js/webconfig.js"></script>
+    <!--核心文件-->
+    <link rel="stylesheet" href="~/lib/codemirror/lib/codemirror.css">
+    <script src="~/lib/codemirror/lib/codemirror.js"></script>
+    <script src="~/lib/codemirror/mode/sql/sql.js"></script>
+    <!--实现全屏-->
+    <link rel="stylesheet" href="~/lib/codemirror/addon/display/fullscreen.css">
+    <script src="~/lib/codemirror/addon/display/fullscreen.js"></script>
+    <!--当前行背景高亮-->
+    <script src="~/lib/codemirror/addon/selection/active-line.js"></script>
+    <!--括号匹配-->
+    <script src="~/lib/codemirror/addon/edit/matchbrackets.js"></script>
+
+    <script src="~/lib/codemirror/addon/comment/continuecomment.js"></script>
+    <script src="~/lib/codemirror/addon/comment/comment.js"></script>
+
+    <!--自动提示-->
+    <link href="~/lib/codemirror/addon/hint/show-hint.css" rel="stylesheet" />
+    <script src="~/lib/codemirror/addon/hint/show-hint.js"></script>
+    <script src="~/lib/codemirror/addon/hint/sql-hint.js"></script>
+}
+@section ContentBody{
+    <body style="overflow:hidden;">
+        <div class="mvctool bgb">
+            <a id="btnReturn" title="返回" class="btn btn-default easyui-tooltip"><span class="mdi mdi-keyboard-return">&nbsp;&nbsp;返回</span></a>
+            <a id="btnSave" title="保存" class="btn btn-default easyui-tooltip"><span class="mdi mdi-content-save">&nbsp;&nbsp;保存</span></a>
+            <a id="btnSaveClose" title="保存并退出" class="btn btn-default easyui-tooltip"><span class="mdi mdi-language-swift">&nbsp;&nbsp;保存并退出</span></a>
+        </div>
+        <div id="conDiv" style="padding:10px;text-align:center">
+            <div id="printPanel">
+                <div class="easyui-panel" title="打印控件" style="width:99%;" data-options="collapsible:true,closable:false">
+                    <div style="padding:20px;">
+                        <span style="display: inline-block;">是否启用报表：</span>
+                        <input id="isPrintPage" class="easyui-switchbutton" data-options="onText:'是',offText:'否'">
+                        <span id="frxTemplate" style="display:none">
+                            <span style="display:inline-block;margin-left:50px;">按钮名称：</span>
+                            <input id="printBtnName" class="easyui-textbox" data-options="prompt:'请输入按钮名称',multiline:false,required:true" style="width:80px;" value="打印">
+                            <span style="display:inline-block;margin-left:50px;">报表模版文件：</span>
+                            <select id="printFileName" class="easyui-combobox" style="width:230px;"></select>
+                            <span id="file_upload" title="上传打印模版文件" class="mdi mdi-cloud-upload easyui-tooltip" style="font-size:22px;padding:5px;cursor:pointer;" onclick="$('#dialogFileUpload').dialog('open').dialog('center')"></span>
+                            <span id="file_delete" title="删除打印模版文件" class="mdi mdi-delete-restore easyui-tooltip" style="font-size:22px;padding:5px;cursor:pointer;" onclick="deleteFile()"></span>
+                        </span>
+                    </div>
+                    <div id="dialogFileUpload" class="easyui-dialog" title="上传打印模版文件" data-options="iconCls:'icon-more'" closed="true" style="width:300px;height:180px;padding:10px; text-align:center; display:none;">
+                        <form id="uploadForm" enctype="multipart/form-data" method="post">
+                            <br />
+                            <input type="file" id="filedir" name="filedir" multiple style="height:30px;width:280px;" class="text-box single-line" />
+                            <br /><br />
+                            <input type="button" value="上传" onclick="fileUpload()" class="easyui-linkbutton" style="width:80px;height:32px" />&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="reset" value="关闭" class="easyui-linkbutton" style="width:80px;height:32px" onclick="$('#dialogFileUpload').dialog('close')" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div id="treeSetPanelA">
+                <div class="easyui-panel" title="树形控件" style="width:99%;" data-options="collapsible:true,closable:false">
+                    <div style="padding:20px;">
+                        <span style="display: inline-block;margin-bottom: 20px;">树结构数据：</span>
+                        <!--input id="treeSql" class="easyui-textbox" data-options="prompt:'输入查询SQL',multiline:true" style="width:88%;"-->
+                        <span style="display:inline-block;"><textarea id="treeSql"></textarea></span>
+                        <span class="mdi mdi-av-timer easyui-tooltip" title="读取字段信息" onclick="ReadTreeSql()" style="font-size:18px;padding:5px;cursor:pointer;"></span>
+                        <br />
+                        <span>ID字段绑定：</span>
+                        <select class="easyui-combobox" id="treeId" data-options="panelHeight: 'auto',editable: false,width:120,panelMaxHeight: 250"></select>
+                        <span style="display: inline-block;margin-left: 20px;">父ID字段绑定：</span>
+                        <select class="easyui-combobox" id="treePid" data-options="panelHeight: 'auto',editable: false,width:120,panelMaxHeight: 250"></select>
+                        <span style="display: inline-block;margin-left: 20px;">文本字段绑定：</span>
+                        <select class="easyui-combobox" id="treeText" data-options="panelHeight: 'auto',editable: false,width:120,panelMaxHeight: 250"></select>
+                        <span style="display: inline-block;margin-left: 20px;">树控件显示状态：</span>
+                        <select class="easyui-combobox" id="treeControlInitMode" data-options="panelHeight: 'auto',editable: false,width:120,panelMaxHeight: 250">
+                            <option value="ExpandAll">全部展开</option>
+                            <option value="ExpandFirstSubNode">展开首节点</option>
+                            <option value="CollapseAll">全部收起</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="padding:20px 0;" id="pageWebPagePanel">
+                    <table id="pageWebPage"></table>
+                </div>
+                <br />
+            </div>
+            <input type="hidden" id="formId" value="@ViewBag.formId" />
+            <input type="hidden" id="TemplateID" value="@ViewBag.TemplateID" />
+            <div style="padding:10px 0;text-align: right;" class="ntiCloud_addGrid">
+                <a class="easyui-linkbutton" id="addGridBtn" data-options="iconCls:'mdi mdi-plus'">新增从表</a>
+                <a class="easyui-linkbutton" id="addTableBtn" data-options="iconCls:'mdi mdi-plus'">批量弹框</a>
+            </div>
+
+            <div id="SQLList" class="easyui-window" title="数据源配置" data-options="iconCls:'mdi mdi-settings-outline',inline:true,modal:true,closed:true" style="width:500px;height:330px;padding:5px;">
+                <div class="easyui-layout" data-options="fit:true">
+                    <div data-options="region:'center'" style="padding:10px;">
+
+                        <div id="logicHtml" style="display:none">显示逻辑值：<select class="easyui-combobox" id="logicId" data-options="panelHeight: 'auto',editable: false,width:180,panelMaxHeight: 250"></select></div>
+                        <div id="sequencenoHtml" style="display:none">序列号代码：<select class="easyui-combobox" id="sequencenoId" data-options="panelHeight: 'auto',editable: false,width:180,panelMaxHeight: 250"></select></div>
+                        <div id="dictionaryHtml" style="display:none">
+                            数据字典：<select class="easyui-combotreegrid" id="dictionaryId" data-options="panelHeight: 'auto',editable: false,width:170,panelMaxHeight: 250"></select>
+                            <span id="userEditable" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;自定义输入：<input type="checkbox" id="isEditable" /></span>
+                            <div id="bindFieldPar" style="margin-top:5px;display:none;">联动字段：<select class="easyui-combobox" id="bindField" data-options="panelHeight: 'auto',editable: false,width:170,panelMaxHeight: 250"></select>&nbsp;&nbsp;&nbsp;&nbsp;过滤条件：<input id="sqlWhere" class="easyui-textbox" data-options="prompt:'输入条件',multiline:true" style="width:120px;"></div>
+                        </div>
+                        <div id="openSelect" style="display:none;">
+                            选择页面：<select class="easyui-combobox" id="openSelectPage" data-options="panelHeight: 'auto',editable: false,width:180,panelMaxHeight: 250"></select>
+                        </div>
+                        <br />
+                        <textarea id="sqlContent" name="sqlContent" style="width:98%;height:90px;"></textarea>
+                        <br />
+                        <div id="SqlNote">请选择数据字典或输入id,text,selected三个字段的SQL</div>
+
+                    </div>
+                    <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+                        <a class="easyui-linkbutton" id="sqlSureBtn" data-options="iconCls:'icon-save'" href="javascript:void(0)" style="width:80px">确定</a>
+                        <a class="easyui-linkbutton" id="sqlCancleBtn" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" style="width:80px">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+}
+

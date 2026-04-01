@@ -1,0 +1,19 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{帮助文档}
+@section HeaderSection{
+}
+@section ContentBody{
+    <body style="overflow:hidden;">
+        <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+        <div class="mvctool bgb">
+            <a id="btnReturn" title="返回" class="btn btn-default easyui-tooltip"><span class="mdi mdi-keyboard-return">&nbsp;返回</span>&nbsp;</a>
+        </div>
+        <script>
+            document.write("帮助页面ID:" + common.getUrlParam("formid"));
+            $("#btnReturn").click(function () {
+                window.parent.frameReturnByClose();
+            });
+        </script>
+    </body>
+}
+

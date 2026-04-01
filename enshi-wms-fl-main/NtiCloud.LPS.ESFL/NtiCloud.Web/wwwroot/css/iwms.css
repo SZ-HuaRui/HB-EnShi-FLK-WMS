@@ -1,0 +1,65 @@
+﻿
+.iwms .banner_bg{width:100%;height:220px;background:url('../img/iwms_img.png') no-repeat center;background-size:cover;}
+.iwms .banner-content p{width:100%;text-align:center;color:#fff;}
+.iwms .banner-content p.banner-title{font-size:40px;font-weight:600;font-family:PingFangSC;line-height:56px;text-shadow:1px 2px 2px rgba(23,70,91,0.41);padding-top:72px;}
+.iwms .banner-content p.description{font-size:21px;font-family:PingFangSC;font-weight:400;line-height:29px;text-shadow:1px 2px 1px rgba(23,70,91,0.47);padding-top:px;}
+
+.iwms .main_wrapper{position:relative;width:1100px;margin:70px auto 80px;}
+.iwms .con_wrapper{padding-top:299px;padding-bottom:32px; position:relative;font-family:PingFangSC;}
+.iwms .ul_con{overflow:hidden; margin-top:16px;font-size:0px;width:100%;border:1px dotted rgba(210,210,210,1);background-color:transparent;position:relative;z-index:999;}
+.iwms .ul_con.first{margin-top:0px;}
+.iwms .ul_con li{float:left;text-align:center;padding:15px 0px;line-height:30px;font-weight:400;}
+.iwms .ul_con li span{display:inline-block;width:100%;}
+.iwms .ul_con .li_title{width:176px;font-size:16px;color:#000;font-weight:bold;}
+.iwms .li_con{width:292px;}
+.iwms .li_con{color:#666;font-size:14px;} 
+
+.iwms .li_con.center{margin:0 24px;}
+
+
+.iwms i{font-style:normal;}
+.iwms u{font-style:normal;text-decoration:none;}
+.iwms .header span{display:inline-block;width:100%;text-align:center;font-family:PingFangSC;}
+.iwms .header .title{margin:32px 0 7px;font-size:18px;font-weight:400;color:#333;line-height:25px;}
+.iwms .header .info{font-size:14px;font-weight:400;color:#B2B2B2;line-height:20px;}
+.iwms .header .price{margin:32px 0;font-weight:600;color:#666;position:relative;}
+.iwms .header .price_num{font-size:50px;line-height:70px;position:relative;}
+.iwms .header .price_type{font-size:20px;line-height:28px;position:absolute;top:10px;left:-15px;}
+.iwms .header .price_time{font-size:20px;line-height:25px;}
+.iwms .header button{width:216px;height:47px;border:1px solid #1CB7F9;user-select:none;background-color:#fff;font-size:16px;font-weight:400;color:#1CB7F9;line-height:22px;margin-left:38px;transition:all 0.3s;border-radius:4px;}
+.iwms .header button:hover{border:1px solid #fff;background-color:#1CB7F9;color:#fff;}
+
+
+
+.iwms .block{position:absolute;top:0px;width:292px;height:100%; background:rgba(255,255,255,1);box-shadow:0px 2px 8px 2px rgba(0,0,0,0.08);border-radius:4px;}
+.iwms .test{left:176px;}
+.iwms .standard{left:492px;}
+.iwms .enterprise{left:808px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1200px){
+   
+}
+@media (max-width: 1200px) {
+    
+}   
+@media screen and (max-width: 768px){
+
+}
+@media screen and (max-width: 576px) {
+
+}

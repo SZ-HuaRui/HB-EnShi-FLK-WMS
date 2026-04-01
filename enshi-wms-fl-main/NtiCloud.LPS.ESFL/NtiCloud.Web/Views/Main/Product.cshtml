@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section TitleSection{今天云平台软件产品}
+@section HeaderSection{
+    <link href="~/css/product.css" rel="stylesheet" />
+    <script src="~/js/product.js"></script>
+}
+@section ContentBody{
+    <div class="layui-fluid">
+        <div class="layui-row container-banner">
+            <div class="banner_bg">
+                <div class="banner-content">
+                    <p class="banner-title">全面了解<span style="color:#C8161D">今天云</span>产品</p>
+                    <div class="description_d"><p class="description"><span>从功能模块详细了解每款产品</span></p></div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row container_menu_d">
+            <ul class="product_menu_ul">
+            @{
+                System.Data.DataTable dttype = (System.Data.DataTable)ViewData["ProdType"];
+                for (int i = 0; i < dttype.Rows.Count; i++)
+                {
+                    <li class="product_menu_li layui-col-lg3 layui-col-md3 layui-col-sm3 layui-col-xs6 @(i == 0 ? "menu_active":"")" categorycode="@dttype.Rows[i]["categorycode"].ToString()">@Html.Raw(dttype.Rows[i]["categoryname"])</li>
+                }
+            }
+            </ul>
+        </div>
+        <div class="layui-row product_title_d">
+            <div class="product_title">
+                <ul class="product_title_ul">
+                @{
+                    System.Data.DataTable dtprod = (System.Data.DataTable)ViewData["ProdDT"];
+                    for (int i = 0; i < dtprod.Rows.Count; i++)
+                    {
+                        <li class="product_title_li layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs6" categorycode="@dtprod.Rows[i]["categorycode"].ToString()" appcode="@dtprod.Rows[i]["appcode"].ToString()">
+                            <div class="product_title_li_d"><img src="/img/@dtprod.Rows[i]["appimage"]_nor.png"><span>@Html.Raw(dtprod.Rows[i]["appname"]+"("+ dtprod.Rows[i]["appcode"].ToString()+")")</span></div>
+                        </li>
+                    }
+                }
+                </ul>
+            </div>
+        </div>
+        <div class="layui-row container-cloud">
+            <div class="container_content container_content_change">
+                @{
+                    System.Data.DataTable dtinfo = (System.Data.DataTable)ViewData["ProdInfo"];
+                    for (int i = 0; i < dtinfo.Rows.Count; i++)
+                    {
+                        <div class="div_info_d layui-col-lg4 layui-col-md4 layui-col-sm6 layui-col-xs6" appcode="@dtinfo.Rows[i]["appcode"]">
+                            <div class="title">@Html.Raw(dtinfo.Rows[i]["modulename"])</div>
+                            <div class="desc">@Html.Raw(dtinfo.Rows[i]["description"])</div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+}

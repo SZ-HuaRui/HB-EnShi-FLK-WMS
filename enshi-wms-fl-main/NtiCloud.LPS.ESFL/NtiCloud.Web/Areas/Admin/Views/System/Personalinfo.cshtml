@@ -1,0 +1,117 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/Layout.cshtml";}
+@section TitleSection{个人信息}
+@section HeaderSection{
+    <link href="~/css/reset.css" rel="stylesheet" />
+    <link href="~/css/Personalinfo.css" rel="stylesheet" />
+    <script src="~/lib/DatePicker/WdatePicker.js"></script>
+    <script src="~/areas/admin/js/personalinfo.js"></script>
+    @{ var NticloudCSS = NtiCloud.Web.Common.HttpContext.Current.Request.Cookies["NticloudCSS"];
+        if (NticloudCSS == null || NticloudCSS.ToString().IndexOf("0") == 0)
+        {
+        <style>
+            input[type="text"], input[type="number"], input[type="datetime"], input[type="password"], select, textarea {
+                height: 13px;
+                font-size: 13px;
+                line-height: 13px;
+                color: #555;
+                vertical-align: middle;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                border: 1px #ccc solid;
+            }
+            .account_info .title {
+	            font-size: 14px;
+            }
+            .edit, .finish {
+                font-size: 13px;
+            }
+            .account_info_d p {
+	            font-size: 14px;
+            }
+            /*手机端*/
+            @@media screen and (max-width:767px){
+	            .edit, .finish{font-size:13px;}
+            }
+            /*小屏幕*/
+            @@media screen and (min-width:768px) and (max-width:991px){
+                .edit, .finish{font-size:12px;}
+            }
+        </style>
+        }
+        else
+        {
+        <style>
+            .account_info .title {
+	            font-size: 17px;
+            }
+            .edit, .finish {
+                font-size: 16px;
+            }
+            .account_info_d p {
+	            font-size: 18px;
+            }
+            /*手机端*/
+            @@media screen and (max-width:767px){
+	            .edit, .finish{font-size:15px;}
+            }
+            /*小屏幕*/
+            @@media screen and (min-width:768px) and (max-width:991px){
+                .edit, .finish{font-size:13px;}
+            }
+        </style>
+        }
+    }
+}
+@section ContentBody{
+    <body style="background:#fff;">
+        <div class="main_content">
+            <div class="left_c person_center">
+                <div class="account_info">
+                    <div class="account_title_d"><p class="title account">账户信息</p></div>
+                    <div class="account_info_d">
+                        <p><span class="lable">用户名：</span><span class="lable_content userName"></span></p>
+                        <p><span class="lable">工号：</span><span class="lable_content workNum"></span></p>
+                        <p><span class="lable">类别：</span><span class="lable_content type"></span></p>
+                        <p><span class="lable">职位：</span><span class="lable_content position"></span></p>
+                        <p><span class="lable">入职日期：</span><span class="lable_content positionData"></span></p>
+                    </div>
+                </div>
+                <div class="account_info">
+                    <div class="account_title_d"><p class="title contact">联系方式</p><p class="edit">编辑</p><p class="finish">完成</p></div>
+                    <div class="account_info_d contact_info">
+                        <p><span class="lable">办公电话：</span><span class="lable_content office_phone_content"></span><input type="text" class="office_phone" /><span class="tips office_phone_tip"></span></p>
+                        <p><span class="lable">传真：</span><span class="lable_content fax_number_content"></span><input type="text" class="fax_number" /><span class="tips fax_number_tip"></span></p>
+                        <p><span class="lable">手机：</span><span class="lable_content phone_number_content"></span><input type="text" class="phone_number" /><span class="tips phone_number_tip"></span></p>
+                        <p><span class="lable">QQ号：</span><span class="lable_content qq_number_content"></span><input type="text" class="qq_number" /><span class="tips qq_number_tip"></span></p>
+                        <p><span class="lable">微信号：</span><span class="lable_content wechat_number_content"></span><input type="text" class="wechat_number" /><span class="tips wechat_number_tip"></span></p>
+                        <p><span class="lable">钉钉号：</span><span class="lable_content ding_number_content"></span><input type="text" class="ding_number" /><span class="tips ding_number_tip"></span></p>
+                        <p><span class="lable">电子邮箱：</span><span class="lable_content external_email_content"></span><input type="text" class="external_email" /><span class="tips external_email_tip"></span></p>
+                        @*<p><span class="lable">内部邮箱：</span><span class="lable_content internal_email_content">wangxiaoer@nti56.com</span><input type="text" class="internal_email" /><span class="tips internal_email_tip"></span></p>*@
+                        <p><span class="lable">地区：</span><span class="lable_content area_content"></span><input type="text" class="area" /><span class="tips area_tip"></span></p>
+                        <p><span class="lable">详细地址：</span><span class="lable_content detail_address_content"></span><input type="text" class="detail_address" /><span class="tips detail_address_tip"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="right_c person_center">
+                <div class="account_info">
+                    <div class="account_title_d"><p class="title basic">基本信息</p><p class="edit">编辑</p><p class="finish">完成</p></div>
+                    <div class="account_info_d basic_info">
+                        <p><span class="lable">名称：</span><span class="lable_content true_name_content"></span><input type="text" class="true_name" /><span class="tips true_name_tip"></span></p>
+                        <p><span class="lable">英文名：</span><span class="lable_content english_name_content"></span><input type="text" class="english_name" /><span class="tips english_name_tip"></span></p>
+                        <p>
+                            <span class="lable">性别：</span><span class="lable_content sex_content"></span>
+                            <label style="margin-right: 27px;"><input name="sex" type="radio" value="男" />男</label>
+                            <label><input name="sex" type="radio" value="女" />女</label>
+                        </p>
+                        <p><span class="lable">学校：</span><span class="lable_content school_content"></span><input type="text" class="school" /><span class="tips school_tip"></span></p>
+                        <p><span class="lable">生日：</span><span class="lable_content birthday_content"></span><input type="text" class="birthday Wdate" onclick="WdatePicker()" /><span class="tips birthday_tip"></span></p>
+                        <p><span class="lable">专业：</span><span class="lable_content major_content"></span><input type="text" class="major" /><span class="tips major_tip"></span></p>
+                        <p><span class="lable">籍贯：</span><span class="lable_content native_place_content"></span><input type="text" class="native_place" /><span class="tips native_place_tip"></span></p>
+                        <p><span class="lable">学历：</span><span class="lable_content education_content"></span><input type="text" class="education" /><span class="tips education_tip"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+}

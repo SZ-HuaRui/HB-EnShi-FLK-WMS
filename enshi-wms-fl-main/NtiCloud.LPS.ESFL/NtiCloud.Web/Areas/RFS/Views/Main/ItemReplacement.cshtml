@@ -1,0 +1,52 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("烟包替换")}
+@section footerScript{
+    <script src="~/areas/rfs/js/ItemReplacement.js"></script>
+}
+@section caption{@("烟包替换")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d">
+            <div class="border">
+                <p class="rf_border">
+                    <span class="title">原包条码：</span>
+                    <input type="text" id="txtItemBarcode" class="rf_border_d item_barcode" placeholder="请扫描"/>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料名称：</span>
+                    <input class="rf_border_d" id="txtItemName" type="text" disabled>
+                </p>
+                <p class="rf_border">
+                    <span class="title">备料批次：</span>
+                    <input class="rf_border_d" id="txtPrepLotNo" type="text" disabled>
+                </p>
+                <p class="rf_border">
+                    <span class="title">生产批次：</span>
+                    <input class="rf_border_d" id="txtProdLotNo" type="text" disabled>
+                </p>
+                <p class="rf_border">
+                    <span class="title">烟包重量：</span>
+                    <input class="rf_border_d" id="txtWeight" type="text" disabled>
+                </p>
+                <p class="rf_border">
+                    <span class="title">替换原因：</span>
+                    <select id="selReason" class="reason_select"><option value="ReplacementReason_MoldyItem" selected>霉变</option></select>
+                </p>
+                <p class="rf_border">
+                    <span class="title">异常重量：</span>
+                    <input class="rf_border_d" id="txtAbnormalWeight" type="text">
+                </p>
+                <p>
+                    <div style="height: 200px; overflow: scroll">
+                        <table class="layui-hide" id="tbSNLits" lay-filter="tbSNLits">  </table>
+                    </div>
+                </p>
+            </div>
+            <div class="button_t button_top">
+                <div class="button">
+                    <button id="btnSubmit">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

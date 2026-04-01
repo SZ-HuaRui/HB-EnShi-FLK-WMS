@@ -1,0 +1,63 @@
+﻿/*wwwroot\areas\admin\css\main.css*/
+.left_bar {
+    background: #fff;	
+}
+.left_bar .btn_left_menu {
+    color: #807f86;	
+}
+.left_top_logo {
+    border-bottom: 1px solid #FAFAFA;
+	background: #fff;
+}
+.left_menu .first_tab li {
+	color: #333;
+}
+.left_menu .first_tab li.first_tab_active {
+	color: #3490DE;
+	background: #FAFAFA;
+}
+.left_menu .second_tab li:hover, .left_menu .third_tab li:hover {
+	color: #3490DE;
+}
+.left_menu .second_tab li.other_active, .left_menu .third_tab li.other_active {
+	color: #3490DE;
+}
+.t_con_detail .tabs {
+	background-color: #fff;
+}
+.tabs_main li {
+    color: #a7a6aa;
+    background: #fff;
+}
+.tabs_main li:hover {
+	color: #3490DE;
+	background-color: #FAFAFA;
+}
+.tabs_main li.active {
+	color:#3490DE;
+	background: none;
+	background-color: #FAFAFA;
+}
+.tabs .settings{
+	color:#a7a6aa;
+}
+.tabs .settings ul {
+	background: #FFF;
+}
+.tabs .settings ul li {
+	color: #a7a6aa;
+}
+.tabs .settings .settings_refresh:hover, .tabs .settings .settings_group:hover, .tabs .settings .settings_name:hover, .tabs .settings ul li:hover, .skullselect:hover {
+	background: #FAFAFA;
+	color: #3490DE;
+}
+.phone_header_btn .line{background-color:#fff}
+.phone_header_title{color:#fff;}
+/*手机端*/
+@media screen and (max-width:767px){
+    .t_con_detail .tabs{border-bottom: 1px solid #42404a;}
+}
+/*小屏幕*/
+@media screen and (min-width:768px) and (max-width:991px){
+    .t_con_detail .tabs{border-bottom: 1px solid #42404a;}
+}

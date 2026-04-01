@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.dx_darkgray{fill:#787878;}
+	.dx_gray{fill:#C6C6C6;}
+</style>
+<rect x="5" y="10" class="dx_gray" width="4" height="4"/>
+<rect x="15" y="15" class="dx_gray" width="4" height="4"/>
+<g>
+	<g>
+		<g>
+			<rect x="10" y="10" class="dx_darkgray" width="4" height="4"/>
+			<rect x="10" y="10" class="dx_darkgray" width="4" height="4"/>
+		</g>
+		<g>
+			<rect x="15" y="10" class="dx_darkgray" width="4" height="4"/>
+			<rect x="15" y="10" class="dx_darkgray" width="4" height="4"/>
+		</g>
+		<g>
+			<rect x="5" y="15" class="dx_darkgray" width="4" height="4"/>
+			<rect x="5" y="15" class="dx_darkgray" width="4" height="4"/>
+		</g>
+		<g>
+			<rect x="10" y="15" class="dx_darkgray" width="4" height="4"/>
+			<rect x="10" y="15" class="dx_darkgray" width="4" height="4"/>
+		</g>
+		<g>
+			<g>
+				<path class="dx_darkgray" d="M18,4V2h-2v2H8V2H6v2H2v18h20V4H18z M20,20H4V9h16V20z"/>
+			</g>
+			<g>
+				<path class="dx_darkgray" d="M18,4V2h-2v2H8V2H6v2H2v18h20V4H18z M20,20H4V9h16V20z"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<rect x="10" y="10" class="dx_darkgray" width="4" height="4"/>
+		</g>
+		<g>
+			<rect x="15" y="10" class="dx_darkgray" width="4" height="4"/>
+		</g>
+		<g>
+			<rect x="5" y="15" class="dx_darkgray" width="4" height="4"/>
+		</g>
+		<g>
+			<rect x="10" y="15" class="dx_darkgray" width="4" height="4"/>
+		</g>
+		<g>
+			<g>
+				<path class="dx_darkgray" d="M18,4V2h-2v2H8V2H6v2H2v18h20V4H18z M20,20H4V9h16V20z"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

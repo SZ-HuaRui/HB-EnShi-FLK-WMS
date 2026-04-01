@@ -1,0 +1,64 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{移动终端菜单配置}
+@section HeaderSection{
+    <script src="~/js/validatebox.js"></script>
+    <script src="~/areas/admin/js/mobilemenu.js"></script>
+}
+@section ContentBody{
+    <body style="overflow:hidden;margin:0px 3px 3px 3px;" class="easyui-layout">
+        <!--左侧树-->
+        <div id="treeleft" data-options="region:'west',title:'菜单配置',split:true" style="width:250px;">
+            <div id="TreeMenu" class="easyui-menu" style="width:120px;"></div>
+            <ul id="TreeList" class="easyui-tree" data-options="onClick:function(node){ getSelected(node);}"></ul>
+        </div>
+        <!--数据区-->
+        <div data-options="region:'center',title:'界面参数配置',border:false">
+            <div class="mvctool bgb">
+                <div id="buttonList" style="float:left;padding-left:10px;">
+                    <a id="btnSave" title="保存菜单配置" class="btn btn-default easyui-tooltip"><span id="saveIcon" class="mdi mdi-content-save-outline" style="padding:4px 0px 4px 6px">&nbsp;&nbsp;菜单配置</span>&nbsp;&nbsp;</a>
+                </div>
+                <input name="tId" id="tId" type="hidden" value="0" />
+                <table class="formtable" align="center">
+                    <tbody>
+                        <tr>
+                            <th>模块代码：</th>
+                            <td><input name="rfCode" class="easyui-textbox easyui-validatebox" id="rfCode" style="width: 280px;" type="text" value="" data-val-required="模块代码 字段是必需的。" data-options="required:true,validType:'English'" data-val="true"></td>
+                        </tr>
+                        <tr>
+                            <th>模块名称：</th>
+                            <td><input name="rfName" class="easyui-textbox" id="rfName" style="width: 280px;" type="text" value="" data-val-required="模块名称 字段是必需的。" data-options="required:true" data-val="true"></td>
+                        </tr>
+                        <tr>
+                            <th>上级菜单：</th>
+                            <td><input name="ParentId" class="easyui-combotree" id="ParentId" style="width: 280px;" data-val-required="上级模块 字段是必需的。" data-val="true"></td>
+                        </tr>
+                        <tr>
+                            <th>模块图标：</th>
+                            <td>
+                                <input name="rfIcon" class="easyui-combo" id="rfIcon" style="width: 280px;">
+                                <span class="mdi mdi-more" style="font-size:18px;padding:5px;cursor:pointer;" id="Span_rfIcon" onclick="mdi_Open('rfIcon')"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>模块排序：</th>
+                            <td><input name="sortNo" class="easyui-numberbox" id="sortNo" style="width: 280px;"></td>
+                        </tr>
+                        <tr>
+                            <th>是否为配置节点：</th>
+                            <td>
+                                <input id="isConfig" class="easyui-switchbutton" data-options="onText:'是',offText:'否'" value="0">
+                                <span id="openRfConfig" class="mdi mdi-cloud-sync easyui-tooltip" title="打开界面配置" style="font-size:22px;padding:15px;cursor:pointer;"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--右侧浏览效果-->
+        <div id="ifameright" data-options="region:'east',title:'运行效果',split:true,tools:[{iconCls:'mdi mdi-autorenew',handler:function () {refersh(true)}}]" style="width:350px;">
+            <iframe id="iframeinitTab" src="about:blank" frameborder="0" width="100%" scrolling="auto"></iframe>
+        </div>
+        <div id="picCtrl"></div>
+        <div id="modalwindow" class="easyui-window" style="width:800px; height:400px;" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+    </body>
+}

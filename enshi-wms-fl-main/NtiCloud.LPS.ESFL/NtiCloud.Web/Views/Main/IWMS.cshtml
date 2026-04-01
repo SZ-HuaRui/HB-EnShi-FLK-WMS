@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section TitleSection{今天云平台软件产品}
+@section HeaderSection{
+    <link href="~/css/iwms.css" rel="stylesheet" />
+    <script src="~/js/iwms.js"></script>
+}
+@section ContentBody{
+    <div class="layui-fluid iwms">
+        <div class="layui-row container-banner">
+            <div class="banner_bg">
+                <div class="banner-content">
+                    <p class="banner-title">选择合适的版本，开启IWMS V.1</p>
+                    <p class="description">IWMS的不同版本，充分满足各阶段不同需求</p>
+                </div>
+            </div>
+        </div>
+        <div class="layui-row container_menu_d">
+            <div class="main_wrapper">
+                <div class="con_wrapper">
+                    @*<ul class="ul_con first">
+                        <li class="li_title">
+                            <span>基础管理</span>
+                        </li>
+                        <li class="li_con">
+                            <span>仓库/区域/库位</span>
+                            <span>用户/角色/权限</span>
+                            <span>贸易伙伴</span>
+                            <span>货类</span>
+                            <span>货品</span>
+                        </li>
+                        <li class="li_con center">
+                            <span>体验版功能</span>
+                            <span>客户</span>
+                            <span>供应商</span>
+                            <span>承运商</span>
+                        </li>
+                        <li class="li_con">
+                            <span>标准版功能</span>
+                        </li>
+                    </ul>*@
+
+                </div>
+                <div class="test block">
+                    <p class="header">
+                        <span class="title">体验版</span>
+                        <span class="info">简单免费体验版</span>
+                        <span class="price">
+                            <i class="price_num"><u class="price_type">¥</u>0</i>
+                            <i class="price_time">/年</i>
+                        </span>
+                        <button>立即体验</button>
+                    </p>
+                </div>
+                <div class="standard block">
+                    <p class="header">
+                        <span class="title">标准版</span>
+                        <span class="info">含体验版所有功能</span>
+                        <span class="price">
+                            <i class="price_num"><u class="price_type">¥</u>998</i>
+                            <i class="price_time">/年</i>
+                        </span>
+                        <button>立即体验</button>
+                    </p>
+                </div>
+                <div class="enterprise block">
+                    <p class="header">
+                        <span class="title">企业(定制)版</span>
+                        <span class="info">含标准版所有功能</span>
+                        <span class="price">
+                            <i class="price_num"><u class="price_type">¥</u>1998</i>
+                            <i class="price_time">/年</i>
+                        </span>
+                        <button>立即体验</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

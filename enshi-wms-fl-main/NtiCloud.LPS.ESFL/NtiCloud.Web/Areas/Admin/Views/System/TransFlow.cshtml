@@ -1,0 +1,210 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{事务流编辑器}
+@section HeaderSection{
+    <link href="~/lib/gooflow/GooFlow.css" rel="stylesheet" />
+    <script src="~/lib/gooflow/GooFunc.js"></script>
+    <script src="~/lib/gooflow/GooFlow.js"></script>
+    <script src="~/lib/gooflow/printThis.js"></script>
+    <script src="~/lib/gooflow/GooFlow.export.js"></script>
+    <script src="~/areas/admin/js/transflow.js"></script>
+    <!--核心文件-->
+    <link rel="stylesheet" href="~/lib/codemirror/lib/codemirror.css">
+    <script src="~/lib/codemirror/lib/codemirror.js"></script>
+    <script src="~/lib/codemirror/mode/sql/sql.js"></script>
+    <!--实现全屏-->
+    <link rel="stylesheet" href="~/lib/codemirror/addon/display/fullscreen.css">
+    <script src="~/lib/codemirror/addon/display/fullscreen.js"></script>
+    <!--当前行背景高亮-->
+    <script src="~/lib/codemirror/addon/selection/active-line.js"></script>
+    <!--括号匹配-->
+    <script src="~/lib/codemirror/addon/edit/matchbrackets.js"></script>
+
+    <script src="~/lib/codemirror/addon/comment/continuecomment.js"></script>
+    <script src="~/lib/codemirror/addon/comment/comment.js"></script>
+
+    <!--自动提示-->
+    <link href="~/lib/codemirror/addon/hint/show-hint.css" rel="stylesheet" />
+    <script src="~/lib/codemirror/addon/hint/show-hint.js"></script>
+    <script src="~/lib/codemirror/addon/hint/sql-hint.js"></script>
+    <style>
+        .combo-p {
+            z-index: 9999999999 !important;
+        }
+        .layui-layer-page .layui-layer-content {
+            overflow: hidden;
+        }
+        .CodeMirror {
+            border: 1px solid #dedcdc;
+        }
+    </style>
+}
+
+@section ContentBody{
+    <body style="overflow:hidden">
+        <div id="Tflow" style="margin:5px"></div>
+
+        <div id="list" style="display:none">
+            <form class="layui-form" lay-filter="transFlowHeader">
+                <div class="layui-input-inline" style="float: left; position: relative;padding-left:10px;">
+                    <input type="text" style="width: 300px;" id="txtQuery" lay-verify="required" placeholder="请输入关键字" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="isDataSource" lay-skin="switch" lay-filter="switchData" lay-text="远择源|本地源">
+                </div>
+                <div class="layui-input-inline" style="position:relative;width:165px;">
+                    <select name="dataSource" id="dataSource" lay-search lay-filter="dataSource">
+                        <option value="">当前数据源</option>
+                    </select>
+                </div>
+                <button class="layui-btn" lay-submit="" id="searchBtn" data-type="getInfo" style="float:left;" onclick="search()">搜索</button>
+                <div style="float:left;padding-left:5px; position: relative;">
+                    <table class="layui-hide" id="activityList" lay-filter="list"></table>
+                </div>
+            </form>
+        </div>
+
+        <div id="TransFlowRun" title="运行事务流程图" style="padding:10px;display:none;">
+            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td align="left" width="50%" valign="top"><table id="dg_input_arg1" lay-filter="dg_input_arg1"></table></td>
+                    <td align="right" width="50%" valign="top">
+                        <textarea class="layui-textarea" name="jsonResult1" id="jsonResult1" style="width:100%;height:280px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <script type="text/html" id="toolbarRun">
+                <div class="layui-btn-container">
+                    <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="transt"><i class="icon-reload">&nbsp;&nbsp;&nbsp;&nbsp;</i>&nbsp;&nbsp;调试</button>
+                    <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="commit"><span class="icon-ok">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;提交</button>
+                </div>
+            </script>
+
+        </div>
+
+        <div id="TransFlowSet" style="padding:10px;display:none;">
+            <div class="layui-row" style="display:inline;">
+                <div id="startflow" style="float:left;padding-bottom:5px;">
+                    <input id="activityid" type="hidden" value="" />编码：
+                    <div class="layui-input-inline">
+                        <input name="activitycode" id="activitycode" class="layui-input" type="text" placeholder="请输入事务流代码" autocomplete="off" style="width:180px;" lay-verify="required">
+                    </div>
+                    &nbsp;&nbsp;名称：
+                    <div class="layui-input-inline">
+                        <input name="activityname" id="activityname" class="layui-input" type="text" placeholder="请输入事务流名称" autocomplete="off" style="width:180px;">
+                    </div>
+                    &nbsp;&nbsp;描述：
+                    <div class="layui-input-inline">
+                        <input name="description" id="description" class="layui-input" type="text" placeholder="请输入事务流描述" autocomplete="off" style="width:180px;">
+                    </div>
+                    &nbsp;&nbsp;共享：
+                    <div class="layui-input-inline">
+                        <input id="isModule" class="easyui-switchbutton" data-options="onText:'是',offText:'否'" value="0">
+                    </div>
+                </div>
+                <div id="lineflow" style="float:left;padding-bottom:5px;">
+                    <input type="hidden" id="start_input" value='[]' />
+                    <input type="hidden" id="end_output" value='[]' />
+                    <input type="hidden" id="ele_id" /><input type="hidden" id="sid" />&nbsp;
+                    名称：
+                    <div class="layui-input-inline">
+                        <input name="ele_name" id="ele_name" class="layui-input" type="text" placeholder="请输入名称" autocomplete="off" style="width:150px;">
+                    </div> <input type="hidden" id="ele_model" />&nbsp;&nbsp;
+                </div>
+                <div id="nodeflow" style="float:left;padding-bottom:5px;" class="layui-form" lay-filter="nodeflow">
+                    类型：
+                    <div class="layui-input-inline">
+                        <select name="sqltype" id="sqltype" style="width:150px" lay-filter="sqltype">
+                            <option value="">请选择类型</option>
+                            <optgroup label="数据库查询语句">
+                                <option value="selectOne">查询首行首列</option>
+                                <option value="selectFirst">查询首行数据(替换参数)</option>
+                                <option value="selectFirstArg">查询首行数据(传递参数)</option>
+                                <option value="selectAll">查询数据集(替换参数)</option>
+                                <option value="selectAllArg">查询数据集(传递参数)</option>
+                            </optgroup>
+                            <optgroup label="数据库操作语句">
+                                <option value="sqlDML">数据操纵语言(替换参数)</option>
+                                <option value="sqlDMLArg">数据操纵语言(传递参数)</option>
+                            </optgroup>
+                            <optgroup label="数据库存储过程">
+                                <option value="sqlProcedure">存储过程</option>
+                            </optgroup>
+                            <optgroup label="调用子事务流">
+                                <option value="sqlTransflow">调用事务流</option>
+                            </optgroup>
+                            <optgroup label="调用微服务">
+                                <option value="MicroServiceGet">调用微服务Get方法</option>
+                                <option value="MicroServicePost">调用微服务Post方法</option>
+                            </optgroup>
+                        </select>
+                    </div>&nbsp;&nbsp;
+                    <span id="sqlShow">
+                        语句：
+                        <span class="layui-input-inline">
+                            <textarea class="layui-textarea" name="Taction" id="Taction" style="width:330px;height:36px;min-height:36px;"></textarea>
+                        </span>
+                        @*<span id="Open_Sql1" class="mdi mdi-24px mdi-playlist-plus" style="cursor:pointer;"></span>*@
+                    </span>
+                    <span id="procedureShow" style="display:none;">
+                        存储过程：
+                        <span class="layui-input-inline">
+                            <input name="Tprocedure" id="Tprocedure" class="layui-input" type="text" placeholder="请输入存储过程" autocomplete="off" style="width:300px;" lay-verify="required">
+                        </span>
+                    </span>
+                    <span id="transflowShow" style="display:none;">
+                        事务流：
+                        <span class="layui-input-inline" style="width:300px;">
+                            <select name="Tactivity" id="Tactivity" lay-filter="Tactivity"></select>
+                        </span>
+                    </span>
+                    <span id="MicroServiceShow" style="display:none;">
+                        地址：
+                        <span class="layui-input-inline" style="width:330px;">
+                            <input name="MicroServiceUrl" id="MicroServiceUrl" class="layui-input" type="text" placeholder="请输入微服务地址" autocomplete="off" style="width:320px;" lay-verify="required">
+                        </span>
+                        @*<span id="Open_Sql2" class="mdi mdi-24px mdi-playlist-plus" style="cursor:pointer;"></span>*@
+                    </span>
+                </div>
+            </div>
+            <div class="layui-row">
+                <div id="mainTab" class="layui-tab layui-tab-card" style="width:880px;height:335px;" lay-filter="mainTab">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this" lay-id="tab1">输入参数</li>
+                        <li lay-id="tab2">输出参数</li>
+                        <li lay-id="tab3">条件设置</li>
+                        <li lay-id="tab4">调试模式</li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <div id="input_data" style="width:100%; height:285px;"></div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <div id="output_data" style="width:100%; height:285px;"></div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <div id="table_data" style="width:100%; height:285px;"></div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="left" width="50%" valign="top"><table id="dg_input_arg2" lay-filter="dg_input_arg2"></table></td>
+                                    <td align="right" width="50%" valign="top">
+                                        <textarea class="layui-textarea" name="jsonResult2" id="jsonResult2" style="width:100%;height:280px;"></textarea>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*
+        <div id="SQLList1" style="padding:5px;display:none">
+            <textarea class="layui-textarea" name="sqlContent1" id="sqlContent1" style="width:490px;height:240px;"></textarea>
+        </div>
+        <div id="SQLList2" style="padding:5px;display:none">
+            <textarea class="layui-textarea" name="sqlContent2" id="sqlContent2" style="width:490px;height:240px;"></textarea>
+        </div>
+        *@
+    </body>
+}

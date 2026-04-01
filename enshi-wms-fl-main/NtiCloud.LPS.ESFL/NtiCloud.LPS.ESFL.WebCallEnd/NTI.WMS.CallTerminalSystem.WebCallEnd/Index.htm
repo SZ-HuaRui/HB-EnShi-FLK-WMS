@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>呼叫终端接口自动登录</title>
+    <script language="javascript" type="text/javascript">
+        function Seturl() {
+            var host = window.location.host;
+            var url = "usercode=" + txtuser.value;
+            url += "&SiteCLASSTIMECODE=" + txtstcode.value;
+            url += "&SiteSHIFTCLASSCODE=" + txtsscode.value;
+            url += "&SiteEQCODE=" + txtequiment.value;
+            url += "&TASKCODE=" + txtplanno.value;
+            url += "&SiteMATERIALCODE=" + txtitemcode.value;
+            url += "&timeStamp=" + new Date().getTime();
+            window.location = "http://" + host + "/Call_Terminal_Log.aspx?" + url;
+            btnInter.value = "验证中...";
+            imgLoading.style.display = "inline";
+            document.getElementById("btnInter").disabled = true;
+        }
+    </script>
+    <style type="text/css">
+        input[type="text"]
+        {
+            width: 240px;
+        }
+    </style>
+</head>
+<body>
+    <div style="font-size: 24px; line-height: 50px;">
+        接口自动登录参数配置</div>
+    <div style="line-height: 30px;">
+        用户：<input id="txtuser" type="text" value="admin" /></div>
+    <div style="line-height: 30px;">
+        机台：<input id="txtequiment" type="text" value="BZY304" /></div>
+    <div style="line-height: 30px;">
+        班次：<input id="txtstcode" type="text" value="01" /></div>
+    <div style="line-height: 30px;">
+        班别：<input id="txtsscode" type="text" value="01" /></div>
+    <div style="line-height: 30px;">
+        工单：<input id="txtplanno" type="text" value="1809031BZ3040401404116220N101" /></div>
+    <div style="line-height: 30px;">
+        牌号：<input id="txtitemcode" type="text" value="04181299N1" /></div>
+    <div style="margin-top: 10px;">
+        <input id="btnInter" type="submit" value=" 进  入 " onclick="Seturl();" />
+        <img id="imgLoading" alt="" style="position: absolute; margin: -2px 0 0 2px; display: none;"
+            src="images/loading.gif" />
+    </div>
+    <!--  -->
+</body>
+</html>

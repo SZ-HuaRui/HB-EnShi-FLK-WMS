@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate" />
+    <title>今天云文件管理</title>
+    <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery-3.4.1.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/js/loginCommon.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <script type="text/javascript" src="//g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js"></script>
+</head>
+<body>
+    <br /><br />
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件名称：<span id="fileName">@ViewBag.fileName</span></p><br /><br />
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件大小：@ViewBag.fileSize</p><br /><br />
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件类型：@ViewBag.fileType</p>
+    <script type="text/javascript">
+        $(function () {
+            var userAgent = navigator.userAgent;
+            $("#fileName").html(common.Decrypt($("#fileName").html()));
+            if (userAgent.indexOf("DingTalk") != -1) {//通过钉钉登录
+                common.postGateway("AliDingTalk/dingding/jsapi_ticket", {
+                    "url": window.location.href,
+                    "appCode": "File"
+                }, null, function (res) {
+                    dd.config({
+                        agentId: res.json.agentId, // 必填，微应用ID
+                        corpId: res.json.corpId,//必填，企业ID
+                        timeStamp: res.json.timeStamp, // 必填，生成签名的时间戳
+                        nonceStr: res.json.nonceStr, // 必填，生成签名的随机串
+                        signature: res.json.signature, // 必填，签名
+                        type: 0,   //选填。0表示微应用的jsapi,1表示服务窗的jsapi；不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
+                        jsApiList: [
+                            'biz.cspace.saveFile',
+                            'biz.cspace.preview',
+                            'biz.cspace.chooseSpaceDir',
+                            'biz.util.uploadAttachment'
+                        ] // 必填，需要使用的jsapi列表，注意：不要带dd。
+                    });
+                    dd.ready(function () {
+                        dd.biz.cspace.preview({
+                            corpId: res.json.corpId,
+                            spaceId: common.getUrlParam("spaceId"),
+                            fileId: common.getUrlParam("fileId"),
+                            fileName: common.Decrypt(common.getUrlParam("fileName")),
+                            fileSize: common.getUrlParam("fileSize"),
+                            fileType: common.getUrlParam("fileType"),
+                            onSuccess: function () {
+                                //无，直接在native显示文件详细信息
+                            },
+                            onFail: function (err) {
+                                $.messageBoxAlert(0,JSON.stringify(err))
+                                // 无，直接在native页面显示具体的错误
+                            }
+                        });
+                    });
+                    dd.error(function (error) {
+                        $.messageBoxAlert(0,'dd error: ' + JSON.stringify(error));
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{角色权限管理}
+@section HeaderSection{
+    <link href="~/areas/admin/css/easyuilayer.css" rel="stylesheet" />
+    <script src="~/areas/admin/js/permission.js"></script>
+}
+@section ContentBody{
+    <body style="overflow:hidden;padding:0px;box-sizing:border-box;" class="easyui-layout">
+        <div id="modalwindow" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+        <div class="mvctool bgb">
+            <a id="btnSave" title="保存" class="btn btn-default easyui-tooltip"><span class="mdi mdi-content-save">&nbsp;&nbsp;保&nbsp;存</span></a>
+        </div>
+
+        <table style="width: 100%; padding-top:5px;">
+            <tbody>
+                <tr>
+                    <td style="width:3px;"></td>
+                    <td style="vertical-align: top">
+                        <!--获取角色组-->
+                        <div id="roleList"></div>
+                    </td>
+                    <td style="width:3px;"></td>
+                    <td style="vertical-align: top;width:320px;">
+                        <!--获取模块-->
+                        <table id="moduleList"></table>
+                    </td>
+                    <td style="width:3px;"></td>
+                    <td style="vertical-align: top;width:350px;">
+                        <!--获取按钮权限-->
+                        <table id="buttonList"></table>
+                        <!--获取字段权限-->
+                        <table id="fieldList"></table>
+                    </td>
+                    <td style="width:3px;"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+}

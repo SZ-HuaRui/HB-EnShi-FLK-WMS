@@ -1,0 +1,77 @@
+﻿
+@{ Layout = "~/areas/admin/Shared/Layout.cshtml";}
+@section TitleSection{@(ViewBag.SystemName + ViewBag.APPNAME + "登录")}
+@section HeaderSection{
+    <link href="~/areas/admin/css/loginwms.css" rel="stylesheet" />
+    <script src="~/js/loginCommon.js"></script>
+    <script src="~/areas/admin/js/login.js"></script>
+    <script src="~/areas/admin/js/loginwms.js"></script>
+}
+@section ContentBody{
+    <div id="admin_login" class="layui-layout-body">
+        <div class="layui-layout layui-layout-admin">
+            <div class="layui-header">
+                <div class="layui-row">
+                    <div class="layui-layout-left logo">
+                        <a href="/">
+                            <img class="logo" src="@ViewBag.AppPic">
+                        </a>
+                    </div>
+                    <div class="layui-layout-right language">
+                        <span class="local_span">简体中文</span>
+                        <i class="icon icon_down"></i>
+                        <ul class="local_ul hide">
+                            <li data_id="zh-CN">简体中文</li>
+                            <li data_id="zh-TW">繁體中文</li>
+                            <li data_id="en-US">English</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-body">
+                <div class="system_info">
+                    <div class="title">@Html.Raw(ViewBag.APPTITLE)</div>
+                    <div class="desc">
+                        @Html.Raw(ViewBag.APPNOTE)
+                    </div>
+                </div>
+                <div class="login">
+                    <div class="logo">
+                        <a href="/">
+                            <i class="icon"></i>
+                        </a>
+                    </div>
+                    <div class="login_title"><b>@ViewBag.APPNAME</b></div>
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <input type="text" name="username" required placeholder="请输入用户名" autocomplete="off" class="layui-input" id="username_input" />
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <input type="password" name="password" required placeholder="请输入密码" autocomplete="off" class="layui-input" id="password_input" />
+                            </div>
+                            <!--a class="forget_password" onclick="javascript:window.location.href='/Main/FindUserPswd'">忘记密码？</a-->
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <select name="warehouseId" id="warehouseId" lay-verify="" lay-search>
+                                    <option value="">请选择仓库</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <input type="hidden" name="clientId" id="clientId" value="@ViewBag.ClientId" />
+                                <input type="hidden" id="userarea" name="userarea" value="@ViewBag.Area" />
+                                <input type="hidden" id="AppCode" name="AppCode" value="@ViewBag.AppCode" />
+                                <div class="login_btn"><a class="experience_btn layui-btn" id="login_act" lay-submit lay-filter="formLoginWMS">登&nbsp;&nbsp;&nbsp;录</a></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}

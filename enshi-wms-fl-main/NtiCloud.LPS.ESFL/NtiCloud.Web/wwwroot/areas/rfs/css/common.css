@@ -1,0 +1,341 @@
+﻿.top_nav {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    background-color: dodgerblue;
+    font-size: 18px;
+    text-align: center;
+}
+
+p input {
+    border: 1px solid #b9b7b7;
+    width: 185px;
+    height: 24px;
+    margin-left: 8px;
+    text-indent: 8px;
+}
+
+p select {
+    border: 1px solid #b9b7b7;
+    width: 185px;
+    height: 24px;
+    line-height: 24px;
+    margin-left: 8px;
+}
+
+.bom_header {
+    text-align: center;
+    width: 330px;
+    height: 150px;
+    margin: 0px auto;
+}
+
+    .bom_header .bom_select {
+        border: 1px solid #b9b7b7;
+        width: 185px;
+        height: 24px;
+        line-height: 24px;
+        margin-left: 8px;
+    }
+
+    .bom_header .bom_text {
+        border: 1px solid #b9b7b7;
+        width: 185px;
+        height: 24px;
+        margin-left: 8px;
+        text-indent: 8px;
+    }
+
+.bom_detail {
+    margin: 2px auto;
+    text-align: center;
+    overflow: auto;
+    width: 330px;
+    height: 150px;
+}
+
+.container_barcode {
+    text-align: left;
+    width: 330px;
+    margin: 0px auto;
+}
+
+    .container_barcode .bom_text {
+        border: 1px solid #b9b7b7;
+        width: 220px;
+        height: 24px;
+        margin-left: 8px;
+        text-indent: 8px;
+    }
+/*表格样式*/
+table.gridtable {
+    margin: auto;
+    font-family: verdana,arial,sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+
+table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+table.gridtable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.main_panel {
+    text-align: center;
+}
+/*按钮样式*/
+.bottom {
+    width: 330px;
+    height: 120px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+    .bottom a {
+        text-decoration: none;
+        padding: 10px 30px 10px 30px;
+        font-size: 12px;
+        background: #ddd;
+        color: black;
+        font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+        font-weight: bold;
+        border-radius: 3px;
+        -webkit-transition: all linear 0.30s;
+        -moz-transition: all linear 0.30s;
+        transition: all linear 0.30s;
+    }
+
+.tip_border {
+    padding: 8px 0 0;
+}
+
+.rf_border {
+    padding: 8px 0 0;
+}
+
+.rf_border_d {
+    margin-left: 8px;
+}
+
+.button a {
+    margin: 0 20px;
+    display: inline-block;
+    background-color: dodgerblue;
+    width: 60px;
+    color: #fff;
+    line-height: 32px;
+    height: 32px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.button {
+    height: 50px;
+    line-height: 50px;
+    text-align: center; /*border: 1px solid #E2E2E2;*/
+}
+
+.tip {
+    text-align: left;
+    font-weight: bold;
+    margin-left: 1px;
+}
+
+.title {
+    text-align: right;
+    font-weight: bold;
+    margin-left: 16px;
+}
+/*.between {height: 160px;}*/
+.between .bar_code {
+    padding-left: 16px;
+}
+
+.between_d {
+    height: 100px;
+    overflow-y: auto;
+}
+
+.rf_goback {
+    color: #fff;
+    font-size: 12px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    width: 24px;
+    line-height: 40px;
+}
+
+.rf_headmain {
+    text-align: right;
+    height: 40px;
+}
+
+.rf_home {
+    color: #fff;
+    font-size: 12px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    width: 24px;
+    line-height: 40px;
+}
+
+.rf_out {
+    color: #fff;
+    font-size: 12px;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    width: 24px;
+    line-height: 40px;
+}
+
+.rf_border_up_up {
+    display: inline-block;
+    margin-right: 8px;
+    margin-left: 8px;
+    width: 60px;
+    height: 24px;
+    line-height: 24px;
+}
+
+.border_d {
+    float: left;
+    width: 50%;
+}
+
+.warp_height {
+    height: 180px;
+}
+/*index*/
+.content_d a {
+    margin: 0 12px;
+    display: inline-block;
+    background-color: dodgerblue;
+    color: #fff;
+    width: 40%;
+    line-height: 32px;
+    height: 32px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.content_d {
+    line-height: 50px;
+    text-align: center;
+}
+/*登入*/
+.content_L {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -57px;
+    margin-left: -111px;
+}
+
+.content_c {
+    line-height: 40px;
+    text-align: center;
+}
+
+.login_p input {
+    border: 1px solid #ccc;
+    width: 185px;
+    height: 24px;
+    margin: auto;
+}
+
+.login_button {
+    text-align: center;
+}
+
+    .login_button a {
+        display: inline-block;
+        background-color: dodgerblue;
+        color: #fff;
+        line-height: 32px;
+        height: 32px;
+        text-align: center;
+        width: 68px;
+        cursor: pointer;
+    }
+
+/*一号工程码点击背景*/
+.active_one {
+    background: #cacaca;
+    color: #fff;
+}
+
+/*盘点的table*/
+.location_table {
+    width: 100%;
+    text-align: center;
+}
+
+    .location_table th, .location_table td {
+        border: 1px solid #ccc;
+        border-right: none;
+        padding: 3px 0;
+    }
+
+    .location_table tbody td {
+        border-top: none;
+    }
+
+    .location_table tbody input {
+        border: 1px solid #ccc;
+        text-indent: 3px;
+    }
+
+.table_div {
+    margin: 5px 0 10px;
+}
+
+/*上架（车载）*/
+.con_width {
+    width: 400px;
+    margin: auto;
+}
+
+.button_top {
+    margin-top: 30px;
+}
+
+.big_screen {
+    line-height: 36px;
+    font-size: 22px;
+}
+
+.big_input {
+    height: 30px;
+    width: 260px;
+}
+.with100 {
+    width: 75px;
+    display: inline-block;
+}

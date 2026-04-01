@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC450142-963B-4078-8738-C5131E55C520}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CWCS.Core.Library</RootNamespace>
+    <AssemblyName>CWCS.Core.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Communication, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CWCS.Common\Dll\Communication.dll</HintPath>
+    </Reference>
+    <Reference Include="Invengo.Language">
+      <HintPath>..\CWCS.Common\Dll\Invengo.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="IRP1, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CWCS.Common\Dll\IRP1.dll</HintPath>
+    </Reference>
+    <Reference Include="LOG">
+      <HintPath>..\CWCS.Common\Dll\LOG.dll</HintPath>
+    </Reference>
+    <Reference Include="RFIDInterface, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CWCS.Common\Dll\RFIDInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AGVManager\AGVControl.cs" />
+    <Compile Include="AGVManager\AGVHelper.cs" />
+    <Compile Include="AGVManager\CRLAgvControl.cs" />
+    <Compile Include="BDDoorManager\BDControl.cs" />
+    <Compile Include="BDDoorManager\BDEnum.cs" />
+    <Compile Include="BDDoorManager\BDPackService.cs" />
+    <Compile Include="BDDoorManager\OperateResult.cs" />
+    <Compile Include="LibNodave\DaveConnection.cs" />
+    <Compile Include="LibNodave\DaveInterface.cs" />
+    <Compile Include="LibNodave\DebugLevel.cs" />
+    <Compile Include="LibNodave\FD.cs" />
+    <Compile Include="LibNodave\IPlcIO.cs" />
+    <Compile Include="LibNodave\LibNodave.cs" />
+    <Compile Include="LibNodave\PDU.cs" />
+    <Compile Include="LibNodave\PlcDataHelper.cs" />
+    <Compile Include="LibNodave\PlcMemoryArea.cs" />
+    <Compile Include="LibNodave\PlcTcpClient.cs" />
+    <Compile Include="LibNodave\ProfiBusSpeed.cs" />
+    <Compile Include="LibNodave\Protocols .cs" />
+    <Compile Include="LibNodave\PseudoPointer.cs" />
+    <Compile Include="LibNodave\ResultCodes.cs" />
+    <Compile Include="LibNodave\ResultSet.cs" />
+    <Compile Include="LibNodave\S7BlockType.cs" />
+    <Compile Include="LibNodave\SocketClient.cs" />
+    <Compile Include="PLCManager\ConveryPLC.cs" />
+    <Compile Include="PLCManager\IOPCServer.cs" />
+    <Compile Include="PLCManager\OPCServer.cs" />
+    <Compile Include="PLCManager\PLCHelper.cs" />
+    <Compile Include="PLCManager\SRMPLC.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueSpeech.cs" />
+    <Compile Include="SocketManager\SocketClient.cs" />
+    <Compile Include="SocketManager\SocketServer.cs" />
+    <Compile Include="SRMManager\SRMControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\COMRW\COMRW.csproj">
+      <Project>{F7E0BA7D-DC3A-491B-AF02-084239C3E1C7}</Project>
+      <Name>COMRW</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.Common\CWCS.Common.csproj">
+      <Project>{b8d9b177-c8bf-4d8c-b9e4-37d74049e583}</Project>
+      <Name>CWCS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.Entity\CWCS.Entity.csproj">
+      <Project>{a31c25eb-8296-459b-a111-db6f3d6f714d}</Project>
+      <Name>CWCS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CWCS.Repository\CWCS.Repository.csproj">
+      <Project>{79ff9158-1a31-4300-868a-12e0434d0d84}</Project>
+      <Name>CWCS.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\CWCS.Common\Dll\Communication.dll" />
+    <Analyzer Include="..\CWCS.Common\Dll\Invengo.Language.dll" />
+    <Analyzer Include="..\CWCS.Common\Dll\IRP1.dll" />
+    <Analyzer Include="..\CWCS.Common\Dll\RFIDInterface.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets" Condition="Exists('..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EmptyLicensesLicx.3.0.0\build\EmptyLicensesLicx.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

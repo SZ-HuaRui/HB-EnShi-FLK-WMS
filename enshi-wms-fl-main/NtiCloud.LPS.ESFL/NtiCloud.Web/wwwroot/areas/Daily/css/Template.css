@@ -1,0 +1,96 @@
+body{background:#F8FBFF;}
+textarea, input {border: none;outline: none;padding: 0;}
+.template_con{overflow:auto;}
+.temp_top{padding:0 200px;display: flex;justify-content: space-between;line-height:45px;border-bottom:1px solid #E9E9E9;}
+.temp_top .top_left{font-size:15px;font-weight:400;color:#333333;border-bottom:2px solid #4A90E2;}
+.temp_top .top_right{font-size:15px;font-weight:400;color:#4A90E2;cursor:pointer;position:relative;}
+.addBtn{display:inline-block;font-size:30px;position: absolute;left: -30px;}
+.temp_bottom{padding:38px 200px 0;}
+.temp_bottom .temp_list{width:240px;/*height:179px;*/background:#FFFFFF;border-radius:8px;border:1px solid #E9E9E9;float: left;margin:0 16px 16px 0;}
+.temp_bottom .temp_list .list_top{padding:16px;}
+.temp_bottom .temp_list .list_top .list_title{border-bottom:1px solid #E9E9E9;padding-bottom: 8px;}
+.temp_bottom .temp_list .list_top .list_title img{width:32px;height:32px;}
+.temp_bottom .temp_list .list_top .list_title span{font-size:14px;font-weight:400;color:#4A90E2;display:inline-block;margin-left:8px;}
+.temp_bottom .temp_list .list_top .list_con .list_con_p{padding-top: 8px;}
+.temp_bottom .temp_list .list_top .list_con .list_con_p .list_con_title{font-size:12px;font-weight:400;color:#B2B2B2;}
+.temp_bottom .temp_list .list_top .list_con .list_con_p .list_con_t{font-size:12px;font-weight:400;color:#333333;}
+.temp_bottom .temp_list .list_bottom{padding:0 14px 0 7px;display: flex;justify-content: space-between;background:#F0F3F9;line-height:32px;}
+.temp_bottom .temp_list .list_bottom .list_data{font-size:12px;font-weight:400;color:#333333;}
+.temp_bottom .temp_list .list_bottom .list_edit span{font-size:12px;font-weight:400;color:#4A90E2;padding-left:12px;cursor:pointer;}
+.add_template{background:rgba(0,0,0,0.2);position: absolute;left: 0px;top: 0px;overflow-y: auto;transition: all 0.4s;width: 100%;height: 100%;}
+.add_temp_con{width:720px;background:#FFFFFF;display: inline-block;position: absolute;right: 0;top: 0;bottom: 0;overflow:auto;}
+.add_temp_con .add_temp_top{padding:0 24px;display: flex;justify-content: space-between;line-height:47px;border-bottom:1px solid #E9E9E9;}
+.add_temp_con .add_temp_top span{display:inline-block;font-size:15px;font-weight:400;color:#333333;}
+.add_temp_con .add_temp_top img{height:24px;width:24px;margin-top: 12px;cursor:pointer;}
+.add_temp_con .add_temp_main{width:280px;margin:24px auto 0;}
+.add_temp_con .add_temp_main .add_title span{font-size:14px;font-weight:400;color:#333333;}
+.add_temp_con .add_temp_main .add_title input::-webkit-input-placeholder {color: #B2B2B2;font-size: 14px;}
+.add_temp_con .add_temp_main .add_title input{width: 200px;}
+.add_temp_con .add_temp_main .add_field .sortBtn{text-align:right;font-size:12px;font-weight:400;color:#4A90E2;cursor:pointer;margin-bottom:3px;}
+.add_temp_con .add_temp_main .add_field .add_field_t{border:1px solid #E9E9E9;border-radius:4px;}
+.add_temp_con .add_temp_main .add_field .add_field_c{padding:0 8px 0 10px;line-height: 40px;position: relative;}
+.add_temp_con .add_temp_main .add_field .add_field_c:not(:last-child){border-bottom:1px solid #E9E9E9;}
+.add_temp_con .add_temp_main .add_field .add_field_c img{width:18px;height:18px;cursor:pointer;}
+.add_temp_con .add_temp_main .add_field .add_field_c input{font-size:12px;font-weight:400;color:#333333;text-indent:8px;height: 28px;position: absolute;top: 6px;}
+.add_temp_con .add_temp_main .add_field .add_field_c input::-webkit-input-placeholder {color: #B2B2B2;font-size: 12px;}
+.add_temp_con .add_temp_main .add_field .add_field_c .add_type{float: right;cursor:pointer;}
+.add_temp_con .add_temp_main .add_field .add_field_c .add_type span{font-size:12px;font-weight:400;color:#B2B2B2;}
+.add_temp_con .add_temp_main .add_field .add_field_c .add_type img{width:12px;height:16px;margin-left:4px;}
+.add_temp_con .add_temp_main .add_field .add_btn{padding:0 0px 0 11px;line-height: 40px;cursor:pointer;}
+.add_temp_con .add_temp_main .add_field .add_btn img{width:16px;height:16px;margin-right:9px;}
+.add_temp_con .add_temp_main .add_field .add_btn span{font-size:12px;font-weight:400;color:#4A90E2;}
+.add_temp_con .add_temp_main button{width:280px;height:40px;border-radius:4px;font-size:15px;font-weight:600;border:none;outline:none;margin-top:16px;cursor:pointer;}
+.add_temp_con .add_temp_main .save_btn{background:#4A90E2;color:#FFFFFF;}
+.add_temp_con .add_temp_main .back_btn{border:1px solid #E9E9E9;color:#B2B2B2;background:#FFFFFF;}
+.add_temp_con .add_temp_main .add_field .add_field_c .prop_b{width:20px;height:16px;display:inline-block;margin-right: 10px;}
+.add_temp_con .add_temp_main .add_field .add_field_c .prop_c{cursor:pointer;}
+.prop_img{background:url(../img/icon-select.png);background-size: 100%;}
+.add_temp_con .add_temp_main .add_field .add_field_c span{font-size:12px;font-weight:400;color:#333333;display:inline-block;}
+.add_temp_con .add_temp_main .add_field .field_required{padding-top: 10px;}
+.add_temp_con .add_temp_main .add_field .field_required span{font-size:12px;font-weight:400;color:#B2B2B2;display:inline-block;}
+.add_temp_con .add_temp_main .add_field .field_required .switchbutton{float:right;}
+.add_temp_con .add_temp_main .add_field .field_type{font-size:12px;font-weight:400;color:#B2B2B2;padding: 8px 0;}
+.add_temp_con .add_temp_main .add_field .add_field_c .add_type .add_type_img{width:24px;height:24px;}
+.button_t .button_p{position: relative;cursor:pointer;}
+.button_t .button_p:not(:last-child){margin-bottom:16px;}
+.button_t .button_p .button_img{height:16px;width:16px;background:url(../img/icon-radio-nor.png);background-size: 100%;display: inline-block;margin-right:8px;position: absolute;top: 2px;cursor:pointer;}
+.button_t .button_p .button_type{font-size:14px;font-weight:400;color:#333333;margin-left: 24px;cursor:pointer;}
+.button_active{background:url(../img/icon-radio-pre.png) !important;background-size: 100% !important;}
+/*手机端*/
+@media screen and (max-width:767px){
+    
+}
+/*小屏幕*/
+@media screen and (min-width:768px) and (max-width:991px){
+    
+}
+/*中等屏幕*/
+@media screen and (min-width:992px) and (max-width:1199px){
+    
+}
+/*大屏幕*/
+@media screen and  (min-width:1200px){
+   
+}
+/*高度太低*/
+@media screen and (max-height:685px){
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

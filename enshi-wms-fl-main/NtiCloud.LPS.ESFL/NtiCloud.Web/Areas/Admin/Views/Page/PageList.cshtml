@@ -1,0 +1,56 @@
+﻿@{ Layout = "~/Areas/Admin/Shared/LayoutEasyUI.cshtml";}
+@section TitleSection{@(ViewBag.SystemName + "页面列表")}
+@section HeaderSection{
+    <link href="~/areas/admin/css/easyuilayer.css" rel="stylesheet" />
+    <link href="~/areas/admin/css/pagelist.css" rel="stylesheet" />
+    <script src="~/areas/admin/js/pagelist.js"></script>
+    <script src="//g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js"></script>
+}
+@section ContentBody{
+    <body style="overflow:hidden;padding:0px;box-sizing:border-box;" class="easyui-layout pageList_layout">
+        <!--工具栏-->
+        <div data-options="region:'north',split:false,border:false">
+            <div class="mvctool" style="float:left;"></div>
+            <div style="float:right;padding:2px 14px 0px 0px;">
+                <a id="btnRefresh" class="btn btn-default easyui-tooltip" title="刷新数据"><span class="mdi mdi-autorenew">&nbsp;&nbsp;刷新</span></a>
+                <a id="btnPrint" class="btn btn-default easyui-tooltip" style="display:none;" title="打印报表"><span class="mdi mdi-printer">&nbsp;&nbsp;打印</span></a>
+                <a id="btnSearch" class="btn btn-default easyui-tooltip" title="显示隐藏查询条件"><span class="mdi mdi-chevron-double-down">&nbsp;&nbsp;查询</span></a>
+                <a id="btnMore" class="easyui-menubutton" title="更多…" data-options="menu:'#MoreMenu'"><span class="mdi mdi-file-document-outline">&nbsp;&nbsp;更多</span></a>
+                <div id="MoreMenu" class="easyui-menu"></div>
+                <input type="hidden" id="is_allow_add" value="1" />
+            </div>
+
+            <div id="ExcelImport" class="easyui-dialog" title="导入Excel" data-options="iconCls:'icon-more'" closed="true" style="width:300px;height:180px;padding:10px; text-align:center; display:none;">
+                <form id="uploadForm" enctype="multipart/form-data" method="post">
+                    <br />
+                    <input type="file" id="excelfile" name="excelfile" multiple style="height:30px;width:280px;" class="text-box single-line" />
+                    <input type="hidden" id="excelsql" name="excelsql" value="" />
+                    <br /><br />
+                    <input type="button" value="导入" onclick="ExcelImport()" class="easyui-linkbutton" style="width:80px;height:32px" />&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="reset" value="关闭" class="easyui-linkbutton" style="width:80px;height:32px" onclick="$('#ExcelImport').dialog('close')" />
+                </form>
+            </div>
+        </div>
+        <!--左侧树-->
+        <div id="treeleft" data-options="region:'west',title:'',split:true" style="width:200px;z-index:1098;">
+            <div id="treeMenu" class="easyui-menu" style="width:120px;"></div>
+            <ul id="StructTree" class="easyui-tree" data-options="onClick:function(node){ getSelected();}"></ul>
+        </div>
+        <!--数据区-->
+        <div data-options="region:'center',border:false" style="padding-left:4px;z-index:1099;">
+            <div id="searchList" style="display:none;">
+                <span class="titleBtn" onclick="search()"><i class="mdi mdi-cloud-search"></i>&nbsp;查&nbsp;询</span>
+            </div>
+            <table id="List0"></table>
+            <div class="easyui-tabs easyui-resizable" id="tabs" style="width: 100%; height: auto;position:relative;top:0px;"></div>
+        </div>
+
+        <div id="modalwindow" class="easyui-window" style="width:800px; height:400px;" data-options="modal:true,maximized:true,closed:true,minimizable:false,shadow:false"></div>
+        <!--自动GRID 从第一次加载与重置窗体大小时候发生的事件:分部视图，当只有一个Grid时且ID为List-->
+        <input type="hidden" id="TemplateID" value="@ViewBag.TemplateID" />
+        <input type="hidden" id="ReportUrl" value="@ViewBag.ReportUrl" />
+        <script type="text/javascript">
+            @Html.Raw(ViewBag.JsScript)
+        </script>
+    </body>
+}

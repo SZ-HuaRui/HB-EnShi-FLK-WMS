@@ -1,0 +1,33 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/areas/rfs/css/reset.css" rel="stylesheet" />
+    <link href="~/areas/rfs/css/common.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/areas/rfs/js/common.js"></script>
+    <script src="~/areas/rfs/js/Index.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <title>首页</title>
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    <div class="top_nav">
+        <p><strong>主页</strong></p>
+        <div class="rf_headmain">
+            <a class="rf_out">退出</a>
+        </div>
+    </div>
+    <div class="content_t">
+        <div class="content_d">
+        </div>
+    </div>
+</body>
+</html>

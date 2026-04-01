@@ -1,0 +1,40 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/areas/rfs/css/reset.css" rel="stylesheet" />
+    <link href="~/areas/rfs/css/common.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/layui/layui.all.js"></script>
+    <script src="~/js/common.js"></script>
+    <script src="~/js/apiRoute.js"></script>
+    <script src="~/js/loginCommon.js"></script>
+    <script src="~/areas/admin/js/jquery.layui.plus.js"></script>
+    <script src="~/areas/rfs/js/Login.js"></script>
+    <script src="~/lib/CryptoJS/components/core-min.js"></script>
+    <script src="~/lib/CryptoJS/rollups/aes.js"></script>
+    <title>登入</title>
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    <div class="content_t content_L">
+        <div class="content_c">
+            <p class="login_p">
+                <span class="text">仓库：</span>
+                <select id="warehouse">
+                </select>
+            </p>
+            <p class="login_p"><span class="text">账号：</span><input id="account" type="text" placeholder="" name="fname" /></p>
+            <p class="login_p"><span class="text">密码：</span><input id="password" type="password" placeholder="" name="fname" /></p>
+            <input type="hidden" id="clientId" value="@ViewBag.clientId">
+            <input type="hidden" id="userip" name="userip" value="@ViewBag.UserIP">
+            <input type="hidden" id="userprod" name="userprod" value="@ViewBag.Area">
+        </div>
+        <div class="login_button">
+            <a class="rf_login">登录</a>
+        </div>
+    </div>
+</body>
+</html>

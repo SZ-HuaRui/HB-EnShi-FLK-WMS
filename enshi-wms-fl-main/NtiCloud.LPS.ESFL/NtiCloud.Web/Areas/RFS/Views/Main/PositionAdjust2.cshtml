@@ -1,0 +1,63 @@
+﻿@{ Layout = "~/Areas/RFS/Shared/Layout.cshtml";}
+@section title{@("货位调整（车载）")}
+@section footerScript{
+    <script src="~/areas/rfs/js/PositionAdjust2.js"></script>
+}
+@section caption{@("货位调整（车载）")}
+@section contentBody{
+    <div class="warp">
+        <div class="warp_d warp_height">
+            <div class="border_d">
+                <p class="rf_border">
+                    <span class="title">来源货位：</span>
+                    <span class="rf_border_d" id="old_location"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料名称：</span>
+                    <span class="rf_border_d" id="item_name"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料编码：</span>
+                    <span class="rf_border_d" id="item_code"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">托盘条码：</span>
+                    <span class="rf_border_d" id="container_id"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">批次号：</span>
+                    <span class="rf_border_d" id="batch_number"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">入库日期：</span>
+                    <span class="rf_border_d" id="shelve_data"></span>
+                </p>
+            </div>
+            <div class="border_d">
+                <p class="rf_border"><span class="title">目标货位：</span><input class="" id="new_location" type="text" placeholder="请扫描" name="fname" /></p>
+                <p class="rf_border">
+                    <span class="title">物料名称：</span>
+                    <span class="rf_border_d" id="item_name2"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">物料编码：</span>
+                    <span class="rf_border_d" id="item_code2"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">批次号：</span>
+                    <span class="rf_border_d" id="batch_number2"></span>
+                </p>
+                <p class="rf_border">
+                    <span class="title">入库日期：</span>
+                    <span class="rf_border_d" id="shelve_data2"></span>
+                </p>
+            </div>
+        </div>
+        <div class="button_t">
+            <div class="button">
+                <a class="getInfo">刷新数据</a>
+                <a class="conform_btn">确定</a>
+            </div>
+        </div>
+    </div>
+}

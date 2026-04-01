@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{960BA144-2BD9-455F-A212-12ED97658CA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WMSInterface</RootNamespace>
+    <AssemblyName>WMSInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'x86|AnyCPU' ">
+    <OutputPath>bin\x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'x86|x86' ">
+    <OutputPath>bin\x86\x86\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NTIVirtualMachine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\NTIVirtualMachine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CallEndWS.cs" />
+    <Compile Include="CombinationWS.cs" />
+    <Compile Include="ContainerEntity.cs" />
+    <Compile Include="CrossItem.cs" />
+    <Compile Include="CrossWS.cs" />
+    <Compile Include="Entity50\BarcodeRecevingNumber.cs" />
+    <Compile Include="Entity50\ContainerDetail.cs" />
+    <Compile Include="Entity50\ContainerInventoryN.cs" />
+    <Compile Include="Entity50\CountHead.cs" />
+    <Compile Include="Entity50\Dock.cs" />
+    <Compile Include="Entity50\EmergencyOutBoundN.cs" />
+    <Compile Include="Entity50\Equipment.cs" />
+    <Compile Include="Entity50\Inventory.cs" />
+    <Compile Include="Entity50\Item.cs" />
+    <Compile Include="Entity50\Location.cs" />
+    <Compile Include="Entity50\MachineDock.cs" />
+    <Compile Include="Entity50\MachineProductPlan.cs" />
+    <Compile Include="Entity50\Model.cs" />
+    <Compile Include="Entity50\PreInBound.cs" />
+    <Compile Include="Entity50\TaskEntity.cs" />
+    <Compile Include="EntityDefination\ChildAndPersonDock.cs" />
+    <Compile Include="EntityDefination\ChildItemSetting.cs" />
+    <Compile Include="Entity50\LoginInfo.cs" />
+    <Compile Include="EntityDefination\CONUSEDMATERDETAIL.cs" />
+    <Compile Include="EntityDefination\CONUSEDMATERHEAD.cs" />
+    <Compile Include="EntityDefination\Cross.cs" />
+    <Compile Include="EntityDefination\ItemShipperEntity.cs" />
+    <Compile Include="EntityDefination\Receiving.cs" />
+    <Compile Include="EntityDefination\ItemEntity.cs" />
+    <Compile Include="EntityDefination\PalletCompositionBOM.cs" />
+    <Compile Include="EntityDefination\IdNameDescriptionEntity.cs" />
+    <Compile Include="EntityDefination\Count.cs" />
+    <Compile Include="EntityDefination\CountPlanEntity.cs" />
+    <Compile Include="EntityDefination\InventoryHistory.cs" />
+    <Compile Include="EntityDefination\ItemCatalog.cs" />
+    <Compile Include="EntityDefination\ItemInventory.cs" />
+    <Compile Include="EntityDefination\Item_Short.cs" />
+    <Compile Include="EntityDefination\Move.cs" />
+    <Compile Include="EntityDefination\ProductionBOM.cs" />
+    <Compile Include="EntityDefination\Shipper.cs" />
+    <Compile Include="EntityDefination\StatisticUnit.cs" />
+    <Compile Include="EntityDefination\StatisticValue.cs" />
+    <Compile Include="EntityDefination\WaveEditColumn.cs" />
+    <Compile Include="EntityDefination\WaveFillingRequired.cs" />
+    <Compile Include="IGetDataTable.cs" />
+    <Compile Include="LogWS.cs" />
+    <Compile Include="RFContainerItem.cs" />
+    <Compile Include="SelectItem.cs" />
+    <Compile Include="EntityDefination\UsedMaterialsHead.cs" />
+    <Compile Include="EntityDefination\UsedMaterialsDetail.cs" />
+    <Compile Include="WSInterface\ContainerInfoListWS.cs" />
+    <Compile Include="EntityDefination\Common.cs" />
+    <Compile Include="EntityDefination\Container.cs" />
+    <Compile Include="EntityDefination\ItemUnit.cs" />
+    <Compile Include="EntityDefination\OrderDetail.cs" />
+    <Compile Include="EntityDefination\OrderHead.cs" />
+    <Compile Include="EntityDefination\WaveDetail.cs" />
+    <Compile Include="EntityDefination\WaveHead.cs" />
+    <Compile Include="EntityDefination\WaveInventoryCheck.cs" />
+    <Compile Include="EntityDefination\WaveTask.cs" />
+    <Compile Include="LanewaySelectWS.cs" />
+    <Compile Include="PreOutBoundWS.cs" />
+    <Compile Include="QCWS.cs" />
+    <Compile Include="CountWS.cs" />
+    <Compile Include="InitializeWS.cs" />
+    <Compile Include="LocationWS.cs" />
+    <Compile Include="LoginWS.cs" />
+    <Compile Include="MessengerWS.cs" />
+    <Compile Include="PermissionManagerWS.cs" />
+    <Compile Include="PreInBoundWS.cs" />
+    <Compile Include="ProducingPrintWS.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceivingWS.cs" />
+    <Compile Include="RFManagerWS.cs" />
+    <Compile Include="ShortageWS.cs" />
+    <Compile Include="SingleItemsWS.cs" />
+    <Compile Include="StrategyValueWS.cs" />
+    <Compile Include="TaskWS.cs" />
+    <Compile Include="WorkFlowResult.cs" />
+    <Compile Include="WSInterface\InventoryWS.cs" />
+    <Compile Include="WSInterface\OrderWS.cs" />
+    <Compile Include="WSInterface\WaveComputingCallBack.cs" />
+    <Compile Include="WSInterface\WaveComputingWS.cs" />
+    <Compile Include="WSInterface\WaveWS.cs" />
+    <Compile Include="_KeepAlive.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\NTIVirtualMachine.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

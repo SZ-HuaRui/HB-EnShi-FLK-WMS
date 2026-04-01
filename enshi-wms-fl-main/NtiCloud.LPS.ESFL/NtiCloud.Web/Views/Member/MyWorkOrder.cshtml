@@ -1,0 +1,186 @@
+﻿@{
+    Layout = "~/Views/Shared/LayoutMember.cshtml";
+}
+@section TitleSection{我的工单}
+@section HeaderSection{
+    <link href="~/css/WorkOrderCommon.css" rel="stylesheet" />
+    <link href="~/css/MyWorkOrder.css" rel="stylesheet" />
+    <script src="~/js/MyWorkOrder.js"></script>
+}
+@section ContentBody{
+    <div class="con_erea">
+        <div class="container_left">
+            <div class="left_menu">
+                <p class="left_menu_title">工单系统</p>
+                <ul class="left_menu_ul">
+                    <li><a class="li_active" href="/Member/MyWorkOrder">我的工单</a></li>
+                    <li><a href="/Member/SubmitWorkOrder">提交工单</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container_main">
+            <div class="right_content">
+                <div class="right_top">
+                    <ul class="right_top_ul">
+                        <li>我的工单</li>
+                    </ul>
+                </div>
+                @{
+                    System.Data.DataTable myWorkCount = (System.Data.DataTable)ViewData["MyWorkCount"];
+                    string allnum = "0", inprnum = "0", closenum = "0";
+                    if (myWorkCount.Rows.Count > 0)
+                    {
+                        allnum = myWorkCount.Rows[0]["allnum"].ToString();
+                        inprnum = myWorkCount.Rows[0]["inprnum"].ToString();
+                        closenum = myWorkCount.Rows[0]["closenum"].ToString();
+                    }
+                }
+                <div class="right_main">
+                    <div class="tool">
+                        <div class="top_news">
+                            <p>@allnum</p><span>全部</span>
+                        </div>
+                        <div class="top_news">
+                            <p>@inprnum</p><span>进行中</span>
+                        </div>
+                        <div class="top_news">
+                            <p>@closenum</p><span>已完成</span>
+                        </div>
+                    </div>
+                    <div class="div_d">
+                        <div class="input_search">
+                            <div class="data_f data_from">
+                                <input class="data_from_p Wdate" id="bdate" type="text" value="" readonly onclick="WdatePicker()">
+                                <img src="~/img/order_date_nor.png">
+                            </div>
+                            <span class="span_to">至</span>
+                            <div class="data_f data_to">
+                                <input class="data_to_p Wdate" id="edate" type="text" value="" readonly onclick="WdatePicker()">
+                                <img src="~/img/order_date_nor.png">
+                            </div>
+                            <div class="top_up">查询</div>
+                            <div class="top_up_d">
+                                <img class="key_word_img" src="~/img/order_search.png">
+                                <input class="key_word" type="text" placeholder="请输入你的工单号或者关键问题字" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table_area">
+                        <table class="table" id="table_order">
+                            <thead>
+                                <tr>
+                                    <td><b>工单编号</b></td>
+                                    <td><b>问题分类</b></td>
+                                    <td><b>问题描述</b></td>
+                                    <td><b>状态</b></td>
+                                    <td><b>提交时间</b></td>
+                                    <td><b>操作</b></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td></td>
+                                </tr>
+                                @*<tr>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td><span></span></td>
+                        <td></td>
+                    </tr>*@
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="page">
+                        <div class="page_top">共<span id="total">0</span>条，每页显示<span id="rows">8</span>条</div>
+                        <ul class="pagination" id="paginationA">
+                            <li class="page-item">
+                                <a class="page-link btn disabled" href="javascript:;" aria-label="Previous" id="first">
+                                    <span aria-hidden="true"><<</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link btn disabled" id="PrevPage" href="javascript:;"><</a></li>
+                            <li class="page-item"><a class="page-link" id="CurPage" href="javascript:;" onclick="DataList($(this).text())">1</a></li>
+                            <li class="page-item"><a class="page-link btn" id="NextPage" href="javascript:;">></a></li>
+                            <li class="page-item">
+                                <a class="page-link btn" href="javascript:;" id="last" aria-label="Next">
+                                    <span aria-hidden="true">>></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
