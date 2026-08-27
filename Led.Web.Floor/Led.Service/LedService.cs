@@ -11,8 +11,8 @@ namespace Led.Service
 
     public interface ILedService
     {
-        List<ItemProduction> GetTodayInBoundInfo(DateTime? startTime = null, DateTime? endTime = null);
-        ClassProduction GetLastClassQty(DateTime? startTime = null, DateTime? endTime = null);
+        List<ItemProduction> GetTodayInBoundInfo();
+        ClassProduction GetLastClassQty();
 
     }
 
@@ -25,14 +25,14 @@ namespace Led.Service
             this.respository = respository;
         }
 
-        public ClassProduction GetLastClassQty(DateTime? startTime = null, DateTime? endTime = null)
+        public ClassProduction GetLastClassQty()
         {
-            return respository.GetLastClassQty(startTime, endTime);
+            return respository.GetLastClassQty();
         }
 
-        public List<ItemProduction> GetTodayInBoundInfo(DateTime? startTime = null, DateTime? endTime = null)
+        public List<ItemProduction> GetTodayInBoundInfo()
         {
-           return respository.GetTodayInBoundInfo(startTime, endTime);
+           return respository.GetTodayInBoundInfo();
         }
     }
 }

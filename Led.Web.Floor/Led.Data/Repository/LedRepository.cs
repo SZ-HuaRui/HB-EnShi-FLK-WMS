@@ -15,61 +15,48 @@ namespace Led.Data.Repository
     {
         OracleHelper oracleHelper = new OracleHelper("DBContext");
 
-        public ClassProduction GetLastClassQty(DateTime? startTime = null, DateTime? endTime = null)
+        public ClassProduction GetLastClassQty()
         {
             ClassProduction production = new ClassProduction();
             List<ItemProduction> list = new List<ItemProduction>();
-            string startTimeStr = string.Empty;
-            string endTimeStr = string.Empty;
-
-            // 如果提供了手动选择的时间，直接使用
-            if (startTime.HasValue && endTime.HasValue)
+            int timeHH = Convert.ToInt32(DateTime.Now.ToString("HH"));
+            string startTime = string.Empty;
+            string endTime = string.Empty;
+            if (timeHH >= 8 && timeHH <17)
             {
-                startTimeStr = startTime.Value.ToString("yyyy/MM/dd HH:mm:ss");
-                endTimeStr = endTime.Value.ToString("yyyy/MM/dd HH:mm:ss");
-                production.IsShow = true;
+                return production;
             }
-            else
+            if (timeHH >= 0 && timeHH < 8)
             {
-                // 按照原有逻辑自动判断班次
-                int timeHH = Convert.ToInt32(DateTime.Now.ToString("HH"));
-                if (timeHH >= 8 && timeHH < 17)
+                startTime = DateTime.Now.AddDays(-1).ToString("yyyy/MM/dd") + " 08:00:00";
+                endTime = DateTime.Now.AddDays(-1).ToString("yyyy/MM/dd") + " 17:12:00";
+            }
+            else if (timeHH == 17)
+            {
+                int timeMM = Convert.ToInt32(DateTime.Now.ToString("mm"));
+                if (timeMM >= 12)
+                {
+                    startTime = DateTime.Now.ToString("yyyy/MM/dd") + " 08:00:00";
+                    endTime = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
+                }
+                else
                 {
                     return production;
                 }
-                if (timeHH >= 0 && timeHH < 8)
-                {
-                    startTimeStr = DateTime.Now.AddDays(-1).ToString("yyyy/MM/dd") + " 08:00:00";
-                    endTimeStr = DateTime.Now.AddDays(-1).ToString("yyyy/MM/dd") + " 17:12:00";
-                }
-                else if (timeHH == 17)
-                {
-                    int timeMM = Convert.ToInt32(DateTime.Now.ToString("mm"));
-                    if (timeMM >= 12)
-                    {
-                        startTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 08:00:00";
-                        endTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
-                    }
-                    else
-                    {
-                        return production;
-                    }
-                }
-                else if (timeHH > 17 && timeHH < 24)
-                {
-                    startTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 08:00:00";
-                    endTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
-                }
-                production.IsShow = true;
+            }else if (timeHH > 17 && timeHH < 24)
+            {
+                startTime = DateTime.Now.ToString("yyyy/MM/dd") + " 08:00:00";
+                endTime = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
             }
+            production.IsShow = true;
             string sql = string.Empty;
             try
             {
-                if (!string.IsNullOrEmpty(startTimeStr))
+                if (!string.IsNullOrEmpty(startTime))
                 {
                     sql = $@"SELECT 
-    sum(cc.count_clone) AS outqty,  -- WCS_ONECODETOITEMCODE_CLONE 的计数
-    sum(c.count_original) AS inqty   -- wcs_onecodetoitemcode 的计数
+    sum(cc.count_clone) AS inqty,  -- WCS_ONECODETOITEMCODE_CLONE 的计数
+    sum(c.count_original) AS outqty   -- wcs_onecodetoitemcode 的计数
 FROM 
     swms_wi_item i
 LEFT JOIN (
@@ -78,8 +65,8 @@ LEFT JOIN (
         COUNT(*) AS count_clone
     FROM 
         WCS_ONECODETOITEMCODE_CLONE
-     WHERE createtime >= TO_DATE('{startTimeStr}', 'yyyy/mm/dd hh24:mi:ss')
-       AND createtime <= TO_DATE('{endTimeStr}', 'yyyy/mm/dd hh24:mi:ss')
+     WHERE createtime >= TO_DATE('{startTime}', 'yyyy/mm/dd hh24:mi:ss')
+       AND createtime <= TO_DATE('{endTime}', 'yyyy/mm/dd hh24:mi:ss')
     GROUP BY 
         itemid
 ) cc ON i.t_id = cc.itemid
@@ -89,8 +76,8 @@ LEFT JOIN (
         COUNT(*) AS count_original
     FROM 
         wcs_onecodetoitemcode
-     WHERE createtime >= TO_DATE('{startTimeStr}', 'yyyy/mm/dd hh24:mi:ss')
-       AND createtime <= TO_DATE('{endTimeStr}', 'yyyy/mm/dd hh24:mi:ss')
+     WHERE createtime >= TO_DATE('{startTime}', 'yyyy/mm/dd hh24:mi:ss')
+       AND createtime <= TO_DATE('{endTime}', 'yyyy/mm/dd hh24:mi:ss')
     GROUP BY 
         itemid
 ) c ON i.t_id = c.itemid
@@ -100,8 +87,8 @@ WHERE
                 else
                 {
                     sql = $@"SELECT 
-    sum(cc.count_clone) AS outqty,  -- WCS_ONECODETOITEMCODE_CLONE 的计数
-    sum(c.count_original) AS inqty   -- wcs_onecodetoitemcode 的计数
+    sum(cc.count_clone) AS inqty,  -- WCS_ONECODETOITEMCODE_CLONE 的计数
+    sum(c.count_original) AS outqty   -- wcs_onecodetoitemcode 的计数
 FROM 
     swms_wi_item i
 LEFT JOIN (
@@ -126,11 +113,8 @@ WHERE
     1=1 and (cc.count_clone<> 0 or c.count_original<> 0)";
                 }
                 DataTable dt = oracleHelper.ExecuteQueryBySql(sql);
-                if (dt != null && dt.Rows.Count > 0 && dt.Rows[0]["inqty"] != DBNull.Value)
-                {
-                    production.inQty = dt.Rows[0]["inqty"].ToString();
-                    production.outQty = dt.Rows[0]["outqty"].ToString();
-                }
+                production.inQty = dt.Rows[0]["inqty"].ToString();
+                production.outQty = dt.Rows[0]["outqty"].ToString();
                 return production;
             }
             catch
@@ -139,56 +123,42 @@ WHERE
             }
         }
 
-        public List<ItemProduction> GetTodayInBoundInfo(DateTime? startTime = null, DateTime? endTime = null)
+        public List<ItemProduction> GetTodayInBoundInfo()
         {
             List<ItemProduction> list = new List<ItemProduction>();
-            string startTimeStr = string.Empty;
-            string endTimeStr = string.Empty;
-
-            // 如果提供了手动选择的时间，直接使用
-            if (startTime.HasValue && endTime.HasValue)
+            int timeHH = Convert.ToInt32(DateTime.Now.ToString("HH"));
+            string startTime = string.Empty;
+            string endTime = string.Empty;
+            if (timeHH >= 0 && timeHH < 8)
             {
-                startTimeStr = startTime.Value.ToString("yyyy/MM/dd HH:mm:ss");
-                endTimeStr = endTime.Value.ToString("yyyy/MM/dd HH:mm:ss");
-            }
-            else
+                startTime = DateTime.Now.AddDays(-1).ToString("yyyy/MM/dd") + " 17:12:00";
+                endTime = DateTime.Now.ToString("yyyy/MM/dd") + " 07:59:59";
+            }else if(timeHH >= 8 && timeHH < 17)
             {
-                // 按照原有逻辑自动判断班次
-                int timeHH = Convert.ToInt32(DateTime.Now.ToString("HH"));
-                if (timeHH >= 0 && timeHH < 8)
+                startTime = DateTime.Now.ToString("yyyy/MM/dd") + " 08:00:00";
+                endTime = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
+            }else if (timeHH == 17)
+            {
+                int timeMM = Convert.ToInt32(DateTime.Now.ToString("mm"));
+                if (timeMM >= 12)
                 {
-                    startTimeStr = DateTime.Now.AddDays(-1).ToString("yyyy/MM/dd") + " 17:12:00";
-                    endTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 07:59:59";
+                    startTime = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
+                    endTime = DateTime.Now.ToString("yyyy/MM/dd") + " 23:59:59";
                 }
-                else if (timeHH >= 8 && timeHH < 17)
+                else
                 {
-                    startTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 08:00:00";
-                    endTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
+                    startTime = DateTime.Now.ToString("yyyy/MM/dd") + " 08:00:00";
+                    endTime = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
                 }
-                else if (timeHH == 17)
-                {
-                    int timeMM = Convert.ToInt32(DateTime.Now.ToString("mm"));
-                    if (timeMM >= 12)
-                    {
-                        startTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
-                        endTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 23:59:59";
-                    }
-                    else
-                    {
-                        startTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 08:00:00";
-                        endTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
-                    }
-                }
-                else if (timeHH > 17 && timeHH < 24)
-                {
-                    startTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
-                    endTimeStr = DateTime.Now.ToString("yyyy/MM/dd") + " 23:59:59";
-                }
+            }else if(timeHH > 17 && timeHH < 24)
+            {
+                startTime = DateTime.Now.ToString("yyyy/MM/dd") + " 17:12:00";
+                endTime = DateTime.Now.ToString("yyyy/MM/dd") + " 23:59:59";
             }
             string sql = string.Empty;
             try
             {
-                if (!string.IsNullOrEmpty(startTimeStr))
+                if (!string.IsNullOrEmpty(startTime))
                 {
                     //sql = $@"select i.item_code,i.exterior_code,i.item_name,count(1) Qty
                     //        from WCS_ONECODETOITEMCODE h
@@ -201,8 +171,8 @@ WHERE
     i.item_code, 
     i.exterior_code, 
     i.item_name, 
-    nvl(cc.count_clone,0) AS outqty,  -- WCS_ONECODETOITEMCODE_CLONE 的计数
-    nvl(c.count_original,0) AS inqty   -- wcs_onecodetoitemcode 的计数
+    cc.count_clone AS inqty,  -- WCS_ONECODETOITEMCODE_CLONE 的计数
+    c.count_original AS outqty   -- wcs_onecodetoitemcode 的计数
 FROM 
     swms_wi_item i
 LEFT JOIN (
@@ -211,8 +181,8 @@ LEFT JOIN (
         COUNT(*) AS count_clone
     FROM 
         WCS_ONECODETOITEMCODE_CLONE
-     WHERE createtime >= TO_DATE('{startTimeStr}', 'yyyy/mm/dd hh24:mi:ss')
-       AND createtime <= TO_DATE('{endTimeStr}', 'yyyy/mm/dd hh24:mi:ss')
+     WHERE createtime >= TO_DATE('{startTime}', 'yyyy/mm/dd hh24:mi:ss')
+       AND createtime <= TO_DATE('{endTime}', 'yyyy/mm/dd hh24:mi:ss')
     GROUP BY 
         itemid
 ) cc ON i.t_id = cc.itemid
@@ -222,8 +192,8 @@ LEFT JOIN (
         COUNT(*) AS count_original
     FROM 
         wcs_onecodetoitemcode
-     WHERE createtime >= TO_DATE('{startTimeStr}', 'yyyy/mm/dd hh24:mi:ss')
-       AND createtime <= TO_DATE('{endTimeStr}', 'yyyy/mm/dd hh24:mi:ss')
+     WHERE createtime >= TO_DATE('{startTime}', 'yyyy/mm/dd hh24:mi:ss')
+       AND createtime <= TO_DATE('{endTime}', 'yyyy/mm/dd hh24:mi:ss')
     GROUP BY 
         itemid
 ) c ON i.t_id = c.itemid
@@ -236,8 +206,8 @@ WHERE
     i.item_code, 
     i.exterior_code, 
     i.item_name, 
-    nvl(cc.count_clone,0) outqty,  -- WCS_ONECODETOITEMCODE_CLONE 的计数
-    nvl(c.count_original,0) inqty   -- wcs_onecodetoitemcode 的计数
+    cc.count_clone inqty,  -- WCS_ONECODETOITEMCODE_CLONE 的计数
+    c.count_original outqty   -- wcs_onecodetoitemcode 的计数
 FROM 
     swms_wi_item i
 LEFT JOIN (

@@ -1074,6 +1074,7 @@ namespace BLL
                                     taskInfo[6] = "0";
                                     taskInfo[7] = "0";
                                     taskInfo[8] = "0";
+                                    
                                     taskInfo[9] = "0";
                                     if (!plc.Write(STACommand.ReWrite, taskInfo, AGVDelivery.ToString(), 0, 30))
                                     {
@@ -1110,6 +1111,31 @@ namespace BLL
                         {
                             if (taskDataTable == null || taskDataTable.Rows.Count == 0)
                             {
+                                #region 20260827 zhoujianglai 放货完成信号重复处理问题
+                                //20260827 zhoujianglai 放货完成信号重复处理问题
+                                //第二次信号过来，找不到执行中的agv任务，直接将站台信息覆盖掉，导致托盘任务停止
+                                //查找当前agv任务是否已完成，如果已经完成，说明任务已经过去，则不需要写信息
+                                try
+                                {
+                                    var  taskTableTemp2 = _repository.GetTotalTask(new WCS_SUBTASKINFO()
+                                    {
+                                        EQUIPMENTNUMBER = AgvNo,
+                                        AGVINDEX = index,
+                                        TASKSTATUS = "1"
+                                    });
+
+                                    if (taskTableTemp2 != null && taskTableTemp2.Rows.Count > 0)
+                                    {
+                                        WriteLog($"WCS --> AGV (s-message) 索引号:{index},AGV放货位置:{AGVDelivery},WCS中agv任务已完成，完成信号重复触发，无需处理.。");
+                                        break;
+                                    }
+                                }
+                                catch (Exception e)
+                                {
+                                    WriteLog($"WCS --> AGV (s-message) 索引号:{index},AGV放货位置:{AGVDelivery},agv任务重复触发判断异常，异常原因:{e.Message}");
+                                }
+                                #endregion
+                                
                                 WriteLog($"WCS --> AGV (s-message) 索引号:{index},AGV放货位置:{AGVDelivery},WCS找不到对应的任务信息,所以只能在{AGVDelivery}临时写入信息。");
                                 taskInfo[0] = "1000";
                                 taskInfo[1] = "0";

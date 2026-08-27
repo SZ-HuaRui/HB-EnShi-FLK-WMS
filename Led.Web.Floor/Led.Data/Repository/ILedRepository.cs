@@ -9,7 +9,7 @@ namespace Led.Data.Repository
 {
     public interface ILedRepository:IRepository<ItemProduction>
     {
-        List<ItemProduction> GetTodayInBoundInfo(DateTime? startTime = null, DateTime? endTime = null);
-        ClassProduction GetLastClassQty(DateTime? startTime = null, DateTime? endTime = null);
+        List<ItemProduction> GetTodayInBoundInfo();
+        ClassProduction GetLastClassQty();
     }
 }
