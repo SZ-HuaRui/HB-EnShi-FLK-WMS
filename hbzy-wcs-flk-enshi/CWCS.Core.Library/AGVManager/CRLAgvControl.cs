@@ -19,7 +19,7 @@ namespace COMResolution
         private Timer HeartBeatTimer = new Timer();
         private string ServerAddr = "";
         private int ServerPort = 0;
-        private string AgvExceptionDirectory => $"AGVÒì³£ÈÕÖ¾";
+        private string AgvExceptionDirectory => $"AGVï¿½ì³£ï¿½ï¿½Ö¾";
         public OracleRepository _repository = new OracleRepository();
         public string AgvNo = string.Empty;
 
@@ -86,7 +86,7 @@ namespace COMResolution
 
         private void HandleRecvMsgRecord(byte[] data)
         {
-            //´¦Àí·ÖÀë³öµÄÐÅÏ¢¼ÇÂ¼
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Â¼
             try
             {
                 byte[] Buffer;
@@ -121,7 +121,7 @@ namespace COMResolution
             }
             catch (Exception ex)
             {
-                LogUtil.Write(AgvExceptionDirectory, AgvExceptionDirectory, $"·½·¨HandleRecvMsgRecordÒì³££º{ex.Message}");
+                LogUtil.Write(AgvExceptionDirectory, AgvExceptionDirectory, $"ï¿½ï¿½ï¿½ï¿½HandleRecvMsgRecordï¿½ì³£ï¿½ï¿½{ex.Message}");
             }
         }
 
@@ -155,7 +155,7 @@ namespace COMResolution
         }
 
         /// <summary>
-        /// AGV·´À¡±¨ÎÄ½âÎö
+        /// AGVï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
@@ -207,19 +207,19 @@ namespace COMResolution
                         writeStr.Append(b.ToString("X2"));
                     }
                 }
-                LogUtil.Write(AgvExceptionDirectory, AgvExceptionDirectory, $"·½·¨SplitAgvMessageÒì³££º{ex.Message + ex.StackTrace}¡£AGV±¨ÎÄÐÅÏ¢:{writeStr}");
+                LogUtil.Write(AgvExceptionDirectory, AgvExceptionDirectory, $"ï¿½ï¿½ï¿½ï¿½SplitAgvMessageï¿½ì³£ï¿½ï¿½{ex.Message + ex.StackTrace}ï¿½ï¿½AGVï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢:{writeStr}");
             }
             return list;
         }
 
         /// <summary>
-        /// AGV·´À¡±¨ÎÄ½âÎö
+        /// AGVï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
         private byte[][] SplitMsgFromRecvData(byte[] data)
         {
-            //´Ó½ÓÊÕ»º´æÖÐ·ÖÀë³öÖ¸ÁîÐÅÏ¢
+            //ï¿½Ó½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ï¢
             byte[][] Buffer = new byte[9][];
             int indexTemp = 0;
             try
@@ -272,7 +272,7 @@ namespace COMResolution
                         writeStr.Append(b.ToString("X2"));
                     }
                 }
-                LogUtil.Write(AgvExceptionDirectory, AgvExceptionDirectory, $"·½·¨SplitMsgFromRecvDataÒì³££º{ex.Message + ex.StackTrace}¡£AGV±¨ÎÄÐÅÏ¢:{writeStr}");
+                LogUtil.Write(AgvExceptionDirectory, AgvExceptionDirectory, $"ï¿½ï¿½ï¿½ï¿½SplitMsgFromRecvDataï¿½ì³£ï¿½ï¿½{ex.Message + ex.StackTrace}ï¿½ï¿½AGVï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢:{writeStr}");
             }
             return Buffer;
         }
@@ -298,8 +298,8 @@ namespace COMResolution
             {
                 rkPriorityFloor02 = WcsToAgvPriority(StaticCommon.WcsParamConfigList.Where(x => x.PARAM_CODE.Equals("RKPriorityFloor02")).ToList()[0].PARAM_VALUE);
             }
-            //ÓÅÏÈ¼¶±êÊ¶.ÖµÔ½´ó,ÓÅÏÈ¼¶Ô½¸ß.
-            //Èç¹ûÆðÊ¼µØÖ·ÊÇ×ªÏò¼Ü¡¢ÓÅÏÈ¼¶ÉèÖÃÎª9.
+            //ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½Ê¶.ÖµÔ½ï¿½ï¿½,ï¿½ï¿½ï¿½È¼ï¿½Ô½ï¿½ï¿½.
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö·ï¿½ï¿½×ªï¿½ï¿½Ü¡ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½Îª9.
             if (fromstation.Equals(1) || fromstation.Equals(2) || fromstation.Equals(3))
             {
                 msg[5] = 0x89;
@@ -308,28 +308,28 @@ namespace COMResolution
             {
                 msg[5] = 0x88;
             }
-            //ÒªÁÏÓÅÏÈ¼¶ÉèÖÃ4
+            //Òªï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½4
             if (fromstation.Equals(5650) || fromstation.Equals(5653))
             {
                 msg[5] = 0x84;
             }
-            //¶þÂ¥ÐéÄâÕ¾Ì¨ÓÅÏÈ¼¶
+            //ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½Õ¾Ì¨ï¿½ï¿½ï¿½È¼ï¿½
             if (tostation.ToString().Equals("7777"))
             {
                 msg[5] = 0x83;
             }
-            //·¢Éä»úÒªÁÏ,ÓÅÏÈ¼¶ÉèÖÃÎª3
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½,ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½Îª3
             if (fromstation.ToString().StartsWith("60") || tostation.ToString().StartsWith("60"))
             {
                 //msg[5] = 0x83;
                 msg[5] = 0x84;
             }
-            //Ä¿±êµØÖ·ÊÇ×ªÏò¼Ü,ÓÅÏÈ¼¶ÉèÖÃÎª2
+            //Ä¿ï¿½ï¿½ï¿½Ö·ï¿½ï¿½×ªï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½Îª2
             if (tostation.Equals(1) || tostation.Equals(2) || tostation.Equals(3))
             {
                 msg[5] = ylPriorityFloor02;
             }
-            //°ë³ÉÆ·ÒªÁÏÕ¾Ì¨
+            //ï¿½ï¿½ï¿½Æ·Òªï¿½ï¿½Õ¾Ì¨
             if (tostation.Equals(5560) || tostation.Equals(5561))
             {
                 msg[5] = ylPriorityFloor02;
@@ -338,12 +338,12 @@ namespace COMResolution
             {
                 msg[5] = rkPriorityFloor02;
             }
-            //ÂëÅÌ¿ÕÍÐÅÌ×éÈë¿â
+            //ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (fromstation.Equals(5665))
             {
                 msg[5] = 0x82;
             }
-            //¶þÂ¥¿ÕÍÐÅÌ³ö¿â
+            //ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ï¿½ï¿½
             if (tostation.Equals(5722) || tostation.Equals(7777))
             {
                 dt = _repository.QueryTableData(new WCS_TASKINFO() 
@@ -368,7 +368,7 @@ namespace COMResolution
             {
                 try
                 {
-                    nt8000.RaiseNotifyEvent("Break", " Á¬½ÓÖÐ¶Ï£¡");
+                    nt8000.RaiseNotifyEvent("Break", " ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï£ï¿½");
                 }
                 catch
                 {
@@ -417,7 +417,7 @@ namespace COMResolution
             return false;
         }
 
-        //ÐÞ¸Ä²ãÊý
+        //ï¿½Þ¸Ä²ï¿½ï¿½ï¿½
         public bool SendmMessage_UpdateLayer(byte[] msg,int fromStation,int toStation, int height)
         {
             byte[] retmsg = new byte[28];     
@@ -516,7 +516,7 @@ namespace COMResolution
                 return false;
         }
 
-        //Ïû·ÀÃÅÐÅºÅ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½
         public bool SendRMessage(int singel)
         {
             byte[] retmsg = new byte[9];
@@ -581,7 +581,7 @@ namespace COMResolution
 
         private byte[] PackMsg(int functionCode, byte[] Msg)
         {
-            //·â×°ÐÅÏ¢
+            //ï¿½ï¿½×°ï¿½ï¿½Ï¢
             byte[] Buffer = new byte[8 + Msg.Length];
             Buffer[0] = 0x87;
             Buffer[1] = 0xcd;
@@ -597,7 +597,7 @@ namespace COMResolution
 
         private byte[] GetHexBytes(int i)
         {
-            //½«Ò»¸öÕûÊý×ª»¯Îª³¤¶ÈÎª2µÄbyteÐÍÊý×é
+            //ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Îª2ï¿½ï¿½byteï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             byte[] Buffer = new byte[2];
             Buffer[0] = (byte)(i / 256);
             Buffer[1] = (byte)(i % 256);
